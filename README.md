@@ -1,2 +1,3 @@
-# EUICrisesMeasure
-Measure of financial crises based on EUI texts
+# EIU Financial Crisis Measure
+
+Measure of financial crises based on EIU texts
