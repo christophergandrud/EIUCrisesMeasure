@@ -11,7 +11,6 @@ setwd('~/Desktop/eiu/')
 # Load required packages
 library(XML)
 library(rvest)
-library(qdap)
 library(dplyr)
 if (!('rio' %in% installed.packages()[, 1]))
     devtools::install_github('leeper/rio', ref = 'fread')
@@ -31,7 +30,7 @@ file_txt <- gsub('html', 'txt', raw_files)
 
 # Convert txt file names to text indices
 strip <- c('.html', '_Main_report', '_Main_Report',  '_Updater')
-indices <- mgsub(strip, '', raw_files)
+indices <- qdap::mgsub(strip, '', raw_files)
 
 # Create document index
 data.frame(file_txt, indices) %>% export(file = 'eiu_index.csv', col.names = F)
