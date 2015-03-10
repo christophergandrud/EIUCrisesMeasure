@@ -1,3 +1,10 @@
+# ---------------------------------------------------------------------------- #
+# Gather EIU texts
+# Christopher Gandrud
+# 10 March 2015
+# MIT License
+# ---------------------------------------------------------------------------- #
+
 library(RCurl)
 library(dplyr)
 
@@ -26,5 +33,3 @@ for (i in 1:22999){
         download.file(new_url, temp_file_name)
     }
 }
-
-2399
