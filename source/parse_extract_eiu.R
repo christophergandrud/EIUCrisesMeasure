@@ -12,6 +12,8 @@ setwd('~/Desktop/eiu/')
 library(XML)
 library(rvest)
 library(dplyr)
+library(stringr)
+library(lubridate)
 if (!('rio' %in% installed.packages()[, 1]))
     devtools::install_github('leeper/rio', ref = 'fread')
 library(rio)
@@ -26,17 +28,19 @@ keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
 raw_files <- list.files('eiu_raw/')
 
 # Convert file names to txt file names
-file_txt <- gsub('html', 'txt', raw_files)
-
-# Convert txt file names to text indices
 strip <- c('.html', '_Main_report', '_Main_Report',  '_Updater')
-indices <- qdap::mgsub(strip, '', raw_files)
+file_split <- qdap::mgsub(strip, '', raw_files) %>%
+                str_split_fixed('_', n = 2) 
+
+dates <- file_split[, 2] %>% sprintf('01_%s', .) %>% dmy()
+
+file_txt <- sprintf('%s_%s.txt', dates, file_split[, 1])
 
 # Create document index
-data.frame(file_txt, indices) %>% export(file = 'eiu_index.csv', col.names = F)
+# data.frame(file_txt, indices) %>% export(file = 'eiu_index.csv', col.names = F)
 
 #### Parse/Extract ###
-for (i in 1:length(raw_files)){
+for (i in 1:length(file_txt)){
     # Read in file
     full <- htmlParse(sprintf('eiu_raw/%s', raw_files[i]))
 
