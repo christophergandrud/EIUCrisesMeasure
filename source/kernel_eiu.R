@@ -97,16 +97,6 @@ for (i in unique(date_country$country)){
 
 do.call(grid.arrange, kpca_list)
 
-ggplot(results_kpca, aes(date, C1*-1, group = country)) +
-    facet_grid(country ~.) +
-    geom_line(alpha = 0.3) +
-    stat_smooth(se = F, colour = 'black') +
-    geom_hline(yintercept = 0, linetype = 'dotted') +
-    scale_y_continuous(breaks = c(-0.75, -0.5, 0, 0.25)) +
-   # scale_color_brewer(palette = 'Set1', name = '') +
-    xlab('') + ylab('First Principle Component\n Scale Location\n') +
-    theme_bw()
-
 # Find change points
 devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
 
