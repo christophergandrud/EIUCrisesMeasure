@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 10 March 2015
+# 11 March 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -29,7 +29,7 @@ raw_files <- list.files('eiu_raw/')
 
 # Convert HTML file names to standardised txt file names
 strip <- c('.html', '_Main_report', '_Main_Report',  '_Updater', '_of_America')
-files_clean <- qdap::mgsub(strip, '', raw_files) 
+files_clean <- qdap::mgsub(strip, '', raw_files)
 
 year <- gsub("([^_]+)\\_", "", files_clean)
 month <- str_split_fixed(files_clean, '_[^_]*$', n = 2)[, 1] %>%

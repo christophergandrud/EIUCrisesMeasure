@@ -16,6 +16,16 @@ library(kernlab)
 library(stringr)
 library(lubridate)
 library(ggplot2)
+library(gridExtra)
+
+# Create date-country labels
+date_country <- list.files() %>% gsub('\\.txt', '', .) %>%
+    str_split_fixed('_', n = 2) %>% 
+    as.data.frame(stringsAsFactors = F)
+date_country[, 2] <- gsub('-', ' ', date_country[, 2])
+names(date_country) <- c('date', 'country')
+date_country$date <- ymd(date_country$date)
+
 
 # Load corpus
 clean_corpus <- Corpus(DirSource()) %>%
@@ -37,13 +47,6 @@ kernals <- stringdot(type = "spectrum", length = 5)
 clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
 
 # Create output data frame
-date_country <- list.files() %>% gsub('\\.txt', '', .) %>%
-                    str_split_fixed('_', n = 2) %>% 
-                    as.data.frame(stringsAsFactors = F)
-date_country[, 2] <- gsub('-', ' ', date_country[, 2])
-names(date_country) <- c('date', 'country')
-date_country$date <- ymd(date_country$date)
-
 results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
                       stringsAsFactors = F) %>%
                       arrange(country, date)
@@ -59,7 +62,7 @@ ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
 
 #### Kernel PCA ################################################################
 # number of components
-feature_num = 10
+feature_num = 7
 
 # Estimate
 kpca_out <- kpca(clean_corpus, kernal = kernals, features = feature_num)
@@ -71,12 +74,37 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
                     arrange(country, date)
 
 # Plot results
-ggplot(results_kpca, aes(date, C1, group = country)) +
+kpca_plotter <- function(indvidual, data = results_kpca){
+    temp_data <- subset(data, country == indvidual)
+    indv <- ggplot(temp_data, aes(date, C1*-1, group = country)) +
+                geom_line(alpha = 0.3) +
+                stat_smooth(se = F, colour = 'black') +
+                geom_hline(yintercept = 0, linetype = 'dotted') +
+                scale_y_continuous(limits = c(-0.75, 0.5), 
+                                   breaks = c(-0.75, -0.5, 0, 0.25, 0.5)) +
+                # scale_color_brewer(palette = 'Set1', name = '') +
+                xlab('') + ggtitle(indvidual) +
+                ylab('') +
+                theme_bw()
+    return(indv)
+}
+
+kpca_list <- list()
+for (i in unique(date_country$country)){
+    message(i)
+    kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
+}
+
+do.call(grid.arrange, kpca_list)
+
+ggplot(results_kpca, aes(date, C1*-1, group = country)) +
     facet_grid(country ~.) +
-    geom_line(alpha = 0.5) +
+    geom_line(alpha = 0.3) +
     stat_smooth(se = F, colour = 'black') +
+    geom_hline(yintercept = 0, linetype = 'dotted') +
+    scale_y_continuous(breaks = c(-0.75, -0.5, 0, 0.25)) +
    # scale_color_brewer(palette = 'Set1', name = '') +
-    xlab('') + ylab('First Principle Component\n') +
+    xlab('') + ylab('First Principle Component\n Scale Location\n') +
     theme_bw()
 
 # Scree plot to examine model fit
