@@ -61,7 +61,7 @@ ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
         theme_bw()
 
 #### Kernel PCA ################################################################
-# number of components
+# Number of components
 feature_num = 7
 
 # Estimate
@@ -106,6 +106,22 @@ ggplot(results_kpca, aes(date, C1*-1, group = country)) +
    # scale_color_brewer(palette = 'Set1', name = '') +
     xlab('') + ylab('First Principle Component\n Scale Location\n') +
     theme_bw()
+
+# Find change points
+devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
+
+kpca_changepoint <- list()
+for (i in unique(date_country$country)){
+    message(i)
+    temp_data <- subset(results_kpca, country == i)
+    temp_data$C1 <- temp_data$C1 * -1
+    temp_plot <- e.divGG(data = temp_data, Vars = 'C1', 
+                                     TimeVar = 'date', min.size = 6) + 
+                                ggtitle(i)
+    kpca_changepoint[[i]] <- temp_plot
+}
+
+do.call(grid.arrange, kpca_changepoint)
 
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
