@@ -15,6 +15,7 @@ library(dplyr)
 library(kernlab)
 library(stringr)
 library(lubridate)
+library(ggplot2)
 
 # Load corpus
 clean_corpus <- Corpus(DirSource()) %>%
@@ -32,27 +33,56 @@ clean_corpus <- clean_corpus %>% as.list
 # Create string kernels
 kernals <- stringdot(type = "spectrum", length = 5)
 
-# Test spectral clustering
+#### Test spectral clustering ##################################################
 clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
 
-
 # Create output data frame
-# Match to file names
 date_country <- list.files() %>% gsub('\\.txt', '', .) %>%
-                    str_split_fixed('_', n = 2)
+                    str_split_fixed('_', n = 2) %>% 
+                    as.data.frame(stringsAsFactors = F)
+date_country[, 2] <- gsub('-', ' ', date_country[, 2])
+names(date_country) <- c('date', 'country')
+date_country$date <- ymd(date_country$date)
 
-results <- data.frame(date_country, cluster = clusters_out@.Data,
+results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
                       stringsAsFactors = F) %>%
-                arrange(X2, X1)
-names(results) <- c('date', 'country', 'cluster')
+                      arrange(country, date)
 
-results$date <- ymd(results$date)
-
-#### Plot ####
-library(stringr)
-library(ggplot2)
-
-ggplot(results, aes(date, cluster, group = country, colour = country)) +
+# Plot results
+ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
+                    colour = country)) +
         facet_grid(country ~.) +
         geom_line() +
+        scale_color_brewer(palette = 'Set1') +
+        xlab('') + ylab('') +
         theme_bw()
+
+#### Kernel PCA ################################################################
+# number of components
+feature_num = 10
+
+# Estimate
+kpca_out <- kpca(clean_corpus, kernal = kernals, features = feature_num)
+
+kpca_df <- pcv(kpca_out) %>% as.data.frame
+names(kpca_df) <- sprintf('C%s', 1:feature_num)
+
+results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
+                    arrange(country, date)
+
+# Plot results
+ggplot(results_kpca, aes(date, C1, group = country)) +
+    facet_grid(country ~.) +
+    geom_line(alpha = 0.5) +
+    stat_smooth(se = F, colour = 'black') +
+   # scale_color_brewer(palette = 'Set1', name = '') +
+    xlab('') + ylab('First Principle Component\n') +
+    theme_bw()
+
+# Scree plot to examine model fit
+kpca_eigen <- eig(kpca_out)
+eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
+plot(eigen_plot[, 1], eigen_plot[, 2])
+
+
+#### Plot ######################################################################
