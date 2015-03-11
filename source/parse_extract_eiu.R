@@ -18,12 +18,7 @@ if (!('rio' %in% installed.packages()[, 1]))
     devtools::install_github('leeper/rio', ref = 'fread')
 library(rio)
 
-# Keywords to seach/extract for. Modified from Romer and Romer (2015):
-# http://eml.berkeley.edu/~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
-# NEED TO ADD TO/THINK ABOUT
-keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
-              "crunch", "default", "financial", "lend", "loan", "squeeze")
-
+#### Clean file names ##########################################################
 # List files
 raw_files <- list.files('eiu_raw/')
 
@@ -43,10 +38,14 @@ dates <- sprintf('01_%s_%s', month, year) %>% dmy()
 
 file_txt <- sprintf('%s_%s.txt', dates, country)
 
-# Create document index
-# data.frame(file_txt, indices) %>% export(file = 'eiu_index.csv', col.names = F)
 
-#### Parse/Extract ###
+#### Parse/Extract #############################################################
+# Keywords to seach/extract for. Modified from Romer and Romer (2015):
+# http://eml.berkeley.edu/~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
+# NEED TO ADD TO/THINK ABOUT
+keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
+              "crunch", "default", "financial", "lend", "loan", "squeeze")
+
 for (i in 1:length(file_txt)){
     # Read in file
     full <- htmlParse(sprintf('eiu_raw/%s', raw_files[i]))
