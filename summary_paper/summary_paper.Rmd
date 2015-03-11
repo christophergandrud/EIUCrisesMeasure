@@ -1,8 +1,8 @@
 ---
 title: Machine Index of Financial Market Stress (MIFMS)
 output:
-    html_document:
-        keep_md: yes
+    pdf_document:
+        keep_tex: yes
 bibliography: main.bib
 ---
 
@@ -10,7 +10,8 @@ bibliography: main.bib
 
 ## What
 
-Measure of financial market stress based on machine classification of
+This paper describes the motivation and construction of a new measure of
+financial market stress based on machine classification of
 [Economist Intelligence Unit](http://www.eiu.com/) monthly country reports.
 
 ## Motivation
@@ -19,11 +20,17 @@ Researchers have tended to rely on two data sources for cross-country informatio
 
 There are a number of problems with these indicators. Unlike economic recessions, financial crises are poorly defined in previous sources. This contributes to large inconsistencies between the timing of crises in the @laeven2013 and @Reinhart2009 data sets [@Chaudron2014]. For example, Japan is labeled as having a crisis between 1997 and 2001 by the former, but 1992-1997 in the latter. @GandrudHallerberg2015 also find that there are significant difference in crisis timing between different versions of the @laeven2013 data. Crises are also identified by researchers who know what happened. Financial market stress that is addressed well by policymakers, preventing a major crisis, may therefore not be included. Similarly, stress that is temporarily dampened through unsustainable policy measures, only to flare up later, is not clearly recorded. This makes it difficult to adequately study why and how politicians respond to financial market stress. Related to this, current measures are dichotomous thus errors have large consequences for creating bias when used in econometric models. They also do not give any indication of how severe a crisis is.
 
-There have been a number of recent attempts to create crisis measures that overcome these issues.
+There have been a number of recent attempts to create crisis measures that overcome these issues. Building on @vonHagen2007, @Jing2015 developed am index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses, assuming central banks use the same reaction function to increased demand for liquidity. @Rosas2009 developed a dynamic latent trait model of banking system distress. However, his measure relies on nationally reported data to the IMF's International Financial Statistics, which @GandrudCopHal2015 show can be endogenous to financial market distress.
 
 @Romer2014 aimed to address this issue by manually classifying 24 countries on a 15 point scale capturing the cost of credit intermediation. They code countries using information from OECD semi-annual *Economic Outlook* reports from 1967 to 2007. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress. This would allow us to examine policy choices that head off trouble or unsustainably prolong brewing difficulties. Their, relatively, continuous measure gives an indication of market distress intensity.
 
-There approach could be improved in a number of key ways. First, they are necessarily limited to the relatively small sample of OECD countries. Second, their measure is laborious to create and update. Third, the scale is created by simply summing
+Their approach could be improved in a number of key ways. First, they are necessarily limited to the relatively small sample of OECD countries. Second, their measure is laborious to create and update. Third, the scale is created by simply summing
+
+[COMPLETE]
+
+## Machine Index of Financial Market Stress
+
+We propose a new method of estimating financial market stress that addresses many of the problems in previous indexes. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2011] of monthly country reports from the Economist Intelligence Unit. The index is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. 
 
 Monthly
 

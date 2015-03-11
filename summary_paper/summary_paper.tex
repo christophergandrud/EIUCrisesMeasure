@@ -1,0 +1,205 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Machine Index of Financial Market Stress (MIFMS)},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Machine Index of Financial Market Stress (MIFMS)}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\textbf{Note: This work is in the early stages of development. It will
+be updated significantly.}
+
+\subsection{~What}\label{what}
+
+This paper describes the motivation and construction of a new measure of
+financial market stress based on machine classification of
+\href{http://www.eiu.com/}{Economist Intelligence Unit} monthly country
+reports.
+
+\subsection{Motivation}\label{motivation}
+
+Researchers have tended to rely on two data sources for cross-country
+information on when a country is facing a financial crisis: Laeven and
+Valencia (2013) and Reinhart and Rogoff (2009). Knowing when crises
+started (and when they have ended) is crucial for research trying to
+understand issues such as how crises affect economic output, how
+governments choose to respond to financial market distress, and what the
+fiscal costs of financial crises are.
+
+There are a number of problems with these indicators. Unlike economic
+recessions, financial crises are poorly defined in previous sources.
+This contributes to large inconsistencies between the timing of crises
+in the Laeven and Valencia (2013) and Reinhart and Rogoff (2009) data
+sets (Chaudron and Haan 2014). For example, Japan is labeled as having a
+crisis between 1997 and 2001 by the former, but 1992-1997 in the latter.
+Gandrud and Hallerberg (forthcoming) also find that there are
+significant difference in crisis timing between different versions of
+the Laeven and Valencia (2013) data. Crises are also identified by
+researchers who know what happened. Financial market stress that is
+addressed well by policymakers, preventing a major crisis, may therefore
+not be included. Similarly, stress that is temporarily dampened through
+unsustainable policy measures, only to flare up later, is not clearly
+recorded. This makes it difficult to adequately study why and how
+politicians respond to financial market stress. Related to this, current
+measures are dichotomous thus errors have large consequences for
+creating bias when used in econometric models. They also do not give any
+indication of how severe a crisis is.
+
+There have been a number of recent attempts to create crisis measures
+that overcome these issues. Building on {Von Hagen} and Ho (2007), Jing
+et al. (2015) developed am index of money market pressure based on
+changes in short-term interest rates and stocks of central bank
+reserves. However, this measure conflates distress and policy responses,
+assuming central banks use the same reaction function to increased
+demand for liquidity. Rosas (2009) developed a dynamic latent trait
+model of banking system distress. However, his measure relies on
+nationally reported data to the IMF's International Financial
+Statistics, which Copelovitch, Gandrud, and Hallerberg (2015) show can
+be endogenous to financial market distress.
+
+C. Romer and Romer (2014) aimed to address this issue by manually
+classifying 24 countries on a 15 point scale capturing the cost of
+credit intermediation. They code countries using information from OECD
+semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Relying
+on contemporaneous reports allows for the construction of a real-time
+measure of credit market distress. This would allow us to examine policy
+choices that head off trouble or unsustainably prolong brewing
+difficulties. Their, relatively, continuous measure gives an indication
+of market distress intensity.
+
+Their approach could be improved in a number of key ways. First, they
+are necessarily limited to the relatively small sample of OECD
+countries. Second, their measure is laborious to create and update.
+Third, the scale is created by simply summing
+
+{[}COMPLETE{]}
+
+\subsection{~Machine Index of Financial Market
+Stress}\label{machine-index-of-financial-market-stress}
+
+We propose a new method of estimating financial market stress that
+addresses many of the problems in previous indexes. The index is created
+with kernel principle component analysis (Scholkopf, Smola, and Muller
+1998; Spirling 2011) of monthly country reports from the Economist
+Intelligence Unit. The index is the product of a an analysis of
+real-time, third-party assessments of financial market conditions
+reported monthly.
+
+Monthly
+
+\subsection*{References}\label{references}
+\addcontentsline{toc}{subsection}{References}
+
+Chaudron, Raymond, and Jakob de Haan. 2014. ``Dating Banking Crises
+Using Incidence and Size of Bank Failures: Four Crises Reconsidered.''
+\emph{Journal of Financial Stability}, 1--34.
+
+Copelovitch, Mark, Christopher Gandrud, and Mark Hallerberg. 2015.
+``Financial Regulatory Transparency, International Institutions, and
+Borrowing Costs.'' \emph{Working Paper}.
+
+Gandrud, Christopher, and Mark Hallerberg. forthcoming. ``When All Is
+Said and Done: Updating 'Elections, Special Interests, and Financial
+Crisis'.'' \emph{Research and Politics}.
+
+Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
+``Identifying Banking Crises Using Money Market Pressure: New Evidence
+for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
+1--20.
+
+Laeven, Luc, and Fabi{á}n Valencia. 2013. ``Systemic Banking Crisis
+Database.'' \emph{IMF Economic Review} 61 (2): 225--70.
+
+Reinhart, Carmen, and Kenneth Rogoff. 2009. \emph{This Time Is
+Different: Eight Centuries of Financial Folly}. Princeton: Princeton
+University Press.
+
+Romer, {Christina D.}, and {David H.} Romer. 2014. ``New Evidence on the
+Impact of Financial Crises in Advanced Countries,'' Nov, 1--65.
+
+Rosas, Guillermo. 2009. ``Dynamic Latent Trait Models: An Application to
+Latin American Banking Crises.'' \emph{Electoral Studies} 28: 375--87.
+
+Scholkopf, B., A. Smola, and K. Muller. 1998. ``Nonlinear Component
+Analysis as a Kernel Eigenvalue Problem.'' \emph{Neural Computation} 10:
+1299--1319.
+
+Spirling, Arthur. 2011. ``U.S. Treaty Making with American Indians:
+Institutional Change and Relative Power, 1784-1911.'' \emph{American
+Journal of Political Science} 56 (1): 84--97.
+
+{Von Hagen}, Jorgen, and T. Ho. 2007. ``Money Market Pressure and the
+Determinants of Banking Crises.'' \emph{Journal of Money, Credit, and
+Banking} 39 (5): 1037--66.
+
+\end{document}
