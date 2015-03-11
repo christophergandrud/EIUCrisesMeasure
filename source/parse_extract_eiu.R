@@ -27,14 +27,21 @@ keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
 # List files
 raw_files <- list.files('eiu_raw/')
 
-# Convert file names to txt file names
-strip <- c('.html', '_Main_report', '_Main_Report',  '_Updater')
-file_split <- qdap::mgsub(strip, '', raw_files) %>%
-                str_split_fixed('_', n = 2) 
+# Convert HTML file names to standardised txt file names
+strip <- c('.html', '_Main_report', '_Main_Report',  '_Updater', '_of_America')
+files_clean <- qdap::mgsub(strip, '', raw_files) 
 
-dates <- file_split[, 2] %>% sprintf('01_%s', .) %>% dmy()
+year <- gsub("([^_]+)\\_", "", files_clean)
+month <- str_split_fixed(files_clean, '_[^_]*$', n = 2)[, 1] %>%
+            gsub("([^_]+)\\_", "", .)
 
-file_txt <- sprintf('%s_%s.txt', dates, file_split[, 1])
+country <- str_split_fixed(files_clean, '_[^_]*$', n = 2)[, 1] %>%
+            str_split_fixed(., '_[^_]*$', n = 2)
+country <- country[, 1] %>% gsub('_', '-', .)
+
+dates <- sprintf('01_%s_%s', month, year) %>% dmy()
+
+file_txt <- sprintf('%s_%s.txt', dates, country)
 
 # Create document index
 # data.frame(file_txt, indices) %>% export(file = 'eiu_index.csv', col.names = F)
