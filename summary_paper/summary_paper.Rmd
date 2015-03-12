@@ -8,9 +8,7 @@ bibliography: main.bib
 
 **Note: This work is in the early stages of development. It will be updated significantly.**
 
-## What
-
-This paper describes the motivation and construction of a new measure of
+> This paper describes the motivation and construction of a new measure of
 financial market stress based on machine classification of
 [Economist Intelligence Unit](http://www.eiu.com/) monthly country reports.
 
