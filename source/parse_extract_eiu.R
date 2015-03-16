@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 11 March 2015
+# 12 March 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -17,6 +17,7 @@ library(lubridate)
 if (!('rio' %in% installed.packages()[, 1]))
     devtools::install_github('leeper/rio', ref = 'fread')
 library(rio)
+## Also requires the installation of qdap
 
 #### Clean file names ##########################################################
 # List files
@@ -50,16 +51,21 @@ for (i in 1:length(file_txt)){
     # Read in file
     full <- htmlParse(sprintf('eiu_raw/%s', raw_files[i]))
 
-    # Extract headlines and body text
-    extracted <- xpathSApply(doc = full,
-                             path = "//div[@class='headline'] | //body//p")
-    text <- lapply(extracted, html_text)
+    if (!is.null(full)){
+        # Extract headlines and body text
+        extracted <- xpathSApply(doc = full,
+                                path = "//div[@class='headline'] | //body//p")
+    }
+    if (!is.null(extracted)) {
+        text <- lapply(extracted, html_text)
 
-    # Find/extract nodes containing keywords
-    contains <- sapply(keywords, function(x) grep(x, text, ignore.case = T)) %>%
+        # Find/extract nodes containing keywords
+        contains <- sapply(keywords, 
+                           function(x) grep(x, text, ignore.case = T)) %>%
                     unlist %>% as.vector
-    text_out <- text[contains] %>% paste(collapse = '')
+        text_out <- text[contains] %>% paste(collapse = '')
 
-    # Write to file
-    writeLines(text_out, sprintf('eiu_extracted/%s', file_txt[i]))
+        # Write to file
+        writeLines(text_out, sprintf('eiu_extracted/%s', file_txt[i]))
+    }
 }
