@@ -94,7 +94,8 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
                     arrange(country, date) %>% select(-stirngsAsFactors)
 
 # Save
-export(results_kpca, file = '~/Desktop/eiu/results_kpca.csv')
+export(results_kpca, 
+       file = '~/git_repositories/EIUCrisisMeasure/results_kpca.csv')
 
 # Plot results
 kpca_plotter <- function(indvidual, data = results_kpca){
