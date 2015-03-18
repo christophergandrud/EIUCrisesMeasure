@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 11 March 2015
+# 17 March 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -17,6 +17,10 @@ library(stringr)
 library(lubridate)
 library(ggplot2)
 library(gridExtra)
+library(rio)
+
+# Function to count the number of words in a string
+wordcount <- function (x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Create date-country labels
 date_country <- list.files() %>% gsub('\\.txt', '', .) %>%
@@ -28,7 +32,7 @@ date_country$date <- ymd(date_country$date)
 
 
 # Load corpus
-clean_corpus <- Corpus(DirSource()) %>%
+clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(stripWhitespace) %>%
                    # Results correspond to priors much more closely when case is retained
                    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
@@ -38,10 +42,26 @@ clean_corpus <- Corpus(DirSource()) %>%
                     tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
                     tm_map(stemDocument, mc.cores = 1)
 
-clean_corpus <- clean_corpus %>% as.list
+# Kernal length
+length_spec = 5
+
+clean_corpus_full <- clean_corpus_full %>% as.list
+
+# Keep texts that have more words than the kernal length
+keep_vec <- vector()
+for (i in 1:length(clean_corpus_full)){
+    temp <- clean_corpus_full[[i]]$content
+    more_length <- wordcount(temp) > length_spec
+    if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
+}
+
+clean_corpus <- clean_corpus_full[keep_vec]
+rm(clean_corpus_full)
+
+date_country <- date_country[keep_vec, ]
 
 # Create string kernels
-kernals <- stringdot(type = "spectrum", length = 5)
+kernals <- stringdot(type = "spectrum", length = length_spec)
 
 #### Test spectral clustering ##################################################
 clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
@@ -71,7 +91,10 @@ kpca_df <- pcv(kpca_out) %>% as.data.frame
 names(kpca_df) <- sprintf('C%s', 1:feature_num)
 
 results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
-                    arrange(country, date)
+                    arrange(country, date) %>% select(-stirngsAsFactors)
+
+# Save
+export(results_kpca, file = '~/Desktop/eiu/results_kpca.csv')
 
 # Plot results
 kpca_plotter <- function(indvidual, data = results_kpca){

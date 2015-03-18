@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 12 March 2015
+# 13 March 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory for the scrapped pages. Change as needed.
-setwd('~/Desktop/eiu/')
+setwd('/Volumes/Gandrud1TB/eiu/')
 
 # Load required packages
 library(XML)
@@ -49,6 +49,7 @@ keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
 
 for (i in 1:length(file_txt)){
     # Read in file
+    message(raw_files[i])
     full <- htmlParse(sprintf('eiu_raw/%s', raw_files[i]))
 
     if (!is.null(full)){
