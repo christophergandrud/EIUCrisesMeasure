@@ -140,8 +140,6 @@ do.call(grid.arrange, kpca_changepoint)
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-export(eigen_plot, 
-       file = '~/git_repositories/EIUCrisesMeasure/kpca_eigen_2015_03_18.csv')
 plot(eigen_plot[, 1], eigen_plot[, 2])
 
 
