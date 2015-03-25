@@ -1,4 +1,8 @@
-
+##################
+# Plot selected countries' MIFMS
+# Christopher Gandrud
+# MIT License
+##################
 
 
 # Set working directory of parsed texts. Change as needed.
@@ -15,11 +19,14 @@ results_kpca <- import('data/results_kpca.csv')
 results_kpca$date <- ymd(results_kpca$date)
 
 # List of countries to plot
-countries <- c('Australia', 'Argentina', 'Belgium', 'Brazil', 
+countries_global <- c('Australia', 'Argentina', 'Belgium', 'Brazil', 
                'Canada', 'China', 'Denmark', 'Germany', 
                'Greece', 'Iceland', 'Ireland', 'Italy', 
                'Japan', 'South Korea', 'United Kingdom', 'United States' 
                )
+
+countries_seAsia <- c('Bangladesh', 'India', 'Indonesia', 'Malaysia', 
+                      'Pakistan', 'Singapore', 'Sri Lanka', 'Thailand' 'Vietnam')
 
 # Plot results
 kpca_plotter <- function(indvidual, data = results_kpca){
@@ -38,7 +45,7 @@ kpca_plotter <- function(indvidual, data = results_kpca){
 }
 
 kpca_list <- list()
-for (i in countries){
+for (i in countries_seAsia){
     message(i)
     kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
 }
