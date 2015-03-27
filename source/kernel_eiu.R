@@ -140,7 +140,7 @@ do.call(grid.arrange, kpca_changepoint)
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-plot(eigen_plot[, 1], eigen_plot[, 2])
+plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o)
 
 
 #### Plot ######################################################################
