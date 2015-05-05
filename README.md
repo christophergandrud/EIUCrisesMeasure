@@ -13,7 +13,6 @@ A wide range of political economy research on the causes, responses to, and effe
 
 ## Preview
 
-This is a selection of scores from an early version of the MIFMS
-(kernal PCA version):
+This is a selection of scores:
 
 ![mifms plot](mifms_16countries.png)
