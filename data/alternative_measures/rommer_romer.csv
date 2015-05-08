@@ -1,69 +1,661 @@
-"country","date","rr_distress"
-"Finland",1992-03-01,2
-"Finland",1992-09-01,6
-"Finland",1993-03-01,8
-"Finland",1993-09-01,5
-"Finland",1994-03-01,3
-"France",1991-09-01,1
-"France",1995-03-01,2
-"France",1995-09-01,4
-"France",1996-03-01,5
-"France",1996-09-01,5
-"France",1997-03-01,3
-"Germany",1974-09-01,2
-"Germany",2003-03-01,1
-"Iceland",2006-09-01,5
-"Iceland",2007-03-01,2
-"Italy",1997-03-01,1
-"Japan",1990-09-01,3
-"Japan",1991-03-01,1
-"Japan",1991-09-01,5
-"Japan",1992-03-01,3
-"Japan",1992-09-01,4
-"Japan",1993-03-01,4
-"Japan",1993-09-01,5
-"Japan",1994-03-01,3
-"Japan",1994-09-01,3
-"Japan",1995-03-01,4
-"Japan",1995-09-01,5
-"Japan",1996-03-01,6
-"Japan",1996-09-01,4
-"Japan",1997-03-01,5
-"Japan",1997-09-01,7
-"Japan",1998-03-01,11
-"Japan",1998-09-01,13
-"Japan",1999-03-01,9
-"Japan",1999-09-01,6
-"Japan",2000-03-01,4
-"Japan",2000-09-01,3
-"Japan",2001-03-01,6
-"Japan",2001-09-01,6
-"Japan",2002-03-01,8
-"Japan",2002-09-01,7
-"Japan",2003-03-01,6
-"Japan",2003-09-01,5
-"Japan",2004-03-01,4
-"Japan",2004-09-01,3
-"Japan",2005-03-01,2
-"Norway",1991-09-01,9
-"Norway",1992-03-01,5
-"Norway",1992-09-01,8
-"Norway",1993-03-01,6
-"Norway",1993-09-01,3
-"Norway",1994-03-01,2
-"Sweden",1992-09-01,5
-"Sweden",1993-03-01,8
-"Turkey",2001-03-01,8
-"Turkey",2001-09-01,8
-"Turkey",2002-03-01,6
-"Turkey",2002-09-01,4
-"Turkey",2003-03-01,4
-"Turkey",2003-09-01,3
-"United States",1986-03-01,1
-"United States",1990-03-01,5
-"United States",1990-09-01,8
-"United States",1991-03-01,4
-"United States",1991-09-01,3
-"United States",1992-03-01,2
-"United States",1998-09-01,3
-"United States",2007-03-01,1
+"iso2c","country","date","rr_distress"
+"FI","Finland",1974-09-01,0
+"FI","Finland",1975-03-01,0
+"FI","Finland",1975-09-01,0
+"FI","Finland",1976-03-01,0
+"FI","Finland",1976-09-01,0
+"FI","Finland",1977-03-01,0
+"FI","Finland",1977-09-01,0
+"FI","Finland",1978-03-01,0
+"FI","Finland",1978-09-01,0
+"FI","Finland",1979-03-01,0
+"FI","Finland",1979-09-01,0
+"FI","Finland",1980-03-01,0
+"FI","Finland",1980-09-01,0
+"FI","Finland",1981-03-01,0
+"FI","Finland",1981-09-01,0
+"FI","Finland",1982-03-01,0
+"FI","Finland",1982-09-01,0
+"FI","Finland",1983-03-01,0
+"FI","Finland",1983-09-01,0
+"FI","Finland",1984-03-01,0
+"FI","Finland",1984-09-01,0
+"FI","Finland",1985-03-01,0
+"FI","Finland",1985-09-01,0
+"FI","Finland",1986-03-01,0
+"FI","Finland",1986-09-01,0
+"FI","Finland",1987-03-01,0
+"FI","Finland",1987-09-01,0
+"FI","Finland",1988-03-01,0
+"FI","Finland",1988-09-01,0
+"FI","Finland",1989-03-01,0
+"FI","Finland",1989-09-01,0
+"FI","Finland",1990-03-01,0
+"FI","Finland",1990-09-01,0
+"FI","Finland",1991-03-01,0
+"FI","Finland",1991-09-01,0
+"FI","Finland",1992-03-01,2
+"FI","Finland",1992-09-01,6
+"FI","Finland",1993-03-01,8
+"FI","Finland",1993-09-01,5
+"FI","Finland",1994-03-01,3
+"FI","Finland",1994-09-01,0
+"FI","Finland",1995-03-01,0
+"FI","Finland",1995-09-01,0
+"FI","Finland",1996-03-01,0
+"FI","Finland",1996-09-01,0
+"FI","Finland",1997-03-01,0
+"FI","Finland",1997-09-01,0
+"FI","Finland",1998-03-01,0
+"FI","Finland",1998-09-01,0
+"FI","Finland",1999-03-01,0
+"FI","Finland",1999-09-01,0
+"FI","Finland",2000-03-01,0
+"FI","Finland",2000-09-01,0
+"FI","Finland",2001-03-01,0
+"FI","Finland",2001-09-01,0
+"FI","Finland",2002-03-01,0
+"FI","Finland",2002-09-01,0
+"FI","Finland",2003-03-01,0
+"FI","Finland",2003-09-01,0
+"FI","Finland",2004-03-01,0
+"FI","Finland",2004-09-01,0
+"FI","Finland",2005-03-01,0
+"FI","Finland",2005-09-01,0
+"FI","Finland",2006-03-01,0
+"FI","Finland",2006-09-01,0
+"FI","Finland",2007-03-01,0
+"FR","France",1974-09-01,0
+"FR","France",1975-03-01,0
+"FR","France",1975-09-01,0
+"FR","France",1976-03-01,0
+"FR","France",1976-09-01,0
+"FR","France",1977-03-01,0
+"FR","France",1977-09-01,0
+"FR","France",1978-03-01,0
+"FR","France",1978-09-01,0
+"FR","France",1979-03-01,0
+"FR","France",1979-09-01,0
+"FR","France",1980-03-01,0
+"FR","France",1980-09-01,0
+"FR","France",1981-03-01,0
+"FR","France",1981-09-01,0
+"FR","France",1982-03-01,0
+"FR","France",1982-09-01,0
+"FR","France",1983-03-01,0
+"FR","France",1983-09-01,0
+"FR","France",1984-03-01,0
+"FR","France",1984-09-01,0
+"FR","France",1985-03-01,0
+"FR","France",1985-09-01,0
+"FR","France",1986-03-01,0
+"FR","France",1986-09-01,0
+"FR","France",1987-03-01,0
+"FR","France",1987-09-01,0
+"FR","France",1988-03-01,0
+"FR","France",1988-09-01,0
+"FR","France",1989-03-01,0
+"FR","France",1989-09-01,0
+"FR","France",1990-03-01,0
+"FR","France",1990-09-01,0
+"FR","France",1991-03-01,0
+"FR","France",1991-09-01,1
+"FR","France",1992-03-01,0
+"FR","France",1992-09-01,0
+"FR","France",1993-03-01,0
+"FR","France",1993-09-01,0
+"FR","France",1994-03-01,0
+"FR","France",1994-09-01,0
+"FR","France",1995-03-01,2
+"FR","France",1995-09-01,4
+"FR","France",1996-03-01,5
+"FR","France",1996-09-01,5
+"FR","France",1997-03-01,3
+"FR","France",1997-09-01,0
+"FR","France",1998-03-01,0
+"FR","France",1998-09-01,0
+"FR","France",1999-03-01,0
+"FR","France",1999-09-01,0
+"FR","France",2000-03-01,0
+"FR","France",2000-09-01,0
+"FR","France",2001-03-01,0
+"FR","France",2001-09-01,0
+"FR","France",2002-03-01,0
+"FR","France",2002-09-01,0
+"FR","France",2003-03-01,0
+"FR","France",2003-09-01,0
+"FR","France",2004-03-01,0
+"FR","France",2004-09-01,0
+"FR","France",2005-03-01,0
+"FR","France",2005-09-01,0
+"FR","France",2006-03-01,0
+"FR","France",2006-09-01,0
+"FR","France",2007-03-01,0
+"DE","Germany",1974-09-01,2
+"DE","Germany",1975-03-01,0
+"DE","Germany",1975-09-01,0
+"DE","Germany",1976-03-01,0
+"DE","Germany",1976-09-01,0
+"DE","Germany",1977-03-01,0
+"DE","Germany",1977-09-01,0
+"DE","Germany",1978-03-01,0
+"DE","Germany",1978-09-01,0
+"DE","Germany",1979-03-01,0
+"DE","Germany",1979-09-01,0
+"DE","Germany",1980-03-01,0
+"DE","Germany",1980-09-01,0
+"DE","Germany",1981-03-01,0
+"DE","Germany",1981-09-01,0
+"DE","Germany",1982-03-01,0
+"DE","Germany",1982-09-01,0
+"DE","Germany",1983-03-01,0
+"DE","Germany",1983-09-01,0
+"DE","Germany",1984-03-01,0
+"DE","Germany",1984-09-01,0
+"DE","Germany",1985-03-01,0
+"DE","Germany",1985-09-01,0
+"DE","Germany",1986-03-01,0
+"DE","Germany",1986-09-01,0
+"DE","Germany",1987-03-01,0
+"DE","Germany",1987-09-01,0
+"DE","Germany",1988-03-01,0
+"DE","Germany",1988-09-01,0
+"DE","Germany",1989-03-01,0
+"DE","Germany",1989-09-01,0
+"DE","Germany",1990-03-01,0
+"DE","Germany",1990-09-01,0
+"DE","Germany",1991-03-01,0
+"DE","Germany",1991-09-01,0
+"DE","Germany",1992-03-01,0
+"DE","Germany",1992-09-01,0
+"DE","Germany",1993-03-01,0
+"DE","Germany",1993-09-01,0
+"DE","Germany",1994-03-01,0
+"DE","Germany",1994-09-01,0
+"DE","Germany",1995-03-01,0
+"DE","Germany",1995-09-01,0
+"DE","Germany",1996-03-01,0
+"DE","Germany",1996-09-01,0
+"DE","Germany",1997-03-01,0
+"DE","Germany",1997-09-01,0
+"DE","Germany",1998-03-01,0
+"DE","Germany",1998-09-01,0
+"DE","Germany",1999-03-01,0
+"DE","Germany",1999-09-01,0
+"DE","Germany",2000-03-01,0
+"DE","Germany",2000-09-01,0
+"DE","Germany",2001-03-01,0
+"DE","Germany",2001-09-01,0
+"DE","Germany",2002-03-01,0
+"DE","Germany",2002-09-01,0
+"DE","Germany",2003-03-01,1
+"DE","Germany",2003-09-01,0
+"DE","Germany",2004-03-01,0
+"DE","Germany",2004-09-01,0
+"DE","Germany",2005-03-01,0
+"DE","Germany",2005-09-01,0
+"DE","Germany",2006-03-01,0
+"DE","Germany",2006-09-01,0
+"DE","Germany",2007-03-01,0
+"IS","Iceland",1974-09-01,0
+"IS","Iceland",1975-03-01,0
+"IS","Iceland",1975-09-01,0
+"IS","Iceland",1976-03-01,0
+"IS","Iceland",1976-09-01,0
+"IS","Iceland",1977-03-01,0
+"IS","Iceland",1977-09-01,0
+"IS","Iceland",1978-03-01,0
+"IS","Iceland",1978-09-01,0
+"IS","Iceland",1979-03-01,0
+"IS","Iceland",1979-09-01,0
+"IS","Iceland",1980-03-01,0
+"IS","Iceland",1980-09-01,0
+"IS","Iceland",1981-03-01,0
+"IS","Iceland",1981-09-01,0
+"IS","Iceland",1982-03-01,0
+"IS","Iceland",1982-09-01,0
+"IS","Iceland",1983-03-01,0
+"IS","Iceland",1983-09-01,0
+"IS","Iceland",1984-03-01,0
+"IS","Iceland",1984-09-01,0
+"IS","Iceland",1985-03-01,0
+"IS","Iceland",1985-09-01,0
+"IS","Iceland",1986-03-01,0
+"IS","Iceland",1986-09-01,0
+"IS","Iceland",1987-03-01,0
+"IS","Iceland",1987-09-01,0
+"IS","Iceland",1988-03-01,0
+"IS","Iceland",1988-09-01,0
+"IS","Iceland",1989-03-01,0
+"IS","Iceland",1989-09-01,0
+"IS","Iceland",1990-03-01,0
+"IS","Iceland",1990-09-01,0
+"IS","Iceland",1991-03-01,0
+"IS","Iceland",1991-09-01,0
+"IS","Iceland",1992-03-01,0
+"IS","Iceland",1992-09-01,0
+"IS","Iceland",1993-03-01,0
+"IS","Iceland",1993-09-01,0
+"IS","Iceland",1994-03-01,0
+"IS","Iceland",1994-09-01,0
+"IS","Iceland",1995-03-01,0
+"IS","Iceland",1995-09-01,0
+"IS","Iceland",1996-03-01,0
+"IS","Iceland",1996-09-01,0
+"IS","Iceland",1997-03-01,0
+"IS","Iceland",1997-09-01,0
+"IS","Iceland",1998-03-01,0
+"IS","Iceland",1998-09-01,0
+"IS","Iceland",1999-03-01,0
+"IS","Iceland",1999-09-01,0
+"IS","Iceland",2000-03-01,0
+"IS","Iceland",2000-09-01,0
+"IS","Iceland",2001-03-01,0
+"IS","Iceland",2001-09-01,0
+"IS","Iceland",2002-03-01,0
+"IS","Iceland",2002-09-01,0
+"IS","Iceland",2003-03-01,0
+"IS","Iceland",2003-09-01,0
+"IS","Iceland",2004-03-01,0
+"IS","Iceland",2004-09-01,0
+"IS","Iceland",2005-03-01,0
+"IS","Iceland",2005-09-01,0
+"IS","Iceland",2006-03-01,0
+"IS","Iceland",2006-09-01,5
+"IS","Iceland",2007-03-01,2
+"IT","Italy",1974-09-01,0
+"IT","Italy",1975-03-01,0
+"IT","Italy",1975-09-01,0
+"IT","Italy",1976-03-01,0
+"IT","Italy",1976-09-01,0
+"IT","Italy",1977-03-01,0
+"IT","Italy",1977-09-01,0
+"IT","Italy",1978-03-01,0
+"IT","Italy",1978-09-01,0
+"IT","Italy",1979-03-01,0
+"IT","Italy",1979-09-01,0
+"IT","Italy",1980-03-01,0
+"IT","Italy",1980-09-01,0
+"IT","Italy",1981-03-01,0
+"IT","Italy",1981-09-01,0
+"IT","Italy",1982-03-01,0
+"IT","Italy",1982-09-01,0
+"IT","Italy",1983-03-01,0
+"IT","Italy",1983-09-01,0
+"IT","Italy",1984-03-01,0
+"IT","Italy",1984-09-01,0
+"IT","Italy",1985-03-01,0
+"IT","Italy",1985-09-01,0
+"IT","Italy",1986-03-01,0
+"IT","Italy",1986-09-01,0
+"IT","Italy",1987-03-01,0
+"IT","Italy",1987-09-01,0
+"IT","Italy",1988-03-01,0
+"IT","Italy",1988-09-01,0
+"IT","Italy",1989-03-01,0
+"IT","Italy",1989-09-01,0
+"IT","Italy",1990-03-01,0
+"IT","Italy",1990-09-01,0
+"IT","Italy",1991-03-01,0
+"IT","Italy",1991-09-01,0
+"IT","Italy",1992-03-01,0
+"IT","Italy",1992-09-01,0
+"IT","Italy",1993-03-01,0
+"IT","Italy",1993-09-01,0
+"IT","Italy",1994-03-01,0
+"IT","Italy",1994-09-01,0
+"IT","Italy",1995-03-01,0
+"IT","Italy",1995-09-01,0
+"IT","Italy",1996-03-01,0
+"IT","Italy",1996-09-01,0
+"IT","Italy",1997-03-01,1
+"IT","Italy",1997-09-01,0
+"IT","Italy",1998-03-01,0
+"IT","Italy",1998-09-01,0
+"IT","Italy",1999-03-01,0
+"IT","Italy",1999-09-01,0
+"IT","Italy",2000-03-01,0
+"IT","Italy",2000-09-01,0
+"IT","Italy",2001-03-01,0
+"IT","Italy",2001-09-01,0
+"IT","Italy",2002-03-01,0
+"IT","Italy",2002-09-01,0
+"IT","Italy",2003-03-01,0
+"IT","Italy",2003-09-01,0
+"IT","Italy",2004-03-01,0
+"IT","Italy",2004-09-01,0
+"IT","Italy",2005-03-01,0
+"IT","Italy",2005-09-01,0
+"IT","Italy",2006-03-01,0
+"IT","Italy",2006-09-01,0
+"IT","Italy",2007-03-01,0
+"JP","Japan",1974-09-01,0
+"JP","Japan",1975-03-01,0
+"JP","Japan",1975-09-01,0
+"JP","Japan",1976-03-01,0
+"JP","Japan",1976-09-01,0
+"JP","Japan",1977-03-01,0
+"JP","Japan",1977-09-01,0
+"JP","Japan",1978-03-01,0
+"JP","Japan",1978-09-01,0
+"JP","Japan",1979-03-01,0
+"JP","Japan",1979-09-01,0
+"JP","Japan",1980-03-01,0
+"JP","Japan",1980-09-01,0
+"JP","Japan",1981-03-01,0
+"JP","Japan",1981-09-01,0
+"JP","Japan",1982-03-01,0
+"JP","Japan",1982-09-01,0
+"JP","Japan",1983-03-01,0
+"JP","Japan",1983-09-01,0
+"JP","Japan",1984-03-01,0
+"JP","Japan",1984-09-01,0
+"JP","Japan",1985-03-01,0
+"JP","Japan",1985-09-01,0
+"JP","Japan",1986-03-01,0
+"JP","Japan",1986-09-01,0
+"JP","Japan",1987-03-01,0
+"JP","Japan",1987-09-01,0
+"JP","Japan",1988-03-01,0
+"JP","Japan",1988-09-01,0
+"JP","Japan",1989-03-01,0
+"JP","Japan",1989-09-01,0
+"JP","Japan",1990-03-01,0
+"JP","Japan",1990-09-01,3
+"JP","Japan",1991-03-01,1
+"JP","Japan",1991-09-01,5
+"JP","Japan",1992-03-01,3
+"JP","Japan",1992-09-01,4
+"JP","Japan",1993-03-01,4
+"JP","Japan",1993-09-01,5
+"JP","Japan",1994-03-01,3
+"JP","Japan",1994-09-01,3
+"JP","Japan",1995-03-01,4
+"JP","Japan",1995-09-01,5
+"JP","Japan",1996-03-01,6
+"JP","Japan",1996-09-01,4
+"JP","Japan",1997-03-01,5
+"JP","Japan",1997-09-01,7
+"JP","Japan",1998-03-01,11
+"JP","Japan",1998-09-01,13
+"JP","Japan",1999-03-01,9
+"JP","Japan",1999-09-01,6
+"JP","Japan",2000-03-01,4
+"JP","Japan",2000-09-01,3
+"JP","Japan",2001-03-01,6
+"JP","Japan",2001-09-01,6
+"JP","Japan",2002-03-01,8
+"JP","Japan",2002-09-01,7
+"JP","Japan",2003-03-01,6
+"JP","Japan",2003-09-01,5
+"JP","Japan",2004-03-01,4
+"JP","Japan",2004-09-01,3
+"JP","Japan",2005-03-01,2
+"JP","Japan",2005-09-01,0
+"JP","Japan",2006-03-01,0
+"JP","Japan",2006-09-01,0
+"JP","Japan",2007-03-01,0
+"NO","Norway",1974-09-01,0
+"NO","Norway",1975-03-01,0
+"NO","Norway",1975-09-01,0
+"NO","Norway",1976-03-01,0
+"NO","Norway",1976-09-01,0
+"NO","Norway",1977-03-01,0
+"NO","Norway",1977-09-01,0
+"NO","Norway",1978-03-01,0
+"NO","Norway",1978-09-01,0
+"NO","Norway",1979-03-01,0
+"NO","Norway",1979-09-01,0
+"NO","Norway",1980-03-01,0
+"NO","Norway",1980-09-01,0
+"NO","Norway",1981-03-01,0
+"NO","Norway",1981-09-01,0
+"NO","Norway",1982-03-01,0
+"NO","Norway",1982-09-01,0
+"NO","Norway",1983-03-01,0
+"NO","Norway",1983-09-01,0
+"NO","Norway",1984-03-01,0
+"NO","Norway",1984-09-01,0
+"NO","Norway",1985-03-01,0
+"NO","Norway",1985-09-01,0
+"NO","Norway",1986-03-01,0
+"NO","Norway",1986-09-01,0
+"NO","Norway",1987-03-01,0
+"NO","Norway",1987-09-01,0
+"NO","Norway",1988-03-01,0
+"NO","Norway",1988-09-01,0
+"NO","Norway",1989-03-01,0
+"NO","Norway",1989-09-01,0
+"NO","Norway",1990-03-01,0
+"NO","Norway",1990-09-01,0
+"NO","Norway",1991-03-01,0
+"NO","Norway",1991-09-01,9
+"NO","Norway",1992-03-01,5
+"NO","Norway",1992-09-01,8
+"NO","Norway",1993-03-01,6
+"NO","Norway",1993-09-01,3
+"NO","Norway",1994-03-01,2
+"NO","Norway",1994-09-01,0
+"NO","Norway",1995-03-01,0
+"NO","Norway",1995-09-01,0
+"NO","Norway",1996-03-01,0
+"NO","Norway",1996-09-01,0
+"NO","Norway",1997-03-01,0
+"NO","Norway",1997-09-01,0
+"NO","Norway",1998-03-01,0
+"NO","Norway",1998-09-01,0
+"NO","Norway",1999-03-01,0
+"NO","Norway",1999-09-01,0
+"NO","Norway",2000-03-01,0
+"NO","Norway",2000-09-01,0
+"NO","Norway",2001-03-01,0
+"NO","Norway",2001-09-01,0
+"NO","Norway",2002-03-01,0
+"NO","Norway",2002-09-01,0
+"NO","Norway",2003-03-01,0
+"NO","Norway",2003-09-01,0
+"NO","Norway",2004-03-01,0
+"NO","Norway",2004-09-01,0
+"NO","Norway",2005-03-01,0
+"NO","Norway",2005-09-01,0
+"NO","Norway",2006-03-01,0
+"NO","Norway",2006-09-01,0
+"NO","Norway",2007-03-01,0
+"SE","Sweden",1974-09-01,0
+"SE","Sweden",1975-03-01,0
+"SE","Sweden",1975-09-01,0
+"SE","Sweden",1976-03-01,0
+"SE","Sweden",1976-09-01,0
+"SE","Sweden",1977-03-01,0
+"SE","Sweden",1977-09-01,0
+"SE","Sweden",1978-03-01,0
+"SE","Sweden",1978-09-01,0
+"SE","Sweden",1979-03-01,0
+"SE","Sweden",1979-09-01,0
+"SE","Sweden",1980-03-01,0
+"SE","Sweden",1980-09-01,0
+"SE","Sweden",1981-03-01,0
+"SE","Sweden",1981-09-01,0
+"SE","Sweden",1982-03-01,0
+"SE","Sweden",1982-09-01,0
+"SE","Sweden",1983-03-01,0
+"SE","Sweden",1983-09-01,0
+"SE","Sweden",1984-03-01,0
+"SE","Sweden",1984-09-01,0
+"SE","Sweden",1985-03-01,0
+"SE","Sweden",1985-09-01,0
+"SE","Sweden",1986-03-01,0
+"SE","Sweden",1986-09-01,0
+"SE","Sweden",1987-03-01,0
+"SE","Sweden",1987-09-01,0
+"SE","Sweden",1988-03-01,0
+"SE","Sweden",1988-09-01,0
+"SE","Sweden",1989-03-01,0
+"SE","Sweden",1989-09-01,0
+"SE","Sweden",1990-03-01,0
+"SE","Sweden",1990-09-01,0
+"SE","Sweden",1991-03-01,0
+"SE","Sweden",1991-09-01,0
+"SE","Sweden",1992-03-01,0
+"SE","Sweden",1992-09-01,5
+"SE","Sweden",1993-03-01,8
+"SE","Sweden",1993-09-01,0
+"SE","Sweden",1994-03-01,0
+"SE","Sweden",1994-09-01,0
+"SE","Sweden",1995-03-01,0
+"SE","Sweden",1995-09-01,0
+"SE","Sweden",1996-03-01,0
+"SE","Sweden",1996-09-01,0
+"SE","Sweden",1997-03-01,0
+"SE","Sweden",1997-09-01,0
+"SE","Sweden",1998-03-01,0
+"SE","Sweden",1998-09-01,0
+"SE","Sweden",1999-03-01,0
+"SE","Sweden",1999-09-01,0
+"SE","Sweden",2000-03-01,0
+"SE","Sweden",2000-09-01,0
+"SE","Sweden",2001-03-01,0
+"SE","Sweden",2001-09-01,0
+"SE","Sweden",2002-03-01,0
+"SE","Sweden",2002-09-01,0
+"SE","Sweden",2003-03-01,0
+"SE","Sweden",2003-09-01,0
+"SE","Sweden",2004-03-01,0
+"SE","Sweden",2004-09-01,0
+"SE","Sweden",2005-03-01,0
+"SE","Sweden",2005-09-01,0
+"SE","Sweden",2006-03-01,0
+"SE","Sweden",2006-09-01,0
+"SE","Sweden",2007-03-01,0
+"TR","Turkey",1974-09-01,0
+"TR","Turkey",1975-03-01,0
+"TR","Turkey",1975-09-01,0
+"TR","Turkey",1976-03-01,0
+"TR","Turkey",1976-09-01,0
+"TR","Turkey",1977-03-01,0
+"TR","Turkey",1977-09-01,0
+"TR","Turkey",1978-03-01,0
+"TR","Turkey",1978-09-01,0
+"TR","Turkey",1979-03-01,0
+"TR","Turkey",1979-09-01,0
+"TR","Turkey",1980-03-01,0
+"TR","Turkey",1980-09-01,0
+"TR","Turkey",1981-03-01,0
+"TR","Turkey",1981-09-01,0
+"TR","Turkey",1982-03-01,0
+"TR","Turkey",1982-09-01,0
+"TR","Turkey",1983-03-01,0
+"TR","Turkey",1983-09-01,0
+"TR","Turkey",1984-03-01,0
+"TR","Turkey",1984-09-01,0
+"TR","Turkey",1985-03-01,0
+"TR","Turkey",1985-09-01,0
+"TR","Turkey",1986-03-01,0
+"TR","Turkey",1986-09-01,0
+"TR","Turkey",1987-03-01,0
+"TR","Turkey",1987-09-01,0
+"TR","Turkey",1988-03-01,0
+"TR","Turkey",1988-09-01,0
+"TR","Turkey",1989-03-01,0
+"TR","Turkey",1989-09-01,0
+"TR","Turkey",1990-03-01,0
+"TR","Turkey",1990-09-01,0
+"TR","Turkey",1991-03-01,0
+"TR","Turkey",1991-09-01,0
+"TR","Turkey",1992-03-01,0
+"TR","Turkey",1992-09-01,0
+"TR","Turkey",1993-03-01,0
+"TR","Turkey",1993-09-01,0
+"TR","Turkey",1994-03-01,0
+"TR","Turkey",1994-09-01,0
+"TR","Turkey",1995-03-01,0
+"TR","Turkey",1995-09-01,0
+"TR","Turkey",1996-03-01,0
+"TR","Turkey",1996-09-01,0
+"TR","Turkey",1997-03-01,0
+"TR","Turkey",1997-09-01,0
+"TR","Turkey",1998-03-01,0
+"TR","Turkey",1998-09-01,0
+"TR","Turkey",1999-03-01,0
+"TR","Turkey",1999-09-01,0
+"TR","Turkey",2000-03-01,0
+"TR","Turkey",2000-09-01,0
+"TR","Turkey",2001-03-01,8
+"TR","Turkey",2001-09-01,8
+"TR","Turkey",2002-03-01,6
+"TR","Turkey",2002-09-01,4
+"TR","Turkey",2003-03-01,4
+"TR","Turkey",2003-09-01,3
+"TR","Turkey",2004-03-01,0
+"TR","Turkey",2004-09-01,0
+"TR","Turkey",2005-03-01,0
+"TR","Turkey",2005-09-01,0
+"TR","Turkey",2006-03-01,0
+"TR","Turkey",2006-09-01,0
+"TR","Turkey",2007-03-01,0
+"US","United States",1974-09-01,0
+"US","United States",1975-03-01,0
+"US","United States",1975-09-01,0
+"US","United States",1976-03-01,0
+"US","United States",1976-09-01,0
+"US","United States",1977-03-01,0
+"US","United States",1977-09-01,0
+"US","United States",1978-03-01,0
+"US","United States",1978-09-01,0
+"US","United States",1979-03-01,0
+"US","United States",1979-09-01,0
+"US","United States",1980-03-01,0
+"US","United States",1980-09-01,0
+"US","United States",1981-03-01,0
+"US","United States",1981-09-01,0
+"US","United States",1982-03-01,0
+"US","United States",1982-09-01,0
+"US","United States",1983-03-01,0
+"US","United States",1983-09-01,0
+"US","United States",1984-03-01,0
+"US","United States",1984-09-01,0
+"US","United States",1985-03-01,0
+"US","United States",1985-09-01,0
+"US","United States",1986-03-01,1
+"US","United States",1986-09-01,0
+"US","United States",1987-03-01,0
+"US","United States",1987-09-01,0
+"US","United States",1988-03-01,0
+"US","United States",1988-09-01,0
+"US","United States",1989-03-01,0
+"US","United States",1989-09-01,0
+"US","United States",1990-03-01,5
+"US","United States",1990-09-01,8
+"US","United States",1991-03-01,4
+"US","United States",1991-09-01,3
+"US","United States",1992-03-01,2
+"US","United States",1992-09-01,0
+"US","United States",1993-03-01,0
+"US","United States",1993-09-01,0
+"US","United States",1994-03-01,0
+"US","United States",1994-09-01,0
+"US","United States",1995-03-01,0
+"US","United States",1995-09-01,0
+"US","United States",1996-03-01,0
+"US","United States",1996-09-01,0
+"US","United States",1997-03-01,0
+"US","United States",1997-09-01,0
+"US","United States",1998-03-01,0
+"US","United States",1998-09-01,3
+"US","United States",1999-03-01,0
+"US","United States",1999-09-01,0
+"US","United States",2000-03-01,0
+"US","United States",2000-09-01,0
+"US","United States",2001-03-01,0
+"US","United States",2001-09-01,0
+"US","United States",2002-03-01,0
+"US","United States",2002-09-01,0
+"US","United States",2003-03-01,0
+"US","United States",2003-09-01,0
+"US","United States",2004-03-01,0
+"US","United States",2004-09-01,0
+"US","United States",2005-03-01,0
+"US","United States",2005-09-01,0
+"US","United States",2006-03-01,0
+"US","United States",2006-09-01,0
+"US","United States",2007-03-01,1

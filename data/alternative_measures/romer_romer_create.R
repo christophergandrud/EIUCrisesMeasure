@@ -102,10 +102,10 @@ comb$rr_distress[is.na(comb$rr_distress)] <- 0
 comb$iso2c <- countrycode(comb$country, origin = 'country.name',
                           destination = 'iso2c')
 
-comb <- 
+comb <- MoveFront(comb, 'iso2c')
 
 # Save as CSV
-export(romer_romer, '/git_repositories/EIUCrisesMeasure/data/alternative_measures/rommer_romer.csv')
+export(comb, '/git_repositories/EIUCrisesMeasure/data/alternative_measures/rommer_romer.csv')
 
 
 
