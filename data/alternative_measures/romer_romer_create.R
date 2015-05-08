@@ -6,6 +6,10 @@
 # http://eml.berkeley.edu//~cromer/RomerandRomerFinancialCrises.pdf
 ###########################
 
+library(lubridate)
+library(dplyr)
+library(rio)
+
 countries <- c('Finland', 'Finland', 'Finland', 'Finland', 'Finland',
                'France', 'France', 'France', 'France', 'France', 
                'France',
@@ -27,7 +31,7 @@ countries <- c('Finland', 'Finland', 'Finland', 'Finland', 'Finland',
                'United States', 'United States', 'United States'
                )
 
-month <- c('1992-03-01', '1992-09-01', '1993-03-01', '1993-09-01', '1994-03-01',
+date <- c('1992-03-01', '1992-09-01', '1993-03-01', '1993-09-01', '1994-03-01',
            '1991-09-01', '1995-03-01', '1995-09-01', '1996-03-01', '1996-09-01',
            '1997-03-01',
            '1974-09-01', '2003-03-01',
@@ -48,6 +52,8 @@ month <- c('1992-03-01', '1992-09-01', '1993-03-01', '1993-09-01', '1994-03-01',
            '1992-03-01', '1998-09-01', '2007-03-01'
            )
 
+# For coding see: p. 13 
+# http://eml.berkeley.edu//~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
 distress <- c(2, 6, 8, 5, 3,
               1, 2, 4, 5, 5, 
               3,
@@ -69,5 +75,35 @@ distress <- c(2, 6, 8, 5, 3,
               )
 
 
-romer_romer <- data.frame(country = countries, month = month, 
-                          rr_distress = distress)
+romer_romer <- data.frame(country = countries, date = date, 
+                          rr_distress = distress, stringsAsFactors = F)
+
+# Fill in 0 years
+romer_romer$date <- ymd(romer_romer$date)
+
+date_fill <- seq(from = min(romer_romer$date), to = max(romer_romer$date), 
+            by = '6 month')
+countries <- unique(romer_romer$country) %>% as.character
+countries <- rep(countries, length(date_fill)) %>% as.character %>% sort
+
+merger <- data.frame(country = countries, 
+                     date = rep(date_fill, length(countries)))
+
+comb <- merge(romer_romer, merger, by = c('country', 'date'), all = T) %>%
+            arrange(country, date)
+
+comb <- comb[!duplicated(comb[, 1:2]), ]
+
+comb$rr_distress[is.na(comb$rr_distress)] <- 0
+
+
+
+#### Compare ####
+library(ggplot2)
+
+ggplot(comb, aes(date, rr_distress, color = country)) +
+    geom_line() +
+    theme_bw()
+
+# Compare to MIFMS
+mifms <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca.csv')
