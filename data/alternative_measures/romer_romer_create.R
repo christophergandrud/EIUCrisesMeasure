@@ -9,6 +9,8 @@
 library(lubridate)
 library(dplyr)
 library(rio)
+library(countrycode)
+library(DataCombine)
 
 countries <- c('Finland', 'Finland', 'Finland', 'Finland', 'Finland',
                'France', 'France', 'France', 'France', 'France', 
@@ -78,6 +80,7 @@ distress <- c(2, 6, 8, 5, 3,
 romer_romer <- data.frame(country = countries, date = date, 
                           rr_distress = distress, stringsAsFactors = F)
 
+
 # Fill in 0 years
 romer_romer$date <- ymd(romer_romer$date)
 
@@ -96,14 +99,13 @@ comb <- comb[!duplicated(comb[, 1:2]), ]
 
 comb$rr_distress[is.na(comb$rr_distress)] <- 0
 
+comb$iso2c <- countrycode(comb$country, origin = 'country.name',
+                          destination = 'iso2c')
+
+comb <- 
+
+# Save as CSV
+export(romer_romer, '/git_repositories/EIUCrisesMeasure/data/alternative_measures/rommer_romer.csv')
 
 
-#### Compare ####
-library(ggplot2)
 
-ggplot(comb, aes(date, rr_distress, color = country)) +
-    geom_line() +
-    theme_bw()
-
-# Compare to MIFMS
-mifms <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca.csv')
