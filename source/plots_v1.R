@@ -46,7 +46,7 @@ kpca_plotter <- function(indvidual, data = results_kpca){
 }
 
 kpca_list <- list()
-for (i in countries_southAsia){
+for (i in countries_global) {
     message(i)
     kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
 }
