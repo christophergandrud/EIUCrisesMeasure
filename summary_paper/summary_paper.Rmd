@@ -1,22 +1,32 @@
 ---
-title: Machine Index of Financial Market Stress (MIFMS)
+title: Real-time Perceptions of Financial Market Stress
+author: Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg
 output:
     pdf_document:
         keep_tex: yes
 bibliography: main.bib
+linestretch: 1.5
 ---
 
 **Note: This work is in the early stages of development. It will be updated significantly.**
 
+**Abstract**[^ThankYou]
+
 > This paper describes the motivation and construction of a new measure of
-financial market stress based on machine classification of
+real-time perceptions of financial market stress based on machine classification of
 [Economist Intelligence Unit](http://www.eiu.com/) monthly country reports.
+
+Why and how do politicians respond to financial market stress? This question has attracted considerable attention recently following the 2007-2009 financial crisis and earlier following the late-1990s Asian financial crisis. However, virtually all of this research lacks a crucial variable: a real-time indication of the level of financial market stress that policy-makers believed that they faced. To understand why politicians made a given policy choice, we need to have a measure of what problems they faced.
+
+Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected.
 
 ## Motivation
 
 Researchers have tended to rely on two data sources for cross-country information on when a country is facing a financial crisis: @laeven2013 and @Reinhart2009. Knowing when crises started (and when they have ended) is crucial for research trying to understand issues such as how crises affect economic output, how governments choose to respond to financial market distress, and what the fiscal costs of financial crises are.
 
 There are a number of problems with these indicators. Unlike economic recessions, financial crises are poorly defined in previous sources. This contributes to large inconsistencies between the timing of crises in the @laeven2013 and @Reinhart2009 data sets [@Chaudron2014]. For example, Japan is labeled as having a crisis between 1997 and 2001 by the former, but 1992-1997 in the latter. @GandrudHallerberg2015 also find that there are significant difference in crisis timing between different versions of the @laeven2013 data. Crises are also identified by researchers who know what happened. Financial market stress that is addressed well by policymakers, preventing a major crisis, may therefore not be included. Similarly, stress that is temporarily dampened through unsustainable policy measures, only to flare up later, is not clearly recorded. This makes it difficult to adequately study why and how politicians respond to financial market stress. Related to this, current measures are dichotomous thus errors have large consequences for creating bias when used in econometric models. They also do not give any indication of how severe a crisis is.
+
+Overall, we lack the continuous real-time measure of financial market stress that we need to be able to adequately examine why and how policy-makers respond to financial market problems.
 
 There have been a number of recent attempts to create crisis measures that overcome these issues. Building on @vonHagen2007, @Jing2015 developed am index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses, assuming central banks use the same reaction function to increased demand for liquidity. @Rosas2009 developed a dynamic latent trait model of banking system distress. However, his measure relies on nationally reported data to the IMF's International Financial Statistics, which @GandrudCopHal2015 show can be endogenous to financial market distress.
 
@@ -26,10 +36,21 @@ Their approach could be improved in a number of key ways. First, they are necess
 
 [COMPLETE]
 
-## Machine Index of Financial Market Stress
+## Creating the Perceptions of Financial Market Stress Index
 
-We propose a new method of estimating financial market stress that addresses many of the problems in previous indexes. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2011] of monthly country reports from the Economist Intelligence Unit. The index is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. 
+We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2012] of monthly country reports from the **Economist Intelligence Unit** (EIU).[^EIU] The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. These reports are both a summary of real-time information on counties' economic conditions as well as a a channel through which this information is disseminated. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of texts for more than 100 countries .
 
 Monthly
 
+### Kernel Principal Component Analysis
+
+## Comparison to Other Crisis Measures
+
+## Conclusions and Possible Future Work
+
 ## References
+
+
+[^ThankYou]: Thank you to Ronen Palan for helpful comments.
+
+[^EIU]: See <http://www.eiu.com/>. Accessed May 2015.
