@@ -33,14 +33,13 @@ date_country$date <- ymd(date_country$date)
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
+                    tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
+                    tm_map(stemDocument, mc.cores = 1) %>%
                     tm_map(stripWhitespace) %>%
                    # Results correspond to priors much more closely when case is retained
-                   # tm_map(content_transformer(tolower), mc.cores = 1) %>%
+                    tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 1) %>%
-                    tm_map(removeNumbers, mc.cores = 1) %>%
-                  #  tm_map(removeSparseTerms, 0.98, mc.cores = 1) %>%
-                    tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
-                    tm_map(stemDocument, mc.cores = 1)
+                    tm_map(removeNumbers, mc.cores = 1) 
 
 # Kernal length
 length_spec = 5
