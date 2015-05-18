@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 17 March 2015
+# 18 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu/eiu_extracted/')
+setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
