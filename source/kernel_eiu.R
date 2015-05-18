@@ -20,11 +20,11 @@ library(gridExtra)
 library(rio)
 
 # Function to count the number of words in a string
-wordcount <- function (x) sapply(gregexpr("\\W+", x), length) + 1
+wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Create date-country labels
 date_country <- list.files() %>% gsub('\\.txt', '', .) %>%
-    str_split_fixed('_', n = 2) %>% 
+    str_split_fixed('_', n = 2) %>%
     as.data.frame(stringsAsFactors = F)
 date_country[, 2] <- gsub('-', ' ', date_country[, 2])
 names(date_country) <- c('date', 'country')
@@ -94,7 +94,7 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
                     arrange(country, date) %>% select(-stirngsAsFactors)
 
 # Save
-export(results_kpca, 
+export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca.csv')
 
 # Plot results
@@ -104,7 +104,7 @@ kpca_plotter <- function(indvidual, data = results_kpca){
                 geom_line(alpha = 0.3) +
                 stat_smooth(se = F, colour = 'black') +
                 geom_hline(yintercept = 0, linetype = 'dotted') +
-                scale_y_continuous(limits = c(-0.75, 0.5), 
+                scale_y_continuous(limits = c(-0.75, 0.5),
                                    breaks = c(-0.75, -0.5, 0, 0.25, 0.5)) +
                 # scale_color_brewer(palette = 'Set1', name = '') +
                 xlab('') + ggtitle(indvidual) +
@@ -129,8 +129,8 @@ for (i in unique(date_country$country)){
     message(i)
     temp_data <- subset(results_kpca, country == i)
     temp_data$C1 <- temp_data$C1 * -1
-    temp_plot <- e.divGG(data = temp_data, Vars = 'C1', 
-                                     TimeVar = 'date', min.size = 6) + 
+    temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
+                                     TimeVar = 'date', min.size = 6) +
                                 ggtitle(i)
     kpca_changepoint[[i]] <- temp_plot
 }
