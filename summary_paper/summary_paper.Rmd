@@ -18,7 +18,11 @@ real-time perceptions of financial market stress based on machine classification
 
 Why and how do politicians respond to financial market stress? This question has attracted considerable attention recently following the 2007-2009 financial crisis and earlier following the late-1990s Asian financial crisis. However, virtually all of this research lacks a crucial variable: a real-time indication of the level of financial market stress that policy-makers believed that they faced. To understand why politicians made a given policy choice, we need to have a measure of what problems they faced.
 
-Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected.
+Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected. In addition, these measures are typically binary and so give now indication of stress intensity. The measures are also at gross intervals, typically yearly, prohibiting sub-annual analysis.
+
+In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The index is created using a kernel principal component analysis of monthly Economist Intelligence Unit (EIU) reports. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis.
+
+We start the paper by detailing our motivation for creating a real-time index of perceptions of financial market stress. We then discuss the construction of the Index and compare it to widely used previous measures of financial market stress. [WOULD BE NICE TO HAVE A REPLICATION OF AN IMPORTANT PAPER].
 
 ## Motivation
 
@@ -38,11 +42,29 @@ Their approach could be improved in a number of key ways. First, they are necess
 
 ## Creating the Perceptions of Financial Market Stress Index
 
-We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2012] of monthly country reports from the **Economist Intelligence Unit** (EIU).[^EIU] The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. These reports are both a summary of real-time information on counties' economic conditions as well as a a channel through which this information is disseminated. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of texts for more than 100 countries .
+We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2012] of monthly country reports from the **Economist Intelligence Unit**.[^EIU]
 
-Monthly
+### Why the EIU?
 
-### Kernel Principal Component Analysis
+The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. These reports are both a summary of real-time information on counties' economic conditions as well as a a channel through which this information is disseminated. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD **Economic Outlook** provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
+
+### Summarising the EUI
+
+Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less stressed spectrum. So we clearly need an efficient way to summarize the vast quantity of information in the EIU reports. To do this we proceeded in the following steps. We collected the parsed reports--the reports were in HTML format. We then extracted the portions of the texts--headlines and paragraphs--that contained at least one of a number of keywords.[^keywords]
+
+Due to a significant change in how the reports were constructed in 2003, we also selected only texts from 2003 in order to maintain comparability.
+
+#### Text selection
+
+EIU reports contain assessments of a wide range of countries' economies, not just their financial system. So, our first step was to select the portions of the EIU texts that contained relevant information about countries' banking and financial systems.
+
+
+#### Kernel Principal Component Analysis
+
+
+
+
+#### Data subsetting
 
 ## Comparison to Other Crisis Measures
 
@@ -54,3 +76,6 @@ Monthly
 [^ThankYou]: Thank you to Ronen Palan for helpful comments.
 
 [^EIU]: See <http://www.eiu.com/>. Accessed May 2015.
+
+[^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *bank*, *credit*,
+              *crunch*, *default*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2014 and are intended to select passages that discusses credit market conditions.  
