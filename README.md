@@ -1,11 +1,12 @@
-# Machine Index of Financial Market Stress (MIFMS)
+# Real-time Perceptions of Financial Market Stress
 
 **Note: This work is in the early stages of development. It will be updated significantly.**
 
 ## What
 
-Measure of financial market stress based on machine classification of
-[Economist Intelligence Unit](http://www.eiu.com/) monthly country reports.
+Measure of real-time perceptions of financial market stress based on machine
+classification of [Economist Intelligence Unit](http://www.eiu.com/) monthly
+country reports.
 
 ## Motivation
 
@@ -15,4 +16,4 @@ A wide range of political economy research on the causes, responses to, and effe
 
 This is a selection of scores:
 
-![mifms plot](mifms_16countries.png)
+![rpfms plot](mifms_16countries.png)
