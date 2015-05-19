@@ -36,7 +36,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg},
-            pdftitle={Real-time Perceptions of Financial Market Stress},
+            pdftitle={Measuring Real-time Perceptions of Financial Market Stress},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -63,7 +63,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Real-time Perceptions of Financial Market Stress}
+  \title{Measuring Real-time Perceptions of Financial Market Stress}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg}
@@ -82,8 +82,11 @@
 \textbf{Note: This work is in the early stages of development. It will
 be updated significantly.}
 
-\textbf{Abstract}\footnote{Thank you to Ronen Palan for helpful
-  comments.}
+\textbf{Abstract}\footnote{Please contact Christopher Gandrud
+  (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
+  Thank you to Ronen Palan for helpful comments. All data and
+  replication material can be found at:
+  \url{https://github.com/christophergandrud/EIUCrisesMeasure}.}
 
 \begin{quote}
 This paper describes the motivation and construction of a new measure of
@@ -167,7 +170,7 @@ nationally reported data to the IMF's International Financial
 Statistics, which Copelovitch, Gandrud, and Hallerberg (2015) show can
 be endogenous to financial market distress.
 
-C. D. Romer and Romer (2014) aimed to address this issue by manually
+C. Romer and Romer (2014) aimed to address this issue by manually
 classifying 24 countries on a 15 point scale capturing the cost of
 credit intermediation. They code countries using information from OECD
 semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Relying
@@ -196,10 +199,11 @@ Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.}
 \subsubsection{Why the EIU?}\label{why-the-eiu}
 
 The EIU is the product of a an analysis of real-time, third-party
-assessments of financial market conditions reported monthly. These
-reports are both a summary of real-time information on counties'
-economic conditions as well as a a channel through which this
-information is disseminated. Together, the reports create a very large
+assessments of financial market conditions reported monthly or quarterly
+(depending on the country). These reports are both a summary of
+real-time information and forecasts on counties' economic conditions as
+well as a channel through which this information is disseminated to
+public and private actors. Together, the reports create a very large
 corpus (more than 20,000 texts from 1997 through 2011 {[}CHECK{]}) of
 monthly reports for more than 100 countries. As the texts generally
 follow the same format and style, they contain directly comparable
@@ -208,37 +212,85 @@ significant time span. In contrast, the OECD \textbf{Economic Outlook}
 provides comparable reports for a very small number of wealthy countries
 on a bi-annual basis.
 
-\subsubsection{Summarising the EUI}\label{summarising-the-eui}
+\subsubsection{Summarising Financial Market Stress in the
+EIU}\label{summarising-financial-market-stress-in-the-eiu}
 
 Our aim is to create an index that classifies financial conditions on a
 continuous more-stressed/less stressed spectrum. So we clearly need an
 efficient way to summarize the vast quantity of information in the EIU
-reports. To do this we proceeded in the following steps. We collected
-the parsed reports--the reports were in HTML format. We then extracted
-the portions of the texts--headlines and paragraphs--that contained at
-least one of a number of keywords.\footnote{The keywords included:
-  \emph{bail-out}, \emph{bailout}, \emph{balance sheet}, \emph{bank},
-  \emph{credit}, \emph{crunch}, \emph{default}, \emph{financial},
-  \emph{lend}, \emph{loan}, \emph{squeeze} {[}MAKE SURE TO UPDATE{]}.
-  These keywords were adapted from those used by C. D. Romer and Romer
-  (2014) and are intended to select passages that discusses credit
-  market conditions.}
-
-Due to a significant change in how the reports were constructed in 2003,
-we also selected only texts from 2003 in order to maintain
-comparability.
+reports. To do this we first collected and processed the texts. Then we
+used kernel principal component analysis to summarize the texts into a
+dimension of financial market stress. We rescaled the Index to ease
+interpretation. Finally, we used a number of strategies to examine the
+Index's validity.
 
 \paragraph{Text selection}\label{text-selection}
 
 EIU reports contain assessments of a wide range of countries' economies,
 not just their financial system. So, our first step was to select the
 portions of the EIU texts that contained relevant information about
-countries' banking and financial systems.
+countries' banking and financial systems. We collected the parsed
+reports--the reports were in HTML format. We then extracted the portions
+of the texts--headlines and paragraphs--that contained at least one of a
+number of keywords concerning banking and financial markets.\footnote{The
+  keywords included: \emph{bail-out}, \emph{bailout}, \emph{balance
+  sheet}, \emph{bank}, \emph{credit}, \emph{crunch}, \emph{default},
+  \emph{financial}, \emph{lend}, \emph{loan}, \emph{squeeze} {[}MAKE
+  SURE TO UPDATE{]}. These keywords were adapted from those used by C.
+  Romer and Romer (2014) and are intended to select passages that
+  discusses credit market conditions.} Due to a significant change in
+how the reports were constructed in 2003, we also selected only texts
+from 2003 in order to maintain comparability across the time-series.
+
+We then preprocessed these texts using standard techniques (see Grimmer
+and Stewart 2013).\footnote{All preprocessing was done using the
+  \texttt{tm} package (Feinerer and Hornik 2015) in R (R Core Team
+  2015).} This involved removing common English words, such as `was' and
+`its', stemming the words so that different variants of the same word
+are grouped together {[}MAYBE DON'T DO{]}, removing extra whitespace
+between the words, converting the words to lower case {[}MAYBE DON'T
+DO{]}, removing punctuation and numbers. Finally, we dropped texts that
+included very few words (less than six). Including these texts prevented
+the estimation of the kernel PCA model.
 
 \paragraph{Kernel Principal Component
 Analysis}\label{kernel-principal-component-analysis}
 
-\paragraph{Data subsetting}\label{data-subsetting}
+\paragraph{Characteristics of the
+Index}\label{characteristics-of-the-index}
+
+\subparagraph{Developed vs.~Developing
+countries}\label{developed-vs.developing-countries}
+
+An important finding from examining the Index is that there is a clear
+difference in the level of perceived financial market stress in
+developed and developing countries. Notably, developing countries often
+have scores well above 0.5, while many developed countries only reach
+this level during financial crises. Developing countries often lack
+strong financial institutions and systems {[}CITE{]}, so we should
+expect them to face generally tighter credit market conditions than
+developed countries. Formal financial markets are less important for
+developing countries' economies {[}CITE{]}.
+
+These observations should lead to an important refinement to how the
+Index should be interpreted and how it should be used in empirical work.
+First, the Index measures banking market conditions, but not crisis
+directly. Instead, perceived crisis is likely the result of an
+interaction between the Index and the importance of financial markets
+for sustaining a country's economy. Though policy-makers in developing
+economies face generally tight credit market conditions, these
+persistent conditions likely do not threaten the wider \emph{status quo}
+economy. As such, we would not expect significant policy responses to
+address financial market stress in these places. Conversely, tightening
+of credit market conditions in a developed, financialised economy would
+likely have large negative implications for the wider economy. So, we
+would expect these politicians to respond to worsening credit market
+conditions.
+
+Previous measures of financial market distress and crises have generally
+been unable to explore this possible interaction. \emph{Post-hoc}
+measures of crisis in particular capture the outcome of this process,
+rather than the process itself.
 
 \subsection{~Comparison to Other Crisis
 Measures}\label{comparison-to-other-crisis-measures}
@@ -257,9 +309,16 @@ Copelovitch, Mark, Christopher Gandrud, and Mark Hallerberg. 2015.
 ``Financial Regulatory Transparency, International Institutions, and
 Borrowing Costs.'' \emph{Working Paper}.
 
+Feinerer, Ingo, and Kurt Hornik. 2015. \emph{tm: Text Mining Package}.
+\url{http://CRAN.R-project.org/package=tm}.
+
 Gandrud, Christopher, and Mark Hallerberg. 2015. ``When All Is Said and
 Done: Updating 'Elections, Special Interests, and Financial Crisis'.''
 \emph{Research and Politics}.
+
+Grimmer, Justin, and Brandon M Stewart. 2013. ``Text as Data: The
+Promise and Pitfalls of Automatic Content Analysis Methods for Political
+Texts.'' \emph{Political Analysis} 21 (3): 267--97.
 
 Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
 ``Identifying Banking Crises Using Money Market Pressure: New Evidence
@@ -269,12 +328,16 @@ for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
 Laeven, Luc, and Fabi{á}n Valencia. 2013. ``Systemic Banking Crisis
 Database.'' \emph{IMF Economic Review} 61 (2): 225--70.
 
+R Core Team. 2015. \emph{R: A Language and Environment for Statistical
+Computing}. Vienna, Austria: R Foundation for Statistical Computing.
+\url{http://www.R-project.org/}.
+
 Reinhart, Carmen, and Kenneth Rogoff. 2009. \emph{This Time Is
 Different: Eight Centuries of Financial Folly}. Princeton: Princeton
 University Press.
 
-Romer, Christina D., and David H. Romer. 2014. ``New Evidence on the
-Impact of Financial Crises in Advanced Countries,'' Nov, 1--65.
+Romer, Christina, and David Romer. 2014. ``New Evidence on the Impact of
+Financial Crises in Advanced Countries,'' Nov, 1--65.
 
 Rosas, Guillermo. 2009. ``Dynamic Latent Trait Models: An Application to
 Latin American Banking Crises.'' \emph{Electoral Studies} 28: 375--87.

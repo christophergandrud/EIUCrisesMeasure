@@ -18,6 +18,7 @@ library(lubridate)
 library(ggplot2)
 library(gridExtra)
 library(rio)
+library(TTR)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
@@ -34,10 +35,9 @@ date_country$date <- ymd(date_country$date)
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
-                    tm_map(stemDocument, mc.cores = 1) %>%
+                    # tm_map(stemDocument, mc.cores = 1) %>%
                     tm_map(stripWhitespace) %>%
-                   # Results correspond to priors much more closely when case is retained
-                    tm_map(content_transformer(tolower), mc.cores = 1) %>%
+                    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 1) %>%
                     tm_map(removeNumbers, mc.cores = 1) 
 
@@ -107,16 +107,30 @@ range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 # Components vector
 components_names <- names(results_kpca)[grep('^C[1-9]', names(results_kpca))]
 
-# Flip scale
+# Transform Scale
 for (i in components_names) {
     results_kpca[, i] <- results_kpca[, i] * -1
     results_kpca[, i] <- range01(results_kpca[, i])
 }
 
-#### Plot results ####
+## Drop countries with fewer than 5 observations
+results_kpca$fake <- 1
+results_kpca <- results_kpca %>% group_by(country) %>%
+                mutate(obs_sum = sum(fake)) %>%
+                filter(obs_sum > 5) %>% select(-fake, -obs_sum)
+
+# Find previous periods moving average
+sma_mod <- function(x) SMA(x, n = 2)
+results_kpca <- results_kpca %>% group_by(country) %>% 
+                mutate(C1_ma = sma_mod(C1))
+
+export(results_kpca,
+       file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca.csv')
+
+#### ----------------- Plot results --------------------------------------- ####
 kpca_plotter <- function(indvidual, data = results_kpca){
     temp_data <- subset(data, country == indvidual)
-    indv <- ggplot(temp_data, aes(date, C1, group = country)) +
+    indv <- ggplot(temp_data, aes(date, C1_ma, group = country)) +
                 geom_line(alpha = 0.3) +
                 stat_smooth(se = F, colour = 'black') +
                 geom_hline(yintercept = 0, linetype = 'dotted') +
@@ -129,7 +143,7 @@ kpca_plotter <- function(indvidual, data = results_kpca){
 }
 
 kpca_list <- list()
-for (i in unique(results_kpca$country)[50:60]) {
+for (i in unique(results_kpca$country)[60:89]) {
     message(i)
     kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
 }

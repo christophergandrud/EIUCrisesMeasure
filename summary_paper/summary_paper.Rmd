@@ -1,5 +1,5 @@
 ---
-title: Real-time Perceptions of Financial Market Stress
+title: Measuring Real-time Perceptions of Financial Market Stress
 author: Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg
 output:
     pdf_document:
@@ -42,29 +42,36 @@ Their approach could be improved in a number of key ways. First, they are necess
 
 ## Creating the Perceptions of Financial Market Stress Index
 
-We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2012] of monthly country reports from the **Economist Intelligence Unit**.[^EIU]
+We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @Spirling2012] of monthly country reports from the *Economist Intelligence Unit*.[^EIU]
 
 ### Why the EIU?
 
-The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly. These reports are both a summary of real-time information on counties' economic conditions as well as a a channel through which this information is disseminated. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD **Economic Outlook** provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
+The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports are both a summary of real-time information and forecasts on counties' economic conditions as well as a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
 
-### Summarising the EUI
+### Summarising Financial Market Stress in the EIU
 
-Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less stressed spectrum. So we clearly need an efficient way to summarize the vast quantity of information in the EIU reports. To do this we proceeded in the following steps. We collected the parsed reports--the reports were in HTML format. We then extracted the portions of the texts--headlines and paragraphs--that contained at least one of a number of keywords.[^keywords]
-
-Due to a significant change in how the reports were constructed in 2003, we also selected only texts from 2003 in order to maintain comparability.
+Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less stressed spectrum. So we clearly need an efficient way to summarize the vast quantity of information in the EIU reports. To do this we first collected and processed the texts. Then we used kernel principal component analysis to summarize the texts into a dimension of financial market stress. We rescaled the Index to ease interpretation. Finally, we used a number of strategies to examine the Index's validity.
 
 #### Text selection
 
-EIU reports contain assessments of a wide range of countries' economies, not just their financial system. So, our first step was to select the portions of the EIU texts that contained relevant information about countries' banking and financial systems.
+EIU reports contain assessments of a wide range of countries' economies, not just their financial system. So, our first step was to select the portions of the EIU texts that contained relevant information about countries' banking and financial systems. We collected the parsed reports--the reports were in HTML format. We then extracted the portions of the texts--headlines and paragraphs--that contained at least one of a number of keywords concerning banking and financial markets.[^keywords] Due to a significant change in how the reports were constructed in 2003, we also selected only texts from 2003 in order to maintain comparability across the time-series.
 
+We then preprocessed these texts using standard techniques [see @Grimmer2013].[^tm-package] This involved removing common English words, such as 'was' and 'its', stemming the words so that different variants of the same word are grouped together [MAYBE DON'T DO], removing extra whitespace between the words, converting the words to lower case [MAYBE DON'T DO], removing punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented the estimation of the kernel PCA model.
 
 #### Kernel Principal Component Analysis
 
 
 
 
-#### Data subsetting
+#### Characteristics of the Index
+
+##### Developed vs. Developing countries
+
+An important finding from examining the Index is that there is a clear difference in the level of perceived financial market stress in developed and developing countries. Notably, developing countries often have scores well above 0.5, while many developed countries only reach this level during financial crises. Developing countries often lack strong financial institutions and systems [CITE], so we should expect them to face generally tighter credit market conditions than developed countries. Formal financial markets are less important for developing countries' economies [CITE].
+
+These observations should lead to an important refinement to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not crisis directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing economies face generally tight credit market conditions, these persistent conditions likely do not threaten the wider *status quo* economy. As such, we would not expect significant policy responses to address financial market stress in these places. Conversely, tightening of credit market conditions in a developed, financialised economy would likely have large negative implications for the wider economy. So, we would expect these politicians to respond to worsening credit market conditions.
+
+Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. *Post-hoc* measures of crisis in particular capture the outcome of this process, rather than the process itself.
 
 ## Comparison to Other Crisis Measures
 
@@ -73,9 +80,11 @@ EIU reports contain assessments of a wide range of countries' economies, not jus
 ## References
 
 
-[^ThankYou]: Thank you to Ronen Palan for helpful comments.
+[^ThankYou]: Please contact Christopher Gandrud (gandrud@hertie-school.org). Thank you to Ronen Palan for helpful comments. All data and replication material can be found at: <https://github.com/christophergandrud/EIUCrisesMeasure>.
 
 [^EIU]: See <http://www.eiu.com/>. Accessed May 2015.
 
 [^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *bank*, *credit*,
               *crunch*, *default*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2014 and are intended to select passages that discusses credit market conditions.  
+
+[^tm-package]: All preprocessing was done using the `tm` package [@tm2015] in R [@R-cite].
