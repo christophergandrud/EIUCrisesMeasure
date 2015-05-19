@@ -46,7 +46,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{5}
 
 %%% Use protect on footnotes to avoid problems with footnotes in titles
 \let\rmarkdownfootnote\footnote%
@@ -125,7 +125,7 @@ construction of the Index and compare it to widely used previous
 measures of financial market stress. {[}WOULD BE NICE TO HAVE A
 REPLICATION OF AN IMPORTANT PAPER{]}.
 
-\subsection{Motivation}\label{motivation}
+\section{Motivation}\label{motivation}
 
 Researchers have tended to rely on two data sources for cross-country
 information on when a country is facing a financial crisis: Laeven and
@@ -187,16 +187,17 @@ Third, the scale is created by simply summing
 
 {[}COMPLETE{]}
 
-\subsection{~Creating the Perceptions of Financial Market Stress
+\section{~Creating the Perceptions of Financial Market Stress
 Index}\label{creating-the-perceptions-of-financial-market-stress-index}
 
 We propose a new method of estimating a real-time measure of perceptions
 of financial market stress. The index is created with kernel principle
-component analysis (Scholkopf, Smola, and Muller 1998; Spirling 2012) of
-monthly country reports from the \textbf{Economist Intelligence
-Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.}
+component analysis (Scholkopf, Smola, and Muller 1998; Lodhi et al.
+2002; Spirling 2012) of monthly country reports from the \emph{Economist
+Intelligence Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May
+  2015.}
 
-\subsubsection{Why the EIU?}\label{why-the-eiu}
+\subsection{Why the EIU?}\label{why-the-eiu}
 
 The EIU is the product of a an analysis of real-time, third-party
 assessments of financial market conditions reported monthly or quarterly
@@ -208,11 +209,11 @@ corpus (more than 20,000 texts from 1997 through 2011 {[}CHECK{]}) of
 monthly reports for more than 100 countries. As the texts generally
 follow the same format and style, they contain directly comparable
 assessments of economic conditions monthly across the globe for a
-significant time span. In contrast, the OECD \textbf{Economic Outlook}
+significant time span. In contrast, the OECD \emph{Economic Outlook}
 provides comparable reports for a very small number of wealthy countries
 on a bi-annual basis.
 
-\subsubsection{Summarising Financial Market Stress in the
+\subsection{Summarising Financial Market Stress in the
 EIU}\label{summarising-financial-market-stress-in-the-eiu}
 
 Our aim is to create an index that classifies financial conditions on a
@@ -224,7 +225,7 @@ dimension of financial market stress. We rescaled the Index to ease
 interpretation. Finally, we used a number of strategies to examine the
 Index's validity.
 
-\paragraph{Text selection}\label{text-selection}
+\subsubsection{Text selection}\label{text-selection}
 
 EIU reports contain assessments of a wide range of countries' economies,
 not just their financial system. So, our first step was to select the
@@ -253,13 +254,80 @@ DO{]}, removing punctuation and numbers. Finally, we dropped texts that
 included very few words (less than six). Including these texts prevented
 the estimation of the kernel PCA model.
 
-\paragraph{Kernel Principal Component
+\subsubsection{Kernel Principal Component
 Analysis}\label{kernel-principal-component-analysis}
 
-\paragraph{Characteristics of the
+Texts are frequently summarized using unordered `bag-of-words'
+approaches, such as Latent Dirichlet Allocation, that do not retain word
+order. The result of these approaches is often clusters of `topics'
+within speeches or speeches to clusters (see Grimmer and Stewart 2013
+for a review). We would like to accomplish something different. Ideally,
+we would like to preserve the order of the words in our texts and we
+would like to place the texts on a continuous scale that will be
+interpretable as a measure of perceived financial market stress. We
+would like to preserve the order of the words in the texts. Many
+financial terms such as `credit growth' and `borrowing costs' are used
+in completely different senses depending on the adjectives that modify
+them. For example, `slowing credit growth' vs. `expanding credit growth'
+or `falling borrowing costs' vs. `increasing borrowing costs'. A
+bag-of-words approach that treated each word as having meaning as an
+individual unit, rather than having meaning in ordered association with
+other words, would not adequately capture common and radically different
+meanings in the EIU documents.
+
+In order to address these issues we use kernel principal component
+analysis. This method was developed by Scholkopf, Smola, and Muller
+(1998) and Lodhi et al. (2002) and introduced recently into political
+science by Spirling (2012).\footnote{He used it to summarize changing
+  trends in treaties between the US government and Native American
+  groups.} The unit of analysis is a sub-string kernel: in effect a
+short sequence of letters\footnote{Following Spirling (2012), we used
+  kernels with a length of 5, i.e.~those that are five letters long. See
+  also Lodhi et al. (2002) who demonstrate that in English strings
+  lengths between four and seven are often optimal.} that can be shared
+within and across words. Thus we can distinguish between two simple
+documents that involve the words `slowing credit' and `expanding
+credit'. They share the five character kernels `credit' and `ingcr', but
+differ on `wingc' and `dingc'. Using Lodhi et al. (2002) we can
+summarize the similarity of these documents using with the frequency
+distribution of five-length strings that they have in
+common--two--standardized by document length. We can find these pairs
+for all of the documents in our corpus to create a kernel matrix.
+Finally, we can scale the documents using principal component
+analysis.\footnote{We conducted kernel PCA with the R package
+  \texttt{kernlab} (Karatzoglou et al. 2004).}
+
+\subsection{Characteristics of the
 Index}\label{characteristics-of-the-index}
 
-\subparagraph{Developed vs.~Developing
+\subsubsection{Dimensionality}\label{dimensionality}
+
+To determine the number of dimensions that best describe the data, we
+conducted a scree test, the results of which are shown in Figure
+{[}GET{]}.
+
+\subsubsection{Representation}\label{representation}
+
+What does this dimension represent? We took a number of approaches to
+answer this question. First we conducted an `interocular' test,
+e.g.~looking a plots of the results and comparing them to our priors on
+financial market stress. Second, we used a random forest regression
+(Jones and Linder 2015).
+
+\subsubsection{~Comparison to Other Crisis
+Measures}\label{comparison-to-other-crisis-measures}
+
+How does our measure compare to previous ways of measuring and timing
+financial market stress and crisis? We directly compare our measure to
+dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
+Valencia (2013) as well as Romer and Romer's
+\href{mailto:-@Romer2014}{\nolinkurl{-@Romer2014}} continuous measure.
+There are some limitations in comparability based simply on the
+different coverage of the different indices. C. Romer and Romer (2014)
+in particular largely does not include the most recent crisis in their
+sample.
+
+\subsubsection{Developed vs.~Developing
 countries}\label{developed-vs.developing-countries}
 
 An important finding from examining the Index is that there is a clear
@@ -292,14 +360,13 @@ been unable to explore this possible interaction. \emph{Post-hoc}
 measures of crisis in particular capture the outcome of this process,
 rather than the process itself.
 
-\subsection{~Comparison to Other Crisis
-Measures}\label{comparison-to-other-crisis-measures}
+\section{Replication}\label{replication}
 
-\subsection{Conclusions and Possible Future
+\section{Conclusions and Possible Future
 Work}\label{conclusions-and-possible-future-work}
 
-\subsection*{References}\label{references}
-\addcontentsline{toc}{subsection}{References}
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 Chaudron, Raymond, and Jakob de Haan. 2014. ``Dating Banking Crises
 Using Incidence and Size of Bank Failures: Four Crises Reconsidered.''
@@ -325,8 +392,21 @@ Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
 for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
 1--20.
 
+Jones, Zachary, and Fridolin Linder. 2015. ``Exploratory Data Analysis
+Using Random Forests.'' \emph{Paper Presented at the Annual MPSA
+Conference}.
+
+Karatzoglou, Alexandros, Alex Smola, Kurt Hornik, and Achim Zeileis.
+2004. ``kernlab -- an S4 Package for Kernel Methods in R.''
+\emph{Journal of Statistical Software} 11 (9): 1--20.
+\url{http://www.jstatsoft.org/v11/i09/}.
+
 Laeven, Luc, and Fabi{á}n Valencia. 2013. ``Systemic Banking Crisis
 Database.'' \emph{IMF Economic Review} 61 (2): 225--70.
+
+Lodhi, Huma, Craig Saunders, John Shawe-Taylor, Nello Cristianini, and
+Chris Watkins. 2002. ``Text Classification Using String Kernels.''
+\emph{The Journal of Machine Learning Research} 2. JMLR. org: 419--44.
 
 R Core Team. 2015. \emph{R: A Language and Environment for Statistical
 Computing}. Vienna, Austria: R Foundation for Statistical Computing.
