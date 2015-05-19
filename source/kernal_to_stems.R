@@ -92,3 +92,4 @@ term_importance <- term_importance %>% arrange(desc(`%IncMSE`))
 library(randomForestSRC)
 
 rfsrc_test <- rfsrc(form, data = comb)
+plot(rfsrc_test)
