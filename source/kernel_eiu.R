@@ -125,7 +125,7 @@ results_kpca <- results_kpca %>% group_by(country) %>%
                 mutate(C1_ma = sma_mod(C1))
 
 export(results_kpca,
-       file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca.csv')
+       file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
 #### ----------------- Plot results --------------------------------------- ####
 kpca_plotter <- function(indvidual, data = results_kpca){
