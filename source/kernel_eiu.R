@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 20 May 2015
+# 21 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+setwd('~/Desktop/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -39,7 +39,7 @@ clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 1) %>%
-                    tm_map(removeNumbers, mc.cores = 1) 
+                    tm_map(removeNumbers, mc.cores = 1)
 
 # Kernal length
 length_spec = 5
@@ -119,7 +119,7 @@ results_kpca <- results_kpca %>% group_by(country) %>%
 
 # Find previous periods moving average
 sma_mod <- function(x) SMA(x, n = 2)
-results_kpca <- results_kpca %>% group_by(country) %>% 
+results_kpca <- results_kpca %>% group_by(country) %>%
                 mutate(C1_ma = sma_mod(C1))
 
 export(results_kpca,
@@ -168,4 +168,5 @@ do.call(grid.arrange, kpca_changepoint)
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
 export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_21.csv')
+
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
