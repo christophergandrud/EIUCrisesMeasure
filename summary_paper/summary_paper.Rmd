@@ -5,6 +5,8 @@ output:
     pdf_document:
         keep_tex: yes
         number_sections: yes
+header-includes:
+   - \usepackage{graphicx}
 bibliography: main.bib
 linestretch: 1.5
 ---
@@ -63,13 +65,33 @@ We then preprocessed these texts using standard techniques [see @Grimmer2013].[^
 
 Texts are frequently summarized using unordered 'bag-of-words' approaches, such as Latent Dirichlet Allocation, that do not retain word order. The result of these approaches is often clusters of 'topics' within speeches or speeches to clusters [see @Grimmer2013 for a review]. We would like to accomplish something different. Ideally, we would like to preserve the order of the words in our texts and we would like to place the texts on a continuous scale that will be interpretable as a measure of perceived financial market stress. We would like to preserve the order of the words in the texts. Many financial terms such as 'credit growth' and 'borrowing costs' are used in completely different senses depending on the adjectives that modify them. For example, 'slowing credit growth' vs. 'expanding credit growth' or 'falling borrowing costs' vs. 'increasing borrowing costs'. A bag-of-words approach that treated each word as having meaning as an individual unit, rather than having meaning in ordered association with other words, would not adequately capture common and radically different meanings in the EIU documents.
 
-In order to address these issues we use kernel principal component analysis. This method was developed by @Scholkopf1998 and @lodhi2002 and introduced recently into political science by @Spirling2012.[^spirling-why] The unit of analysis is a sub-string kernel: in effect a short sequence of letters[^kernel-length] that can be shared within and across words. Thus we can distinguish between two simple documents that involve the words 'slowing credit' and 'expanding credit'. They share the five character kernels 'credit' and 'ingcr', but differ on 'wingc' and 'dingc'. Using @lodhi2002 we can summarize the similarity of these documents using with the frequency distribution of five-length strings that they have in common--two--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.[^cite-kernlab]
+In order to address these issues we use kernel principal component analysis. This method was developed by @Scholkopf1998 and @lodhi2002 and introduced recently into political science by @Spirling2012.[^spirling-why] The unit of analysis is a sub-string kernel: in effect a short sequence of letters[^kernel-length] that can be shared within and across words. Thus we can distinguish between two simple documents with the stemmed strings 'slow credit' and 'expand credit'. They share the five character kernels 'credit, but differ on 'slowc' and 'pandc' among others. Using @lodhi2002 we can summarize the similarity of these documents using with the frequency distribution of five-length strings that they have in common--one--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.[^cite-kernlab]
 
 ## Characteristics of the Index
 
 ### Dimensionality
 
-To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure [GET].
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}.
+
+\begin{figure}
+    \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
+    \label{scree_plot}
+    \begin{center}
+        \includegraphics[scale=0.5]{analysis/figures/scree_plot.pdf}
+    \end{center}
+\end{figure}
+
+### Results
+
+Figure \ref{basic_sample} shows the results of the kernel PCA analysis for a selection of countries'. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one. This eases interpretation and comparability to other measures. Then we slightly smoothed the results by taking a two period--usually two months--moving average [RECONSIDER]. The results with these transformations are shown.
+
+\begin{figure}
+    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial marke stress)}
+    \label{scree_plot}
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
+    \end{center}
+\end{figure}
 
 ### Representation
 
@@ -78,7 +100,7 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ### Comparison to Other Crisis Measures
 
-How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's -@Romer2014 continuous measure. There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample.
+How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure. There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample.
 
 ### Developed vs. Developing countries
 
@@ -92,7 +114,13 @@ Previous measures of financial market distress and crises have generally been un
 
 # Conclusions and Possible Future Work
 
+# Appendix
+
+
 # References
+
+
+
 
 
 [^ThankYou]: Please contact Christopher Gandrud (gandrud@hertie-school.org). Thank you to Ronen Palan for helpful comments. All data and replication material can be found at: <https://github.com/christophergandrud/EIUCrisesMeasure>.
