@@ -149,24 +149,25 @@ for (i in unique(results_kpca$country)[60:89]) {
 do.call(grid.arrange, kpca_list)
 
 # Find change points
-devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
+# devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
 
-kpca_changepoint <- list()
-for (i in unique(date_country$country)) {
-    message(i)
-    temp_data <- subset(results_kpca, country == i)
-    temp_data$C1 <- temp_data$C1 * -1
-    temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
-                                     TimeVar = 'date', min.size = 6) +
-                                ggtitle(i)
-    kpca_changepoint[[i]] <- temp_plot
-}
+# kpca_changepoint <- list()
+# for (i in unique(date_country$country)) {
+#     message(i)
+#     temp_data <- subset(results_kpca, country == i)
+#     temp_data$C1 <- temp_data$C1 * -1
+#     temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
+#                                      TimeVar = 'date', min.size = 6) +
+#                                 ggtitle(i)
+#     kpca_changepoint[[i]] <- temp_plot
+# }
 
-do.call(grid.arrange, kpca_changepoint)
+# do.call(grid.arrange, kpca_changepoint)
 
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_21.csv')
+
+export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_22.csv')
 
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
