@@ -72,6 +72,7 @@
   \date{}
   \predate{}\postdate{}
 
+\usepackage{graphicx}
 
 
 \begin{document}
@@ -101,14 +102,14 @@ question has attracted considerable attention recently following the
 financial crisis. However, virtually all of this research lacks a
 crucial variable: a real-time indication of the level of financial
 market stress that policy-makers believed that they faced. To understand
-why politicians made a given policy choice, we need to have a measure of
-what problems they faced.
+why politicians made a given policy choice, we need to have a measure
+the conditions that they believed they were responding to.
 
 Most research has used \emph{post-hoc} assessments of banking crisis as
 a second-best alternative. However, this presents clear problems.
 Chiefly, using such measures creates clear selection bias as stress that
 politicians responded to effectively will not be selected. In addition,
-these measures are typically binary and so give now indication of stress
+these measures are typically binary and so give no indication of stress
 intensity. The measures are also at gross intervals, typically yearly,
 prohibiting sub-annual analysis.
 
@@ -286,16 +287,15 @@ short sequence of letters\footnote{Following Spirling (2012), we used
   also Lodhi et al. (2002) who demonstrate that in English strings
   lengths between four and seven are often optimal.} that can be shared
 within and across words. Thus we can distinguish between two simple
-documents that involve the words `slowing credit' and `expanding
-credit'. They share the five character kernels `credit' and `ingcr', but
-differ on `wingc' and `dingc'. Using Lodhi et al. (2002) we can
-summarize the similarity of these documents using with the frequency
-distribution of five-length strings that they have in
-common--two--standardized by document length. We can find these pairs
-for all of the documents in our corpus to create a kernel matrix.
-Finally, we can scale the documents using principal component
-analysis.\footnote{We conducted kernel PCA with the R package
-  \texttt{kernlab} (Karatzoglou et al. 2004).}
+documents with the stemmed strings `slow credit' and `expand credit'.
+They share the five character kernels `credit, but differ on 'slowc' and
+`pandc' among others. Using Lodhi et al. (2002) we can summarize the
+similarity of these documents using with the frequency distribution of
+five-length strings that they have in common--one--standardized by
+document length. We can find these pairs for all of the documents in our
+corpus to create a kernel matrix. Finally, we can scale the documents
+using principal component analysis.\footnote{We conducted kernel PCA
+  with the R package \texttt{kernlab} (Karatzoglou et al. 2004).}
 
 \subsection{Characteristics of the
 Index}\label{characteristics-of-the-index}
@@ -304,7 +304,36 @@ Index}\label{characteristics-of-the-index}
 
 To determine the number of dimensions that best describe the data, we
 conducted a scree test, the results of which are shown in Figure
-{[}GET{]}.
+\ref{scree_plot}.
+
+\begin{figure}
+    \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
+    \label{scree_plot}
+    \begin{center}
+        \includegraphics[scale=0.5]{analysis/figures/scree_plot.pdf}
+    \end{center}
+\end{figure}
+
+\subsubsection{Results}\label{results}
+
+Figure \ref{basic_sample} shows the results of the kernel PCA analysis
+for a selection of countries'. We use the first principal component
+throughout the paper. Similar plots for all countries in the analysis
+are available in the Appendix. Before discussing diving deeper into
+these results, it's important to note two simple transformations we
+conducted on the raw results. First, we rescaled the index so that it
+would be between zero and one. This eases interpretation and
+comparability to other measures. Then we slightly smoothed the results
+by taking a two period--usually two months--moving average
+{[}RECONSIDER{]}. The results with these transformations are shown.
+
+\begin{figure}
+    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial marke stress)}
+    \label{scree_plot}
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
+    \end{center}
+\end{figure}
 
 \subsubsection{Representation}\label{representation}
 
@@ -320,8 +349,7 @@ Measures}\label{comparison-to-other-crisis-measures}
 How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
 dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
-Valencia (2013) as well as Romer and Romer's
-\href{mailto:-@Romer2014}{\nolinkurl{-@Romer2014}} continuous measure.
+Valencia (2013) as well as Romer and Romer's (2014) continuous measure.
 There are some limitations in comparability based simply on the
 different coverage of the different indices. C. Romer and Romer (2014)
 in particular largely does not include the most recent crisis in their
@@ -342,7 +370,7 @@ developing countries' economies {[}CITE{]}.
 
 These observations should lead to an important refinement to how the
 Index should be interpreted and how it should be used in empirical work.
-First, the Index measures banking market conditions, but not crisis
+First, the Index measures banking market conditions, but not ``crisis''
 directly. Instead, perceived crisis is likely the result of an
 interaction between the Index and the importance of financial markets
 for sustaining a country's economy. Though policy-makers in developing
@@ -364,6 +392,8 @@ rather than the process itself.
 
 \section{Conclusions and Possible Future
 Work}\label{conclusions-and-possible-future-work}
+
+\section{Appendix}\label{appendix}
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}

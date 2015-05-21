@@ -97,6 +97,11 @@ export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')
 
 #### Flip scale, rescale, and smooth ####
+<<<<<<< HEAD
+=======
+# Temporary
+results_kpca <- import('/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')
+>>>>>>> 5744d16dc045fa5423f6c0bed1ceecd0dc2b5565
 results_kpca$date <- ymd(results_kpca$date)
 
 # Function to rescale between 0 and 1
