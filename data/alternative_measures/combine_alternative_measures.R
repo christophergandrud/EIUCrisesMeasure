@@ -96,56 +96,58 @@ comb_gather <- gather(comb_sub, measure, value, 3:ncol(comb_sub))
 comb_gather$value <- comb_gather$value %>% as.numeric
 
 #### Compare to LV ####
-compare_to_dummy <- function(data_cont, data_dummy, country) {
-    temp_cont <- data_cont %>% filter_(iso2c == country)
-    temp_dummy <- data_dummy %>% filter_(iso2c == country) 
+perceptions$country <- countrycode(perceptions$iso2c, origin = 'iso2c', 
+                                   destination = 'country.name')
+lv_se$country <- countrycode(lv_se$iso2c, origin = 'iso2c', 
+                                   destination = 'country.name')
+
+compare_to_dummy <- function(data_cont, data_dummy, id) {
+    temp_cont <- subset(data_cont, country == id)
+    temp_dummy <- subset(data_dummy, country == id)
     
-    ggplot() +
-        geom_line(data = temp_cont, aes(date, C1_ma)) +
-        geom_rect(data = temp_dummy, aes(xmin = Start, xmax = End, 
-                                       ymin = -Inf, ymax = Inf), alpha = 0.4) +
-        theme_bw()
+    if (nrow(temp_dummy) == 0) {
+        ggplot(data = temp_cont, aes(date, C1_ma)) +
+            geom_line() +
+            stat_smooth(se = F, colour = 'black') +
+            scale_y_continuous(limits = c(0, 1),
+                               breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+            ggtitle(id) + xlab('') + 
+            ylab('Perceptions of \n Financial Market Conditions\n') +
+            theme_bw()
+    } else if (nrow(temp_dummy) > 0) {
+        ggplot() +
+            geom_line(data = temp_cont, aes(date, C1_ma)) +
+            stat_smooth(data = temp_cont, aes(date, C1_ma),
+                        se = F, colour = 'black') +
+            geom_rect(data = temp_dummy, aes(xmin = Start, xmax = End, 
+                                             ymin = -Inf, ymax = Inf), 
+                                             alpha = 0.4) +
+            scale_y_continuous(limits = c(0, 1),
+                               breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+            ggtitle(id) + xlab('') + 
+            ylab('Perceptions of \n Financial Market Conditions\n') +
+            theme_bw()
+    }
 }
 
+country_vector <- unique(perceptions$country)
+kpca_list <- list()
+for (i in country_vector) {
+    message(i)
+    kpca_list[[i]] <- suppressMessages(
+            compare_to_dummy(data_cont = perceptions, data_dummy = lv_se,
+                             id = i))
+}
+
+# Plot selection
+select_countries <- c('Argentina', 'Australia', 'Austria', 'Belgium', 
+                      'Brazil', 'Canada', 'China', 'Denmark', 
+                      'France', 'Germany', 'Greece', 'Iceland', 
+                      'India', 'Ireland', 'United Kingdom', 'United States'
+)
+pdf(file = 'summary_paper/analysis/figures/compare_to_lv.pdf', width = 15, 
+    height = 15)
+do.call(grid.arrange, kpca_list[select_countries])
+dev.off()
 
 
-
-
-
-
-
-jp <- comb_gather %>% filter(iso2c == 'JP')
-ggplot(jp, aes(date, value, colour = measure)) +
-        geom_line() +
-        theme_bw()
-
-AT <- comb_gather %>% filter(iso2c == 'AT')
-ggplot(AT, aes(date, value, colour = measure)) +
-    geom_line() +
-    theme_bw()
-
-de <- perceptions %>% filter(iso2c == 'DE')
-de_lv_se <- lv_se %>% filter(iso2c == 'DE') 
-ggplot() +
-    geom_line(data = de, aes(date, C1_ma)) +
-    geom_rect(data = de_lv_se, aes(xmin = Start, xmax = End, 
-                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
-    theme_bw()
-
-us <- perceptions %>% filter(iso2c == 'US')
-us_lv_se <- lv_se %>% filter(iso2c == 'US') 
-
-ggplot() +
-    geom_line(data = us, aes(date, C1_ma)) +
-    geom_rect(data = us_lv_se, aes(xmin = Start, xmax = End, 
-                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
-    theme_bw()
-
-uk <- perceptions %>% filter(iso2c == 'GB')
-uk_lv_se <- lv_se %>% filter(iso2c == 'GB') 
-
-ggplot() +
-    geom_line(data = uk, aes(date, C1_ma)) +
-    geom_rect(data = uk_lv_se, aes(xmin = Start, xmax = End, 
-                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
-    theme_bw()
