@@ -24,7 +24,7 @@ range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 perceptions <- import('data/results_kpca_rescaled.csv')
 perceptions$iso2c <- countrycode(perceptions$country, origin = 'country.name',
                            destination = 'iso2c')
-perceptions <- perceptions %>% dplyr::select(iso2c, date, C1, C2, C3)
+perceptions <- perceptions %>% dplyr::select(iso2c, date, C1, C2, C3, C1_ma)
 perceptions$date <- ymd(perceptions$date)
 
 ## Import Romer and Romer (2015)
@@ -58,6 +58,11 @@ lv <- import('data/alternative_measures/cleaned/laeven_valencia_banking_crisis.c
 lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
 lv <- lv %>% select(iso2c, date, lv_bank_crisis)
 
+lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
+lv_se$Start <- ymd(lv_se$Start)
+lv_se$End <- ymd(lv_se$End)
+lv_se <- lv_se %>% filter(Start >= '2003-01-01')
+
 # Combine
 comb <- merge(perceptions, romer_romer, by = c('iso2c', 'date'), all = T)
 comb <- merge(comb, lv, by = c('iso2c', 'date'), all = T)
@@ -69,7 +74,7 @@ comb <- comb %>% filter(date < '2012-01-01') %>% arrange(iso2c, date)
 
 
 comb <- comb %>% group_by(iso2c) %>%
-            mutate(C1 = FillDown(Var = C1)) %>%
+           # mutate(C1 = FillDown(Var = C1)) %>%
             mutate(C1 = FillDown(Var = C2)) %>%
             mutate(rr_rescale = FillDown(Var = rr_rescale)) %>%
             mutate(lv_bank_crisis = FillDown(Var = lv_bank_crisis)) %>%
@@ -90,7 +95,25 @@ comb_sub <- comb[, c('iso2c', 'date', 'C1', 'lv_bank_crisis', 'rr_rescale',
 comb_gather <- gather(comb_sub, measure, value, 3:ncol(comb_sub))
 comb_gather$value <- comb_gather$value %>% as.numeric
 
-#### Compare ####
+#### Compare to LV ####
+compare_to_dummy <- function(data_cont, data_dummy, country) {
+    temp_cont <- data_cont %>% filter_(iso2c == country)
+    temp_dummy <- data_dummy %>% filter_(iso2c == country) 
+    
+    ggplot() +
+        geom_line(data = temp_cont, aes(date, C1_ma)) +
+        geom_rect(data = temp_dummy, aes(xmin = Start, xmax = End, 
+                                       ymin = -Inf, ymax = Inf), alpha = 0.4) +
+        theme_bw()
+}
+
+
+
+
+
+
+
+
 jp <- comb_gather %>% filter(iso2c == 'JP')
 ggplot(jp, aes(date, value, colour = measure)) +
         geom_line() +
@@ -101,12 +124,28 @@ ggplot(AT, aes(date, value, colour = measure)) +
     geom_line() +
     theme_bw()
 
-de <- comb_gather %>% filter(iso2c == 'DE')
-ggplot(de, aes(date, value, colour = measure)) +
-    geom_line() +
+de <- perceptions %>% filter(iso2c == 'DE')
+de_lv_se <- lv_se %>% filter(iso2c == 'DE') 
+ggplot() +
+    geom_line(data = de, aes(date, C1_ma)) +
+    geom_rect(data = de_lv_se, aes(xmin = Start, xmax = End, 
+                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
     theme_bw()
 
-us <- comb_gather %>% filter(iso2c == 'US')
-ggplot(us, aes(date, value, colour = measure)) +
-    geom_line() +
+us <- perceptions %>% filter(iso2c == 'US')
+us_lv_se <- lv_se %>% filter(iso2c == 'US') 
+
+ggplot() +
+    geom_line(data = us, aes(date, C1_ma)) +
+    geom_rect(data = us_lv_se, aes(xmin = Start, xmax = End, 
+                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
+    theme_bw()
+
+uk <- perceptions %>% filter(iso2c == 'GB')
+uk_lv_se <- lv_se %>% filter(iso2c == 'GB') 
+
+ggplot() +
+    geom_line(data = uk, aes(date, C1_ma)) +
+    geom_rect(data = uk_lv_se, aes(xmin = Start, xmax = End, 
+                                   ymin = -Inf, ymax = Inf), alpha = 0.4) +
     theme_bw()

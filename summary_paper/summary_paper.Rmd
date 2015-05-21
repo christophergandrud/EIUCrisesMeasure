@@ -15,15 +15,15 @@ linestretch: 1.5
 
 **Abstract**[^ThankYou]
 
-> This paper describes the motivation and construction of a new measure of
-real-time perceptions of financial market stress based on machine classification of
-[Economist Intelligence Unit](http://www.eiu.com/) monthly country reports.
+> This paper describes the motivation and construction of our new measure of
+real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of
+[Economist Intelligence Unit](http://www.eiu.com/) monthly country reports. Not only do we develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
 
 Why and how do politicians respond to financial market stress? This question has attracted considerable attention recently following the 2007-2009 financial crisis and earlier following the late-1990s Asian financial crisis. However, virtually all of this research lacks a crucial variable: a real-time indication of the level of financial market stress that policy-makers believed that they faced. To understand why politicians made a given policy choice, we need to have a measure the conditions that they believed they were responding to.
 
 Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected. In addition, these measures are typically binary and so give no indication of stress intensity. The measures are also at gross intervals, typically yearly, prohibiting sub-annual analysis.
 
-In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The index is created using a kernel principal component analysis of monthly Economist Intelligence Unit (EIU) reports. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis.
+In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The index is created using a kernel principal component analysis (PCA) of monthly Economist Intelligence Unit (EIU) reports. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series indicators.
 
 We start the paper by detailing our motivation for creating a real-time index of perceptions of financial market stress. We then discuss the construction of the Index and compare it to widely used previous measures of financial market stress. [WOULD BE NICE TO HAVE A REPLICATION OF AN IMPORTANT PAPER].
 
@@ -51,7 +51,7 @@ We propose a new method of estimating a real-time measure of perceptions of fina
 
 The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports are both a summary of real-time information and forecasts on counties' economic conditions as well as a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
 
-## Summarising Financial Market Stress in the EIU
+## Summarizing Financial Market Stress in the EIU
 
 Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less stressed spectrum. So we clearly need an efficient way to summarize the vast quantity of information in the EIU reports. To do this we first collected and processed the texts. Then we used kernel principal component analysis to summarize the texts into a dimension of financial market stress. We rescaled the Index to ease interpretation. Finally, we used a number of strategies to examine the Index's validity.
 
@@ -71,7 +71,7 @@ In order to address these issues we use kernel principal component analysis. Thi
 
 ### Dimensionality
 
-To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is not a clear 'elbow' in the plot. This suggests that there is perhaps substantively meaningful variation in the first six dimensions. The drop from the first to second component is substantial. We focus on it as the main dimensions summarising financial market conditions.[^other-dimensions]
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is not a clear 'elbow' in the plot. This suggests that there is perhaps substantively meaningful variation in the first six dimensions. The drop from the first to second component is substantial. We focus on it as the main dimensions summarizing financial market conditions.[^other-dimensions]
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
