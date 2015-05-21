@@ -83,10 +83,8 @@ c1_cor <- cor_pca('C1')
 c2_cor <- cor_pca('C2')
 c3_cor <- cor_pca('C3')
 
-
-
 #### Random forest test ####
-library(randomForest)
+library(randomForestSRC)
 
 comb <- cbind(kpca$C1, term_freq)
 comb <- dplyr::rename(comb, C1 = `kpca$C1`)
@@ -95,16 +93,6 @@ addq <- function(x) paste0("`", x, "`")
 
 form <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
           as.formula
-#[sample(1:ncol(term_freq), 350)]
-rf1 <- randomForest(form, data = comb, importance = T, do.trace = 100)
-
-term_names <- rownames(importance(rf1))
-term_importance <- cbind.data.frame(term_names, importance(rf1))
-term_importance <- term_importance %>% arrange(desc(`%IncMSE`))
-
-
-#### Try bigrf ####
-library(randomForestSRC)
 
 rfsrc_test <- rfsrc(form, data = comb)
 plot(rfsrc_test)
