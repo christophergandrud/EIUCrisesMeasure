@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 19 May 2015
+# 20 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+setwd('~/Desktop/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -35,7 +35,7 @@ date_country$date <- ymd(date_country$date)
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
-                    # tm_map(stemDocument, mc.cores = 1) %>%
+                    tm_map(stemDocument, mc.cores = 1) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 1) %>%
@@ -97,8 +97,6 @@ export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')
 
 #### Flip scale, rescale, and smooth ####
-# Temporary
-results_kpca <- import('/git_repositories/EIUCrisesMeasure/data/results_kpca.csv')
 results_kpca$date <- ymd(results_kpca$date)
 
 # Function to rescale between 0 and 1
@@ -125,7 +123,7 @@ results_kpca <- results_kpca %>% group_by(country) %>%
                 mutate(C1_ma = sma_mod(C1))
 
 export(results_kpca,
-       file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca.csv')
+       file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
 #### ----------------- Plot results --------------------------------------- ####
 kpca_plotter <- function(indvidual, data = results_kpca){
@@ -169,4 +167,5 @@ do.call(grid.arrange, kpca_changepoint)
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
+export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_2015_05_21a.csv')
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
