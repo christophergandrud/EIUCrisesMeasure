@@ -43,5 +43,10 @@ lv_filled <- TimeFill(raw_lv, GroupVar = 'country', StartVar = 'Start',
                       EndVar = 'End', NewTimeVar = 'year', 
                       NewVar = 'lv_bank_crisis')
 
+lv_filled$iso2c <- countrycode(lv_filled$country, origin = 'country.name', 
+                               destination = 'iso2c') 
+
+lv_filled <- lv_filled %>% select(iso2c, year, lv_bank_crisis)
+
 export(lv_filled, 'cleaned/laeven_valencia_banking_crisis.csv')
 

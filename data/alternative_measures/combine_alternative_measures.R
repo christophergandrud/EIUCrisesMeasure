@@ -4,6 +4,9 @@
 # MIT License
 #########################################
 
+# Set working directory
+setwd('/git_repositories/EIUCrisesMeasure/')
+
 # Load required packages
 library(rio)
 library(psData)
@@ -18,49 +21,73 @@ library(ggplot2)
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 
 ## Import MIMFS
-mifms <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca.csv')
-mifms$iso2c <- countrycode(mifms$country, origin = 'country.name', 
+perceptions <- import('data/results_kpca_rescaled.csv')
+perceptions$iso2c <- countrycode(perceptions$country, origin = 'country.name',
                            destination = 'iso2c')
-mifms <- mifms %>% dplyr::select(iso2c, date, C1)
-mifms$date <- ymd(mifms$date) 
-
-mifms$C1 <- mifms$C1* -1
-mifms$mifms <-  range01(mifms$C1)
+perceptions <- perceptions %>% dplyr::select(iso2c, date, C1, C2, C3)
+perceptions$date <- ymd(perceptions$date)
 
 ## Import Romer and Romer (2015)
-romer_romer <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/alternative_measures/rommer_romer.csv')
+romer_romer <- import('data/alternative_measures/cleaned/rommer_romer.csv')
 romer_romer$date <- ymd(romer_romer$date)
 romer_romer <- romer_romer %>% select(-country)
 
 romer_romer$rr_rescale <- range01(romer_romer$rr_distress)
 
 ## Reinhart and Rogoff
-rein_rog <- RRCrisisGet()
-rein_rog_sub <- rein_rog %>% select(iso2c, year, RR_BankingCrisis, 
-                                    RR_StockMarketCrash, RR_CurrencyCrisis)
-rein_rog_sub$date <- sprintf('%s-06-01', rein_rog_sub$year)
-rein_rog_sub$date <- ymd(rein_rog_sub$date)
-rein_rog_sub <- rein_rog_sub %>% select(-year)
+cleaned_data <- list.files('data/alternative_measures/cleaned/')
+if (!('reinhart_rogoff.csv' %in% cleaned_data)) {
+    rein_rog <- RRCrisisGet()
+    rein_rog_sub <- rein_rog %>% select(iso2c, year, RR_BankingCrisis,
+                                        RR_StockMarketCrash, RR_CurrencyCrisis)
+    rein_rog_sub$date <- sprintf('%s-06-01', rein_rog_sub$year)
+    rein_rog_sub$date <- ymd(rein_rog_sub$date)
+    rein_rog_sub <- rein_rog_sub %>% select(-year)
+
+    export(rein_rog_sub,
+           file = 'data/alternative_measures/cleaned/reinhart_rogoff.csv')
+} else if (('reinhart_rogoff.csv' %in% cleaned_data)) {
+    rein_rog_sub <- import('data/alternative_measures/cleaned/reinhart_rogoff.csv')
+    rein_rog_sub$date <- ymd(rein_rog_sub$date)
+}
 
 ## Laeven and Valencia
+lv <- import('data/alternative_measures/cleaned/laeven_valencia_banking_crisis.csv')
 
+# Assume date is 1 June
+lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
+lv <- lv %>% select(iso2c, date, lv_bank_crisis)
 
 # Combine
-comb <- merge(mifms, romer_romer, by = c('iso2c', 'date'), all = T)
+comb <- merge(perceptions, romer_romer, by = c('iso2c', 'date'), all = T)
+comb <- merge(comb, lv, by = c('iso2c', 'date'), all = T)
 comb <- merge(comb, rein_rog_sub, by = c('iso2c', 'date'), all = T)
-# Subset to be from 2003
+comb$date <- ymd(comb$date)
+# Subset to be from 2003 to 2012
 comb <- comb %>% filter(date >= '2003-01-01') %>% arrange(iso2c, date)
+comb <- comb %>% filter(date < '2012-01-01') %>% arrange(iso2c, date)
 
-comb <- comb %>% group_by(iso2c) %>% 
+
+comb <- comb %>% group_by(iso2c) %>%
+            mutate(C1 = FillDown(Var = C1)) %>%
+            mutate(C1 = FillDown(Var = C2)) %>%
             mutate(rr_rescale = FillDown(Var = rr_rescale)) %>%
+            mutate(lv_bank_crisis = FillDown(Var = lv_bank_crisis)) %>%
             mutate(RR_BankingCrisis = FillDown(Var = RR_BankingCrisis)) %>%
-            mutate(RR_StockMarketCrash = FillDown(Var = RR_StockMarketCrash)) %>%
+            mutate(RR_StockMarketCrash = 
+                       FillDown(Var = RR_StockMarketCrash)) %>%
             mutate(RR_CurrencyCrisis = FillDown(Var = RR_CurrencyCrisis))
 
+comb$rr_rescale[comb$date >= '2008-01-01'] <- NA
+
+
+cor.test(comb$C1, comb$lv_bank_crisis)
+cor.test(comb$C2, comb$lv_bank_crisis)
+
 # Reshape
-comb <- comb[, c('iso2c', 'date', 'mifms', 'rr_rescale', 'RR_BankingCrisis',
-                 'RR_StockMarketCrash')]
-comb_gather <- gather(comb, measure, value, 3:ncol(comb))
+comb_sub <- comb[, c('iso2c', 'date', 'C1', 'lv_bank_crisis', 'rr_rescale',
+                 'RR_BankingCrisis')]
+comb_gather <- gather(comb_sub, measure, value, 3:ncol(comb_sub))
 comb_gather$value <- comb_gather$value %>% as.numeric
 
 #### Compare ####
@@ -69,8 +96,8 @@ ggplot(jp, aes(date, value, colour = measure)) +
         geom_line() +
         theme_bw()
 
-tr <- comb_gather %>% filter(iso2c == 'TR')
-ggplot(tr, aes(date, value, colour = measure)) +
+AT <- comb_gather %>% filter(iso2c == 'AT')
+ggplot(AT, aes(date, value, colour = measure)) +
     geom_line() +
     theme_bw()
 
@@ -83,4 +110,3 @@ us <- comb_gather %>% filter(iso2c == 'US')
 ggplot(us, aes(date, value, colour = measure)) +
     geom_line() +
     theme_bw()
-

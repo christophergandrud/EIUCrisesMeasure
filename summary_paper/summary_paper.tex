@@ -249,9 +249,8 @@ and Stewart 2013).\footnote{All preprocessing was done using the
   \texttt{tm} package (Feinerer and Hornik 2015) in R (R Core Team
   2015).} This involved removing common English words, such as `was' and
 `its', stemming the words so that different variants of the same word
-are grouped together {[}MAYBE DON'T DO{]}, removing extra whitespace
-between the words, converting the words to lower case {[}MAYBE DON'T
-DO{]}, removing punctuation and numbers. Finally, we dropped texts that
+are grouped together, removing extra whitespace between the words,
+removing punctuation and numbers. Finally, we dropped texts that
 included very few words (less than six). Including these texts prevented
 the estimation of the kernel PCA model.
 
@@ -304,7 +303,13 @@ Index}\label{characteristics-of-the-index}
 
 To determine the number of dimensions that best describe the data, we
 conducted a scree test, the results of which are shown in Figure
-\ref{scree_plot}.
+\ref{scree_plot}. There is not a clear `elbow' in the plot. This
+suggests that there is perhaps substantively meaningful variation in the
+first six dimensions. The drop from the first to second component is
+substantial. We focus on it as the main dimensions summarising financial
+market conditions.\footnote{We also examined a number of the other
+  dimensions. However, these noticeably did not closely correspond to
+  our priors about financial market stress based on previous indicators.}
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
@@ -324,11 +329,11 @@ these results, it's important to note two simple transformations we
 conducted on the raw results. First, we rescaled the index so that it
 would be between zero and one. This eases interpretation and
 comparability to other measures. Then we slightly smoothed the results
-by taking a two period--usually two months--moving average
-{[}RECONSIDER{]}. The results with these transformations are shown.
+by taking a two period--usually two months--moving average. The results
+with these transformations are shown.
 
 \begin{figure}
-    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial marke stress)}
+    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial market stress)}
     \label{scree_plot}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
@@ -350,10 +355,19 @@ How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
 dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
 Valencia (2013) as well as Romer and Romer's (2014) continuous measure.
+
 There are some limitations in comparability based simply on the
 different coverage of the different indices. C. Romer and Romer (2014)
 in particular largely does not include the most recent crisis in their
-sample.
+sample as they did not collect data past 2007. We had to make a number
+of transformations and assumptions to be able to compare the different
+data sets. First, the Laeven and Valencia and Reinhart and Rogoff data
+on recorded only at yearly intervals. So, we assumed that the crisis
+start and end dates they referred to were in the middle of the year,
+i.e.~June. Second, we rescaled Romer and Romer's 15-point scale (in
+effect 13-points because they do not classify any country-quarter in
+their sample as being at the upper two positions on the scale) to be
+between 0 and 1 using the same method as above.
 
 \subsubsection{Developed vs.~Developing
 countries}\label{developed-vs.developing-countries}

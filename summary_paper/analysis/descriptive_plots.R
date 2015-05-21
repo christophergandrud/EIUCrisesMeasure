@@ -15,7 +15,7 @@ library(gridExtra)
 setwd('/git_repositories/EIUCrisesMeasure/')
 
 #### Scree plot ####
-eigen <- import('data/kpca_eigen_2015_03_18.csv')
+eigen <- import('data/kpca_eigen_2015_05_21a.csv')
 
 ggplot(eigen, aes(components, eigenvalues)) +
     geom_line() +
@@ -57,9 +57,12 @@ for (i in country_vector) {
 }
 
 # Plot selection
-select_countries <- c('Australia', 'Austria', 'Belgium', 'Brazil', 'China',
-                    'Iceland', 'India', 'Ireland', 'United Kingdom', 'United States'
+select_countries <- c('Argentina', 'Australia', 'Austria', 'Belgium', 
+                      'Brazil', 'Canada', 'China', 'Denmark', 
+                      'France', 'Germany', 'Greece', 'Iceland', 
+                      'India', 'Ireland', 'United Kingdom', 'United States'
                     )
-pdf(file = 'summary_paper/analysis/figures/select_scores.pdf', width = 15)
-plots <- do.call(grid.arrange, kpca_list[select_countries])
+pdf(file = 'summary_paper/analysis/figures/select_scores.pdf', width = 15, 
+    height = 15)
+do.call(grid.arrange, kpca_list[select_countries])
 dev.off()

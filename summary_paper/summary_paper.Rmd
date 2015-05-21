@@ -59,7 +59,7 @@ Our aim is to create an index that classifies financial conditions on a continuo
 
 EIU reports contain assessments of a wide range of countries' economies, not just their financial system. So, our first step was to select the portions of the EIU texts that contained relevant information about countries' banking and financial systems. We collected the parsed reports--the reports were in HTML format. We then extracted the portions of the texts--headlines and paragraphs--that contained at least one of a number of keywords concerning banking and financial markets.[^keywords] Due to a significant change in how the reports were constructed in 2003, we also selected only texts from 2003 in order to maintain comparability across the time-series.
 
-We then preprocessed these texts using standard techniques [see @Grimmer2013].[^tm-package] This involved removing common English words, such as 'was' and 'its', stemming the words so that different variants of the same word are grouped together [MAYBE DON'T DO], removing extra whitespace between the words, converting the words to lower case [MAYBE DON'T DO], removing punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented the estimation of the kernel PCA model.
+We then preprocessed these texts using standard techniques [see @Grimmer2013].[^tm-package] This involved removing common English words, such as 'was' and 'its', stemming the words so that different variants of the same word are grouped together, removing extra whitespace between the words, removing punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented the estimation of the kernel PCA model.
 
 ### Kernel Principal Component Analysis
 
@@ -71,7 +71,7 @@ In order to address these issues we use kernel principal component analysis. Thi
 
 ### Dimensionality
 
-To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}.
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is not a clear 'elbow' in the plot. This suggests that there is perhaps substantively meaningful variation in the first six dimensions. The drop from the first to second component is substantial. We focus on it as the main dimensions summarising financial market conditions.[^other-dimensions]
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
@@ -83,10 +83,10 @@ To determine the number of dimensions that best describe the data, we conducted 
 
 ### Results
 
-Figure \ref{basic_sample} shows the results of the kernel PCA analysis for a selection of countries'. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one. This eases interpretation and comparability to other measures. Then we slightly smoothed the results by taking a two period--usually two months--moving average [RECONSIDER]. The results with these transformations are shown.
+Figure \ref{basic_sample} shows the results of the kernel PCA analysis for a selection of countries'. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one. This eases interpretation and comparability to other measures. Then we slightly smoothed the results by taking a two period--usually two months--moving average. The results with these transformations are shown.
 
 \begin{figure}
-    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial marke stress)}
+    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial market stress)}
     \label{scree_plot}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
@@ -100,7 +100,9 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ### Comparison to Other Crisis Measures
 
-How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure. There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample.
+How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure.
+
+There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above.
 
 ### Developed vs. Developing countries
 
@@ -137,3 +139,5 @@ Previous measures of financial market distress and crises have generally been un
 [^kernel-length]: Following @Spirling2012, we used kernels with a length of 5, i.e. those that are five letters long. See also @lodhi2002 who demonstrate that in English strings lengths between four and seven are often optimal.  
 
 [^cite-kernlab]: We conducted kernel PCA with the R package `kernlab` [@kerblabCite].
+
+[^other-dimensions]: We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.

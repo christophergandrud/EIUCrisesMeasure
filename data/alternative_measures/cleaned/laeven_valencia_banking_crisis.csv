@@ -1,4552 +1,4552 @@
-"country","year","lv_bank_crisis"
-"Albania ",1976,0
-"Albania ",1977,0
-"Albania ",1978,0
-"Albania ",1979,0
-"Albania ",1980,0
-"Albania ",1981,0
-"Albania ",1982,0
-"Albania ",1983,0
-"Albania ",1984,0
-"Albania ",1985,0
-"Albania ",1986,0
-"Albania ",1987,0
-"Albania ",1988,0
-"Albania ",1989,0
-"Albania ",1990,0
-"Albania ",1991,0
-"Albania ",1992,0
-"Albania ",1993,0
-"Albania ",1994,1
-"Albania ",1995,0
-"Albania ",1996,0
-"Albania ",1997,0
-"Albania ",1998,0
-"Albania ",1999,0
-"Albania ",2000,0
-"Albania ",2001,0
-"Albania ",2002,0
-"Albania ",2003,0
-"Albania ",2004,0
-"Albania ",2005,0
-"Albania ",2006,0
-"Albania ",2007,0
-"Albania ",2008,0
-"Albania ",2009,0
-"Albania ",2010,0
-"Albania ",2011,0
-"Albania ",2012,0
-"Algeria",1976,0
-"Algeria",1977,0
-"Algeria",1978,0
-"Algeria",1979,0
-"Algeria",1980,0
-"Algeria",1981,0
-"Algeria",1982,0
-"Algeria",1983,0
-"Algeria",1984,0
-"Algeria",1985,0
-"Algeria",1986,0
-"Algeria",1987,0
-"Algeria",1988,0
-"Algeria",1989,0
-"Algeria",1990,1
-"Algeria",1991,1
-"Algeria",1992,1
-"Algeria",1993,1
-"Algeria",1994,1
-"Algeria",1995,0
-"Algeria",1996,0
-"Algeria",1997,0
-"Algeria",1998,0
-"Algeria",1999,0
-"Algeria",2000,0
-"Algeria",2001,0
-"Algeria",2002,0
-"Algeria",2003,0
-"Algeria",2004,0
-"Algeria",2005,0
-"Algeria",2006,0
-"Algeria",2007,0
-"Algeria",2008,0
-"Algeria",2009,0
-"Algeria",2010,0
-"Algeria",2011,0
-"Algeria",2012,0
-"Argentina",1976,0
-"Argentina",1977,0
-"Argentina",1978,0
-"Argentina",1979,0
-"Argentina",1980,1
-"Argentina",1981,1
-"Argentina",1982,1
-"Argentina",1983,0
-"Argentina",1984,0
-"Argentina",1985,0
-"Argentina",1986,0
-"Argentina",1987,0
-"Argentina",1988,0
-"Argentina",1989,1
-"Argentina",1990,1
-"Argentina",1991,1
-"Argentina",1992,0
-"Argentina",1993,0
-"Argentina",1994,0
-"Argentina",1995,0
-"Argentina",1996,0
-"Argentina",1997,0
-"Argentina",1998,0
-"Argentina",1999,0
-"Argentina",2000,0
-"Argentina",2001,1
-"Argentina",2002,1
-"Argentina",2003,1
-"Argentina",2004,0
-"Argentina",2005,0
-"Argentina",2006,0
-"Argentina",2007,0
-"Argentina",2008,0
-"Argentina",2009,0
-"Argentina",2010,0
-"Argentina",2011,0
-"Argentina",2012,0
-"Argentina ",1976,0
-"Argentina ",1977,0
-"Argentina ",1978,0
-"Argentina ",1979,0
-"Argentina ",1980,0
-"Argentina ",1981,0
-"Argentina ",1982,0
-"Argentina ",1983,0
-"Argentina ",1984,0
-"Argentina ",1985,0
-"Argentina ",1986,0
-"Argentina ",1987,0
-"Argentina ",1988,0
-"Argentina ",1989,0
-"Argentina ",1990,0
-"Argentina ",1991,0
-"Argentina ",1992,0
-"Argentina ",1993,0
-"Argentina ",1994,0
-"Argentina ",1995,1
-"Argentina ",1996,0
-"Argentina ",1997,0
-"Argentina ",1998,0
-"Argentina ",1999,0
-"Argentina ",2000,0
-"Argentina ",2001,0
-"Argentina ",2002,0
-"Argentina ",2003,0
-"Argentina ",2004,0
-"Argentina ",2005,0
-"Argentina ",2006,0
-"Argentina ",2007,0
-"Argentina ",2008,0
-"Argentina ",2009,0
-"Argentina ",2010,0
-"Argentina ",2011,0
-"Argentina ",2012,0
-"Armenia",1976,0
-"Armenia",1977,0
-"Armenia",1978,0
-"Armenia",1979,0
-"Armenia",1980,0
-"Armenia",1981,0
-"Armenia",1982,0
-"Armenia",1983,0
-"Armenia",1984,0
-"Armenia",1985,0
-"Armenia",1986,0
-"Armenia",1987,0
-"Armenia",1988,0
-"Armenia",1989,0
-"Armenia",1990,0
-"Armenia",1991,0
-"Armenia",1992,0
-"Armenia",1993,0
-"Armenia",1994,1
-"Armenia",1995,0
-"Armenia",1996,0
-"Armenia",1997,0
-"Armenia",1998,0
-"Armenia",1999,0
-"Armenia",2000,0
-"Armenia",2001,0
-"Armenia",2002,0
-"Armenia",2003,0
-"Armenia",2004,0
-"Armenia",2005,0
-"Armenia",2006,0
-"Armenia",2007,0
-"Armenia",2008,0
-"Armenia",2009,0
-"Armenia",2010,0
-"Armenia",2011,0
-"Armenia",2012,0
-"Austria",1976,0
-"Austria",1977,0
-"Austria",1978,0
-"Austria",1979,0
-"Austria",1980,0
-"Austria",1981,0
-"Austria",1982,0
-"Austria",1983,0
-"Austria",1984,0
-"Austria",1985,0
-"Austria",1986,0
-"Austria",1987,0
-"Austria",1988,0
-"Austria",1989,0
-"Austria",1990,0
-"Austria",1991,0
-"Austria",1992,0
-"Austria",1993,0
-"Austria",1994,0
-"Austria",1995,0
-"Austria",1996,0
-"Austria",1997,0
-"Austria",1998,0
-"Austria",1999,0
-"Austria",2000,0
-"Austria",2001,0
-"Austria",2002,0
-"Austria",2003,0
-"Austria",2004,0
-"Austria",2005,0
-"Austria",2006,0
-"Austria",2007,0
-"Austria",2008,1
-"Austria",2009,1
-"Austria",2010,1
-"Austria",2011,1
-"Austria",2012,1
-"Azerbaijan ",1976,0
-"Azerbaijan ",1977,0
-"Azerbaijan ",1978,0
-"Azerbaijan ",1979,0
-"Azerbaijan ",1980,0
-"Azerbaijan ",1981,0
-"Azerbaijan ",1982,0
-"Azerbaijan ",1983,0
-"Azerbaijan ",1984,0
-"Azerbaijan ",1985,0
-"Azerbaijan ",1986,0
-"Azerbaijan ",1987,0
-"Azerbaijan ",1988,0
-"Azerbaijan ",1989,0
-"Azerbaijan ",1990,0
-"Azerbaijan ",1991,0
-"Azerbaijan ",1992,0
-"Azerbaijan ",1993,0
-"Azerbaijan ",1994,0
-"Azerbaijan ",1995,1
-"Azerbaijan ",1996,0
-"Azerbaijan ",1997,0
-"Azerbaijan ",1998,0
-"Azerbaijan ",1999,0
-"Azerbaijan ",2000,0
-"Azerbaijan ",2001,0
-"Azerbaijan ",2002,0
-"Azerbaijan ",2003,0
-"Azerbaijan ",2004,0
-"Azerbaijan ",2005,0
-"Azerbaijan ",2006,0
-"Azerbaijan ",2007,0
-"Azerbaijan ",2008,0
-"Azerbaijan ",2009,0
-"Azerbaijan ",2010,0
-"Azerbaijan ",2011,0
-"Azerbaijan ",2012,0
-"Bangladesh",1976,0
-"Bangladesh",1977,0
-"Bangladesh",1978,0
-"Bangladesh",1979,0
-"Bangladesh",1980,0
-"Bangladesh",1981,0
-"Bangladesh",1982,0
-"Bangladesh",1983,0
-"Bangladesh",1984,0
-"Bangladesh",1985,0
-"Bangladesh",1986,0
-"Bangladesh",1987,1
-"Bangladesh",1988,0
-"Bangladesh",1989,0
-"Bangladesh",1990,0
-"Bangladesh",1991,0
-"Bangladesh",1992,0
-"Bangladesh",1993,0
-"Bangladesh",1994,0
-"Bangladesh",1995,0
-"Bangladesh",1996,0
-"Bangladesh",1997,0
-"Bangladesh",1998,0
-"Bangladesh",1999,0
-"Bangladesh",2000,0
-"Bangladesh",2001,0
-"Bangladesh",2002,0
-"Bangladesh",2003,0
-"Bangladesh",2004,0
-"Bangladesh",2005,0
-"Bangladesh",2006,0
-"Bangladesh",2007,0
-"Bangladesh",2008,0
-"Bangladesh",2009,0
-"Bangladesh",2010,0
-"Bangladesh",2011,0
-"Bangladesh",2012,0
-"Belarus ",1976,0
-"Belarus ",1977,0
-"Belarus ",1978,0
-"Belarus ",1979,0
-"Belarus ",1980,0
-"Belarus ",1981,0
-"Belarus ",1982,0
-"Belarus ",1983,0
-"Belarus ",1984,0
-"Belarus ",1985,0
-"Belarus ",1986,0
-"Belarus ",1987,0
-"Belarus ",1988,0
-"Belarus ",1989,0
-"Belarus ",1990,0
-"Belarus ",1991,0
-"Belarus ",1992,0
-"Belarus ",1993,0
-"Belarus ",1994,0
-"Belarus ",1995,1
-"Belarus ",1996,0
-"Belarus ",1997,0
-"Belarus ",1998,0
-"Belarus ",1999,0
-"Belarus ",2000,0
-"Belarus ",2001,0
-"Belarus ",2002,0
-"Belarus ",2003,0
-"Belarus ",2004,0
-"Belarus ",2005,0
-"Belarus ",2006,0
-"Belarus ",2007,0
-"Belarus ",2008,0
-"Belarus ",2009,0
-"Belarus ",2010,0
-"Belarus ",2011,0
-"Belarus ",2012,0
-"Belgium",1976,0
-"Belgium",1977,0
-"Belgium",1978,0
-"Belgium",1979,0
-"Belgium",1980,0
-"Belgium",1981,0
-"Belgium",1982,0
-"Belgium",1983,0
-"Belgium",1984,0
-"Belgium",1985,0
-"Belgium",1986,0
-"Belgium",1987,0
-"Belgium",1988,0
-"Belgium",1989,0
-"Belgium",1990,0
-"Belgium",1991,0
-"Belgium",1992,0
-"Belgium",1993,0
-"Belgium",1994,0
-"Belgium",1995,0
-"Belgium",1996,0
-"Belgium",1997,0
-"Belgium",1998,0
-"Belgium",1999,0
-"Belgium",2000,0
-"Belgium",2001,0
-"Belgium",2002,0
-"Belgium",2003,0
-"Belgium",2004,0
-"Belgium",2005,0
-"Belgium",2006,0
-"Belgium",2007,0
-"Belgium",2008,1
-"Belgium",2009,1
-"Belgium",2010,1
-"Belgium",2011,1
-"Belgium",2012,1
-"Benin",1976,0
-"Benin",1977,0
-"Benin",1978,0
-"Benin",1979,0
-"Benin",1980,0
-"Benin",1981,0
-"Benin",1982,0
-"Benin",1983,0
-"Benin",1984,0
-"Benin",1985,0
-"Benin",1986,0
-"Benin",1987,0
-"Benin",1988,1
-"Benin",1989,1
-"Benin",1990,1
-"Benin",1991,1
-"Benin",1992,1
-"Benin",1993,0
-"Benin",1994,0
-"Benin",1995,0
-"Benin",1996,0
-"Benin",1997,0
-"Benin",1998,0
-"Benin",1999,0
-"Benin",2000,0
-"Benin",2001,0
-"Benin",2002,0
-"Benin",2003,0
-"Benin",2004,0
-"Benin",2005,0
-"Benin",2006,0
-"Benin",2007,0
-"Benin",2008,0
-"Benin",2009,0
-"Benin",2010,0
-"Benin",2011,0
-"Benin",2012,0
-"Bolivia",1976,0
-"Bolivia",1977,0
-"Bolivia",1978,0
-"Bolivia",1979,0
-"Bolivia",1980,0
-"Bolivia",1981,0
-"Bolivia",1982,0
-"Bolivia",1983,0
-"Bolivia",1984,0
-"Bolivia",1985,0
-"Bolivia",1986,1
-"Bolivia",1987,0
-"Bolivia",1988,0
-"Bolivia",1989,0
-"Bolivia",1990,0
-"Bolivia",1991,0
-"Bolivia",1992,0
-"Bolivia",1993,0
-"Bolivia",1994,1
-"Bolivia",1995,0
-"Bolivia",1996,0
-"Bolivia",1997,0
-"Bolivia",1998,0
-"Bolivia",1999,0
-"Bolivia",2000,0
-"Bolivia",2001,0
-"Bolivia",2002,0
-"Bolivia",2003,0
-"Bolivia",2004,0
-"Bolivia",2005,0
-"Bolivia",2006,0
-"Bolivia",2007,0
-"Bolivia",2008,0
-"Bolivia",2009,0
-"Bolivia",2010,0
-"Bolivia",2011,0
-"Bolivia",2012,0
-"Bosnia and Herzegovina ",1976,0
-"Bosnia and Herzegovina ",1977,0
-"Bosnia and Herzegovina ",1978,0
-"Bosnia and Herzegovina ",1979,0
-"Bosnia and Herzegovina ",1980,0
-"Bosnia and Herzegovina ",1981,0
-"Bosnia and Herzegovina ",1982,0
-"Bosnia and Herzegovina ",1983,0
-"Bosnia and Herzegovina ",1984,0
-"Bosnia and Herzegovina ",1985,0
-"Bosnia and Herzegovina ",1986,0
-"Bosnia and Herzegovina ",1987,0
-"Bosnia and Herzegovina ",1988,0
-"Bosnia and Herzegovina ",1989,0
-"Bosnia and Herzegovina ",1990,0
-"Bosnia and Herzegovina ",1991,0
-"Bosnia and Herzegovina ",1992,1
-"Bosnia and Herzegovina ",1993,1
-"Bosnia and Herzegovina ",1994,1
-"Bosnia and Herzegovina ",1995,1
-"Bosnia and Herzegovina ",1996,1
-"Bosnia and Herzegovina ",1997,0
-"Bosnia and Herzegovina ",1998,0
-"Bosnia and Herzegovina ",1999,0
-"Bosnia and Herzegovina ",2000,0
-"Bosnia and Herzegovina ",2001,0
-"Bosnia and Herzegovina ",2002,0
-"Bosnia and Herzegovina ",2003,0
-"Bosnia and Herzegovina ",2004,0
-"Bosnia and Herzegovina ",2005,0
-"Bosnia and Herzegovina ",2006,0
-"Bosnia and Herzegovina ",2007,0
-"Bosnia and Herzegovina ",2008,0
-"Bosnia and Herzegovina ",2009,0
-"Bosnia and Herzegovina ",2010,0
-"Bosnia and Herzegovina ",2011,0
-"Bosnia and Herzegovina ",2012,0
-"Brazil",1976,0
-"Brazil",1977,0
-"Brazil",1978,0
-"Brazil",1979,0
-"Brazil",1980,0
-"Brazil",1981,0
-"Brazil",1982,0
-"Brazil",1983,0
-"Brazil",1984,0
-"Brazil",1985,0
-"Brazil",1986,0
-"Brazil",1987,0
-"Brazil",1988,0
-"Brazil",1989,0
-"Brazil",1990,0
-"Brazil",1991,0
-"Brazil",1992,0
-"Brazil",1993,0
-"Brazil",1994,1
-"Brazil",1995,1
-"Brazil",1996,1
-"Brazil",1997,1
-"Brazil",1998,1
-"Brazil",1999,0
-"Brazil",2000,0
-"Brazil",2001,0
-"Brazil",2002,0
-"Brazil",2003,0
-"Brazil",2004,0
-"Brazil",2005,0
-"Brazil",2006,0
-"Brazil",2007,0
-"Brazil",2008,0
-"Brazil",2009,0
-"Brazil",2010,0
-"Brazil",2011,0
-"Brazil",2012,0
-"Brazil ",1976,0
-"Brazil ",1977,0
-"Brazil ",1978,0
-"Brazil ",1979,0
-"Brazil ",1980,0
-"Brazil ",1981,0
-"Brazil ",1982,0
-"Brazil ",1983,0
-"Brazil ",1984,0
-"Brazil ",1985,0
-"Brazil ",1986,0
-"Brazil ",1987,0
-"Brazil ",1988,0
-"Brazil ",1989,0
-"Brazil ",1990,1
-"Brazil ",1991,1
-"Brazil ",1992,1
-"Brazil ",1993,1
-"Brazil ",1994,1
-"Brazil ",1995,0
-"Brazil ",1996,0
-"Brazil ",1997,0
-"Brazil ",1998,0
-"Brazil ",1999,0
-"Brazil ",2000,0
-"Brazil ",2001,0
-"Brazil ",2002,0
-"Brazil ",2003,0
-"Brazil ",2004,0
-"Brazil ",2005,0
-"Brazil ",2006,0
-"Brazil ",2007,0
-"Brazil ",2008,0
-"Brazil ",2009,0
-"Brazil ",2010,0
-"Brazil ",2011,0
-"Brazil ",2012,0
-"Bulgaria",1976,0
-"Bulgaria",1977,0
-"Bulgaria",1978,0
-"Bulgaria",1979,0
-"Bulgaria",1980,0
-"Bulgaria",1981,0
-"Bulgaria",1982,0
-"Bulgaria",1983,0
-"Bulgaria",1984,0
-"Bulgaria",1985,0
-"Bulgaria",1986,0
-"Bulgaria",1987,0
-"Bulgaria",1988,0
-"Bulgaria",1989,0
-"Bulgaria",1990,0
-"Bulgaria",1991,0
-"Bulgaria",1992,0
-"Bulgaria",1993,0
-"Bulgaria",1994,0
-"Bulgaria",1995,0
-"Bulgaria",1996,1
-"Bulgaria",1997,1
-"Bulgaria",1998,0
-"Bulgaria",1999,0
-"Bulgaria",2000,0
-"Bulgaria",2001,0
-"Bulgaria",2002,0
-"Bulgaria",2003,0
-"Bulgaria",2004,0
-"Bulgaria",2005,0
-"Bulgaria",2006,0
-"Bulgaria",2007,0
-"Bulgaria",2008,0
-"Bulgaria",2009,0
-"Bulgaria",2010,0
-"Bulgaria",2011,0
-"Bulgaria",2012,0
-"Burkina Faso",1976,0
-"Burkina Faso",1977,0
-"Burkina Faso",1978,0
-"Burkina Faso",1979,0
-"Burkina Faso",1980,0
-"Burkina Faso",1981,0
-"Burkina Faso",1982,0
-"Burkina Faso",1983,0
-"Burkina Faso",1984,0
-"Burkina Faso",1985,0
-"Burkina Faso",1986,0
-"Burkina Faso",1987,0
-"Burkina Faso",1988,0
-"Burkina Faso",1989,0
-"Burkina Faso",1990,1
-"Burkina Faso",1991,1
-"Burkina Faso",1992,1
-"Burkina Faso",1993,1
-"Burkina Faso",1994,1
-"Burkina Faso",1995,0
-"Burkina Faso",1996,0
-"Burkina Faso",1997,0
-"Burkina Faso",1998,0
-"Burkina Faso",1999,0
-"Burkina Faso",2000,0
-"Burkina Faso",2001,0
-"Burkina Faso",2002,0
-"Burkina Faso",2003,0
-"Burkina Faso",2004,0
-"Burkina Faso",2005,0
-"Burkina Faso",2006,0
-"Burkina Faso",2007,0
-"Burkina Faso",2008,0
-"Burkina Faso",2009,0
-"Burkina Faso",2010,0
-"Burkina Faso",2011,0
-"Burkina Faso",2012,0
-"Burundi",1976,0
-"Burundi",1977,0
-"Burundi",1978,0
-"Burundi",1979,0
-"Burundi",1980,0
-"Burundi",1981,0
-"Burundi",1982,0
-"Burundi",1983,0
-"Burundi",1984,0
-"Burundi",1985,0
-"Burundi",1986,0
-"Burundi",1987,0
-"Burundi",1988,0
-"Burundi",1989,0
-"Burundi",1990,0
-"Burundi",1991,0
-"Burundi",1992,0
-"Burundi",1993,0
-"Burundi",1994,1
-"Burundi",1995,1
-"Burundi",1996,1
-"Burundi",1997,1
-"Burundi",1998,1
-"Burundi",1999,0
-"Burundi",2000,0
-"Burundi",2001,0
-"Burundi",2002,0
-"Burundi",2003,0
-"Burundi",2004,0
-"Burundi",2005,0
-"Burundi",2006,0
-"Burundi",2007,0
-"Burundi",2008,0
-"Burundi",2009,0
-"Burundi",2010,0
-"Burundi",2011,0
-"Burundi",2012,0
-"Cameroon",1976,0
-"Cameroon",1977,0
-"Cameroon",1978,0
-"Cameroon",1979,0
-"Cameroon",1980,0
-"Cameroon",1981,0
-"Cameroon",1982,0
-"Cameroon",1983,0
-"Cameroon",1984,0
-"Cameroon",1985,0
-"Cameroon",1986,0
-"Cameroon",1987,1
-"Cameroon",1988,1
-"Cameroon",1989,1
-"Cameroon",1990,1
-"Cameroon",1991,1
-"Cameroon",1992,0
-"Cameroon",1993,0
-"Cameroon",1994,0
-"Cameroon",1995,1
-"Cameroon",1996,1
-"Cameroon",1997,1
-"Cameroon",1998,0
-"Cameroon",1999,0
-"Cameroon",2000,0
-"Cameroon",2001,0
-"Cameroon",2002,0
-"Cameroon",2003,0
-"Cameroon",2004,0
-"Cameroon",2005,0
-"Cameroon",2006,0
-"Cameroon",2007,0
-"Cameroon",2008,0
-"Cameroon",2009,0
-"Cameroon",2010,0
-"Cameroon",2011,0
-"Cameroon",2012,0
-"Cape Verde",1976,0
-"Cape Verde",1977,0
-"Cape Verde",1978,0
-"Cape Verde",1979,0
-"Cape Verde",1980,0
-"Cape Verde",1981,0
-"Cape Verde",1982,0
-"Cape Verde",1983,0
-"Cape Verde",1984,0
-"Cape Verde",1985,0
-"Cape Verde",1986,0
-"Cape Verde",1987,0
-"Cape Verde",1988,0
-"Cape Verde",1989,0
-"Cape Verde",1990,0
-"Cape Verde",1991,0
-"Cape Verde",1992,0
-"Cape Verde",1993,1
-"Cape Verde",1994,0
-"Cape Verde",1995,0
-"Cape Verde",1996,0
-"Cape Verde",1997,0
-"Cape Verde",1998,0
-"Cape Verde",1999,0
-"Cape Verde",2000,0
-"Cape Verde",2001,0
-"Cape Verde",2002,0
-"Cape Verde",2003,0
-"Cape Verde",2004,0
-"Cape Verde",2005,0
-"Cape Verde",2006,0
-"Cape Verde",2007,0
-"Cape Verde",2008,0
-"Cape Verde",2009,0
-"Cape Verde",2010,0
-"Cape Verde",2011,0
-"Cape Verde",2012,0
-"Central African Rep",1976,1
-"Central African Rep",1977,0
-"Central African Rep",1978,0
-"Central African Rep",1979,0
-"Central African Rep",1980,0
-"Central African Rep",1981,0
-"Central African Rep",1982,0
-"Central African Rep",1983,0
-"Central African Rep",1984,0
-"Central African Rep",1985,0
-"Central African Rep",1986,0
-"Central African Rep",1987,0
-"Central African Rep",1988,0
-"Central African Rep",1989,0
-"Central African Rep",1990,0
-"Central African Rep",1991,0
-"Central African Rep",1992,0
-"Central African Rep",1993,0
-"Central African Rep",1994,0
-"Central African Rep",1995,1
-"Central African Rep",1996,1
-"Central African Rep",1997,0
-"Central African Rep",1998,0
-"Central African Rep",1999,0
-"Central African Rep",2000,0
-"Central African Rep",2001,0
-"Central African Rep",2002,0
-"Central African Rep",2003,0
-"Central African Rep",2004,0
-"Central African Rep",2005,0
-"Central African Rep",2006,0
-"Central African Rep",2007,0
-"Central African Rep",2008,0
-"Central African Rep",2009,0
-"Central African Rep",2010,0
-"Central African Rep",2011,0
-"Central African Rep",2012,0
-"Chad",1976,0
-"Chad",1977,0
-"Chad",1978,0
-"Chad",1979,0
-"Chad",1980,0
-"Chad",1981,0
-"Chad",1982,0
-"Chad",1983,1
-"Chad",1984,0
-"Chad",1985,0
-"Chad",1986,0
-"Chad",1987,0
-"Chad",1988,0
-"Chad",1989,0
-"Chad",1990,0
-"Chad",1991,0
-"Chad",1992,1
-"Chad",1993,1
-"Chad",1994,1
-"Chad",1995,1
-"Chad",1996,1
-"Chad",1997,0
-"Chad",1998,0
-"Chad",1999,0
-"Chad",2000,0
-"Chad",2001,0
-"Chad",2002,0
-"Chad",2003,0
-"Chad",2004,0
-"Chad",2005,0
-"Chad",2006,0
-"Chad",2007,0
-"Chad",2008,0
-"Chad",2009,0
-"Chad",2010,0
-"Chad",2011,0
-"Chad",2012,0
-"Chile",1976,1
-"Chile",1977,0
-"Chile",1978,0
-"Chile",1979,0
-"Chile",1980,0
-"Chile",1981,1
-"Chile",1982,1
-"Chile",1983,1
-"Chile",1984,1
-"Chile",1985,1
-"Chile",1986,0
-"Chile",1987,0
-"Chile",1988,0
-"Chile",1989,0
-"Chile",1990,0
-"Chile",1991,0
-"Chile",1992,0
-"Chile",1993,0
-"Chile",1994,0
-"Chile",1995,0
-"Chile",1996,0
-"Chile",1997,0
-"Chile",1998,0
-"Chile",1999,0
-"Chile",2000,0
-"Chile",2001,0
-"Chile",2002,0
-"Chile",2003,0
-"Chile",2004,0
-"Chile",2005,0
-"Chile",2006,0
-"Chile",2007,0
-"Chile",2008,0
-"Chile",2009,0
-"Chile",2010,0
-"Chile",2011,0
-"Chile",2012,0
-"China, Mainland",1976,0
-"China, Mainland",1977,0
-"China, Mainland",1978,0
-"China, Mainland",1979,0
-"China, Mainland",1980,0
-"China, Mainland",1981,0
-"China, Mainland",1982,0
-"China, Mainland",1983,0
-"China, Mainland",1984,0
-"China, Mainland",1985,0
-"China, Mainland",1986,0
-"China, Mainland",1987,0
-"China, Mainland",1988,0
-"China, Mainland",1989,0
-"China, Mainland",1990,0
-"China, Mainland",1991,0
-"China, Mainland",1992,0
-"China, Mainland",1993,0
-"China, Mainland",1994,0
-"China, Mainland",1995,0
-"China, Mainland",1996,0
-"China, Mainland",1997,0
-"China, Mainland",1998,1
-"China, Mainland",1999,0
-"China, Mainland",2000,0
-"China, Mainland",2001,0
-"China, Mainland",2002,0
-"China, Mainland",2003,0
-"China, Mainland",2004,0
-"China, Mainland",2005,0
-"China, Mainland",2006,0
-"China, Mainland",2007,0
-"China, Mainland",2008,0
-"China, Mainland",2009,0
-"China, Mainland",2010,0
-"China, Mainland",2011,0
-"China, Mainland",2012,0
-"Colombia",1976,0
-"Colombia",1977,0
-"Colombia",1978,0
-"Colombia",1979,0
-"Colombia",1980,0
-"Colombia",1981,0
-"Colombia",1982,1
-"Colombia",1983,0
-"Colombia",1984,0
-"Colombia",1985,0
-"Colombia",1986,0
-"Colombia",1987,0
-"Colombia",1988,0
-"Colombia",1989,0
-"Colombia",1990,0
-"Colombia",1991,0
-"Colombia",1992,0
-"Colombia",1993,0
-"Colombia",1994,0
-"Colombia",1995,0
-"Colombia",1996,0
-"Colombia",1997,0
-"Colombia",1998,1
-"Colombia",1999,1
-"Colombia",2000,1
-"Colombia",2001,0
-"Colombia",2002,0
-"Colombia",2003,0
-"Colombia",2004,0
-"Colombia",2005,0
-"Colombia",2006,0
-"Colombia",2007,0
-"Colombia",2008,0
-"Colombia",2009,0
-"Colombia",2010,0
-"Colombia",2011,0
-"Colombia",2012,0
-"Congo, Dem Rep",1976,0
-"Congo, Dem Rep",1977,0
-"Congo, Dem Rep",1978,0
-"Congo, Dem Rep",1979,0
-"Congo, Dem Rep",1980,0
-"Congo, Dem Rep",1981,0
-"Congo, Dem Rep",1982,0
-"Congo, Dem Rep",1983,1
-"Congo, Dem Rep",1984,0
-"Congo, Dem Rep",1985,0
-"Congo, Dem Rep",1986,0
-"Congo, Dem Rep",1987,0
-"Congo, Dem Rep",1988,0
-"Congo, Dem Rep",1989,0
-"Congo, Dem Rep",1990,0
-"Congo, Dem Rep",1991,1
-"Congo, Dem Rep",1992,1
-"Congo, Dem Rep",1993,1
-"Congo, Dem Rep",1994,1
-"Congo, Dem Rep",1995,1
-"Congo, Dem Rep",1996,1
-"Congo, Dem Rep",1997,1
-"Congo, Dem Rep",1998,1
-"Congo, Dem Rep",1999,0
-"Congo, Dem Rep",2000,0
-"Congo, Dem Rep",2001,0
-"Congo, Dem Rep",2002,0
-"Congo, Dem Rep",2003,0
-"Congo, Dem Rep",2004,0
-"Congo, Dem Rep",2005,0
-"Congo, Dem Rep",2006,0
-"Congo, Dem Rep",2007,0
-"Congo, Dem Rep",2008,0
-"Congo, Dem Rep",2009,0
-"Congo, Dem Rep",2010,0
-"Congo, Dem Rep",2011,0
-"Congo, Dem Rep",2012,0
-"Congo, Rep",1976,0
-"Congo, Rep",1977,0
-"Congo, Rep",1978,0
-"Congo, Rep",1979,0
-"Congo, Rep",1980,0
-"Congo, Rep",1981,0
-"Congo, Rep",1982,0
-"Congo, Rep",1983,0
-"Congo, Rep",1984,0
-"Congo, Rep",1985,0
-"Congo, Rep",1986,0
-"Congo, Rep",1987,0
-"Congo, Rep",1988,0
-"Congo, Rep",1989,0
-"Congo, Rep",1990,0
-"Congo, Rep",1991,0
-"Congo, Rep",1992,1
-"Congo, Rep",1993,1
-"Congo, Rep",1994,1
-"Congo, Rep",1995,0
-"Congo, Rep",1996,0
-"Congo, Rep",1997,0
-"Congo, Rep",1998,0
-"Congo, Rep",1999,0
-"Congo, Rep",2000,0
-"Congo, Rep",2001,0
-"Congo, Rep",2002,0
-"Congo, Rep",2003,0
-"Congo, Rep",2004,0
-"Congo, Rep",2005,0
-"Congo, Rep",2006,0
-"Congo, Rep",2007,0
-"Congo, Rep",2008,0
-"Congo, Rep",2009,0
-"Congo, Rep",2010,0
-"Congo, Rep",2011,0
-"Congo, Rep",2012,0
-"Costa Rica",1976,0
-"Costa Rica",1977,0
-"Costa Rica",1978,0
-"Costa Rica",1979,0
-"Costa Rica",1980,0
-"Costa Rica",1981,0
-"Costa Rica",1982,0
-"Costa Rica",1983,0
-"Costa Rica",1984,0
-"Costa Rica",1985,0
-"Costa Rica",1986,0
-"Costa Rica",1987,1
-"Costa Rica",1988,1
-"Costa Rica",1989,1
-"Costa Rica",1990,1
-"Costa Rica",1991,1
-"Costa Rica",1992,0
-"Costa Rica",1993,0
-"Costa Rica",1994,1
-"Costa Rica",1995,1
-"Costa Rica",1996,0
-"Costa Rica",1997,0
-"Costa Rica",1998,0
-"Costa Rica",1999,0
-"Costa Rica",2000,0
-"Costa Rica",2001,0
-"Costa Rica",2002,0
-"Costa Rica",2003,0
-"Costa Rica",2004,0
-"Costa Rica",2005,0
-"Costa Rica",2006,0
-"Costa Rica",2007,0
-"Costa Rica",2008,0
-"Costa Rica",2009,0
-"Costa Rica",2010,0
-"Costa Rica",2011,0
-"Costa Rica",2012,0
-"Cote d'Ivoire",1976,0
-"Cote d'Ivoire",1977,0
-"Cote d'Ivoire",1978,0
-"Cote d'Ivoire",1979,0
-"Cote d'Ivoire",1980,0
-"Cote d'Ivoire",1981,0
-"Cote d'Ivoire",1982,0
-"Cote d'Ivoire",1983,0
-"Cote d'Ivoire",1984,0
-"Cote d'Ivoire",1985,0
-"Cote d'Ivoire",1986,0
-"Cote d'Ivoire",1987,0
-"Cote d'Ivoire",1988,1
-"Cote d'Ivoire",1989,1
-"Cote d'Ivoire",1990,1
-"Cote d'Ivoire",1991,1
-"Cote d'Ivoire",1992,1
-"Cote d'Ivoire",1993,0
-"Cote d'Ivoire",1994,0
-"Cote d'Ivoire",1995,0
-"Cote d'Ivoire",1996,0
-"Cote d'Ivoire",1997,0
-"Cote d'Ivoire",1998,0
-"Cote d'Ivoire",1999,0
-"Cote d'Ivoire",2000,0
-"Cote d'Ivoire",2001,0
-"Cote d'Ivoire",2002,0
-"Cote d'Ivoire",2003,0
-"Cote d'Ivoire",2004,0
-"Cote d'Ivoire",2005,0
-"Cote d'Ivoire",2006,0
-"Cote d'Ivoire",2007,0
-"Cote d'Ivoire",2008,0
-"Cote d'Ivoire",2009,0
-"Cote d'Ivoire",2010,0
-"Cote d'Ivoire",2011,0
-"Cote d'Ivoire",2012,0
-"Croatia ",1976,0
-"Croatia ",1977,0
-"Croatia ",1978,0
-"Croatia ",1979,0
-"Croatia ",1980,0
-"Croatia ",1981,0
-"Croatia ",1982,0
-"Croatia ",1983,0
-"Croatia ",1984,0
-"Croatia ",1985,0
-"Croatia ",1986,0
-"Croatia ",1987,0
-"Croatia ",1988,0
-"Croatia ",1989,0
-"Croatia ",1990,0
-"Croatia ",1991,0
-"Croatia ",1992,0
-"Croatia ",1993,0
-"Croatia ",1994,0
-"Croatia ",1995,0
-"Croatia ",1996,0
-"Croatia ",1997,0
-"Croatia ",1998,1
-"Croatia ",1999,1
-"Croatia ",2000,0
-"Croatia ",2001,0
-"Croatia ",2002,0
-"Croatia ",2003,0
-"Croatia ",2004,0
-"Croatia ",2005,0
-"Croatia ",2006,0
-"Croatia ",2007,0
-"Croatia ",2008,0
-"Croatia ",2009,0
-"Croatia ",2010,0
-"Croatia ",2011,0
-"Croatia ",2012,0
-"Czech Republic  ",1976,0
-"Czech Republic  ",1977,0
-"Czech Republic  ",1978,0
-"Czech Republic  ",1979,0
-"Czech Republic  ",1980,0
-"Czech Republic  ",1981,0
-"Czech Republic  ",1982,0
-"Czech Republic  ",1983,0
-"Czech Republic  ",1984,0
-"Czech Republic  ",1985,0
-"Czech Republic  ",1986,0
-"Czech Republic  ",1987,0
-"Czech Republic  ",1988,0
-"Czech Republic  ",1989,0
-"Czech Republic  ",1990,0
-"Czech Republic  ",1991,0
-"Czech Republic  ",1992,0
-"Czech Republic  ",1993,0
-"Czech Republic  ",1994,0
-"Czech Republic  ",1995,0
-"Czech Republic  ",1996,1
-"Czech Republic  ",1997,1
-"Czech Republic  ",1998,1
-"Czech Republic  ",1999,1
-"Czech Republic  ",2000,1
-"Czech Republic  ",2001,0
-"Czech Republic  ",2002,0
-"Czech Republic  ",2003,0
-"Czech Republic  ",2004,0
-"Czech Republic  ",2005,0
-"Czech Republic  ",2006,0
-"Czech Republic  ",2007,0
-"Czech Republic  ",2008,0
-"Czech Republic  ",2009,0
-"Czech Republic  ",2010,0
-"Czech Republic  ",2011,0
-"Czech Republic  ",2012,0
-"Denmark",1976,0
-"Denmark",1977,0
-"Denmark",1978,0
-"Denmark",1979,0
-"Denmark",1980,0
-"Denmark",1981,0
-"Denmark",1982,0
-"Denmark",1983,0
-"Denmark",1984,0
-"Denmark",1985,0
-"Denmark",1986,0
-"Denmark",1987,0
-"Denmark",1988,0
-"Denmark",1989,0
-"Denmark",1990,0
-"Denmark",1991,0
-"Denmark",1992,0
-"Denmark",1993,0
-"Denmark",1994,0
-"Denmark",1995,0
-"Denmark",1996,0
-"Denmark",1997,0
-"Denmark",1998,0
-"Denmark",1999,0
-"Denmark",2000,0
-"Denmark",2001,0
-"Denmark",2002,0
-"Denmark",2003,0
-"Denmark",2004,0
-"Denmark",2005,0
-"Denmark",2006,0
-"Denmark",2007,0
-"Denmark",2008,1
-"Denmark",2009,1
-"Denmark",2010,1
-"Denmark",2011,1
-"Denmark",2012,1
-"Djibouti",1976,0
-"Djibouti",1977,0
-"Djibouti",1978,0
-"Djibouti",1979,0
-"Djibouti",1980,0
-"Djibouti",1981,0
-"Djibouti",1982,0
-"Djibouti",1983,0
-"Djibouti",1984,0
-"Djibouti",1985,0
-"Djibouti",1986,0
-"Djibouti",1987,0
-"Djibouti",1988,0
-"Djibouti",1989,0
-"Djibouti",1990,0
-"Djibouti",1991,1
-"Djibouti",1992,1
-"Djibouti",1993,1
-"Djibouti",1994,1
-"Djibouti",1995,1
-"Djibouti",1996,0
-"Djibouti",1997,0
-"Djibouti",1998,0
-"Djibouti",1999,0
-"Djibouti",2000,0
-"Djibouti",2001,0
-"Djibouti",2002,0
-"Djibouti",2003,0
-"Djibouti",2004,0
-"Djibouti",2005,0
-"Djibouti",2006,0
-"Djibouti",2007,0
-"Djibouti",2008,0
-"Djibouti",2009,0
-"Djibouti",2010,0
-"Djibouti",2011,0
-"Djibouti",2012,0
-"Dominican Rep",1976,0
-"Dominican Rep",1977,0
-"Dominican Rep",1978,0
-"Dominican Rep",1979,0
-"Dominican Rep",1980,0
-"Dominican Rep",1981,0
-"Dominican Rep",1982,0
-"Dominican Rep",1983,0
-"Dominican Rep",1984,0
-"Dominican Rep",1985,0
-"Dominican Rep",1986,0
-"Dominican Rep",1987,0
-"Dominican Rep",1988,0
-"Dominican Rep",1989,0
-"Dominican Rep",1990,0
-"Dominican Rep",1991,0
-"Dominican Rep",1992,0
-"Dominican Rep",1993,0
-"Dominican Rep",1994,0
-"Dominican Rep",1995,0
-"Dominican Rep",1996,0
-"Dominican Rep",1997,0
-"Dominican Rep",1998,0
-"Dominican Rep",1999,0
-"Dominican Rep",2000,0
-"Dominican Rep",2001,0
-"Dominican Rep",2002,0
-"Dominican Rep",2003,1
-"Dominican Rep",2004,1
-"Dominican Rep",2005,0
-"Dominican Rep",2006,0
-"Dominican Rep",2007,0
-"Dominican Rep",2008,0
-"Dominican Rep",2009,0
-"Dominican Rep",2010,0
-"Dominican Rep",2011,0
-"Dominican Rep",2012,0
-"Ecuador",1976,0
-"Ecuador",1977,0
-"Ecuador",1978,0
-"Ecuador",1979,0
-"Ecuador",1980,0
-"Ecuador",1981,0
-"Ecuador",1982,1
-"Ecuador",1983,1
-"Ecuador",1984,1
-"Ecuador",1985,1
-"Ecuador",1986,1
-"Ecuador",1987,0
-"Ecuador",1988,0
-"Ecuador",1989,0
-"Ecuador",1990,0
-"Ecuador",1991,0
-"Ecuador",1992,0
-"Ecuador",1993,0
-"Ecuador",1994,0
-"Ecuador",1995,0
-"Ecuador",1996,0
-"Ecuador",1997,0
-"Ecuador",1998,1
-"Ecuador",1999,1
-"Ecuador",2000,1
-"Ecuador",2001,1
-"Ecuador",2002,1
-"Ecuador",2003,0
-"Ecuador",2004,0
-"Ecuador",2005,0
-"Ecuador",2006,0
-"Ecuador",2007,0
-"Ecuador",2008,0
-"Ecuador",2009,0
-"Ecuador",2010,0
-"Ecuador",2011,0
-"Ecuador",2012,0
-"Egypt",1976,0
-"Egypt",1977,0
-"Egypt",1978,0
-"Egypt",1979,0
-"Egypt",1980,1
-"Egypt",1981,0
-"Egypt",1982,0
-"Egypt",1983,0
-"Egypt",1984,0
-"Egypt",1985,0
-"Egypt",1986,0
-"Egypt",1987,0
-"Egypt",1988,0
-"Egypt",1989,0
-"Egypt",1990,0
-"Egypt",1991,0
-"Egypt",1992,0
-"Egypt",1993,0
-"Egypt",1994,0
-"Egypt",1995,0
-"Egypt",1996,0
-"Egypt",1997,0
-"Egypt",1998,0
-"Egypt",1999,0
-"Egypt",2000,0
-"Egypt",2001,0
-"Egypt",2002,0
-"Egypt",2003,0
-"Egypt",2004,0
-"Egypt",2005,0
-"Egypt",2006,0
-"Egypt",2007,0
-"Egypt",2008,0
-"Egypt",2009,0
-"Egypt",2010,0
-"Egypt",2011,0
-"Egypt",2012,0
-"El Salvador",1976,0
-"El Salvador",1977,0
-"El Salvador",1978,0
-"El Salvador",1979,0
-"El Salvador",1980,0
-"El Salvador",1981,0
-"El Salvador",1982,0
-"El Salvador",1983,0
-"El Salvador",1984,0
-"El Salvador",1985,0
-"El Salvador",1986,0
-"El Salvador",1987,0
-"El Salvador",1988,0
-"El Salvador",1989,1
-"El Salvador",1990,1
-"El Salvador",1991,0
-"El Salvador",1992,0
-"El Salvador",1993,0
-"El Salvador",1994,0
-"El Salvador",1995,0
-"El Salvador",1996,0
-"El Salvador",1997,0
-"El Salvador",1998,0
-"El Salvador",1999,0
-"El Salvador",2000,0
-"El Salvador",2001,0
-"El Salvador",2002,0
-"El Salvador",2003,0
-"El Salvador",2004,0
-"El Salvador",2005,0
-"El Salvador",2006,0
-"El Salvador",2007,0
-"El Salvador",2008,0
-"El Salvador",2009,0
-"El Salvador",2010,0
-"El Salvador",2011,0
-"El Salvador",2012,0
-"Equatorial Guinea",1976,0
-"Equatorial Guinea",1977,0
-"Equatorial Guinea",1978,0
-"Equatorial Guinea",1979,0
-"Equatorial Guinea",1980,0
-"Equatorial Guinea",1981,0
-"Equatorial Guinea",1982,0
-"Equatorial Guinea",1983,1
-"Equatorial Guinea",1984,0
-"Equatorial Guinea",1985,0
-"Equatorial Guinea",1986,0
-"Equatorial Guinea",1987,0
-"Equatorial Guinea",1988,0
-"Equatorial Guinea",1989,0
-"Equatorial Guinea",1990,0
-"Equatorial Guinea",1991,0
-"Equatorial Guinea",1992,0
-"Equatorial Guinea",1993,0
-"Equatorial Guinea",1994,0
-"Equatorial Guinea",1995,0
-"Equatorial Guinea",1996,0
-"Equatorial Guinea",1997,0
-"Equatorial Guinea",1998,0
-"Equatorial Guinea",1999,0
-"Equatorial Guinea",2000,0
-"Equatorial Guinea",2001,0
-"Equatorial Guinea",2002,0
-"Equatorial Guinea",2003,0
-"Equatorial Guinea",2004,0
-"Equatorial Guinea",2005,0
-"Equatorial Guinea",2006,0
-"Equatorial Guinea",2007,0
-"Equatorial Guinea",2008,0
-"Equatorial Guinea",2009,0
-"Equatorial Guinea",2010,0
-"Equatorial Guinea",2011,0
-"Equatorial Guinea",2012,0
-"Eritrea",1976,0
-"Eritrea",1977,0
-"Eritrea",1978,0
-"Eritrea",1979,0
-"Eritrea",1980,0
-"Eritrea",1981,0
-"Eritrea",1982,0
-"Eritrea",1983,0
-"Eritrea",1984,0
-"Eritrea",1985,0
-"Eritrea",1986,0
-"Eritrea",1987,0
-"Eritrea",1988,0
-"Eritrea",1989,0
-"Eritrea",1990,0
-"Eritrea",1991,0
-"Eritrea",1992,0
-"Eritrea",1993,1
-"Eritrea",1994,0
-"Eritrea",1995,0
-"Eritrea",1996,0
-"Eritrea",1997,0
-"Eritrea",1998,0
-"Eritrea",1999,0
-"Eritrea",2000,0
-"Eritrea",2001,0
-"Eritrea",2002,0
-"Eritrea",2003,0
-"Eritrea",2004,0
-"Eritrea",2005,0
-"Eritrea",2006,0
-"Eritrea",2007,0
-"Eritrea",2008,0
-"Eritrea",2009,0
-"Eritrea",2010,0
-"Eritrea",2011,0
-"Eritrea",2012,0
-"Estonia ",1976,0
-"Estonia ",1977,0
-"Estonia ",1978,0
-"Estonia ",1979,0
-"Estonia ",1980,0
-"Estonia ",1981,0
-"Estonia ",1982,0
-"Estonia ",1983,0
-"Estonia ",1984,0
-"Estonia ",1985,0
-"Estonia ",1986,0
-"Estonia ",1987,0
-"Estonia ",1988,0
-"Estonia ",1989,0
-"Estonia ",1990,0
-"Estonia ",1991,0
-"Estonia ",1992,1
-"Estonia ",1993,1
-"Estonia ",1994,1
-"Estonia ",1995,0
-"Estonia ",1996,0
-"Estonia ",1997,0
-"Estonia ",1998,0
-"Estonia ",1999,0
-"Estonia ",2000,0
-"Estonia ",2001,0
-"Estonia ",2002,0
-"Estonia ",2003,0
-"Estonia ",2004,0
-"Estonia ",2005,0
-"Estonia ",2006,0
-"Estonia ",2007,0
-"Estonia ",2008,0
-"Estonia ",2009,0
-"Estonia ",2010,0
-"Estonia ",2011,0
-"Estonia ",2012,0
-"Finland",1976,0
-"Finland",1977,0
-"Finland",1978,0
-"Finland",1979,0
-"Finland",1980,0
-"Finland",1981,0
-"Finland",1982,0
-"Finland",1983,0
-"Finland",1984,0
-"Finland",1985,0
-"Finland",1986,0
-"Finland",1987,0
-"Finland",1988,0
-"Finland",1989,0
-"Finland",1990,0
-"Finland",1991,1
-"Finland",1992,1
-"Finland",1993,1
-"Finland",1994,1
-"Finland",1995,1
-"Finland",1996,0
-"Finland",1997,0
-"Finland",1998,0
-"Finland",1999,0
-"Finland",2000,0
-"Finland",2001,0
-"Finland",2002,0
-"Finland",2003,0
-"Finland",2004,0
-"Finland",2005,0
-"Finland",2006,0
-"Finland",2007,0
-"Finland",2008,0
-"Finland",2009,0
-"Finland",2010,0
-"Finland",2011,0
-"Finland",2012,0
-"France ",1976,0
-"France ",1977,0
-"France ",1978,0
-"France ",1979,0
-"France ",1980,0
-"France ",1981,0
-"France ",1982,0
-"France ",1983,0
-"France ",1984,0
-"France ",1985,0
-"France ",1986,0
-"France ",1987,0
-"France ",1988,0
-"France ",1989,0
-"France ",1990,0
-"France ",1991,0
-"France ",1992,0
-"France ",1993,0
-"France ",1994,0
-"France ",1995,0
-"France ",1996,0
-"France ",1997,0
-"France ",1998,0
-"France ",1999,0
-"France ",2000,0
-"France ",2001,0
-"France ",2002,0
-"France ",2003,0
-"France ",2004,0
-"France ",2005,0
-"France ",2006,0
-"France ",2007,0
-"France ",2008,1
-"France ",2009,1
-"France ",2010,1
-"France ",2011,1
-"France ",2012,1
-"Georgia ",1976,0
-"Georgia ",1977,0
-"Georgia ",1978,0
-"Georgia ",1979,0
-"Georgia ",1980,0
-"Georgia ",1981,0
-"Georgia ",1982,0
-"Georgia ",1983,0
-"Georgia ",1984,0
-"Georgia ",1985,0
-"Georgia ",1986,0
-"Georgia ",1987,0
-"Georgia ",1988,0
-"Georgia ",1989,0
-"Georgia ",1990,0
-"Georgia ",1991,1
-"Georgia ",1992,1
-"Georgia ",1993,1
-"Georgia ",1994,1
-"Georgia ",1995,1
-"Georgia ",1996,0
-"Georgia ",1997,0
-"Georgia ",1998,0
-"Georgia ",1999,0
-"Georgia ",2000,0
-"Georgia ",2001,0
-"Georgia ",2002,0
-"Georgia ",2003,0
-"Georgia ",2004,0
-"Georgia ",2005,0
-"Georgia ",2006,0
-"Georgia ",2007,0
-"Georgia ",2008,0
-"Georgia ",2009,0
-"Georgia ",2010,0
-"Georgia ",2011,0
-"Georgia ",2012,0
-"Germany",1976,0
-"Germany",1977,0
-"Germany",1978,0
-"Germany",1979,0
-"Germany",1980,0
-"Germany",1981,0
-"Germany",1982,0
-"Germany",1983,0
-"Germany",1984,0
-"Germany",1985,0
-"Germany",1986,0
-"Germany",1987,0
-"Germany",1988,0
-"Germany",1989,0
-"Germany",1990,0
-"Germany",1991,0
-"Germany",1992,0
-"Germany",1993,0
-"Germany",1994,0
-"Germany",1995,0
-"Germany",1996,0
-"Germany",1997,0
-"Germany",1998,0
-"Germany",1999,0
-"Germany",2000,0
-"Germany",2001,0
-"Germany",2002,0
-"Germany",2003,0
-"Germany",2004,0
-"Germany",2005,0
-"Germany",2006,0
-"Germany",2007,0
-"Germany",2008,1
-"Germany",2009,1
-"Germany",2010,1
-"Germany",2011,1
-"Germany",2012,1
-"Ghana",1976,0
-"Ghana",1977,0
-"Ghana",1978,0
-"Ghana",1979,0
-"Ghana",1980,0
-"Ghana",1981,0
-"Ghana",1982,1
-"Ghana",1983,1
-"Ghana",1984,0
-"Ghana",1985,0
-"Ghana",1986,0
-"Ghana",1987,0
-"Ghana",1988,0
-"Ghana",1989,0
-"Ghana",1990,0
-"Ghana",1991,0
-"Ghana",1992,0
-"Ghana",1993,0
-"Ghana",1994,0
-"Ghana",1995,0
-"Ghana",1996,0
-"Ghana",1997,0
-"Ghana",1998,0
-"Ghana",1999,0
-"Ghana",2000,0
-"Ghana",2001,0
-"Ghana",2002,0
-"Ghana",2003,0
-"Ghana",2004,0
-"Ghana",2005,0
-"Ghana",2006,0
-"Ghana",2007,0
-"Ghana",2008,0
-"Ghana",2009,0
-"Ghana",2010,0
-"Ghana",2011,0
-"Ghana",2012,0
-"Greece",1976,0
-"Greece",1977,0
-"Greece",1978,0
-"Greece",1979,0
-"Greece",1980,0
-"Greece",1981,0
-"Greece",1982,0
-"Greece",1983,0
-"Greece",1984,0
-"Greece",1985,0
-"Greece",1986,0
-"Greece",1987,0
-"Greece",1988,0
-"Greece",1989,0
-"Greece",1990,0
-"Greece",1991,0
-"Greece",1992,0
-"Greece",1993,0
-"Greece",1994,0
-"Greece",1995,0
-"Greece",1996,0
-"Greece",1997,0
-"Greece",1998,0
-"Greece",1999,0
-"Greece",2000,0
-"Greece",2001,0
-"Greece",2002,0
-"Greece",2003,0
-"Greece",2004,0
-"Greece",2005,0
-"Greece",2006,0
-"Greece",2007,0
-"Greece",2008,1
-"Greece",2009,1
-"Greece",2010,1
-"Greece",2011,1
-"Greece",2012,1
-"Guinea",1976,0
-"Guinea",1977,0
-"Guinea",1978,0
-"Guinea",1979,0
-"Guinea",1980,0
-"Guinea",1981,0
-"Guinea",1982,0
-"Guinea",1983,0
-"Guinea",1984,0
-"Guinea",1985,1
-"Guinea",1986,0
-"Guinea",1987,0
-"Guinea",1988,0
-"Guinea",1989,0
-"Guinea",1990,0
-"Guinea",1991,0
-"Guinea",1992,0
-"Guinea",1993,1
-"Guinea",1994,0
-"Guinea",1995,0
-"Guinea",1996,0
-"Guinea",1997,0
-"Guinea",1998,0
-"Guinea",1999,0
-"Guinea",2000,0
-"Guinea",2001,0
-"Guinea",2002,0
-"Guinea",2003,0
-"Guinea",2004,0
-"Guinea",2005,0
-"Guinea",2006,0
-"Guinea",2007,0
-"Guinea",2008,0
-"Guinea",2009,0
-"Guinea",2010,0
-"Guinea",2011,0
-"Guinea",2012,0
-"Guinea-Bissau",1976,0
-"Guinea-Bissau",1977,0
-"Guinea-Bissau",1978,0
-"Guinea-Bissau",1979,0
-"Guinea-Bissau",1980,0
-"Guinea-Bissau",1981,0
-"Guinea-Bissau",1982,0
-"Guinea-Bissau",1983,0
-"Guinea-Bissau",1984,0
-"Guinea-Bissau",1985,0
-"Guinea-Bissau",1986,0
-"Guinea-Bissau",1987,0
-"Guinea-Bissau",1988,0
-"Guinea-Bissau",1989,0
-"Guinea-Bissau",1990,0
-"Guinea-Bissau",1991,0
-"Guinea-Bissau",1992,0
-"Guinea-Bissau",1993,0
-"Guinea-Bissau",1994,0
-"Guinea-Bissau",1995,1
-"Guinea-Bissau",1996,1
-"Guinea-Bissau",1997,1
-"Guinea-Bissau",1998,1
-"Guinea-Bissau",1999,0
-"Guinea-Bissau",2000,0
-"Guinea-Bissau",2001,0
-"Guinea-Bissau",2002,0
-"Guinea-Bissau",2003,0
-"Guinea-Bissau",2004,0
-"Guinea-Bissau",2005,0
-"Guinea-Bissau",2006,0
-"Guinea-Bissau",2007,0
-"Guinea-Bissau",2008,0
-"Guinea-Bissau",2009,0
-"Guinea-Bissau",2010,0
-"Guinea-Bissau",2011,0
-"Guinea-Bissau",2012,0
-"Guyana",1976,0
-"Guyana",1977,0
-"Guyana",1978,0
-"Guyana",1979,0
-"Guyana",1980,0
-"Guyana",1981,0
-"Guyana",1982,0
-"Guyana",1983,0
-"Guyana",1984,0
-"Guyana",1985,0
-"Guyana",1986,0
-"Guyana",1987,0
-"Guyana",1988,0
-"Guyana",1989,0
-"Guyana",1990,0
-"Guyana",1991,0
-"Guyana",1992,0
-"Guyana",1993,1
-"Guyana",1994,0
-"Guyana",1995,0
-"Guyana",1996,0
-"Guyana",1997,0
-"Guyana",1998,0
-"Guyana",1999,0
-"Guyana",2000,0
-"Guyana",2001,0
-"Guyana",2002,0
-"Guyana",2003,0
-"Guyana",2004,0
-"Guyana",2005,0
-"Guyana",2006,0
-"Guyana",2007,0
-"Guyana",2008,0
-"Guyana",2009,0
-"Guyana",2010,0
-"Guyana",2011,0
-"Guyana",2012,0
-"Haiti",1976,0
-"Haiti",1977,0
-"Haiti",1978,0
-"Haiti",1979,0
-"Haiti",1980,0
-"Haiti",1981,0
-"Haiti",1982,0
-"Haiti",1983,0
-"Haiti",1984,0
-"Haiti",1985,0
-"Haiti",1986,0
-"Haiti",1987,0
-"Haiti",1988,0
-"Haiti",1989,0
-"Haiti",1990,0
-"Haiti",1991,0
-"Haiti",1992,0
-"Haiti",1993,0
-"Haiti",1994,1
-"Haiti",1995,1
-"Haiti",1996,1
-"Haiti",1997,1
-"Haiti",1998,1
-"Haiti",1999,0
-"Haiti",2000,0
-"Haiti",2001,0
-"Haiti",2002,0
-"Haiti",2003,0
-"Haiti",2004,0
-"Haiti",2005,0
-"Haiti",2006,0
-"Haiti",2007,0
-"Haiti",2008,0
-"Haiti",2009,0
-"Haiti",2010,0
-"Haiti",2011,0
-"Haiti",2012,0
-"Hungary ",1976,0
-"Hungary ",1977,0
-"Hungary ",1978,0
-"Hungary ",1979,0
-"Hungary ",1980,0
-"Hungary ",1981,0
-"Hungary ",1982,0
-"Hungary ",1983,0
-"Hungary ",1984,0
-"Hungary ",1985,0
-"Hungary ",1986,0
-"Hungary ",1987,0
-"Hungary ",1988,0
-"Hungary ",1989,0
-"Hungary ",1990,0
-"Hungary ",1991,1
-"Hungary ",1992,1
-"Hungary ",1993,1
-"Hungary ",1994,1
-"Hungary ",1995,1
-"Hungary ",1996,0
-"Hungary ",1997,0
-"Hungary ",1998,0
-"Hungary ",1999,0
-"Hungary ",2000,0
-"Hungary ",2001,0
-"Hungary ",2002,0
-"Hungary ",2003,0
-"Hungary ",2004,0
-"Hungary ",2005,0
-"Hungary ",2006,0
-"Hungary ",2007,0
-"Hungary ",2008,1
-"Hungary ",2009,1
-"Hungary ",2010,1
-"Hungary ",2011,1
-"Hungary ",2012,1
-"Iceland",1976,0
-"Iceland",1977,0
-"Iceland",1978,0
-"Iceland",1979,0
-"Iceland",1980,0
-"Iceland",1981,0
-"Iceland",1982,0
-"Iceland",1983,0
-"Iceland",1984,0
-"Iceland",1985,0
-"Iceland",1986,0
-"Iceland",1987,0
-"Iceland",1988,0
-"Iceland",1989,0
-"Iceland",1990,0
-"Iceland",1991,0
-"Iceland",1992,0
-"Iceland",1993,0
-"Iceland",1994,0
-"Iceland",1995,0
-"Iceland",1996,0
-"Iceland",1997,0
-"Iceland",1998,0
-"Iceland",1999,0
-"Iceland",2000,0
-"Iceland",2001,0
-"Iceland",2002,0
-"Iceland",2003,0
-"Iceland",2004,0
-"Iceland",2005,0
-"Iceland",2006,0
-"Iceland",2007,0
-"Iceland",2008,1
-"Iceland",2009,1
-"Iceland",2010,1
-"Iceland",2011,1
-"Iceland",2012,1
-"India",1976,0
-"India",1977,0
-"India",1978,0
-"India",1979,0
-"India",1980,0
-"India",1981,0
-"India",1982,0
-"India",1983,0
-"India",1984,0
-"India",1985,0
-"India",1986,0
-"India",1987,0
-"India",1988,0
-"India",1989,0
-"India",1990,0
-"India",1991,0
-"India",1992,0
-"India",1993,1
-"India",1994,0
-"India",1995,0
-"India",1996,0
-"India",1997,0
-"India",1998,0
-"India",1999,0
-"India",2000,0
-"India",2001,0
-"India",2002,0
-"India",2003,0
-"India",2004,0
-"India",2005,0
-"India",2006,0
-"India",2007,0
-"India",2008,0
-"India",2009,0
-"India",2010,0
-"India",2011,0
-"India",2012,0
-"Indonesia",1976,0
-"Indonesia",1977,0
-"Indonesia",1978,0
-"Indonesia",1979,0
-"Indonesia",1980,0
-"Indonesia",1981,0
-"Indonesia",1982,0
-"Indonesia",1983,0
-"Indonesia",1984,0
-"Indonesia",1985,0
-"Indonesia",1986,0
-"Indonesia",1987,0
-"Indonesia",1988,0
-"Indonesia",1989,0
-"Indonesia",1990,0
-"Indonesia",1991,0
-"Indonesia",1992,0
-"Indonesia",1993,0
-"Indonesia",1994,0
-"Indonesia",1995,0
-"Indonesia",1996,0
-"Indonesia",1997,1
-"Indonesia",1998,1
-"Indonesia",1999,1
-"Indonesia",2000,1
-"Indonesia",2001,1
-"Indonesia",2002,0
-"Indonesia",2003,0
-"Indonesia",2004,0
-"Indonesia",2005,0
-"Indonesia",2006,0
-"Indonesia",2007,0
-"Indonesia",2008,0
-"Indonesia",2009,0
-"Indonesia",2010,0
-"Indonesia",2011,0
-"Indonesia",2012,0
-"Ireland",1976,0
-"Ireland",1977,0
-"Ireland",1978,0
-"Ireland",1979,0
-"Ireland",1980,0
-"Ireland",1981,0
-"Ireland",1982,0
-"Ireland",1983,0
-"Ireland",1984,0
-"Ireland",1985,0
-"Ireland",1986,0
-"Ireland",1987,0
-"Ireland",1988,0
-"Ireland",1989,0
-"Ireland",1990,0
-"Ireland",1991,0
-"Ireland",1992,0
-"Ireland",1993,0
-"Ireland",1994,0
-"Ireland",1995,0
-"Ireland",1996,0
-"Ireland",1997,0
-"Ireland",1998,0
-"Ireland",1999,0
-"Ireland",2000,0
-"Ireland",2001,0
-"Ireland",2002,0
-"Ireland",2003,0
-"Ireland",2004,0
-"Ireland",2005,0
-"Ireland",2006,0
-"Ireland",2007,0
-"Ireland",2008,1
-"Ireland",2009,1
-"Ireland",2010,1
-"Ireland",2011,1
-"Ireland",2012,1
-"Israel",1976,0
-"Israel",1977,1
-"Israel",1978,0
-"Israel",1979,0
-"Israel",1980,0
-"Israel",1981,0
-"Israel",1982,0
-"Israel",1983,0
-"Israel",1984,0
-"Israel",1985,0
-"Israel",1986,0
-"Israel",1987,0
-"Israel",1988,0
-"Israel",1989,0
-"Israel",1990,0
-"Israel",1991,0
-"Israel",1992,0
-"Israel",1993,0
-"Israel",1994,0
-"Israel",1995,0
-"Israel",1996,0
-"Israel",1997,0
-"Israel",1998,0
-"Israel",1999,0
-"Israel",2000,0
-"Israel",2001,0
-"Israel",2002,0
-"Israel",2003,0
-"Israel",2004,0
-"Israel",2005,0
-"Israel",2006,0
-"Israel",2007,0
-"Israel",2008,0
-"Israel",2009,0
-"Israel",2010,0
-"Israel",2011,0
-"Israel",2012,0
-"Italy",1976,0
-"Italy",1977,0
-"Italy",1978,0
-"Italy",1979,0
-"Italy",1980,0
-"Italy",1981,0
-"Italy",1982,0
-"Italy",1983,0
-"Italy",1984,0
-"Italy",1985,0
-"Italy",1986,0
-"Italy",1987,0
-"Italy",1988,0
-"Italy",1989,0
-"Italy",1990,0
-"Italy",1991,0
-"Italy",1992,0
-"Italy",1993,0
-"Italy",1994,0
-"Italy",1995,0
-"Italy",1996,0
-"Italy",1997,0
-"Italy",1998,0
-"Italy",1999,0
-"Italy",2000,0
-"Italy",2001,0
-"Italy",2002,0
-"Italy",2003,0
-"Italy",2004,0
-"Italy",2005,0
-"Italy",2006,0
-"Italy",2007,0
-"Italy",2008,1
-"Italy",2009,1
-"Italy",2010,1
-"Italy",2011,1
-"Italy",2012,1
-"Jamaica",1976,0
-"Jamaica",1977,0
-"Jamaica",1978,0
-"Jamaica",1979,0
-"Jamaica",1980,0
-"Jamaica",1981,0
-"Jamaica",1982,0
-"Jamaica",1983,0
-"Jamaica",1984,0
-"Jamaica",1985,0
-"Jamaica",1986,0
-"Jamaica",1987,0
-"Jamaica",1988,0
-"Jamaica",1989,0
-"Jamaica",1990,0
-"Jamaica",1991,0
-"Jamaica",1992,0
-"Jamaica",1993,0
-"Jamaica",1994,0
-"Jamaica",1995,0
-"Jamaica",1996,1
-"Jamaica",1997,1
-"Jamaica",1998,1
-"Jamaica",1999,0
-"Jamaica",2000,0
-"Jamaica",2001,0
-"Jamaica",2002,0
-"Jamaica",2003,0
-"Jamaica",2004,0
-"Jamaica",2005,0
-"Jamaica",2006,0
-"Jamaica",2007,0
-"Jamaica",2008,0
-"Jamaica",2009,0
-"Jamaica",2010,0
-"Jamaica",2011,0
-"Jamaica",2012,0
-"Japan",1976,0
-"Japan",1977,0
-"Japan",1978,0
-"Japan",1979,0
-"Japan",1980,0
-"Japan",1981,0
-"Japan",1982,0
-"Japan",1983,0
-"Japan",1984,0
-"Japan",1985,0
-"Japan",1986,0
-"Japan",1987,0
-"Japan",1988,0
-"Japan",1989,0
-"Japan",1990,0
-"Japan",1991,0
-"Japan",1992,0
-"Japan",1993,0
-"Japan",1994,0
-"Japan",1995,0
-"Japan",1996,0
-"Japan",1997,1
-"Japan",1998,1
-"Japan",1999,1
-"Japan",2000,1
-"Japan",2001,1
-"Japan",2002,0
-"Japan",2003,0
-"Japan",2004,0
-"Japan",2005,0
-"Japan",2006,0
-"Japan",2007,0
-"Japan",2008,0
-"Japan",2009,0
-"Japan",2010,0
-"Japan",2011,0
-"Japan",2012,0
-"Jordan",1976,0
-"Jordan",1977,0
-"Jordan",1978,0
-"Jordan",1979,0
-"Jordan",1980,0
-"Jordan",1981,0
-"Jordan",1982,0
-"Jordan",1983,0
-"Jordan",1984,0
-"Jordan",1985,0
-"Jordan",1986,0
-"Jordan",1987,0
-"Jordan",1988,0
-"Jordan",1989,1
-"Jordan",1990,1
-"Jordan",1991,1
-"Jordan",1992,0
-"Jordan",1993,0
-"Jordan",1994,0
-"Jordan",1995,0
-"Jordan",1996,0
-"Jordan",1997,0
-"Jordan",1998,0
-"Jordan",1999,0
-"Jordan",2000,0
-"Jordan",2001,0
-"Jordan",2002,0
-"Jordan",2003,0
-"Jordan",2004,0
-"Jordan",2005,0
-"Jordan",2006,0
-"Jordan",2007,0
-"Jordan",2008,0
-"Jordan",2009,0
-"Jordan",2010,0
-"Jordan",2011,0
-"Jordan",2012,0
-"Kazakhstan ",1976,0
-"Kazakhstan ",1977,0
-"Kazakhstan ",1978,0
-"Kazakhstan ",1979,0
-"Kazakhstan ",1980,0
-"Kazakhstan ",1981,0
-"Kazakhstan ",1982,0
-"Kazakhstan ",1983,0
-"Kazakhstan ",1984,0
-"Kazakhstan ",1985,0
-"Kazakhstan ",1986,0
-"Kazakhstan ",1987,0
-"Kazakhstan ",1988,0
-"Kazakhstan ",1989,0
-"Kazakhstan ",1990,0
-"Kazakhstan ",1991,0
-"Kazakhstan ",1992,0
-"Kazakhstan ",1993,0
-"Kazakhstan ",1994,0
-"Kazakhstan ",1995,0
-"Kazakhstan ",1996,0
-"Kazakhstan ",1997,0
-"Kazakhstan ",1998,0
-"Kazakhstan ",1999,0
-"Kazakhstan ",2000,0
-"Kazakhstan ",2001,0
-"Kazakhstan ",2002,0
-"Kazakhstan ",2003,0
-"Kazakhstan ",2004,0
-"Kazakhstan ",2005,0
-"Kazakhstan ",2006,0
-"Kazakhstan ",2007,0
-"Kazakhstan ",2008,1
-"Kazakhstan ",2009,1
-"Kazakhstan ",2010,1
-"Kazakhstan ",2011,1
-"Kazakhstan ",2012,1
-"Kenya",1976,0
-"Kenya",1977,0
-"Kenya",1978,0
-"Kenya",1979,0
-"Kenya",1980,0
-"Kenya",1981,0
-"Kenya",1982,0
-"Kenya",1983,0
-"Kenya",1984,0
-"Kenya",1985,1
-"Kenya",1986,0
-"Kenya",1987,0
-"Kenya",1988,0
-"Kenya",1989,0
-"Kenya",1990,0
-"Kenya",1991,0
-"Kenya",1992,1
-"Kenya",1993,1
-"Kenya",1994,1
-"Kenya",1995,0
-"Kenya",1996,0
-"Kenya",1997,0
-"Kenya",1998,0
-"Kenya",1999,0
-"Kenya",2000,0
-"Kenya",2001,0
-"Kenya",2002,0
-"Kenya",2003,0
-"Kenya",2004,0
-"Kenya",2005,0
-"Kenya",2006,0
-"Kenya",2007,0
-"Kenya",2008,0
-"Kenya",2009,0
-"Kenya",2010,0
-"Kenya",2011,0
-"Kenya",2012,0
-"Korea",1976,0
-"Korea",1977,0
-"Korea",1978,0
-"Korea",1979,0
-"Korea",1980,0
-"Korea",1981,0
-"Korea",1982,0
-"Korea",1983,0
-"Korea",1984,0
-"Korea",1985,0
-"Korea",1986,0
-"Korea",1987,0
-"Korea",1988,0
-"Korea",1989,0
-"Korea",1990,0
-"Korea",1991,0
-"Korea",1992,0
-"Korea",1993,0
-"Korea",1994,0
-"Korea",1995,0
-"Korea",1996,0
-"Korea",1997,1
-"Korea",1998,1
-"Korea",1999,0
-"Korea",2000,0
-"Korea",2001,0
-"Korea",2002,0
-"Korea",2003,0
-"Korea",2004,0
-"Korea",2005,0
-"Korea",2006,0
-"Korea",2007,0
-"Korea",2008,0
-"Korea",2009,0
-"Korea",2010,0
-"Korea",2011,0
-"Korea",2012,0
-"Kuwait",1976,0
-"Kuwait",1977,0
-"Kuwait",1978,0
-"Kuwait",1979,0
-"Kuwait",1980,0
-"Kuwait",1981,0
-"Kuwait",1982,1
-"Kuwait",1983,1
-"Kuwait",1984,1
-"Kuwait",1985,1
-"Kuwait",1986,0
-"Kuwait",1987,0
-"Kuwait",1988,0
-"Kuwait",1989,0
-"Kuwait",1990,0
-"Kuwait",1991,0
-"Kuwait",1992,0
-"Kuwait",1993,0
-"Kuwait",1994,0
-"Kuwait",1995,0
-"Kuwait",1996,0
-"Kuwait",1997,0
-"Kuwait",1998,0
-"Kuwait",1999,0
-"Kuwait",2000,0
-"Kuwait",2001,0
-"Kuwait",2002,0
-"Kuwait",2003,0
-"Kuwait",2004,0
-"Kuwait",2005,0
-"Kuwait",2006,0
-"Kuwait",2007,0
-"Kuwait",2008,0
-"Kuwait",2009,0
-"Kuwait",2010,0
-"Kuwait",2011,0
-"Kuwait",2012,0
-"Kyrgyz Rep ",1976,0
-"Kyrgyz Rep ",1977,0
-"Kyrgyz Rep ",1978,0
-"Kyrgyz Rep ",1979,0
-"Kyrgyz Rep ",1980,0
-"Kyrgyz Rep ",1981,0
-"Kyrgyz Rep ",1982,0
-"Kyrgyz Rep ",1983,0
-"Kyrgyz Rep ",1984,0
-"Kyrgyz Rep ",1985,0
-"Kyrgyz Rep ",1986,0
-"Kyrgyz Rep ",1987,0
-"Kyrgyz Rep ",1988,0
-"Kyrgyz Rep ",1989,0
-"Kyrgyz Rep ",1990,0
-"Kyrgyz Rep ",1991,0
-"Kyrgyz Rep ",1992,0
-"Kyrgyz Rep ",1993,0
-"Kyrgyz Rep ",1994,0
-"Kyrgyz Rep ",1995,1
-"Kyrgyz Rep ",1996,1
-"Kyrgyz Rep ",1997,1
-"Kyrgyz Rep ",1998,1
-"Kyrgyz Rep ",1999,1
-"Kyrgyz Rep ",2000,0
-"Kyrgyz Rep ",2001,0
-"Kyrgyz Rep ",2002,0
-"Kyrgyz Rep ",2003,0
-"Kyrgyz Rep ",2004,0
-"Kyrgyz Rep ",2005,0
-"Kyrgyz Rep ",2006,0
-"Kyrgyz Rep ",2007,0
-"Kyrgyz Rep ",2008,0
-"Kyrgyz Rep ",2009,0
-"Kyrgyz Rep ",2010,0
-"Kyrgyz Rep ",2011,0
-"Kyrgyz Rep ",2012,0
-"Latvia",1976,0
-"Latvia",1977,0
-"Latvia",1978,0
-"Latvia",1979,0
-"Latvia",1980,0
-"Latvia",1981,0
-"Latvia",1982,0
-"Latvia",1983,0
-"Latvia",1984,0
-"Latvia",1985,0
-"Latvia",1986,0
-"Latvia",1987,0
-"Latvia",1988,0
-"Latvia",1989,0
-"Latvia",1990,0
-"Latvia",1991,0
-"Latvia",1992,0
-"Latvia",1993,0
-"Latvia",1994,0
-"Latvia",1995,0
-"Latvia",1996,0
-"Latvia",1997,0
-"Latvia",1998,0
-"Latvia",1999,0
-"Latvia",2000,0
-"Latvia",2001,0
-"Latvia",2002,0
-"Latvia",2003,0
-"Latvia",2004,0
-"Latvia",2005,0
-"Latvia",2006,0
-"Latvia",2007,0
-"Latvia",2008,1
-"Latvia",2009,1
-"Latvia",2010,1
-"Latvia",2011,1
-"Latvia",2012,1
-"Latvia ",1976,0
-"Latvia ",1977,0
-"Latvia ",1978,0
-"Latvia ",1979,0
-"Latvia ",1980,0
-"Latvia ",1981,0
-"Latvia ",1982,0
-"Latvia ",1983,0
-"Latvia ",1984,0
-"Latvia ",1985,0
-"Latvia ",1986,0
-"Latvia ",1987,0
-"Latvia ",1988,0
-"Latvia ",1989,0
-"Latvia ",1990,0
-"Latvia ",1991,0
-"Latvia ",1992,0
-"Latvia ",1993,0
-"Latvia ",1994,0
-"Latvia ",1995,1
-"Latvia ",1996,1
-"Latvia ",1997,0
-"Latvia ",1998,0
-"Latvia ",1999,0
-"Latvia ",2000,0
-"Latvia ",2001,0
-"Latvia ",2002,0
-"Latvia ",2003,0
-"Latvia ",2004,0
-"Latvia ",2005,0
-"Latvia ",2006,0
-"Latvia ",2007,0
-"Latvia ",2008,0
-"Latvia ",2009,0
-"Latvia ",2010,0
-"Latvia ",2011,0
-"Latvia ",2012,0
-"Lebanon",1976,0
-"Lebanon",1977,0
-"Lebanon",1978,0
-"Lebanon",1979,0
-"Lebanon",1980,0
-"Lebanon",1981,0
-"Lebanon",1982,0
-"Lebanon",1983,0
-"Lebanon",1984,0
-"Lebanon",1985,0
-"Lebanon",1986,0
-"Lebanon",1987,0
-"Lebanon",1988,0
-"Lebanon",1989,0
-"Lebanon",1990,1
-"Lebanon",1991,1
-"Lebanon",1992,1
-"Lebanon",1993,1
-"Lebanon",1994,0
-"Lebanon",1995,0
-"Lebanon",1996,0
-"Lebanon",1997,0
-"Lebanon",1998,0
-"Lebanon",1999,0
-"Lebanon",2000,0
-"Lebanon",2001,0
-"Lebanon",2002,0
-"Lebanon",2003,0
-"Lebanon",2004,0
-"Lebanon",2005,0
-"Lebanon",2006,0
-"Lebanon",2007,0
-"Lebanon",2008,0
-"Lebanon",2009,0
-"Lebanon",2010,0
-"Lebanon",2011,0
-"Lebanon",2012,0
-"Liberia",1976,0
-"Liberia",1977,0
-"Liberia",1978,0
-"Liberia",1979,0
-"Liberia",1980,0
-"Liberia",1981,0
-"Liberia",1982,0
-"Liberia",1983,0
-"Liberia",1984,0
-"Liberia",1985,0
-"Liberia",1986,0
-"Liberia",1987,0
-"Liberia",1988,0
-"Liberia",1989,0
-"Liberia",1990,0
-"Liberia",1991,1
-"Liberia",1992,1
-"Liberia",1993,1
-"Liberia",1994,1
-"Liberia",1995,1
-"Liberia",1996,0
-"Liberia",1997,0
-"Liberia",1998,0
-"Liberia",1999,0
-"Liberia",2000,0
-"Liberia",2001,0
-"Liberia",2002,0
-"Liberia",2003,0
-"Liberia",2004,0
-"Liberia",2005,0
-"Liberia",2006,0
-"Liberia",2007,0
-"Liberia",2008,0
-"Liberia",2009,0
-"Liberia",2010,0
-"Liberia",2011,0
-"Liberia",2012,0
-"Lithuania ",1976,0
-"Lithuania ",1977,0
-"Lithuania ",1978,0
-"Lithuania ",1979,0
-"Lithuania ",1980,0
-"Lithuania ",1981,0
-"Lithuania ",1982,0
-"Lithuania ",1983,0
-"Lithuania ",1984,0
-"Lithuania ",1985,0
-"Lithuania ",1986,0
-"Lithuania ",1987,0
-"Lithuania ",1988,0
-"Lithuania ",1989,0
-"Lithuania ",1990,0
-"Lithuania ",1991,0
-"Lithuania ",1992,0
-"Lithuania ",1993,0
-"Lithuania ",1994,0
-"Lithuania ",1995,1
-"Lithuania ",1996,1
-"Lithuania ",1997,0
-"Lithuania ",1998,0
-"Lithuania ",1999,0
-"Lithuania ",2000,0
-"Lithuania ",2001,0
-"Lithuania ",2002,0
-"Lithuania ",2003,0
-"Lithuania ",2004,0
-"Lithuania ",2005,0
-"Lithuania ",2006,0
-"Lithuania ",2007,0
-"Lithuania ",2008,0
-"Lithuania ",2009,0
-"Lithuania ",2010,0
-"Lithuania ",2011,0
-"Lithuania ",2012,0
-"Luxembourg",1976,0
-"Luxembourg",1977,0
-"Luxembourg",1978,0
-"Luxembourg",1979,0
-"Luxembourg",1980,0
-"Luxembourg",1981,0
-"Luxembourg",1982,0
-"Luxembourg",1983,0
-"Luxembourg",1984,0
-"Luxembourg",1985,0
-"Luxembourg",1986,0
-"Luxembourg",1987,0
-"Luxembourg",1988,0
-"Luxembourg",1989,0
-"Luxembourg",1990,0
-"Luxembourg",1991,0
-"Luxembourg",1992,0
-"Luxembourg",1993,0
-"Luxembourg",1994,0
-"Luxembourg",1995,0
-"Luxembourg",1996,0
-"Luxembourg",1997,0
-"Luxembourg",1998,0
-"Luxembourg",1999,0
-"Luxembourg",2000,0
-"Luxembourg",2001,0
-"Luxembourg",2002,0
-"Luxembourg",2003,0
-"Luxembourg",2004,0
-"Luxembourg",2005,0
-"Luxembourg",2006,0
-"Luxembourg",2007,0
-"Luxembourg",2008,1
-"Luxembourg",2009,1
-"Luxembourg",2010,1
-"Luxembourg",2011,1
-"Luxembourg",2012,1
-"Macedonia, FYR ",1976,0
-"Macedonia, FYR ",1977,0
-"Macedonia, FYR ",1978,0
-"Macedonia, FYR ",1979,0
-"Macedonia, FYR ",1980,0
-"Macedonia, FYR ",1981,0
-"Macedonia, FYR ",1982,0
-"Macedonia, FYR ",1983,0
-"Macedonia, FYR ",1984,0
-"Macedonia, FYR ",1985,0
-"Macedonia, FYR ",1986,0
-"Macedonia, FYR ",1987,0
-"Macedonia, FYR ",1988,0
-"Macedonia, FYR ",1989,0
-"Macedonia, FYR ",1990,0
-"Macedonia, FYR ",1991,0
-"Macedonia, FYR ",1992,0
-"Macedonia, FYR ",1993,1
-"Macedonia, FYR ",1994,1
-"Macedonia, FYR ",1995,1
-"Macedonia, FYR ",1996,0
-"Macedonia, FYR ",1997,0
-"Macedonia, FYR ",1998,0
-"Macedonia, FYR ",1999,0
-"Macedonia, FYR ",2000,0
-"Macedonia, FYR ",2001,0
-"Macedonia, FYR ",2002,0
-"Macedonia, FYR ",2003,0
-"Macedonia, FYR ",2004,0
-"Macedonia, FYR ",2005,0
-"Macedonia, FYR ",2006,0
-"Macedonia, FYR ",2007,0
-"Macedonia, FYR ",2008,0
-"Macedonia, FYR ",2009,0
-"Macedonia, FYR ",2010,0
-"Macedonia, FYR ",2011,0
-"Macedonia, FYR ",2012,0
-"Madagascar",1976,0
-"Madagascar",1977,0
-"Madagascar",1978,0
-"Madagascar",1979,0
-"Madagascar",1980,0
-"Madagascar",1981,0
-"Madagascar",1982,0
-"Madagascar",1983,0
-"Madagascar",1984,0
-"Madagascar",1985,0
-"Madagascar",1986,0
-"Madagascar",1987,0
-"Madagascar",1988,1
-"Madagascar",1989,0
-"Madagascar",1990,0
-"Madagascar",1991,0
-"Madagascar",1992,0
-"Madagascar",1993,0
-"Madagascar",1994,0
-"Madagascar",1995,0
-"Madagascar",1996,0
-"Madagascar",1997,0
-"Madagascar",1998,0
-"Madagascar",1999,0
-"Madagascar",2000,0
-"Madagascar",2001,0
-"Madagascar",2002,0
-"Madagascar",2003,0
-"Madagascar",2004,0
-"Madagascar",2005,0
-"Madagascar",2006,0
-"Madagascar",2007,0
-"Madagascar",2008,0
-"Madagascar",2009,0
-"Madagascar",2010,0
-"Madagascar",2011,0
-"Madagascar",2012,0
-"Malaysia",1976,0
-"Malaysia",1977,0
-"Malaysia",1978,0
-"Malaysia",1979,0
-"Malaysia",1980,0
-"Malaysia",1981,0
-"Malaysia",1982,0
-"Malaysia",1983,0
-"Malaysia",1984,0
-"Malaysia",1985,0
-"Malaysia",1986,0
-"Malaysia",1987,0
-"Malaysia",1988,0
-"Malaysia",1989,0
-"Malaysia",1990,0
-"Malaysia",1991,0
-"Malaysia",1992,0
-"Malaysia",1993,0
-"Malaysia",1994,0
-"Malaysia",1995,0
-"Malaysia",1996,0
-"Malaysia",1997,1
-"Malaysia",1998,1
-"Malaysia",1999,1
-"Malaysia",2000,0
-"Malaysia",2001,0
-"Malaysia",2002,0
-"Malaysia",2003,0
-"Malaysia",2004,0
-"Malaysia",2005,0
-"Malaysia",2006,0
-"Malaysia",2007,0
-"Malaysia",2008,0
-"Malaysia",2009,0
-"Malaysia",2010,0
-"Malaysia",2011,0
-"Malaysia",2012,0
-"Mali",1976,0
-"Mali",1977,0
-"Mali",1978,0
-"Mali",1979,0
-"Mali",1980,0
-"Mali",1981,0
-"Mali",1982,0
-"Mali",1983,0
-"Mali",1984,0
-"Mali",1985,0
-"Mali",1986,0
-"Mali",1987,1
-"Mali",1988,1
-"Mali",1989,1
-"Mali",1990,1
-"Mali",1991,1
-"Mali",1992,0
-"Mali",1993,0
-"Mali",1994,0
-"Mali",1995,0
-"Mali",1996,0
-"Mali",1997,0
-"Mali",1998,0
-"Mali",1999,0
-"Mali",2000,0
-"Mali",2001,0
-"Mali",2002,0
-"Mali",2003,0
-"Mali",2004,0
-"Mali",2005,0
-"Mali",2006,0
-"Mali",2007,0
-"Mali",2008,0
-"Mali",2009,0
-"Mali",2010,0
-"Mali",2011,0
-"Mali",2012,0
-"Mauritania",1976,0
-"Mauritania",1977,0
-"Mauritania",1978,0
-"Mauritania",1979,0
-"Mauritania",1980,0
-"Mauritania",1981,0
-"Mauritania",1982,0
-"Mauritania",1983,0
-"Mauritania",1984,1
-"Mauritania",1985,0
-"Mauritania",1986,0
-"Mauritania",1987,0
-"Mauritania",1988,0
-"Mauritania",1989,0
-"Mauritania",1990,0
-"Mauritania",1991,0
-"Mauritania",1992,0
-"Mauritania",1993,0
-"Mauritania",1994,0
-"Mauritania",1995,0
-"Mauritania",1996,0
-"Mauritania",1997,0
-"Mauritania",1998,0
-"Mauritania",1999,0
-"Mauritania",2000,0
-"Mauritania",2001,0
-"Mauritania",2002,0
-"Mauritania",2003,0
-"Mauritania",2004,0
-"Mauritania",2005,0
-"Mauritania",2006,0
-"Mauritania",2007,0
-"Mauritania",2008,0
-"Mauritania",2009,0
-"Mauritania",2010,0
-"Mauritania",2011,0
-"Mauritania",2012,0
-"Mexico",1976,0
-"Mexico",1977,0
-"Mexico",1978,0
-"Mexico",1979,0
-"Mexico",1980,0
-"Mexico",1981,1
-"Mexico",1982,1
-"Mexico",1983,1
-"Mexico",1984,1
-"Mexico",1985,1
-"Mexico",1986,0
-"Mexico",1987,0
-"Mexico",1988,0
-"Mexico",1989,0
-"Mexico",1990,0
-"Mexico",1991,0
-"Mexico",1992,0
-"Mexico",1993,0
-"Mexico",1994,1
-"Mexico",1995,1
-"Mexico",1996,1
-"Mexico",1997,0
-"Mexico",1998,0
-"Mexico",1999,0
-"Mexico",2000,0
-"Mexico",2001,0
-"Mexico",2002,0
-"Mexico",2003,0
-"Mexico",2004,0
-"Mexico",2005,0
-"Mexico",2006,0
-"Mexico",2007,0
-"Mexico",2008,0
-"Mexico",2009,0
-"Mexico",2010,0
-"Mexico",2011,0
-"Mexico",2012,0
-"Mongolia",1976,0
-"Mongolia",1977,0
-"Mongolia",1978,0
-"Mongolia",1979,0
-"Mongolia",1980,0
-"Mongolia",1981,0
-"Mongolia",1982,0
-"Mongolia",1983,0
-"Mongolia",1984,0
-"Mongolia",1985,0
-"Mongolia",1986,0
-"Mongolia",1987,0
-"Mongolia",1988,0
-"Mongolia",1989,0
-"Mongolia",1990,0
-"Mongolia",1991,0
-"Mongolia",1992,0
-"Mongolia",1993,0
-"Mongolia",1994,0
-"Mongolia",1995,0
-"Mongolia",1996,0
-"Mongolia",1997,0
-"Mongolia",1998,0
-"Mongolia",1999,0
-"Mongolia",2000,0
-"Mongolia",2001,0
-"Mongolia",2002,0
-"Mongolia",2003,0
-"Mongolia",2004,0
-"Mongolia",2005,0
-"Mongolia",2006,0
-"Mongolia",2007,0
-"Mongolia",2008,1
-"Mongolia",2009,1
-"Mongolia",2010,1
-"Mongolia",2011,1
-"Mongolia",2012,1
-"Morocco",1976,0
-"Morocco",1977,0
-"Morocco",1978,0
-"Morocco",1979,0
-"Morocco",1980,1
-"Morocco",1981,1
-"Morocco",1982,1
-"Morocco",1983,1
-"Morocco",1984,1
-"Morocco",1985,0
-"Morocco",1986,0
-"Morocco",1987,0
-"Morocco",1988,0
-"Morocco",1989,0
-"Morocco",1990,0
-"Morocco",1991,0
-"Morocco",1992,0
-"Morocco",1993,0
-"Morocco",1994,0
-"Morocco",1995,0
-"Morocco",1996,0
-"Morocco",1997,0
-"Morocco",1998,0
-"Morocco",1999,0
-"Morocco",2000,0
-"Morocco",2001,0
-"Morocco",2002,0
-"Morocco",2003,0
-"Morocco",2004,0
-"Morocco",2005,0
-"Morocco",2006,0
-"Morocco",2007,0
-"Morocco",2008,0
-"Morocco",2009,0
-"Morocco",2010,0
-"Morocco",2011,0
-"Morocco",2012,0
-"Mozambique",1976,0
-"Mozambique",1977,0
-"Mozambique",1978,0
-"Mozambique",1979,0
-"Mozambique",1980,0
-"Mozambique",1981,0
-"Mozambique",1982,0
-"Mozambique",1983,0
-"Mozambique",1984,0
-"Mozambique",1985,0
-"Mozambique",1986,0
-"Mozambique",1987,1
-"Mozambique",1988,1
-"Mozambique",1989,1
-"Mozambique",1990,1
-"Mozambique",1991,1
-"Mozambique",1992,0
-"Mozambique",1993,0
-"Mozambique",1994,0
-"Mozambique",1995,0
-"Mozambique",1996,0
-"Mozambique",1997,0
-"Mozambique",1998,0
-"Mozambique",1999,0
-"Mozambique",2000,0
-"Mozambique",2001,0
-"Mozambique",2002,0
-"Mozambique",2003,0
-"Mozambique",2004,0
-"Mozambique",2005,0
-"Mozambique",2006,0
-"Mozambique",2007,0
-"Mozambique",2008,0
-"Mozambique",2009,0
-"Mozambique",2010,0
-"Mozambique",2011,0
-"Mozambique",2012,0
-"Nepal",1976,0
-"Nepal",1977,0
-"Nepal",1978,0
-"Nepal",1979,0
-"Nepal",1980,0
-"Nepal",1981,0
-"Nepal",1982,0
-"Nepal",1983,0
-"Nepal",1984,0
-"Nepal",1985,0
-"Nepal",1986,0
-"Nepal",1987,0
-"Nepal",1988,1
-"Nepal",1989,0
-"Nepal",1990,0
-"Nepal",1991,0
-"Nepal",1992,0
-"Nepal",1993,0
-"Nepal",1994,0
-"Nepal",1995,0
-"Nepal",1996,0
-"Nepal",1997,0
-"Nepal",1998,0
-"Nepal",1999,0
-"Nepal",2000,0
-"Nepal",2001,0
-"Nepal",2002,0
-"Nepal",2003,0
-"Nepal",2004,0
-"Nepal",2005,0
-"Nepal",2006,0
-"Nepal",2007,0
-"Nepal",2008,0
-"Nepal",2009,0
-"Nepal",2010,0
-"Nepal",2011,0
-"Nepal",2012,0
-"Netherlands",1976,0
-"Netherlands",1977,0
-"Netherlands",1978,0
-"Netherlands",1979,0
-"Netherlands",1980,0
-"Netherlands",1981,0
-"Netherlands",1982,0
-"Netherlands",1983,0
-"Netherlands",1984,0
-"Netherlands",1985,0
-"Netherlands",1986,0
-"Netherlands",1987,0
-"Netherlands",1988,0
-"Netherlands",1989,0
-"Netherlands",1990,0
-"Netherlands",1991,0
-"Netherlands",1992,0
-"Netherlands",1993,0
-"Netherlands",1994,0
-"Netherlands",1995,0
-"Netherlands",1996,0
-"Netherlands",1997,0
-"Netherlands",1998,0
-"Netherlands",1999,0
-"Netherlands",2000,0
-"Netherlands",2001,0
-"Netherlands",2002,0
-"Netherlands",2003,0
-"Netherlands",2004,0
-"Netherlands",2005,0
-"Netherlands",2006,0
-"Netherlands",2007,0
-"Netherlands",2008,1
-"Netherlands",2009,1
-"Netherlands",2010,1
-"Netherlands",2011,1
-"Netherlands",2012,1
-"Nicaragua",1976,0
-"Nicaragua",1977,0
-"Nicaragua",1978,0
-"Nicaragua",1979,0
-"Nicaragua",1980,0
-"Nicaragua",1981,0
-"Nicaragua",1982,0
-"Nicaragua",1983,0
-"Nicaragua",1984,0
-"Nicaragua",1985,0
-"Nicaragua",1986,0
-"Nicaragua",1987,0
-"Nicaragua",1988,0
-"Nicaragua",1989,0
-"Nicaragua",1990,1
-"Nicaragua",1991,1
-"Nicaragua",1992,1
-"Nicaragua",1993,1
-"Nicaragua",1994,0
-"Nicaragua",1995,0
-"Nicaragua",1996,0
-"Nicaragua",1997,0
-"Nicaragua",1998,0
-"Nicaragua",1999,0
-"Nicaragua",2000,1
-"Nicaragua",2001,1
-"Nicaragua",2002,0
-"Nicaragua",2003,0
-"Nicaragua",2004,0
-"Nicaragua",2005,0
-"Nicaragua",2006,0
-"Nicaragua",2007,0
-"Nicaragua",2008,0
-"Nicaragua",2009,0
-"Nicaragua",2010,0
-"Nicaragua",2011,0
-"Nicaragua",2012,0
-"Niger",1976,0
-"Niger",1977,0
-"Niger",1978,0
-"Niger",1979,0
-"Niger",1980,0
-"Niger",1981,0
-"Niger",1982,0
-"Niger",1983,1
-"Niger",1984,1
-"Niger",1985,1
-"Niger",1986,0
-"Niger",1987,0
-"Niger",1988,0
-"Niger",1989,0
-"Niger",1990,0
-"Niger",1991,0
-"Niger",1992,0
-"Niger",1993,0
-"Niger",1994,0
-"Niger",1995,0
-"Niger",1996,0
-"Niger",1997,0
-"Niger",1998,0
-"Niger",1999,0
-"Niger",2000,0
-"Niger",2001,0
-"Niger",2002,0
-"Niger",2003,0
-"Niger",2004,0
-"Niger",2005,0
-"Niger",2006,0
-"Niger",2007,0
-"Niger",2008,0
-"Niger",2009,0
-"Niger",2010,0
-"Niger",2011,0
-"Niger",2012,0
-"Nigeria",1976,0
-"Nigeria",1977,0
-"Nigeria",1978,0
-"Nigeria",1979,0
-"Nigeria",1980,0
-"Nigeria",1981,0
-"Nigeria",1982,0
-"Nigeria",1983,0
-"Nigeria",1984,0
-"Nigeria",1985,0
-"Nigeria",1986,0
-"Nigeria",1987,0
-"Nigeria",1988,0
-"Nigeria",1989,0
-"Nigeria",1990,0
-"Nigeria",1991,1
-"Nigeria",1992,1
-"Nigeria",1993,1
-"Nigeria",1994,1
-"Nigeria",1995,1
-"Nigeria",1996,0
-"Nigeria",1997,0
-"Nigeria",1998,0
-"Nigeria",1999,0
-"Nigeria",2000,0
-"Nigeria",2001,0
-"Nigeria",2002,0
-"Nigeria",2003,0
-"Nigeria",2004,0
-"Nigeria",2005,0
-"Nigeria",2006,0
-"Nigeria",2007,0
-"Nigeria",2008,0
-"Nigeria",2009,1
-"Nigeria",2010,1
-"Nigeria",2011,1
-"Nigeria",2012,1
-"Norway",1976,0
-"Norway",1977,0
-"Norway",1978,0
-"Norway",1979,0
-"Norway",1980,0
-"Norway",1981,0
-"Norway",1982,0
-"Norway",1983,0
-"Norway",1984,0
-"Norway",1985,0
-"Norway",1986,0
-"Norway",1987,0
-"Norway",1988,0
-"Norway",1989,0
-"Norway",1990,0
-"Norway",1991,1
-"Norway",1992,1
-"Norway",1993,1
-"Norway",1994,0
-"Norway",1995,0
-"Norway",1996,0
-"Norway",1997,0
-"Norway",1998,0
-"Norway",1999,0
-"Norway",2000,0
-"Norway",2001,0
-"Norway",2002,0
-"Norway",2003,0
-"Norway",2004,0
-"Norway",2005,0
-"Norway",2006,0
-"Norway",2007,0
-"Norway",2008,0
-"Norway",2009,0
-"Norway",2010,0
-"Norway",2011,0
-"Norway",2012,0
-"Panama",1976,0
-"Panama",1977,0
-"Panama",1978,0
-"Panama",1979,0
-"Panama",1980,0
-"Panama",1981,0
-"Panama",1982,0
-"Panama",1983,0
-"Panama",1984,0
-"Panama",1985,0
-"Panama",1986,0
-"Panama",1987,0
-"Panama",1988,1
-"Panama",1989,1
-"Panama",1990,0
-"Panama",1991,0
-"Panama",1992,0
-"Panama",1993,0
-"Panama",1994,0
-"Panama",1995,0
-"Panama",1996,0
-"Panama",1997,0
-"Panama",1998,0
-"Panama",1999,0
-"Panama",2000,0
-"Panama",2001,0
-"Panama",2002,0
-"Panama",2003,0
-"Panama",2004,0
-"Panama",2005,0
-"Panama",2006,0
-"Panama",2007,0
-"Panama",2008,0
-"Panama",2009,0
-"Panama",2010,0
-"Panama",2011,0
-"Panama",2012,0
-"Paraguay",1976,0
-"Paraguay",1977,0
-"Paraguay",1978,0
-"Paraguay",1979,0
-"Paraguay",1980,0
-"Paraguay",1981,0
-"Paraguay",1982,0
-"Paraguay",1983,0
-"Paraguay",1984,0
-"Paraguay",1985,0
-"Paraguay",1986,0
-"Paraguay",1987,0
-"Paraguay",1988,0
-"Paraguay",1989,0
-"Paraguay",1990,0
-"Paraguay",1991,0
-"Paraguay",1992,0
-"Paraguay",1993,0
-"Paraguay",1994,0
-"Paraguay",1995,1
-"Paraguay",1996,0
-"Paraguay",1997,0
-"Paraguay",1998,0
-"Paraguay",1999,0
-"Paraguay",2000,0
-"Paraguay",2001,0
-"Paraguay",2002,0
-"Paraguay",2003,0
-"Paraguay",2004,0
-"Paraguay",2005,0
-"Paraguay",2006,0
-"Paraguay",2007,0
-"Paraguay",2008,0
-"Paraguay",2009,0
-"Paraguay",2010,0
-"Paraguay",2011,0
-"Paraguay",2012,0
-"Peru",1976,0
-"Peru",1977,0
-"Peru",1978,0
-"Peru",1979,0
-"Peru",1980,0
-"Peru",1981,0
-"Peru",1982,0
-"Peru",1983,1
-"Peru",1984,0
-"Peru",1985,0
-"Peru",1986,0
-"Peru",1987,0
-"Peru",1988,0
-"Peru",1989,0
-"Peru",1990,0
-"Peru",1991,0
-"Peru",1992,0
-"Peru",1993,0
-"Peru",1994,0
-"Peru",1995,0
-"Peru",1996,0
-"Peru",1997,0
-"Peru",1998,0
-"Peru",1999,0
-"Peru",2000,0
-"Peru",2001,0
-"Peru",2002,0
-"Peru",2003,0
-"Peru",2004,0
-"Peru",2005,0
-"Peru",2006,0
-"Peru",2007,0
-"Peru",2008,0
-"Peru",2009,0
-"Peru",2010,0
-"Peru",2011,0
-"Peru",2012,0
-"Philippines",1976,0
-"Philippines",1977,0
-"Philippines",1978,0
-"Philippines",1979,0
-"Philippines",1980,0
-"Philippines",1981,0
-"Philippines",1982,0
-"Philippines",1983,1
-"Philippines",1984,1
-"Philippines",1985,1
-"Philippines",1986,1
-"Philippines",1987,0
-"Philippines",1988,0
-"Philippines",1989,0
-"Philippines",1990,0
-"Philippines",1991,0
-"Philippines",1992,0
-"Philippines",1993,0
-"Philippines",1994,0
-"Philippines",1995,0
-"Philippines",1996,0
-"Philippines",1997,0
-"Philippines",1998,0
-"Philippines",1999,0
-"Philippines",2000,0
-"Philippines",2001,0
-"Philippines",2002,0
-"Philippines",2003,0
-"Philippines",2004,0
-"Philippines",2005,0
-"Philippines",2006,0
-"Philippines",2007,0
-"Philippines",2008,0
-"Philippines",2009,0
-"Philippines",2010,0
-"Philippines",2011,0
-"Philippines",2012,0
-"Philippines ",1976,0
-"Philippines ",1977,0
-"Philippines ",1978,0
-"Philippines ",1979,0
-"Philippines ",1980,0
-"Philippines ",1981,0
-"Philippines ",1982,0
-"Philippines ",1983,0
-"Philippines ",1984,0
-"Philippines ",1985,0
-"Philippines ",1986,0
-"Philippines ",1987,0
-"Philippines ",1988,0
-"Philippines ",1989,0
-"Philippines ",1990,0
-"Philippines ",1991,0
-"Philippines ",1992,0
-"Philippines ",1993,0
-"Philippines ",1994,0
-"Philippines ",1995,0
-"Philippines ",1996,0
-"Philippines ",1997,1
-"Philippines ",1998,1
-"Philippines ",1999,1
-"Philippines ",2000,1
-"Philippines ",2001,1
-"Philippines ",2002,0
-"Philippines ",2003,0
-"Philippines ",2004,0
-"Philippines ",2005,0
-"Philippines ",2006,0
-"Philippines ",2007,0
-"Philippines ",2008,0
-"Philippines ",2009,0
-"Philippines ",2010,0
-"Philippines ",2011,0
-"Philippines ",2012,0
-"Poland ",1976,0
-"Poland ",1977,0
-"Poland ",1978,0
-"Poland ",1979,0
-"Poland ",1980,0
-"Poland ",1981,0
-"Poland ",1982,0
-"Poland ",1983,0
-"Poland ",1984,0
-"Poland ",1985,0
-"Poland ",1986,0
-"Poland ",1987,0
-"Poland ",1988,0
-"Poland ",1989,0
-"Poland ",1990,0
-"Poland ",1991,0
-"Poland ",1992,1
-"Poland ",1993,1
-"Poland ",1994,1
-"Poland ",1995,0
-"Poland ",1996,0
-"Poland ",1997,0
-"Poland ",1998,0
-"Poland ",1999,0
-"Poland ",2000,0
-"Poland ",2001,0
-"Poland ",2002,0
-"Poland ",2003,0
-"Poland ",2004,0
-"Poland ",2005,0
-"Poland ",2006,0
-"Poland ",2007,0
-"Poland ",2008,0
-"Poland ",2009,0
-"Poland ",2010,0
-"Poland ",2011,0
-"Poland ",2012,0
-"Portugal ",1976,0
-"Portugal ",1977,0
-"Portugal ",1978,0
-"Portugal ",1979,0
-"Portugal ",1980,0
-"Portugal ",1981,0
-"Portugal ",1982,0
-"Portugal ",1983,0
-"Portugal ",1984,0
-"Portugal ",1985,0
-"Portugal ",1986,0
-"Portugal ",1987,0
-"Portugal ",1988,0
-"Portugal ",1989,0
-"Portugal ",1990,0
-"Portugal ",1991,0
-"Portugal ",1992,0
-"Portugal ",1993,0
-"Portugal ",1994,0
-"Portugal ",1995,0
-"Portugal ",1996,0
-"Portugal ",1997,0
-"Portugal ",1998,0
-"Portugal ",1999,0
-"Portugal ",2000,0
-"Portugal ",2001,0
-"Portugal ",2002,0
-"Portugal ",2003,0
-"Portugal ",2004,0
-"Portugal ",2005,0
-"Portugal ",2006,0
-"Portugal ",2007,0
-"Portugal ",2008,1
-"Portugal ",2009,1
-"Portugal ",2010,1
-"Portugal ",2011,1
-"Portugal ",2012,1
-"Romania ",1976,0
-"Romania ",1977,0
-"Romania ",1978,0
-"Romania ",1979,0
-"Romania ",1980,0
-"Romania ",1981,0
-"Romania ",1982,0
-"Romania ",1983,0
-"Romania ",1984,0
-"Romania ",1985,0
-"Romania ",1986,0
-"Romania ",1987,0
-"Romania ",1988,0
-"Romania ",1989,0
-"Romania ",1990,1
-"Romania ",1991,1
-"Romania ",1992,1
-"Romania ",1993,0
-"Romania ",1994,0
-"Romania ",1995,0
-"Romania ",1996,0
-"Romania ",1997,0
-"Romania ",1998,0
-"Romania ",1999,0
-"Romania ",2000,0
-"Romania ",2001,0
-"Romania ",2002,0
-"Romania ",2003,0
-"Romania ",2004,0
-"Romania ",2005,0
-"Romania ",2006,0
-"Romania ",2007,0
-"Romania ",2008,0
-"Romania ",2009,0
-"Romania ",2010,0
-"Romania ",2011,0
-"Romania ",2012,0
-"Russia ",1976,0
-"Russia ",1977,0
-"Russia ",1978,0
-"Russia ",1979,0
-"Russia ",1980,0
-"Russia ",1981,0
-"Russia ",1982,0
-"Russia ",1983,0
-"Russia ",1984,0
-"Russia ",1985,0
-"Russia ",1986,0
-"Russia ",1987,0
-"Russia ",1988,0
-"Russia ",1989,0
-"Russia ",1990,0
-"Russia ",1991,0
-"Russia ",1992,0
-"Russia ",1993,0
-"Russia ",1994,0
-"Russia ",1995,0
-"Russia ",1996,0
-"Russia ",1997,0
-"Russia ",1998,1
-"Russia ",1999,0
-"Russia ",2000,0
-"Russia ",2001,0
-"Russia ",2002,0
-"Russia ",2003,0
-"Russia ",2004,0
-"Russia ",2005,0
-"Russia ",2006,0
-"Russia ",2007,0
-"Russia ",2008,1
-"Russia ",2009,1
-"Russia ",2010,1
-"Russia ",2011,1
-"Russia ",2012,1
-"São Tomé & Príncipe",1976,0
-"São Tomé & Príncipe",1977,0
-"São Tomé & Príncipe",1978,0
-"São Tomé & Príncipe",1979,0
-"São Tomé & Príncipe",1980,0
-"São Tomé & Príncipe",1981,0
-"São Tomé & Príncipe",1982,0
-"São Tomé & Príncipe",1983,0
-"São Tomé & Príncipe",1984,0
-"São Tomé & Príncipe",1985,0
-"São Tomé & Príncipe",1986,0
-"São Tomé & Príncipe",1987,0
-"São Tomé & Príncipe",1988,0
-"São Tomé & Príncipe",1989,0
-"São Tomé & Príncipe",1990,0
-"São Tomé & Príncipe",1991,0
-"São Tomé & Príncipe",1992,1
-"São Tomé & Príncipe",1993,0
-"São Tomé & Príncipe",1994,0
-"São Tomé & Príncipe",1995,0
-"São Tomé & Príncipe",1996,0
-"São Tomé & Príncipe",1997,0
-"São Tomé & Príncipe",1998,0
-"São Tomé & Príncipe",1999,0
-"São Tomé & Príncipe",2000,0
-"São Tomé & Príncipe",2001,0
-"São Tomé & Príncipe",2002,0
-"São Tomé & Príncipe",2003,0
-"São Tomé & Príncipe",2004,0
-"São Tomé & Príncipe",2005,0
-"São Tomé & Príncipe",2006,0
-"São Tomé & Príncipe",2007,0
-"São Tomé & Príncipe",2008,0
-"São Tomé & Príncipe",2009,0
-"São Tomé & Príncipe",2010,0
-"São Tomé & Príncipe",2011,0
-"São Tomé & Príncipe",2012,0
-"Senegal",1976,0
-"Senegal",1977,0
-"Senegal",1978,0
-"Senegal",1979,0
-"Senegal",1980,0
-"Senegal",1981,0
-"Senegal",1982,0
-"Senegal",1983,0
-"Senegal",1984,0
-"Senegal",1985,0
-"Senegal",1986,0
-"Senegal",1987,0
-"Senegal",1988,1
-"Senegal",1989,1
-"Senegal",1990,1
-"Senegal",1991,1
-"Senegal",1992,0
-"Senegal",1993,0
-"Senegal",1994,0
-"Senegal",1995,0
-"Senegal",1996,0
-"Senegal",1997,0
-"Senegal",1998,0
-"Senegal",1999,0
-"Senegal",2000,0
-"Senegal",2001,0
-"Senegal",2002,0
-"Senegal",2003,0
-"Senegal",2004,0
-"Senegal",2005,0
-"Senegal",2006,0
-"Senegal",2007,0
-"Senegal",2008,0
-"Senegal",2009,0
-"Senegal",2010,0
-"Senegal",2011,0
-"Senegal",2012,0
-"Sierra Leone",1976,0
-"Sierra Leone",1977,0
-"Sierra Leone",1978,0
-"Sierra Leone",1979,0
-"Sierra Leone",1980,0
-"Sierra Leone",1981,0
-"Sierra Leone",1982,0
-"Sierra Leone",1983,0
-"Sierra Leone",1984,0
-"Sierra Leone",1985,0
-"Sierra Leone",1986,0
-"Sierra Leone",1987,0
-"Sierra Leone",1988,0
-"Sierra Leone",1989,0
-"Sierra Leone",1990,1
-"Sierra Leone",1991,1
-"Sierra Leone",1992,1
-"Sierra Leone",1993,1
-"Sierra Leone",1994,1
-"Sierra Leone",1995,0
-"Sierra Leone",1996,0
-"Sierra Leone",1997,0
-"Sierra Leone",1998,0
-"Sierra Leone",1999,0
-"Sierra Leone",2000,0
-"Sierra Leone",2001,0
-"Sierra Leone",2002,0
-"Sierra Leone",2003,0
-"Sierra Leone",2004,0
-"Sierra Leone",2005,0
-"Sierra Leone",2006,0
-"Sierra Leone",2007,0
-"Sierra Leone",2008,0
-"Sierra Leone",2009,0
-"Sierra Leone",2010,0
-"Sierra Leone",2011,0
-"Sierra Leone",2012,0
-"Slovak Rep",1976,0
-"Slovak Rep",1977,0
-"Slovak Rep",1978,0
-"Slovak Rep",1979,0
-"Slovak Rep",1980,0
-"Slovak Rep",1981,0
-"Slovak Rep",1982,0
-"Slovak Rep",1983,0
-"Slovak Rep",1984,0
-"Slovak Rep",1985,0
-"Slovak Rep",1986,0
-"Slovak Rep",1987,0
-"Slovak Rep",1988,0
-"Slovak Rep",1989,0
-"Slovak Rep",1990,0
-"Slovak Rep",1991,0
-"Slovak Rep",1992,0
-"Slovak Rep",1993,0
-"Slovak Rep",1994,0
-"Slovak Rep",1995,0
-"Slovak Rep",1996,0
-"Slovak Rep",1997,0
-"Slovak Rep",1998,1
-"Slovak Rep",1999,1
-"Slovak Rep",2000,1
-"Slovak Rep",2001,1
-"Slovak Rep",2002,1
-"Slovak Rep",2003,0
-"Slovak Rep",2004,0
-"Slovak Rep",2005,0
-"Slovak Rep",2006,0
-"Slovak Rep",2007,0
-"Slovak Rep",2008,0
-"Slovak Rep",2009,0
-"Slovak Rep",2010,0
-"Slovak Rep",2011,0
-"Slovak Rep",2012,0
-"Slovenia ",1976,0
-"Slovenia ",1977,0
-"Slovenia ",1978,0
-"Slovenia ",1979,0
-"Slovenia ",1980,0
-"Slovenia ",1981,0
-"Slovenia ",1982,0
-"Slovenia ",1983,0
-"Slovenia ",1984,0
-"Slovenia ",1985,0
-"Slovenia ",1986,0
-"Slovenia ",1987,0
-"Slovenia ",1988,0
-"Slovenia ",1989,0
-"Slovenia ",1990,0
-"Slovenia ",1991,0
-"Slovenia ",1992,1
-"Slovenia ",1993,0
-"Slovenia ",1994,0
-"Slovenia ",1995,0
-"Slovenia ",1996,0
-"Slovenia ",1997,0
-"Slovenia ",1998,0
-"Slovenia ",1999,0
-"Slovenia ",2000,0
-"Slovenia ",2001,0
-"Slovenia ",2002,0
-"Slovenia ",2003,0
-"Slovenia ",2004,0
-"Slovenia ",2005,0
-"Slovenia ",2006,0
-"Slovenia ",2007,0
-"Slovenia ",2008,1
-"Slovenia ",2009,1
-"Slovenia ",2010,1
-"Slovenia ",2011,1
-"Slovenia ",2012,1
-"Spain",1976,0
-"Spain",1977,1
-"Spain",1978,1
-"Spain",1979,1
-"Spain",1980,1
-"Spain",1981,1
-"Spain",1982,0
-"Spain",1983,0
-"Spain",1984,0
-"Spain",1985,0
-"Spain",1986,0
-"Spain",1987,0
-"Spain",1988,0
-"Spain",1989,0
-"Spain",1990,0
-"Spain",1991,0
-"Spain",1992,0
-"Spain",1993,0
-"Spain",1994,0
-"Spain",1995,0
-"Spain",1996,0
-"Spain",1997,0
-"Spain",1998,0
-"Spain",1999,0
-"Spain",2000,0
-"Spain",2001,0
-"Spain",2002,0
-"Spain",2003,0
-"Spain",2004,0
-"Spain",2005,0
-"Spain",2006,0
-"Spain",2007,0
-"Spain",2008,1
-"Spain",2009,1
-"Spain",2010,1
-"Spain",2011,1
-"Spain",2012,1
-"Sri Lanka",1976,0
-"Sri Lanka",1977,0
-"Sri Lanka",1978,0
-"Sri Lanka",1979,0
-"Sri Lanka",1980,0
-"Sri Lanka",1981,0
-"Sri Lanka",1982,0
-"Sri Lanka",1983,0
-"Sri Lanka",1984,0
-"Sri Lanka",1985,0
-"Sri Lanka",1986,0
-"Sri Lanka",1987,0
-"Sri Lanka",1988,0
-"Sri Lanka",1989,1
-"Sri Lanka",1990,1
-"Sri Lanka",1991,1
-"Sri Lanka",1992,0
-"Sri Lanka",1993,0
-"Sri Lanka",1994,0
-"Sri Lanka",1995,0
-"Sri Lanka",1996,0
-"Sri Lanka",1997,0
-"Sri Lanka",1998,0
-"Sri Lanka",1999,0
-"Sri Lanka",2000,0
-"Sri Lanka",2001,0
-"Sri Lanka",2002,0
-"Sri Lanka",2003,0
-"Sri Lanka",2004,0
-"Sri Lanka",2005,0
-"Sri Lanka",2006,0
-"Sri Lanka",2007,0
-"Sri Lanka",2008,0
-"Sri Lanka",2009,0
-"Sri Lanka",2010,0
-"Sri Lanka",2011,0
-"Sri Lanka",2012,0
-"Swaziland",1976,0
-"Swaziland",1977,0
-"Swaziland",1978,0
-"Swaziland",1979,0
-"Swaziland",1980,0
-"Swaziland",1981,0
-"Swaziland",1982,0
-"Swaziland",1983,0
-"Swaziland",1984,0
-"Swaziland",1985,0
-"Swaziland",1986,0
-"Swaziland",1987,0
-"Swaziland",1988,0
-"Swaziland",1989,0
-"Swaziland",1990,0
-"Swaziland",1991,0
-"Swaziland",1992,0
-"Swaziland",1993,0
-"Swaziland",1994,0
-"Swaziland",1995,1
-"Swaziland",1996,1
-"Swaziland",1997,1
-"Swaziland",1998,1
-"Swaziland",1999,1
-"Swaziland",2000,0
-"Swaziland",2001,0
-"Swaziland",2002,0
-"Swaziland",2003,0
-"Swaziland",2004,0
-"Swaziland",2005,0
-"Swaziland",2006,0
-"Swaziland",2007,0
-"Swaziland",2008,0
-"Swaziland",2009,0
-"Swaziland",2010,0
-"Swaziland",2011,0
-"Swaziland",2012,0
-"Sweden",1976,0
-"Sweden",1977,0
-"Sweden",1978,0
-"Sweden",1979,0
-"Sweden",1980,0
-"Sweden",1981,0
-"Sweden",1982,0
-"Sweden",1983,0
-"Sweden",1984,0
-"Sweden",1985,0
-"Sweden",1986,0
-"Sweden",1987,0
-"Sweden",1988,0
-"Sweden",1989,0
-"Sweden",1990,0
-"Sweden",1991,1
-"Sweden",1992,1
-"Sweden",1993,1
-"Sweden",1994,1
-"Sweden",1995,1
-"Sweden",1996,0
-"Sweden",1997,0
-"Sweden",1998,0
-"Sweden",1999,0
-"Sweden",2000,0
-"Sweden",2001,0
-"Sweden",2002,0
-"Sweden",2003,0
-"Sweden",2004,0
-"Sweden",2005,0
-"Sweden",2006,0
-"Sweden",2007,0
-"Sweden",2008,0
-"Sweden",2009,0
-"Sweden",2010,0
-"Sweden",2011,0
-"Sweden",2012,0
-"Sweden ",1976,0
-"Sweden ",1977,0
-"Sweden ",1978,0
-"Sweden ",1979,0
-"Sweden ",1980,0
-"Sweden ",1981,0
-"Sweden ",1982,0
-"Sweden ",1983,0
-"Sweden ",1984,0
-"Sweden ",1985,0
-"Sweden ",1986,0
-"Sweden ",1987,0
-"Sweden ",1988,0
-"Sweden ",1989,0
-"Sweden ",1990,0
-"Sweden ",1991,0
-"Sweden ",1992,0
-"Sweden ",1993,0
-"Sweden ",1994,0
-"Sweden ",1995,0
-"Sweden ",1996,0
-"Sweden ",1997,0
-"Sweden ",1998,0
-"Sweden ",1999,0
-"Sweden ",2000,0
-"Sweden ",2001,0
-"Sweden ",2002,0
-"Sweden ",2003,0
-"Sweden ",2004,0
-"Sweden ",2005,0
-"Sweden ",2006,0
-"Sweden ",2007,0
-"Sweden ",2008,1
-"Sweden ",2009,1
-"Sweden ",2010,1
-"Sweden ",2011,1
-"Sweden ",2012,1
-"Switzerland ",1976,0
-"Switzerland ",1977,0
-"Switzerland ",1978,0
-"Switzerland ",1979,0
-"Switzerland ",1980,0
-"Switzerland ",1981,0
-"Switzerland ",1982,0
-"Switzerland ",1983,0
-"Switzerland ",1984,0
-"Switzerland ",1985,0
-"Switzerland ",1986,0
-"Switzerland ",1987,0
-"Switzerland ",1988,0
-"Switzerland ",1989,0
-"Switzerland ",1990,0
-"Switzerland ",1991,0
-"Switzerland ",1992,0
-"Switzerland ",1993,0
-"Switzerland ",1994,0
-"Switzerland ",1995,0
-"Switzerland ",1996,0
-"Switzerland ",1997,0
-"Switzerland ",1998,0
-"Switzerland ",1999,0
-"Switzerland ",2000,0
-"Switzerland ",2001,0
-"Switzerland ",2002,0
-"Switzerland ",2003,0
-"Switzerland ",2004,0
-"Switzerland ",2005,0
-"Switzerland ",2006,0
-"Switzerland ",2007,0
-"Switzerland ",2008,1
-"Switzerland ",2009,1
-"Switzerland ",2010,1
-"Switzerland ",2011,1
-"Switzerland ",2012,1
-"Tanzania",1976,0
-"Tanzania",1977,0
-"Tanzania",1978,0
-"Tanzania",1979,0
-"Tanzania",1980,0
-"Tanzania",1981,0
-"Tanzania",1982,0
-"Tanzania",1983,0
-"Tanzania",1984,0
-"Tanzania",1985,0
-"Tanzania",1986,0
-"Tanzania",1987,1
-"Tanzania",1988,1
-"Tanzania",1989,0
-"Tanzania",1990,0
-"Tanzania",1991,0
-"Tanzania",1992,0
-"Tanzania",1993,0
-"Tanzania",1994,0
-"Tanzania",1995,0
-"Tanzania",1996,0
-"Tanzania",1997,0
-"Tanzania",1998,0
-"Tanzania",1999,0
-"Tanzania",2000,0
-"Tanzania",2001,0
-"Tanzania",2002,0
-"Tanzania",2003,0
-"Tanzania",2004,0
-"Tanzania",2005,0
-"Tanzania",2006,0
-"Tanzania",2007,0
-"Tanzania",2008,0
-"Tanzania",2009,0
-"Tanzania",2010,0
-"Tanzania",2011,0
-"Tanzania",2012,0
-"Thailand",1976,0
-"Thailand",1977,0
-"Thailand",1978,0
-"Thailand",1979,0
-"Thailand",1980,0
-"Thailand",1981,0
-"Thailand",1982,0
-"Thailand",1983,1
-"Thailand",1984,0
-"Thailand",1985,0
-"Thailand",1986,0
-"Thailand",1987,0
-"Thailand",1988,0
-"Thailand",1989,0
-"Thailand",1990,0
-"Thailand",1991,0
-"Thailand",1992,0
-"Thailand",1993,0
-"Thailand",1994,0
-"Thailand",1995,0
-"Thailand",1996,0
-"Thailand",1997,1
-"Thailand",1998,1
-"Thailand",1999,1
-"Thailand",2000,1
-"Thailand",2001,0
-"Thailand",2002,0
-"Thailand",2003,0
-"Thailand",2004,0
-"Thailand",2005,0
-"Thailand",2006,0
-"Thailand",2007,0
-"Thailand",2008,0
-"Thailand",2009,0
-"Thailand",2010,0
-"Thailand",2011,0
-"Thailand",2012,0
-"Togo",1976,0
-"Togo",1977,0
-"Togo",1978,0
-"Togo",1979,0
-"Togo",1980,0
-"Togo",1981,0
-"Togo",1982,0
-"Togo",1983,0
-"Togo",1984,0
-"Togo",1985,0
-"Togo",1986,0
-"Togo",1987,0
-"Togo",1988,0
-"Togo",1989,0
-"Togo",1990,0
-"Togo",1991,0
-"Togo",1992,0
-"Togo",1993,1
-"Togo",1994,1
-"Togo",1995,0
-"Togo",1996,0
-"Togo",1997,0
-"Togo",1998,0
-"Togo",1999,0
-"Togo",2000,0
-"Togo",2001,0
-"Togo",2002,0
-"Togo",2003,0
-"Togo",2004,0
-"Togo",2005,0
-"Togo",2006,0
-"Togo",2007,0
-"Togo",2008,0
-"Togo",2009,0
-"Togo",2010,0
-"Togo",2011,0
-"Togo",2012,0
-"Tunisia",1976,0
-"Tunisia",1977,0
-"Tunisia",1978,0
-"Tunisia",1979,0
-"Tunisia",1980,0
-"Tunisia",1981,0
-"Tunisia",1982,0
-"Tunisia",1983,0
-"Tunisia",1984,0
-"Tunisia",1985,0
-"Tunisia",1986,0
-"Tunisia",1987,0
-"Tunisia",1988,0
-"Tunisia",1989,0
-"Tunisia",1990,0
-"Tunisia",1991,1
-"Tunisia",1992,0
-"Tunisia",1993,0
-"Tunisia",1994,0
-"Tunisia",1995,0
-"Tunisia",1996,0
-"Tunisia",1997,0
-"Tunisia",1998,0
-"Tunisia",1999,0
-"Tunisia",2000,0
-"Tunisia",2001,0
-"Tunisia",2002,0
-"Tunisia",2003,0
-"Tunisia",2004,0
-"Tunisia",2005,0
-"Tunisia",2006,0
-"Tunisia",2007,0
-"Tunisia",2008,0
-"Tunisia",2009,0
-"Tunisia",2010,0
-"Tunisia",2011,0
-"Tunisia",2012,0
-"Turkey",1976,0
-"Turkey",1977,0
-"Turkey",1978,0
-"Turkey",1979,0
-"Turkey",1980,0
-"Turkey",1981,0
-"Turkey",1982,1
-"Turkey",1983,1
-"Turkey",1984,1
-"Turkey",1985,0
-"Turkey",1986,0
-"Turkey",1987,0
-"Turkey",1988,0
-"Turkey",1989,0
-"Turkey",1990,0
-"Turkey",1991,0
-"Turkey",1992,0
-"Turkey",1993,0
-"Turkey",1994,0
-"Turkey",1995,0
-"Turkey",1996,0
-"Turkey",1997,0
-"Turkey",1998,0
-"Turkey",1999,0
-"Turkey",2000,1
-"Turkey",2001,1
-"Turkey",2002,0
-"Turkey",2003,0
-"Turkey",2004,0
-"Turkey",2005,0
-"Turkey",2006,0
-"Turkey",2007,0
-"Turkey",2008,0
-"Turkey",2009,0
-"Turkey",2010,0
-"Turkey",2011,0
-"Turkey",2012,0
-"Uganda",1976,0
-"Uganda",1977,0
-"Uganda",1978,0
-"Uganda",1979,0
-"Uganda",1980,0
-"Uganda",1981,0
-"Uganda",1982,0
-"Uganda",1983,0
-"Uganda",1984,0
-"Uganda",1985,0
-"Uganda",1986,0
-"Uganda",1987,0
-"Uganda",1988,0
-"Uganda",1989,0
-"Uganda",1990,0
-"Uganda",1991,0
-"Uganda",1992,0
-"Uganda",1993,0
-"Uganda",1994,1
-"Uganda",1995,0
-"Uganda",1996,0
-"Uganda",1997,0
-"Uganda",1998,0
-"Uganda",1999,0
-"Uganda",2000,0
-"Uganda",2001,0
-"Uganda",2002,0
-"Uganda",2003,0
-"Uganda",2004,0
-"Uganda",2005,0
-"Uganda",2006,0
-"Uganda",2007,0
-"Uganda",2008,0
-"Uganda",2009,0
-"Uganda",2010,0
-"Uganda",2011,0
-"Uganda",2012,0
-"Ukraine",1976,0
-"Ukraine",1977,0
-"Ukraine",1978,0
-"Ukraine",1979,0
-"Ukraine",1980,0
-"Ukraine",1981,0
-"Ukraine",1982,0
-"Ukraine",1983,0
-"Ukraine",1984,0
-"Ukraine",1985,0
-"Ukraine",1986,0
-"Ukraine",1987,0
-"Ukraine",1988,0
-"Ukraine",1989,0
-"Ukraine",1990,0
-"Ukraine",1991,0
-"Ukraine",1992,0
-"Ukraine",1993,0
-"Ukraine",1994,0
-"Ukraine",1995,0
-"Ukraine",1996,0
-"Ukraine",1997,0
-"Ukraine",1998,0
-"Ukraine",1999,0
-"Ukraine",2000,0
-"Ukraine",2001,0
-"Ukraine",2002,0
-"Ukraine",2003,0
-"Ukraine",2004,0
-"Ukraine",2005,0
-"Ukraine",2006,0
-"Ukraine",2007,0
-"Ukraine",2008,1
-"Ukraine",2009,1
-"Ukraine",2010,1
-"Ukraine",2011,1
-"Ukraine",2012,1
-"Ukraine ",1976,0
-"Ukraine ",1977,0
-"Ukraine ",1978,0
-"Ukraine ",1979,0
-"Ukraine ",1980,0
-"Ukraine ",1981,0
-"Ukraine ",1982,0
-"Ukraine ",1983,0
-"Ukraine ",1984,0
-"Ukraine ",1985,0
-"Ukraine ",1986,0
-"Ukraine ",1987,0
-"Ukraine ",1988,0
-"Ukraine ",1989,0
-"Ukraine ",1990,0
-"Ukraine ",1991,0
-"Ukraine ",1992,0
-"Ukraine ",1993,0
-"Ukraine ",1994,0
-"Ukraine ",1995,0
-"Ukraine ",1996,0
-"Ukraine ",1997,0
-"Ukraine ",1998,1
-"Ukraine ",1999,1
-"Ukraine ",2000,0
-"Ukraine ",2001,0
-"Ukraine ",2002,0
-"Ukraine ",2003,0
-"Ukraine ",2004,0
-"Ukraine ",2005,0
-"Ukraine ",2006,0
-"Ukraine ",2007,0
-"Ukraine ",2008,0
-"Ukraine ",2009,0
-"Ukraine ",2010,0
-"Ukraine ",2011,0
-"Ukraine ",2012,0
-"United Kingdom",1976,0
-"United Kingdom",1977,0
-"United Kingdom",1978,0
-"United Kingdom",1979,0
-"United Kingdom",1980,0
-"United Kingdom",1981,0
-"United Kingdom",1982,0
-"United Kingdom",1983,0
-"United Kingdom",1984,0
-"United Kingdom",1985,0
-"United Kingdom",1986,0
-"United Kingdom",1987,0
-"United Kingdom",1988,0
-"United Kingdom",1989,0
-"United Kingdom",1990,0
-"United Kingdom",1991,0
-"United Kingdom",1992,0
-"United Kingdom",1993,0
-"United Kingdom",1994,0
-"United Kingdom",1995,0
-"United Kingdom",1996,0
-"United Kingdom",1997,0
-"United Kingdom",1998,0
-"United Kingdom",1999,0
-"United Kingdom",2000,0
-"United Kingdom",2001,0
-"United Kingdom",2002,0
-"United Kingdom",2003,0
-"United Kingdom",2004,0
-"United Kingdom",2005,0
-"United Kingdom",2006,0
-"United Kingdom",2007,1
-"United Kingdom",2008,1
-"United Kingdom",2009,1
-"United Kingdom",2010,1
-"United Kingdom",2011,1
-"United Kingdom",2012,1
-"United States",1976,0
-"United States",1977,0
-"United States",1978,0
-"United States",1979,0
-"United States",1980,0
-"United States",1981,0
-"United States",1982,0
-"United States",1983,0
-"United States",1984,0
-"United States",1985,0
-"United States",1986,0
-"United States",1987,0
-"United States",1988,0
-"United States",1989,0
-"United States",1990,0
-"United States",1991,0
-"United States",1992,0
-"United States",1993,0
-"United States",1994,0
-"United States",1995,0
-"United States",1996,0
-"United States",1997,0
-"United States",1998,0
-"United States",1999,0
-"United States",2000,0
-"United States",2001,0
-"United States",2002,0
-"United States",2003,0
-"United States",2004,0
-"United States",2005,0
-"United States",2006,0
-"United States",2007,1
-"United States",2008,1
-"United States",2009,1
-"United States",2010,1
-"United States",2011,1
-"United States",2012,1
-"United States ",1976,0
-"United States ",1977,0
-"United States ",1978,0
-"United States ",1979,0
-"United States ",1980,0
-"United States ",1981,0
-"United States ",1982,0
-"United States ",1983,0
-"United States ",1984,0
-"United States ",1985,0
-"United States ",1986,0
-"United States ",1987,0
-"United States ",1988,1
-"United States ",1989,0
-"United States ",1990,0
-"United States ",1991,0
-"United States ",1992,0
-"United States ",1993,0
-"United States ",1994,0
-"United States ",1995,0
-"United States ",1996,0
-"United States ",1997,0
-"United States ",1998,0
-"United States ",1999,0
-"United States ",2000,0
-"United States ",2001,0
-"United States ",2002,0
-"United States ",2003,0
-"United States ",2004,0
-"United States ",2005,0
-"United States ",2006,0
-"United States ",2007,0
-"United States ",2008,0
-"United States ",2009,0
-"United States ",2010,0
-"United States ",2011,0
-"United States ",2012,0
-"Uruguay",1976,0
-"Uruguay",1977,0
-"Uruguay",1978,0
-"Uruguay",1979,0
-"Uruguay",1980,0
-"Uruguay",1981,1
-"Uruguay",1982,1
-"Uruguay",1983,1
-"Uruguay",1984,1
-"Uruguay",1985,1
-"Uruguay",1986,0
-"Uruguay",1987,0
-"Uruguay",1988,0
-"Uruguay",1989,0
-"Uruguay",1990,0
-"Uruguay",1991,0
-"Uruguay",1992,0
-"Uruguay",1993,0
-"Uruguay",1994,0
-"Uruguay",1995,0
-"Uruguay",1996,0
-"Uruguay",1997,0
-"Uruguay",1998,0
-"Uruguay",1999,0
-"Uruguay",2000,0
-"Uruguay",2001,0
-"Uruguay",2002,1
-"Uruguay",2003,1
-"Uruguay",2004,1
-"Uruguay",2005,1
-"Uruguay",2006,0
-"Uruguay",2007,0
-"Uruguay",2008,0
-"Uruguay",2009,0
-"Uruguay",2010,0
-"Uruguay",2011,0
-"Uruguay",2012,0
-"Venezuela",1976,0
-"Venezuela",1977,0
-"Venezuela",1978,0
-"Venezuela",1979,0
-"Venezuela",1980,0
-"Venezuela",1981,0
-"Venezuela",1982,0
-"Venezuela",1983,0
-"Venezuela",1984,0
-"Venezuela",1985,0
-"Venezuela",1986,0
-"Venezuela",1987,0
-"Venezuela",1988,0
-"Venezuela",1989,0
-"Venezuela",1990,0
-"Venezuela",1991,0
-"Venezuela",1992,0
-"Venezuela",1993,0
-"Venezuela",1994,1
-"Venezuela",1995,1
-"Venezuela",1996,1
-"Venezuela",1997,1
-"Venezuela",1998,1
-"Venezuela",1999,0
-"Venezuela",2000,0
-"Venezuela",2001,0
-"Venezuela",2002,0
-"Venezuela",2003,0
-"Venezuela",2004,0
-"Venezuela",2005,0
-"Venezuela",2006,0
-"Venezuela",2007,0
-"Venezuela",2008,0
-"Venezuela",2009,0
-"Venezuela",2010,0
-"Venezuela",2011,0
-"Venezuela",2012,0
-"Vietnam",1976,0
-"Vietnam",1977,0
-"Vietnam",1978,0
-"Vietnam",1979,0
-"Vietnam",1980,0
-"Vietnam",1981,0
-"Vietnam",1982,0
-"Vietnam",1983,0
-"Vietnam",1984,0
-"Vietnam",1985,0
-"Vietnam",1986,0
-"Vietnam",1987,0
-"Vietnam",1988,0
-"Vietnam",1989,0
-"Vietnam",1990,0
-"Vietnam",1991,0
-"Vietnam",1992,0
-"Vietnam",1993,0
-"Vietnam",1994,0
-"Vietnam",1995,0
-"Vietnam",1996,0
-"Vietnam",1997,1
-"Vietnam",1998,0
-"Vietnam",1999,0
-"Vietnam",2000,0
-"Vietnam",2001,0
-"Vietnam",2002,0
-"Vietnam",2003,0
-"Vietnam",2004,0
-"Vietnam",2005,0
-"Vietnam",2006,0
-"Vietnam",2007,0
-"Vietnam",2008,0
-"Vietnam",2009,0
-"Vietnam",2010,0
-"Vietnam",2011,0
-"Vietnam",2012,0
-"Yemen",1976,0
-"Yemen",1977,0
-"Yemen",1978,0
-"Yemen",1979,0
-"Yemen",1980,0
-"Yemen",1981,0
-"Yemen",1982,0
-"Yemen",1983,0
-"Yemen",1984,0
-"Yemen",1985,0
-"Yemen",1986,0
-"Yemen",1987,0
-"Yemen",1988,0
-"Yemen",1989,0
-"Yemen",1990,0
-"Yemen",1991,0
-"Yemen",1992,0
-"Yemen",1993,0
-"Yemen",1994,0
-"Yemen",1995,0
-"Yemen",1996,1
-"Yemen",1997,0
-"Yemen",1998,0
-"Yemen",1999,0
-"Yemen",2000,0
-"Yemen",2001,0
-"Yemen",2002,0
-"Yemen",2003,0
-"Yemen",2004,0
-"Yemen",2005,0
-"Yemen",2006,0
-"Yemen",2007,0
-"Yemen",2008,0
-"Yemen",2009,0
-"Yemen",2010,0
-"Yemen",2011,0
-"Yemen",2012,0
-"Zambia",1976,0
-"Zambia",1977,0
-"Zambia",1978,0
-"Zambia",1979,0
-"Zambia",1980,0
-"Zambia",1981,0
-"Zambia",1982,0
-"Zambia",1983,0
-"Zambia",1984,0
-"Zambia",1985,0
-"Zambia",1986,0
-"Zambia",1987,0
-"Zambia",1988,0
-"Zambia",1989,0
-"Zambia",1990,0
-"Zambia",1991,0
-"Zambia",1992,0
-"Zambia",1993,0
-"Zambia",1994,0
-"Zambia",1995,1
-"Zambia",1996,1
-"Zambia",1997,1
-"Zambia",1998,1
-"Zambia",1999,0
-"Zambia",2000,0
-"Zambia",2001,0
-"Zambia",2002,0
-"Zambia",2003,0
-"Zambia",2004,0
-"Zambia",2005,0
-"Zambia",2006,0
-"Zambia",2007,0
-"Zambia",2008,0
-"Zambia",2009,0
-"Zambia",2010,0
-"Zambia",2011,0
-"Zambia",2012,0
-"Zimbabwe",1976,0
-"Zimbabwe",1977,0
-"Zimbabwe",1978,0
-"Zimbabwe",1979,0
-"Zimbabwe",1980,0
-"Zimbabwe",1981,0
-"Zimbabwe",1982,0
-"Zimbabwe",1983,0
-"Zimbabwe",1984,0
-"Zimbabwe",1985,0
-"Zimbabwe",1986,0
-"Zimbabwe",1987,0
-"Zimbabwe",1988,0
-"Zimbabwe",1989,0
-"Zimbabwe",1990,0
-"Zimbabwe",1991,0
-"Zimbabwe",1992,0
-"Zimbabwe",1993,0
-"Zimbabwe",1994,0
-"Zimbabwe",1995,1
-"Zimbabwe",1996,1
-"Zimbabwe",1997,1
-"Zimbabwe",1998,1
-"Zimbabwe",1999,1
-"Zimbabwe",2000,0
-"Zimbabwe",2001,0
-"Zimbabwe",2002,0
-"Zimbabwe",2003,0
-"Zimbabwe",2004,0
-"Zimbabwe",2005,0
-"Zimbabwe",2006,0
-"Zimbabwe",2007,0
-"Zimbabwe",2008,0
-"Zimbabwe",2009,0
-"Zimbabwe",2010,0
-"Zimbabwe",2011,0
-"Zimbabwe",2012,0
+"iso2c","year","lv_bank_crisis"
+"AL",1976,0
+"AL",1977,0
+"AL",1978,0
+"AL",1979,0
+"AL",1980,0
+"AL",1981,0
+"AL",1982,0
+"AL",1983,0
+"AL",1984,0
+"AL",1985,0
+"AL",1986,0
+"AL",1987,0
+"AL",1988,0
+"AL",1989,0
+"AL",1990,0
+"AL",1991,0
+"AL",1992,0
+"AL",1993,0
+"AL",1994,1
+"AL",1995,0
+"AL",1996,0
+"AL",1997,0
+"AL",1998,0
+"AL",1999,0
+"AL",2000,0
+"AL",2001,0
+"AL",2002,0
+"AL",2003,0
+"AL",2004,0
+"AL",2005,0
+"AL",2006,0
+"AL",2007,0
+"AL",2008,0
+"AL",2009,0
+"AL",2010,0
+"AL",2011,0
+"AL",2012,0
+"DZ",1976,0
+"DZ",1977,0
+"DZ",1978,0
+"DZ",1979,0
+"DZ",1980,0
+"DZ",1981,0
+"DZ",1982,0
+"DZ",1983,0
+"DZ",1984,0
+"DZ",1985,0
+"DZ",1986,0
+"DZ",1987,0
+"DZ",1988,0
+"DZ",1989,0
+"DZ",1990,1
+"DZ",1991,1
+"DZ",1992,1
+"DZ",1993,1
+"DZ",1994,1
+"DZ",1995,0
+"DZ",1996,0
+"DZ",1997,0
+"DZ",1998,0
+"DZ",1999,0
+"DZ",2000,0
+"DZ",2001,0
+"DZ",2002,0
+"DZ",2003,0
+"DZ",2004,0
+"DZ",2005,0
+"DZ",2006,0
+"DZ",2007,0
+"DZ",2008,0
+"DZ",2009,0
+"DZ",2010,0
+"DZ",2011,0
+"DZ",2012,0
+"AR",1976,0
+"AR",1977,0
+"AR",1978,0
+"AR",1979,0
+"AR",1980,1
+"AR",1981,1
+"AR",1982,1
+"AR",1983,0
+"AR",1984,0
+"AR",1985,0
+"AR",1986,0
+"AR",1987,0
+"AR",1988,0
+"AR",1989,1
+"AR",1990,1
+"AR",1991,1
+"AR",1992,0
+"AR",1993,0
+"AR",1994,0
+"AR",1995,0
+"AR",1996,0
+"AR",1997,0
+"AR",1998,0
+"AR",1999,0
+"AR",2000,0
+"AR",2001,1
+"AR",2002,1
+"AR",2003,1
+"AR",2004,0
+"AR",2005,0
+"AR",2006,0
+"AR",2007,0
+"AR",2008,0
+"AR",2009,0
+"AR",2010,0
+"AR",2011,0
+"AR",2012,0
+"AR",1976,0
+"AR",1977,0
+"AR",1978,0
+"AR",1979,0
+"AR",1980,0
+"AR",1981,0
+"AR",1982,0
+"AR",1983,0
+"AR",1984,0
+"AR",1985,0
+"AR",1986,0
+"AR",1987,0
+"AR",1988,0
+"AR",1989,0
+"AR",1990,0
+"AR",1991,0
+"AR",1992,0
+"AR",1993,0
+"AR",1994,0
+"AR",1995,1
+"AR",1996,0
+"AR",1997,0
+"AR",1998,0
+"AR",1999,0
+"AR",2000,0
+"AR",2001,0
+"AR",2002,0
+"AR",2003,0
+"AR",2004,0
+"AR",2005,0
+"AR",2006,0
+"AR",2007,0
+"AR",2008,0
+"AR",2009,0
+"AR",2010,0
+"AR",2011,0
+"AR",2012,0
+"AM",1976,0
+"AM",1977,0
+"AM",1978,0
+"AM",1979,0
+"AM",1980,0
+"AM",1981,0
+"AM",1982,0
+"AM",1983,0
+"AM",1984,0
+"AM",1985,0
+"AM",1986,0
+"AM",1987,0
+"AM",1988,0
+"AM",1989,0
+"AM",1990,0
+"AM",1991,0
+"AM",1992,0
+"AM",1993,0
+"AM",1994,1
+"AM",1995,0
+"AM",1996,0
+"AM",1997,0
+"AM",1998,0
+"AM",1999,0
+"AM",2000,0
+"AM",2001,0
+"AM",2002,0
+"AM",2003,0
+"AM",2004,0
+"AM",2005,0
+"AM",2006,0
+"AM",2007,0
+"AM",2008,0
+"AM",2009,0
+"AM",2010,0
+"AM",2011,0
+"AM",2012,0
+"AT",1976,0
+"AT",1977,0
+"AT",1978,0
+"AT",1979,0
+"AT",1980,0
+"AT",1981,0
+"AT",1982,0
+"AT",1983,0
+"AT",1984,0
+"AT",1985,0
+"AT",1986,0
+"AT",1987,0
+"AT",1988,0
+"AT",1989,0
+"AT",1990,0
+"AT",1991,0
+"AT",1992,0
+"AT",1993,0
+"AT",1994,0
+"AT",1995,0
+"AT",1996,0
+"AT",1997,0
+"AT",1998,0
+"AT",1999,0
+"AT",2000,0
+"AT",2001,0
+"AT",2002,0
+"AT",2003,0
+"AT",2004,0
+"AT",2005,0
+"AT",2006,0
+"AT",2007,0
+"AT",2008,1
+"AT",2009,1
+"AT",2010,1
+"AT",2011,1
+"AT",2012,1
+"AZ",1976,0
+"AZ",1977,0
+"AZ",1978,0
+"AZ",1979,0
+"AZ",1980,0
+"AZ",1981,0
+"AZ",1982,0
+"AZ",1983,0
+"AZ",1984,0
+"AZ",1985,0
+"AZ",1986,0
+"AZ",1987,0
+"AZ",1988,0
+"AZ",1989,0
+"AZ",1990,0
+"AZ",1991,0
+"AZ",1992,0
+"AZ",1993,0
+"AZ",1994,0
+"AZ",1995,1
+"AZ",1996,0
+"AZ",1997,0
+"AZ",1998,0
+"AZ",1999,0
+"AZ",2000,0
+"AZ",2001,0
+"AZ",2002,0
+"AZ",2003,0
+"AZ",2004,0
+"AZ",2005,0
+"AZ",2006,0
+"AZ",2007,0
+"AZ",2008,0
+"AZ",2009,0
+"AZ",2010,0
+"AZ",2011,0
+"AZ",2012,0
+"BD",1976,0
+"BD",1977,0
+"BD",1978,0
+"BD",1979,0
+"BD",1980,0
+"BD",1981,0
+"BD",1982,0
+"BD",1983,0
+"BD",1984,0
+"BD",1985,0
+"BD",1986,0
+"BD",1987,1
+"BD",1988,0
+"BD",1989,0
+"BD",1990,0
+"BD",1991,0
+"BD",1992,0
+"BD",1993,0
+"BD",1994,0
+"BD",1995,0
+"BD",1996,0
+"BD",1997,0
+"BD",1998,0
+"BD",1999,0
+"BD",2000,0
+"BD",2001,0
+"BD",2002,0
+"BD",2003,0
+"BD",2004,0
+"BD",2005,0
+"BD",2006,0
+"BD",2007,0
+"BD",2008,0
+"BD",2009,0
+"BD",2010,0
+"BD",2011,0
+"BD",2012,0
+"BY",1976,0
+"BY",1977,0
+"BY",1978,0
+"BY",1979,0
+"BY",1980,0
+"BY",1981,0
+"BY",1982,0
+"BY",1983,0
+"BY",1984,0
+"BY",1985,0
+"BY",1986,0
+"BY",1987,0
+"BY",1988,0
+"BY",1989,0
+"BY",1990,0
+"BY",1991,0
+"BY",1992,0
+"BY",1993,0
+"BY",1994,0
+"BY",1995,1
+"BY",1996,0
+"BY",1997,0
+"BY",1998,0
+"BY",1999,0
+"BY",2000,0
+"BY",2001,0
+"BY",2002,0
+"BY",2003,0
+"BY",2004,0
+"BY",2005,0
+"BY",2006,0
+"BY",2007,0
+"BY",2008,0
+"BY",2009,0
+"BY",2010,0
+"BY",2011,0
+"BY",2012,0
+"BE",1976,0
+"BE",1977,0
+"BE",1978,0
+"BE",1979,0
+"BE",1980,0
+"BE",1981,0
+"BE",1982,0
+"BE",1983,0
+"BE",1984,0
+"BE",1985,0
+"BE",1986,0
+"BE",1987,0
+"BE",1988,0
+"BE",1989,0
+"BE",1990,0
+"BE",1991,0
+"BE",1992,0
+"BE",1993,0
+"BE",1994,0
+"BE",1995,0
+"BE",1996,0
+"BE",1997,0
+"BE",1998,0
+"BE",1999,0
+"BE",2000,0
+"BE",2001,0
+"BE",2002,0
+"BE",2003,0
+"BE",2004,0
+"BE",2005,0
+"BE",2006,0
+"BE",2007,0
+"BE",2008,1
+"BE",2009,1
+"BE",2010,1
+"BE",2011,1
+"BE",2012,1
+"BJ",1976,0
+"BJ",1977,0
+"BJ",1978,0
+"BJ",1979,0
+"BJ",1980,0
+"BJ",1981,0
+"BJ",1982,0
+"BJ",1983,0
+"BJ",1984,0
+"BJ",1985,0
+"BJ",1986,0
+"BJ",1987,0
+"BJ",1988,1
+"BJ",1989,1
+"BJ",1990,1
+"BJ",1991,1
+"BJ",1992,1
+"BJ",1993,0
+"BJ",1994,0
+"BJ",1995,0
+"BJ",1996,0
+"BJ",1997,0
+"BJ",1998,0
+"BJ",1999,0
+"BJ",2000,0
+"BJ",2001,0
+"BJ",2002,0
+"BJ",2003,0
+"BJ",2004,0
+"BJ",2005,0
+"BJ",2006,0
+"BJ",2007,0
+"BJ",2008,0
+"BJ",2009,0
+"BJ",2010,0
+"BJ",2011,0
+"BJ",2012,0
+"BO",1976,0
+"BO",1977,0
+"BO",1978,0
+"BO",1979,0
+"BO",1980,0
+"BO",1981,0
+"BO",1982,0
+"BO",1983,0
+"BO",1984,0
+"BO",1985,0
+"BO",1986,1
+"BO",1987,0
+"BO",1988,0
+"BO",1989,0
+"BO",1990,0
+"BO",1991,0
+"BO",1992,0
+"BO",1993,0
+"BO",1994,1
+"BO",1995,0
+"BO",1996,0
+"BO",1997,0
+"BO",1998,0
+"BO",1999,0
+"BO",2000,0
+"BO",2001,0
+"BO",2002,0
+"BO",2003,0
+"BO",2004,0
+"BO",2005,0
+"BO",2006,0
+"BO",2007,0
+"BO",2008,0
+"BO",2009,0
+"BO",2010,0
+"BO",2011,0
+"BO",2012,0
+"BA",1976,0
+"BA",1977,0
+"BA",1978,0
+"BA",1979,0
+"BA",1980,0
+"BA",1981,0
+"BA",1982,0
+"BA",1983,0
+"BA",1984,0
+"BA",1985,0
+"BA",1986,0
+"BA",1987,0
+"BA",1988,0
+"BA",1989,0
+"BA",1990,0
+"BA",1991,0
+"BA",1992,1
+"BA",1993,1
+"BA",1994,1
+"BA",1995,1
+"BA",1996,1
+"BA",1997,0
+"BA",1998,0
+"BA",1999,0
+"BA",2000,0
+"BA",2001,0
+"BA",2002,0
+"BA",2003,0
+"BA",2004,0
+"BA",2005,0
+"BA",2006,0
+"BA",2007,0
+"BA",2008,0
+"BA",2009,0
+"BA",2010,0
+"BA",2011,0
+"BA",2012,0
+"BR",1976,0
+"BR",1977,0
+"BR",1978,0
+"BR",1979,0
+"BR",1980,0
+"BR",1981,0
+"BR",1982,0
+"BR",1983,0
+"BR",1984,0
+"BR",1985,0
+"BR",1986,0
+"BR",1987,0
+"BR",1988,0
+"BR",1989,0
+"BR",1990,0
+"BR",1991,0
+"BR",1992,0
+"BR",1993,0
+"BR",1994,1
+"BR",1995,1
+"BR",1996,1
+"BR",1997,1
+"BR",1998,1
+"BR",1999,0
+"BR",2000,0
+"BR",2001,0
+"BR",2002,0
+"BR",2003,0
+"BR",2004,0
+"BR",2005,0
+"BR",2006,0
+"BR",2007,0
+"BR",2008,0
+"BR",2009,0
+"BR",2010,0
+"BR",2011,0
+"BR",2012,0
+"BR",1976,0
+"BR",1977,0
+"BR",1978,0
+"BR",1979,0
+"BR",1980,0
+"BR",1981,0
+"BR",1982,0
+"BR",1983,0
+"BR",1984,0
+"BR",1985,0
+"BR",1986,0
+"BR",1987,0
+"BR",1988,0
+"BR",1989,0
+"BR",1990,1
+"BR",1991,1
+"BR",1992,1
+"BR",1993,1
+"BR",1994,1
+"BR",1995,0
+"BR",1996,0
+"BR",1997,0
+"BR",1998,0
+"BR",1999,0
+"BR",2000,0
+"BR",2001,0
+"BR",2002,0
+"BR",2003,0
+"BR",2004,0
+"BR",2005,0
+"BR",2006,0
+"BR",2007,0
+"BR",2008,0
+"BR",2009,0
+"BR",2010,0
+"BR",2011,0
+"BR",2012,0
+"BG",1976,0
+"BG",1977,0
+"BG",1978,0
+"BG",1979,0
+"BG",1980,0
+"BG",1981,0
+"BG",1982,0
+"BG",1983,0
+"BG",1984,0
+"BG",1985,0
+"BG",1986,0
+"BG",1987,0
+"BG",1988,0
+"BG",1989,0
+"BG",1990,0
+"BG",1991,0
+"BG",1992,0
+"BG",1993,0
+"BG",1994,0
+"BG",1995,0
+"BG",1996,1
+"BG",1997,1
+"BG",1998,0
+"BG",1999,0
+"BG",2000,0
+"BG",2001,0
+"BG",2002,0
+"BG",2003,0
+"BG",2004,0
+"BG",2005,0
+"BG",2006,0
+"BG",2007,0
+"BG",2008,0
+"BG",2009,0
+"BG",2010,0
+"BG",2011,0
+"BG",2012,0
+"BF",1976,0
+"BF",1977,0
+"BF",1978,0
+"BF",1979,0
+"BF",1980,0
+"BF",1981,0
+"BF",1982,0
+"BF",1983,0
+"BF",1984,0
+"BF",1985,0
+"BF",1986,0
+"BF",1987,0
+"BF",1988,0
+"BF",1989,0
+"BF",1990,1
+"BF",1991,1
+"BF",1992,1
+"BF",1993,1
+"BF",1994,1
+"BF",1995,0
+"BF",1996,0
+"BF",1997,0
+"BF",1998,0
+"BF",1999,0
+"BF",2000,0
+"BF",2001,0
+"BF",2002,0
+"BF",2003,0
+"BF",2004,0
+"BF",2005,0
+"BF",2006,0
+"BF",2007,0
+"BF",2008,0
+"BF",2009,0
+"BF",2010,0
+"BF",2011,0
+"BF",2012,0
+"BI",1976,0
+"BI",1977,0
+"BI",1978,0
+"BI",1979,0
+"BI",1980,0
+"BI",1981,0
+"BI",1982,0
+"BI",1983,0
+"BI",1984,0
+"BI",1985,0
+"BI",1986,0
+"BI",1987,0
+"BI",1988,0
+"BI",1989,0
+"BI",1990,0
+"BI",1991,0
+"BI",1992,0
+"BI",1993,0
+"BI",1994,1
+"BI",1995,1
+"BI",1996,1
+"BI",1997,1
+"BI",1998,1
+"BI",1999,0
+"BI",2000,0
+"BI",2001,0
+"BI",2002,0
+"BI",2003,0
+"BI",2004,0
+"BI",2005,0
+"BI",2006,0
+"BI",2007,0
+"BI",2008,0
+"BI",2009,0
+"BI",2010,0
+"BI",2011,0
+"BI",2012,0
+"CM",1976,0
+"CM",1977,0
+"CM",1978,0
+"CM",1979,0
+"CM",1980,0
+"CM",1981,0
+"CM",1982,0
+"CM",1983,0
+"CM",1984,0
+"CM",1985,0
+"CM",1986,0
+"CM",1987,1
+"CM",1988,1
+"CM",1989,1
+"CM",1990,1
+"CM",1991,1
+"CM",1992,0
+"CM",1993,0
+"CM",1994,0
+"CM",1995,1
+"CM",1996,1
+"CM",1997,1
+"CM",1998,0
+"CM",1999,0
+"CM",2000,0
+"CM",2001,0
+"CM",2002,0
+"CM",2003,0
+"CM",2004,0
+"CM",2005,0
+"CM",2006,0
+"CM",2007,0
+"CM",2008,0
+"CM",2009,0
+"CM",2010,0
+"CM",2011,0
+"CM",2012,0
+"CV",1976,0
+"CV",1977,0
+"CV",1978,0
+"CV",1979,0
+"CV",1980,0
+"CV",1981,0
+"CV",1982,0
+"CV",1983,0
+"CV",1984,0
+"CV",1985,0
+"CV",1986,0
+"CV",1987,0
+"CV",1988,0
+"CV",1989,0
+"CV",1990,0
+"CV",1991,0
+"CV",1992,0
+"CV",1993,1
+"CV",1994,0
+"CV",1995,0
+"CV",1996,0
+"CV",1997,0
+"CV",1998,0
+"CV",1999,0
+"CV",2000,0
+"CV",2001,0
+"CV",2002,0
+"CV",2003,0
+"CV",2004,0
+"CV",2005,0
+"CV",2006,0
+"CV",2007,0
+"CV",2008,0
+"CV",2009,0
+"CV",2010,0
+"CV",2011,0
+"CV",2012,0
+"CF",1976,1
+"CF",1977,0
+"CF",1978,0
+"CF",1979,0
+"CF",1980,0
+"CF",1981,0
+"CF",1982,0
+"CF",1983,0
+"CF",1984,0
+"CF",1985,0
+"CF",1986,0
+"CF",1987,0
+"CF",1988,0
+"CF",1989,0
+"CF",1990,0
+"CF",1991,0
+"CF",1992,0
+"CF",1993,0
+"CF",1994,0
+"CF",1995,1
+"CF",1996,1
+"CF",1997,0
+"CF",1998,0
+"CF",1999,0
+"CF",2000,0
+"CF",2001,0
+"CF",2002,0
+"CF",2003,0
+"CF",2004,0
+"CF",2005,0
+"CF",2006,0
+"CF",2007,0
+"CF",2008,0
+"CF",2009,0
+"CF",2010,0
+"CF",2011,0
+"CF",2012,0
+"TD",1976,0
+"TD",1977,0
+"TD",1978,0
+"TD",1979,0
+"TD",1980,0
+"TD",1981,0
+"TD",1982,0
+"TD",1983,1
+"TD",1984,0
+"TD",1985,0
+"TD",1986,0
+"TD",1987,0
+"TD",1988,0
+"TD",1989,0
+"TD",1990,0
+"TD",1991,0
+"TD",1992,1
+"TD",1993,1
+"TD",1994,1
+"TD",1995,1
+"TD",1996,1
+"TD",1997,0
+"TD",1998,0
+"TD",1999,0
+"TD",2000,0
+"TD",2001,0
+"TD",2002,0
+"TD",2003,0
+"TD",2004,0
+"TD",2005,0
+"TD",2006,0
+"TD",2007,0
+"TD",2008,0
+"TD",2009,0
+"TD",2010,0
+"TD",2011,0
+"TD",2012,0
+"CL",1976,1
+"CL",1977,0
+"CL",1978,0
+"CL",1979,0
+"CL",1980,0
+"CL",1981,1
+"CL",1982,1
+"CL",1983,1
+"CL",1984,1
+"CL",1985,1
+"CL",1986,0
+"CL",1987,0
+"CL",1988,0
+"CL",1989,0
+"CL",1990,0
+"CL",1991,0
+"CL",1992,0
+"CL",1993,0
+"CL",1994,0
+"CL",1995,0
+"CL",1996,0
+"CL",1997,0
+"CL",1998,0
+"CL",1999,0
+"CL",2000,0
+"CL",2001,0
+"CL",2002,0
+"CL",2003,0
+"CL",2004,0
+"CL",2005,0
+"CL",2006,0
+"CL",2007,0
+"CL",2008,0
+"CL",2009,0
+"CL",2010,0
+"CL",2011,0
+"CL",2012,0
+"CN",1976,0
+"CN",1977,0
+"CN",1978,0
+"CN",1979,0
+"CN",1980,0
+"CN",1981,0
+"CN",1982,0
+"CN",1983,0
+"CN",1984,0
+"CN",1985,0
+"CN",1986,0
+"CN",1987,0
+"CN",1988,0
+"CN",1989,0
+"CN",1990,0
+"CN",1991,0
+"CN",1992,0
+"CN",1993,0
+"CN",1994,0
+"CN",1995,0
+"CN",1996,0
+"CN",1997,0
+"CN",1998,1
+"CN",1999,0
+"CN",2000,0
+"CN",2001,0
+"CN",2002,0
+"CN",2003,0
+"CN",2004,0
+"CN",2005,0
+"CN",2006,0
+"CN",2007,0
+"CN",2008,0
+"CN",2009,0
+"CN",2010,0
+"CN",2011,0
+"CN",2012,0
+"CO",1976,0
+"CO",1977,0
+"CO",1978,0
+"CO",1979,0
+"CO",1980,0
+"CO",1981,0
+"CO",1982,1
+"CO",1983,0
+"CO",1984,0
+"CO",1985,0
+"CO",1986,0
+"CO",1987,0
+"CO",1988,0
+"CO",1989,0
+"CO",1990,0
+"CO",1991,0
+"CO",1992,0
+"CO",1993,0
+"CO",1994,0
+"CO",1995,0
+"CO",1996,0
+"CO",1997,0
+"CO",1998,1
+"CO",1999,1
+"CO",2000,1
+"CO",2001,0
+"CO",2002,0
+"CO",2003,0
+"CO",2004,0
+"CO",2005,0
+"CO",2006,0
+"CO",2007,0
+"CO",2008,0
+"CO",2009,0
+"CO",2010,0
+"CO",2011,0
+"CO",2012,0
+"CD",1976,0
+"CD",1977,0
+"CD",1978,0
+"CD",1979,0
+"CD",1980,0
+"CD",1981,0
+"CD",1982,0
+"CD",1983,1
+"CD",1984,0
+"CD",1985,0
+"CD",1986,0
+"CD",1987,0
+"CD",1988,0
+"CD",1989,0
+"CD",1990,0
+"CD",1991,1
+"CD",1992,1
+"CD",1993,1
+"CD",1994,1
+"CD",1995,1
+"CD",1996,1
+"CD",1997,1
+"CD",1998,1
+"CD",1999,0
+"CD",2000,0
+"CD",2001,0
+"CD",2002,0
+"CD",2003,0
+"CD",2004,0
+"CD",2005,0
+"CD",2006,0
+"CD",2007,0
+"CD",2008,0
+"CD",2009,0
+"CD",2010,0
+"CD",2011,0
+"CD",2012,0
+"CG",1976,0
+"CG",1977,0
+"CG",1978,0
+"CG",1979,0
+"CG",1980,0
+"CG",1981,0
+"CG",1982,0
+"CG",1983,0
+"CG",1984,0
+"CG",1985,0
+"CG",1986,0
+"CG",1987,0
+"CG",1988,0
+"CG",1989,0
+"CG",1990,0
+"CG",1991,0
+"CG",1992,1
+"CG",1993,1
+"CG",1994,1
+"CG",1995,0
+"CG",1996,0
+"CG",1997,0
+"CG",1998,0
+"CG",1999,0
+"CG",2000,0
+"CG",2001,0
+"CG",2002,0
+"CG",2003,0
+"CG",2004,0
+"CG",2005,0
+"CG",2006,0
+"CG",2007,0
+"CG",2008,0
+"CG",2009,0
+"CG",2010,0
+"CG",2011,0
+"CG",2012,0
+"CR",1976,0
+"CR",1977,0
+"CR",1978,0
+"CR",1979,0
+"CR",1980,0
+"CR",1981,0
+"CR",1982,0
+"CR",1983,0
+"CR",1984,0
+"CR",1985,0
+"CR",1986,0
+"CR",1987,1
+"CR",1988,1
+"CR",1989,1
+"CR",1990,1
+"CR",1991,1
+"CR",1992,0
+"CR",1993,0
+"CR",1994,1
+"CR",1995,1
+"CR",1996,0
+"CR",1997,0
+"CR",1998,0
+"CR",1999,0
+"CR",2000,0
+"CR",2001,0
+"CR",2002,0
+"CR",2003,0
+"CR",2004,0
+"CR",2005,0
+"CR",2006,0
+"CR",2007,0
+"CR",2008,0
+"CR",2009,0
+"CR",2010,0
+"CR",2011,0
+"CR",2012,0
+"CI",1976,0
+"CI",1977,0
+"CI",1978,0
+"CI",1979,0
+"CI",1980,0
+"CI",1981,0
+"CI",1982,0
+"CI",1983,0
+"CI",1984,0
+"CI",1985,0
+"CI",1986,0
+"CI",1987,0
+"CI",1988,1
+"CI",1989,1
+"CI",1990,1
+"CI",1991,1
+"CI",1992,1
+"CI",1993,0
+"CI",1994,0
+"CI",1995,0
+"CI",1996,0
+"CI",1997,0
+"CI",1998,0
+"CI",1999,0
+"CI",2000,0
+"CI",2001,0
+"CI",2002,0
+"CI",2003,0
+"CI",2004,0
+"CI",2005,0
+"CI",2006,0
+"CI",2007,0
+"CI",2008,0
+"CI",2009,0
+"CI",2010,0
+"CI",2011,0
+"CI",2012,0
+"HR",1976,0
+"HR",1977,0
+"HR",1978,0
+"HR",1979,0
+"HR",1980,0
+"HR",1981,0
+"HR",1982,0
+"HR",1983,0
+"HR",1984,0
+"HR",1985,0
+"HR",1986,0
+"HR",1987,0
+"HR",1988,0
+"HR",1989,0
+"HR",1990,0
+"HR",1991,0
+"HR",1992,0
+"HR",1993,0
+"HR",1994,0
+"HR",1995,0
+"HR",1996,0
+"HR",1997,0
+"HR",1998,1
+"HR",1999,1
+"HR",2000,0
+"HR",2001,0
+"HR",2002,0
+"HR",2003,0
+"HR",2004,0
+"HR",2005,0
+"HR",2006,0
+"HR",2007,0
+"HR",2008,0
+"HR",2009,0
+"HR",2010,0
+"HR",2011,0
+"HR",2012,0
+"CZ",1976,0
+"CZ",1977,0
+"CZ",1978,0
+"CZ",1979,0
+"CZ",1980,0
+"CZ",1981,0
+"CZ",1982,0
+"CZ",1983,0
+"CZ",1984,0
+"CZ",1985,0
+"CZ",1986,0
+"CZ",1987,0
+"CZ",1988,0
+"CZ",1989,0
+"CZ",1990,0
+"CZ",1991,0
+"CZ",1992,0
+"CZ",1993,0
+"CZ",1994,0
+"CZ",1995,0
+"CZ",1996,1
+"CZ",1997,1
+"CZ",1998,1
+"CZ",1999,1
+"CZ",2000,1
+"CZ",2001,0
+"CZ",2002,0
+"CZ",2003,0
+"CZ",2004,0
+"CZ",2005,0
+"CZ",2006,0
+"CZ",2007,0
+"CZ",2008,0
+"CZ",2009,0
+"CZ",2010,0
+"CZ",2011,0
+"CZ",2012,0
+"DK",1976,0
+"DK",1977,0
+"DK",1978,0
+"DK",1979,0
+"DK",1980,0
+"DK",1981,0
+"DK",1982,0
+"DK",1983,0
+"DK",1984,0
+"DK",1985,0
+"DK",1986,0
+"DK",1987,0
+"DK",1988,0
+"DK",1989,0
+"DK",1990,0
+"DK",1991,0
+"DK",1992,0
+"DK",1993,0
+"DK",1994,0
+"DK",1995,0
+"DK",1996,0
+"DK",1997,0
+"DK",1998,0
+"DK",1999,0
+"DK",2000,0
+"DK",2001,0
+"DK",2002,0
+"DK",2003,0
+"DK",2004,0
+"DK",2005,0
+"DK",2006,0
+"DK",2007,0
+"DK",2008,1
+"DK",2009,1
+"DK",2010,1
+"DK",2011,1
+"DK",2012,1
+"DJ",1976,0
+"DJ",1977,0
+"DJ",1978,0
+"DJ",1979,0
+"DJ",1980,0
+"DJ",1981,0
+"DJ",1982,0
+"DJ",1983,0
+"DJ",1984,0
+"DJ",1985,0
+"DJ",1986,0
+"DJ",1987,0
+"DJ",1988,0
+"DJ",1989,0
+"DJ",1990,0
+"DJ",1991,1
+"DJ",1992,1
+"DJ",1993,1
+"DJ",1994,1
+"DJ",1995,1
+"DJ",1996,0
+"DJ",1997,0
+"DJ",1998,0
+"DJ",1999,0
+"DJ",2000,0
+"DJ",2001,0
+"DJ",2002,0
+"DJ",2003,0
+"DJ",2004,0
+"DJ",2005,0
+"DJ",2006,0
+"DJ",2007,0
+"DJ",2008,0
+"DJ",2009,0
+"DJ",2010,0
+"DJ",2011,0
+"DJ",2012,0
+"DO",1976,0
+"DO",1977,0
+"DO",1978,0
+"DO",1979,0
+"DO",1980,0
+"DO",1981,0
+"DO",1982,0
+"DO",1983,0
+"DO",1984,0
+"DO",1985,0
+"DO",1986,0
+"DO",1987,0
+"DO",1988,0
+"DO",1989,0
+"DO",1990,0
+"DO",1991,0
+"DO",1992,0
+"DO",1993,0
+"DO",1994,0
+"DO",1995,0
+"DO",1996,0
+"DO",1997,0
+"DO",1998,0
+"DO",1999,0
+"DO",2000,0
+"DO",2001,0
+"DO",2002,0
+"DO",2003,1
+"DO",2004,1
+"DO",2005,0
+"DO",2006,0
+"DO",2007,0
+"DO",2008,0
+"DO",2009,0
+"DO",2010,0
+"DO",2011,0
+"DO",2012,0
+"EC",1976,0
+"EC",1977,0
+"EC",1978,0
+"EC",1979,0
+"EC",1980,0
+"EC",1981,0
+"EC",1982,1
+"EC",1983,1
+"EC",1984,1
+"EC",1985,1
+"EC",1986,1
+"EC",1987,0
+"EC",1988,0
+"EC",1989,0
+"EC",1990,0
+"EC",1991,0
+"EC",1992,0
+"EC",1993,0
+"EC",1994,0
+"EC",1995,0
+"EC",1996,0
+"EC",1997,0
+"EC",1998,1
+"EC",1999,1
+"EC",2000,1
+"EC",2001,1
+"EC",2002,1
+"EC",2003,0
+"EC",2004,0
+"EC",2005,0
+"EC",2006,0
+"EC",2007,0
+"EC",2008,0
+"EC",2009,0
+"EC",2010,0
+"EC",2011,0
+"EC",2012,0
+"EG",1976,0
+"EG",1977,0
+"EG",1978,0
+"EG",1979,0
+"EG",1980,1
+"EG",1981,0
+"EG",1982,0
+"EG",1983,0
+"EG",1984,0
+"EG",1985,0
+"EG",1986,0
+"EG",1987,0
+"EG",1988,0
+"EG",1989,0
+"EG",1990,0
+"EG",1991,0
+"EG",1992,0
+"EG",1993,0
+"EG",1994,0
+"EG",1995,0
+"EG",1996,0
+"EG",1997,0
+"EG",1998,0
+"EG",1999,0
+"EG",2000,0
+"EG",2001,0
+"EG",2002,0
+"EG",2003,0
+"EG",2004,0
+"EG",2005,0
+"EG",2006,0
+"EG",2007,0
+"EG",2008,0
+"EG",2009,0
+"EG",2010,0
+"EG",2011,0
+"EG",2012,0
+"SV",1976,0
+"SV",1977,0
+"SV",1978,0
+"SV",1979,0
+"SV",1980,0
+"SV",1981,0
+"SV",1982,0
+"SV",1983,0
+"SV",1984,0
+"SV",1985,0
+"SV",1986,0
+"SV",1987,0
+"SV",1988,0
+"SV",1989,1
+"SV",1990,1
+"SV",1991,0
+"SV",1992,0
+"SV",1993,0
+"SV",1994,0
+"SV",1995,0
+"SV",1996,0
+"SV",1997,0
+"SV",1998,0
+"SV",1999,0
+"SV",2000,0
+"SV",2001,0
+"SV",2002,0
+"SV",2003,0
+"SV",2004,0
+"SV",2005,0
+"SV",2006,0
+"SV",2007,0
+"SV",2008,0
+"SV",2009,0
+"SV",2010,0
+"SV",2011,0
+"SV",2012,0
+"GQ",1976,0
+"GQ",1977,0
+"GQ",1978,0
+"GQ",1979,0
+"GQ",1980,0
+"GQ",1981,0
+"GQ",1982,0
+"GQ",1983,1
+"GQ",1984,0
+"GQ",1985,0
+"GQ",1986,0
+"GQ",1987,0
+"GQ",1988,0
+"GQ",1989,0
+"GQ",1990,0
+"GQ",1991,0
+"GQ",1992,0
+"GQ",1993,0
+"GQ",1994,0
+"GQ",1995,0
+"GQ",1996,0
+"GQ",1997,0
+"GQ",1998,0
+"GQ",1999,0
+"GQ",2000,0
+"GQ",2001,0
+"GQ",2002,0
+"GQ",2003,0
+"GQ",2004,0
+"GQ",2005,0
+"GQ",2006,0
+"GQ",2007,0
+"GQ",2008,0
+"GQ",2009,0
+"GQ",2010,0
+"GQ",2011,0
+"GQ",2012,0
+"ER",1976,0
+"ER",1977,0
+"ER",1978,0
+"ER",1979,0
+"ER",1980,0
+"ER",1981,0
+"ER",1982,0
+"ER",1983,0
+"ER",1984,0
+"ER",1985,0
+"ER",1986,0
+"ER",1987,0
+"ER",1988,0
+"ER",1989,0
+"ER",1990,0
+"ER",1991,0
+"ER",1992,0
+"ER",1993,1
+"ER",1994,0
+"ER",1995,0
+"ER",1996,0
+"ER",1997,0
+"ER",1998,0
+"ER",1999,0
+"ER",2000,0
+"ER",2001,0
+"ER",2002,0
+"ER",2003,0
+"ER",2004,0
+"ER",2005,0
+"ER",2006,0
+"ER",2007,0
+"ER",2008,0
+"ER",2009,0
+"ER",2010,0
+"ER",2011,0
+"ER",2012,0
+"EE",1976,0
+"EE",1977,0
+"EE",1978,0
+"EE",1979,0
+"EE",1980,0
+"EE",1981,0
+"EE",1982,0
+"EE",1983,0
+"EE",1984,0
+"EE",1985,0
+"EE",1986,0
+"EE",1987,0
+"EE",1988,0
+"EE",1989,0
+"EE",1990,0
+"EE",1991,0
+"EE",1992,1
+"EE",1993,1
+"EE",1994,1
+"EE",1995,0
+"EE",1996,0
+"EE",1997,0
+"EE",1998,0
+"EE",1999,0
+"EE",2000,0
+"EE",2001,0
+"EE",2002,0
+"EE",2003,0
+"EE",2004,0
+"EE",2005,0
+"EE",2006,0
+"EE",2007,0
+"EE",2008,0
+"EE",2009,0
+"EE",2010,0
+"EE",2011,0
+"EE",2012,0
+"FI",1976,0
+"FI",1977,0
+"FI",1978,0
+"FI",1979,0
+"FI",1980,0
+"FI",1981,0
+"FI",1982,0
+"FI",1983,0
+"FI",1984,0
+"FI",1985,0
+"FI",1986,0
+"FI",1987,0
+"FI",1988,0
+"FI",1989,0
+"FI",1990,0
+"FI",1991,1
+"FI",1992,1
+"FI",1993,1
+"FI",1994,1
+"FI",1995,1
+"FI",1996,0
+"FI",1997,0
+"FI",1998,0
+"FI",1999,0
+"FI",2000,0
+"FI",2001,0
+"FI",2002,0
+"FI",2003,0
+"FI",2004,0
+"FI",2005,0
+"FI",2006,0
+"FI",2007,0
+"FI",2008,0
+"FI",2009,0
+"FI",2010,0
+"FI",2011,0
+"FI",2012,0
+"FR",1976,0
+"FR",1977,0
+"FR",1978,0
+"FR",1979,0
+"FR",1980,0
+"FR",1981,0
+"FR",1982,0
+"FR",1983,0
+"FR",1984,0
+"FR",1985,0
+"FR",1986,0
+"FR",1987,0
+"FR",1988,0
+"FR",1989,0
+"FR",1990,0
+"FR",1991,0
+"FR",1992,0
+"FR",1993,0
+"FR",1994,0
+"FR",1995,0
+"FR",1996,0
+"FR",1997,0
+"FR",1998,0
+"FR",1999,0
+"FR",2000,0
+"FR",2001,0
+"FR",2002,0
+"FR",2003,0
+"FR",2004,0
+"FR",2005,0
+"FR",2006,0
+"FR",2007,0
+"FR",2008,1
+"FR",2009,1
+"FR",2010,1
+"FR",2011,1
+"FR",2012,1
+"GE",1976,0
+"GE",1977,0
+"GE",1978,0
+"GE",1979,0
+"GE",1980,0
+"GE",1981,0
+"GE",1982,0
+"GE",1983,0
+"GE",1984,0
+"GE",1985,0
+"GE",1986,0
+"GE",1987,0
+"GE",1988,0
+"GE",1989,0
+"GE",1990,0
+"GE",1991,1
+"GE",1992,1
+"GE",1993,1
+"GE",1994,1
+"GE",1995,1
+"GE",1996,0
+"GE",1997,0
+"GE",1998,0
+"GE",1999,0
+"GE",2000,0
+"GE",2001,0
+"GE",2002,0
+"GE",2003,0
+"GE",2004,0
+"GE",2005,0
+"GE",2006,0
+"GE",2007,0
+"GE",2008,0
+"GE",2009,0
+"GE",2010,0
+"GE",2011,0
+"GE",2012,0
+"DE",1976,0
+"DE",1977,0
+"DE",1978,0
+"DE",1979,0
+"DE",1980,0
+"DE",1981,0
+"DE",1982,0
+"DE",1983,0
+"DE",1984,0
+"DE",1985,0
+"DE",1986,0
+"DE",1987,0
+"DE",1988,0
+"DE",1989,0
+"DE",1990,0
+"DE",1991,0
+"DE",1992,0
+"DE",1993,0
+"DE",1994,0
+"DE",1995,0
+"DE",1996,0
+"DE",1997,0
+"DE",1998,0
+"DE",1999,0
+"DE",2000,0
+"DE",2001,0
+"DE",2002,0
+"DE",2003,0
+"DE",2004,0
+"DE",2005,0
+"DE",2006,0
+"DE",2007,0
+"DE",2008,1
+"DE",2009,1
+"DE",2010,1
+"DE",2011,1
+"DE",2012,1
+"GH",1976,0
+"GH",1977,0
+"GH",1978,0
+"GH",1979,0
+"GH",1980,0
+"GH",1981,0
+"GH",1982,1
+"GH",1983,1
+"GH",1984,0
+"GH",1985,0
+"GH",1986,0
+"GH",1987,0
+"GH",1988,0
+"GH",1989,0
+"GH",1990,0
+"GH",1991,0
+"GH",1992,0
+"GH",1993,0
+"GH",1994,0
+"GH",1995,0
+"GH",1996,0
+"GH",1997,0
+"GH",1998,0
+"GH",1999,0
+"GH",2000,0
+"GH",2001,0
+"GH",2002,0
+"GH",2003,0
+"GH",2004,0
+"GH",2005,0
+"GH",2006,0
+"GH",2007,0
+"GH",2008,0
+"GH",2009,0
+"GH",2010,0
+"GH",2011,0
+"GH",2012,0
+"GR",1976,0
+"GR",1977,0
+"GR",1978,0
+"GR",1979,0
+"GR",1980,0
+"GR",1981,0
+"GR",1982,0
+"GR",1983,0
+"GR",1984,0
+"GR",1985,0
+"GR",1986,0
+"GR",1987,0
+"GR",1988,0
+"GR",1989,0
+"GR",1990,0
+"GR",1991,0
+"GR",1992,0
+"GR",1993,0
+"GR",1994,0
+"GR",1995,0
+"GR",1996,0
+"GR",1997,0
+"GR",1998,0
+"GR",1999,0
+"GR",2000,0
+"GR",2001,0
+"GR",2002,0
+"GR",2003,0
+"GR",2004,0
+"GR",2005,0
+"GR",2006,0
+"GR",2007,0
+"GR",2008,1
+"GR",2009,1
+"GR",2010,1
+"GR",2011,1
+"GR",2012,1
+"GN",1976,0
+"GN",1977,0
+"GN",1978,0
+"GN",1979,0
+"GN",1980,0
+"GN",1981,0
+"GN",1982,0
+"GN",1983,0
+"GN",1984,0
+"GN",1985,1
+"GN",1986,0
+"GN",1987,0
+"GN",1988,0
+"GN",1989,0
+"GN",1990,0
+"GN",1991,0
+"GN",1992,0
+"GN",1993,1
+"GN",1994,0
+"GN",1995,0
+"GN",1996,0
+"GN",1997,0
+"GN",1998,0
+"GN",1999,0
+"GN",2000,0
+"GN",2001,0
+"GN",2002,0
+"GN",2003,0
+"GN",2004,0
+"GN",2005,0
+"GN",2006,0
+"GN",2007,0
+"GN",2008,0
+"GN",2009,0
+"GN",2010,0
+"GN",2011,0
+"GN",2012,0
+"GW",1976,0
+"GW",1977,0
+"GW",1978,0
+"GW",1979,0
+"GW",1980,0
+"GW",1981,0
+"GW",1982,0
+"GW",1983,0
+"GW",1984,0
+"GW",1985,0
+"GW",1986,0
+"GW",1987,0
+"GW",1988,0
+"GW",1989,0
+"GW",1990,0
+"GW",1991,0
+"GW",1992,0
+"GW",1993,0
+"GW",1994,0
+"GW",1995,1
+"GW",1996,1
+"GW",1997,1
+"GW",1998,1
+"GW",1999,0
+"GW",2000,0
+"GW",2001,0
+"GW",2002,0
+"GW",2003,0
+"GW",2004,0
+"GW",2005,0
+"GW",2006,0
+"GW",2007,0
+"GW",2008,0
+"GW",2009,0
+"GW",2010,0
+"GW",2011,0
+"GW",2012,0
+"GY",1976,0
+"GY",1977,0
+"GY",1978,0
+"GY",1979,0
+"GY",1980,0
+"GY",1981,0
+"GY",1982,0
+"GY",1983,0
+"GY",1984,0
+"GY",1985,0
+"GY",1986,0
+"GY",1987,0
+"GY",1988,0
+"GY",1989,0
+"GY",1990,0
+"GY",1991,0
+"GY",1992,0
+"GY",1993,1
+"GY",1994,0
+"GY",1995,0
+"GY",1996,0
+"GY",1997,0
+"GY",1998,0
+"GY",1999,0
+"GY",2000,0
+"GY",2001,0
+"GY",2002,0
+"GY",2003,0
+"GY",2004,0
+"GY",2005,0
+"GY",2006,0
+"GY",2007,0
+"GY",2008,0
+"GY",2009,0
+"GY",2010,0
+"GY",2011,0
+"GY",2012,0
+"HT",1976,0
+"HT",1977,0
+"HT",1978,0
+"HT",1979,0
+"HT",1980,0
+"HT",1981,0
+"HT",1982,0
+"HT",1983,0
+"HT",1984,0
+"HT",1985,0
+"HT",1986,0
+"HT",1987,0
+"HT",1988,0
+"HT",1989,0
+"HT",1990,0
+"HT",1991,0
+"HT",1992,0
+"HT",1993,0
+"HT",1994,1
+"HT",1995,1
+"HT",1996,1
+"HT",1997,1
+"HT",1998,1
+"HT",1999,0
+"HT",2000,0
+"HT",2001,0
+"HT",2002,0
+"HT",2003,0
+"HT",2004,0
+"HT",2005,0
+"HT",2006,0
+"HT",2007,0
+"HT",2008,0
+"HT",2009,0
+"HT",2010,0
+"HT",2011,0
+"HT",2012,0
+"HU",1976,0
+"HU",1977,0
+"HU",1978,0
+"HU",1979,0
+"HU",1980,0
+"HU",1981,0
+"HU",1982,0
+"HU",1983,0
+"HU",1984,0
+"HU",1985,0
+"HU",1986,0
+"HU",1987,0
+"HU",1988,0
+"HU",1989,0
+"HU",1990,0
+"HU",1991,1
+"HU",1992,1
+"HU",1993,1
+"HU",1994,1
+"HU",1995,1
+"HU",1996,0
+"HU",1997,0
+"HU",1998,0
+"HU",1999,0
+"HU",2000,0
+"HU",2001,0
+"HU",2002,0
+"HU",2003,0
+"HU",2004,0
+"HU",2005,0
+"HU",2006,0
+"HU",2007,0
+"HU",2008,1
+"HU",2009,1
+"HU",2010,1
+"HU",2011,1
+"HU",2012,1
+"IS",1976,0
+"IS",1977,0
+"IS",1978,0
+"IS",1979,0
+"IS",1980,0
+"IS",1981,0
+"IS",1982,0
+"IS",1983,0
+"IS",1984,0
+"IS",1985,0
+"IS",1986,0
+"IS",1987,0
+"IS",1988,0
+"IS",1989,0
+"IS",1990,0
+"IS",1991,0
+"IS",1992,0
+"IS",1993,0
+"IS",1994,0
+"IS",1995,0
+"IS",1996,0
+"IS",1997,0
+"IS",1998,0
+"IS",1999,0
+"IS",2000,0
+"IS",2001,0
+"IS",2002,0
+"IS",2003,0
+"IS",2004,0
+"IS",2005,0
+"IS",2006,0
+"IS",2007,0
+"IS",2008,1
+"IS",2009,1
+"IS",2010,1
+"IS",2011,1
+"IS",2012,1
+"IN",1976,0
+"IN",1977,0
+"IN",1978,0
+"IN",1979,0
+"IN",1980,0
+"IN",1981,0
+"IN",1982,0
+"IN",1983,0
+"IN",1984,0
+"IN",1985,0
+"IN",1986,0
+"IN",1987,0
+"IN",1988,0
+"IN",1989,0
+"IN",1990,0
+"IN",1991,0
+"IN",1992,0
+"IN",1993,1
+"IN",1994,0
+"IN",1995,0
+"IN",1996,0
+"IN",1997,0
+"IN",1998,0
+"IN",1999,0
+"IN",2000,0
+"IN",2001,0
+"IN",2002,0
+"IN",2003,0
+"IN",2004,0
+"IN",2005,0
+"IN",2006,0
+"IN",2007,0
+"IN",2008,0
+"IN",2009,0
+"IN",2010,0
+"IN",2011,0
+"IN",2012,0
+"ID",1976,0
+"ID",1977,0
+"ID",1978,0
+"ID",1979,0
+"ID",1980,0
+"ID",1981,0
+"ID",1982,0
+"ID",1983,0
+"ID",1984,0
+"ID",1985,0
+"ID",1986,0
+"ID",1987,0
+"ID",1988,0
+"ID",1989,0
+"ID",1990,0
+"ID",1991,0
+"ID",1992,0
+"ID",1993,0
+"ID",1994,0
+"ID",1995,0
+"ID",1996,0
+"ID",1997,1
+"ID",1998,1
+"ID",1999,1
+"ID",2000,1
+"ID",2001,1
+"ID",2002,0
+"ID",2003,0
+"ID",2004,0
+"ID",2005,0
+"ID",2006,0
+"ID",2007,0
+"ID",2008,0
+"ID",2009,0
+"ID",2010,0
+"ID",2011,0
+"ID",2012,0
+"IE",1976,0
+"IE",1977,0
+"IE",1978,0
+"IE",1979,0
+"IE",1980,0
+"IE",1981,0
+"IE",1982,0
+"IE",1983,0
+"IE",1984,0
+"IE",1985,0
+"IE",1986,0
+"IE",1987,0
+"IE",1988,0
+"IE",1989,0
+"IE",1990,0
+"IE",1991,0
+"IE",1992,0
+"IE",1993,0
+"IE",1994,0
+"IE",1995,0
+"IE",1996,0
+"IE",1997,0
+"IE",1998,0
+"IE",1999,0
+"IE",2000,0
+"IE",2001,0
+"IE",2002,0
+"IE",2003,0
+"IE",2004,0
+"IE",2005,0
+"IE",2006,0
+"IE",2007,0
+"IE",2008,1
+"IE",2009,1
+"IE",2010,1
+"IE",2011,1
+"IE",2012,1
+"IL",1976,0
+"IL",1977,1
+"IL",1978,0
+"IL",1979,0
+"IL",1980,0
+"IL",1981,0
+"IL",1982,0
+"IL",1983,0
+"IL",1984,0
+"IL",1985,0
+"IL",1986,0
+"IL",1987,0
+"IL",1988,0
+"IL",1989,0
+"IL",1990,0
+"IL",1991,0
+"IL",1992,0
+"IL",1993,0
+"IL",1994,0
+"IL",1995,0
+"IL",1996,0
+"IL",1997,0
+"IL",1998,0
+"IL",1999,0
+"IL",2000,0
+"IL",2001,0
+"IL",2002,0
+"IL",2003,0
+"IL",2004,0
+"IL",2005,0
+"IL",2006,0
+"IL",2007,0
+"IL",2008,0
+"IL",2009,0
+"IL",2010,0
+"IL",2011,0
+"IL",2012,0
+"IT",1976,0
+"IT",1977,0
+"IT",1978,0
+"IT",1979,0
+"IT",1980,0
+"IT",1981,0
+"IT",1982,0
+"IT",1983,0
+"IT",1984,0
+"IT",1985,0
+"IT",1986,0
+"IT",1987,0
+"IT",1988,0
+"IT",1989,0
+"IT",1990,0
+"IT",1991,0
+"IT",1992,0
+"IT",1993,0
+"IT",1994,0
+"IT",1995,0
+"IT",1996,0
+"IT",1997,0
+"IT",1998,0
+"IT",1999,0
+"IT",2000,0
+"IT",2001,0
+"IT",2002,0
+"IT",2003,0
+"IT",2004,0
+"IT",2005,0
+"IT",2006,0
+"IT",2007,0
+"IT",2008,1
+"IT",2009,1
+"IT",2010,1
+"IT",2011,1
+"IT",2012,1
+"JM",1976,0
+"JM",1977,0
+"JM",1978,0
+"JM",1979,0
+"JM",1980,0
+"JM",1981,0
+"JM",1982,0
+"JM",1983,0
+"JM",1984,0
+"JM",1985,0
+"JM",1986,0
+"JM",1987,0
+"JM",1988,0
+"JM",1989,0
+"JM",1990,0
+"JM",1991,0
+"JM",1992,0
+"JM",1993,0
+"JM",1994,0
+"JM",1995,0
+"JM",1996,1
+"JM",1997,1
+"JM",1998,1
+"JM",1999,0
+"JM",2000,0
+"JM",2001,0
+"JM",2002,0
+"JM",2003,0
+"JM",2004,0
+"JM",2005,0
+"JM",2006,0
+"JM",2007,0
+"JM",2008,0
+"JM",2009,0
+"JM",2010,0
+"JM",2011,0
+"JM",2012,0
+"JP",1976,0
+"JP",1977,0
+"JP",1978,0
+"JP",1979,0
+"JP",1980,0
+"JP",1981,0
+"JP",1982,0
+"JP",1983,0
+"JP",1984,0
+"JP",1985,0
+"JP",1986,0
+"JP",1987,0
+"JP",1988,0
+"JP",1989,0
+"JP",1990,0
+"JP",1991,0
+"JP",1992,0
+"JP",1993,0
+"JP",1994,0
+"JP",1995,0
+"JP",1996,0
+"JP",1997,1
+"JP",1998,1
+"JP",1999,1
+"JP",2000,1
+"JP",2001,1
+"JP",2002,0
+"JP",2003,0
+"JP",2004,0
+"JP",2005,0
+"JP",2006,0
+"JP",2007,0
+"JP",2008,0
+"JP",2009,0
+"JP",2010,0
+"JP",2011,0
+"JP",2012,0
+"JO",1976,0
+"JO",1977,0
+"JO",1978,0
+"JO",1979,0
+"JO",1980,0
+"JO",1981,0
+"JO",1982,0
+"JO",1983,0
+"JO",1984,0
+"JO",1985,0
+"JO",1986,0
+"JO",1987,0
+"JO",1988,0
+"JO",1989,1
+"JO",1990,1
+"JO",1991,1
+"JO",1992,0
+"JO",1993,0
+"JO",1994,0
+"JO",1995,0
+"JO",1996,0
+"JO",1997,0
+"JO",1998,0
+"JO",1999,0
+"JO",2000,0
+"JO",2001,0
+"JO",2002,0
+"JO",2003,0
+"JO",2004,0
+"JO",2005,0
+"JO",2006,0
+"JO",2007,0
+"JO",2008,0
+"JO",2009,0
+"JO",2010,0
+"JO",2011,0
+"JO",2012,0
+"KZ",1976,0
+"KZ",1977,0
+"KZ",1978,0
+"KZ",1979,0
+"KZ",1980,0
+"KZ",1981,0
+"KZ",1982,0
+"KZ",1983,0
+"KZ",1984,0
+"KZ",1985,0
+"KZ",1986,0
+"KZ",1987,0
+"KZ",1988,0
+"KZ",1989,0
+"KZ",1990,0
+"KZ",1991,0
+"KZ",1992,0
+"KZ",1993,0
+"KZ",1994,0
+"KZ",1995,0
+"KZ",1996,0
+"KZ",1997,0
+"KZ",1998,0
+"KZ",1999,0
+"KZ",2000,0
+"KZ",2001,0
+"KZ",2002,0
+"KZ",2003,0
+"KZ",2004,0
+"KZ",2005,0
+"KZ",2006,0
+"KZ",2007,0
+"KZ",2008,1
+"KZ",2009,1
+"KZ",2010,1
+"KZ",2011,1
+"KZ",2012,1
+"KE",1976,0
+"KE",1977,0
+"KE",1978,0
+"KE",1979,0
+"KE",1980,0
+"KE",1981,0
+"KE",1982,0
+"KE",1983,0
+"KE",1984,0
+"KE",1985,1
+"KE",1986,0
+"KE",1987,0
+"KE",1988,0
+"KE",1989,0
+"KE",1990,0
+"KE",1991,0
+"KE",1992,1
+"KE",1993,1
+"KE",1994,1
+"KE",1995,0
+"KE",1996,0
+"KE",1997,0
+"KE",1998,0
+"KE",1999,0
+"KE",2000,0
+"KE",2001,0
+"KE",2002,0
+"KE",2003,0
+"KE",2004,0
+"KE",2005,0
+"KE",2006,0
+"KE",2007,0
+"KE",2008,0
+"KE",2009,0
+"KE",2010,0
+"KE",2011,0
+"KE",2012,0
+"KR",1976,0
+"KR",1977,0
+"KR",1978,0
+"KR",1979,0
+"KR",1980,0
+"KR",1981,0
+"KR",1982,0
+"KR",1983,0
+"KR",1984,0
+"KR",1985,0
+"KR",1986,0
+"KR",1987,0
+"KR",1988,0
+"KR",1989,0
+"KR",1990,0
+"KR",1991,0
+"KR",1992,0
+"KR",1993,0
+"KR",1994,0
+"KR",1995,0
+"KR",1996,0
+"KR",1997,1
+"KR",1998,1
+"KR",1999,0
+"KR",2000,0
+"KR",2001,0
+"KR",2002,0
+"KR",2003,0
+"KR",2004,0
+"KR",2005,0
+"KR",2006,0
+"KR",2007,0
+"KR",2008,0
+"KR",2009,0
+"KR",2010,0
+"KR",2011,0
+"KR",2012,0
+"KW",1976,0
+"KW",1977,0
+"KW",1978,0
+"KW",1979,0
+"KW",1980,0
+"KW",1981,0
+"KW",1982,1
+"KW",1983,1
+"KW",1984,1
+"KW",1985,1
+"KW",1986,0
+"KW",1987,0
+"KW",1988,0
+"KW",1989,0
+"KW",1990,0
+"KW",1991,0
+"KW",1992,0
+"KW",1993,0
+"KW",1994,0
+"KW",1995,0
+"KW",1996,0
+"KW",1997,0
+"KW",1998,0
+"KW",1999,0
+"KW",2000,0
+"KW",2001,0
+"KW",2002,0
+"KW",2003,0
+"KW",2004,0
+"KW",2005,0
+"KW",2006,0
+"KW",2007,0
+"KW",2008,0
+"KW",2009,0
+"KW",2010,0
+"KW",2011,0
+"KW",2012,0
+"KG",1976,0
+"KG",1977,0
+"KG",1978,0
+"KG",1979,0
+"KG",1980,0
+"KG",1981,0
+"KG",1982,0
+"KG",1983,0
+"KG",1984,0
+"KG",1985,0
+"KG",1986,0
+"KG",1987,0
+"KG",1988,0
+"KG",1989,0
+"KG",1990,0
+"KG",1991,0
+"KG",1992,0
+"KG",1993,0
+"KG",1994,0
+"KG",1995,1
+"KG",1996,1
+"KG",1997,1
+"KG",1998,1
+"KG",1999,1
+"KG",2000,0
+"KG",2001,0
+"KG",2002,0
+"KG",2003,0
+"KG",2004,0
+"KG",2005,0
+"KG",2006,0
+"KG",2007,0
+"KG",2008,0
+"KG",2009,0
+"KG",2010,0
+"KG",2011,0
+"KG",2012,0
+"LV",1976,0
+"LV",1977,0
+"LV",1978,0
+"LV",1979,0
+"LV",1980,0
+"LV",1981,0
+"LV",1982,0
+"LV",1983,0
+"LV",1984,0
+"LV",1985,0
+"LV",1986,0
+"LV",1987,0
+"LV",1988,0
+"LV",1989,0
+"LV",1990,0
+"LV",1991,0
+"LV",1992,0
+"LV",1993,0
+"LV",1994,0
+"LV",1995,0
+"LV",1996,0
+"LV",1997,0
+"LV",1998,0
+"LV",1999,0
+"LV",2000,0
+"LV",2001,0
+"LV",2002,0
+"LV",2003,0
+"LV",2004,0
+"LV",2005,0
+"LV",2006,0
+"LV",2007,0
+"LV",2008,1
+"LV",2009,1
+"LV",2010,1
+"LV",2011,1
+"LV",2012,1
+"LV",1976,0
+"LV",1977,0
+"LV",1978,0
+"LV",1979,0
+"LV",1980,0
+"LV",1981,0
+"LV",1982,0
+"LV",1983,0
+"LV",1984,0
+"LV",1985,0
+"LV",1986,0
+"LV",1987,0
+"LV",1988,0
+"LV",1989,0
+"LV",1990,0
+"LV",1991,0
+"LV",1992,0
+"LV",1993,0
+"LV",1994,0
+"LV",1995,1
+"LV",1996,1
+"LV",1997,0
+"LV",1998,0
+"LV",1999,0
+"LV",2000,0
+"LV",2001,0
+"LV",2002,0
+"LV",2003,0
+"LV",2004,0
+"LV",2005,0
+"LV",2006,0
+"LV",2007,0
+"LV",2008,0
+"LV",2009,0
+"LV",2010,0
+"LV",2011,0
+"LV",2012,0
+"LB",1976,0
+"LB",1977,0
+"LB",1978,0
+"LB",1979,0
+"LB",1980,0
+"LB",1981,0
+"LB",1982,0
+"LB",1983,0
+"LB",1984,0
+"LB",1985,0
+"LB",1986,0
+"LB",1987,0
+"LB",1988,0
+"LB",1989,0
+"LB",1990,1
+"LB",1991,1
+"LB",1992,1
+"LB",1993,1
+"LB",1994,0
+"LB",1995,0
+"LB",1996,0
+"LB",1997,0
+"LB",1998,0
+"LB",1999,0
+"LB",2000,0
+"LB",2001,0
+"LB",2002,0
+"LB",2003,0
+"LB",2004,0
+"LB",2005,0
+"LB",2006,0
+"LB",2007,0
+"LB",2008,0
+"LB",2009,0
+"LB",2010,0
+"LB",2011,0
+"LB",2012,0
+"LR",1976,0
+"LR",1977,0
+"LR",1978,0
+"LR",1979,0
+"LR",1980,0
+"LR",1981,0
+"LR",1982,0
+"LR",1983,0
+"LR",1984,0
+"LR",1985,0
+"LR",1986,0
+"LR",1987,0
+"LR",1988,0
+"LR",1989,0
+"LR",1990,0
+"LR",1991,1
+"LR",1992,1
+"LR",1993,1
+"LR",1994,1
+"LR",1995,1
+"LR",1996,0
+"LR",1997,0
+"LR",1998,0
+"LR",1999,0
+"LR",2000,0
+"LR",2001,0
+"LR",2002,0
+"LR",2003,0
+"LR",2004,0
+"LR",2005,0
+"LR",2006,0
+"LR",2007,0
+"LR",2008,0
+"LR",2009,0
+"LR",2010,0
+"LR",2011,0
+"LR",2012,0
+"LT",1976,0
+"LT",1977,0
+"LT",1978,0
+"LT",1979,0
+"LT",1980,0
+"LT",1981,0
+"LT",1982,0
+"LT",1983,0
+"LT",1984,0
+"LT",1985,0
+"LT",1986,0
+"LT",1987,0
+"LT",1988,0
+"LT",1989,0
+"LT",1990,0
+"LT",1991,0
+"LT",1992,0
+"LT",1993,0
+"LT",1994,0
+"LT",1995,1
+"LT",1996,1
+"LT",1997,0
+"LT",1998,0
+"LT",1999,0
+"LT",2000,0
+"LT",2001,0
+"LT",2002,0
+"LT",2003,0
+"LT",2004,0
+"LT",2005,0
+"LT",2006,0
+"LT",2007,0
+"LT",2008,0
+"LT",2009,0
+"LT",2010,0
+"LT",2011,0
+"LT",2012,0
+"LU",1976,0
+"LU",1977,0
+"LU",1978,0
+"LU",1979,0
+"LU",1980,0
+"LU",1981,0
+"LU",1982,0
+"LU",1983,0
+"LU",1984,0
+"LU",1985,0
+"LU",1986,0
+"LU",1987,0
+"LU",1988,0
+"LU",1989,0
+"LU",1990,0
+"LU",1991,0
+"LU",1992,0
+"LU",1993,0
+"LU",1994,0
+"LU",1995,0
+"LU",1996,0
+"LU",1997,0
+"LU",1998,0
+"LU",1999,0
+"LU",2000,0
+"LU",2001,0
+"LU",2002,0
+"LU",2003,0
+"LU",2004,0
+"LU",2005,0
+"LU",2006,0
+"LU",2007,0
+"LU",2008,1
+"LU",2009,1
+"LU",2010,1
+"LU",2011,1
+"LU",2012,1
+"MK",1976,0
+"MK",1977,0
+"MK",1978,0
+"MK",1979,0
+"MK",1980,0
+"MK",1981,0
+"MK",1982,0
+"MK",1983,0
+"MK",1984,0
+"MK",1985,0
+"MK",1986,0
+"MK",1987,0
+"MK",1988,0
+"MK",1989,0
+"MK",1990,0
+"MK",1991,0
+"MK",1992,0
+"MK",1993,1
+"MK",1994,1
+"MK",1995,1
+"MK",1996,0
+"MK",1997,0
+"MK",1998,0
+"MK",1999,0
+"MK",2000,0
+"MK",2001,0
+"MK",2002,0
+"MK",2003,0
+"MK",2004,0
+"MK",2005,0
+"MK",2006,0
+"MK",2007,0
+"MK",2008,0
+"MK",2009,0
+"MK",2010,0
+"MK",2011,0
+"MK",2012,0
+"MG",1976,0
+"MG",1977,0
+"MG",1978,0
+"MG",1979,0
+"MG",1980,0
+"MG",1981,0
+"MG",1982,0
+"MG",1983,0
+"MG",1984,0
+"MG",1985,0
+"MG",1986,0
+"MG",1987,0
+"MG",1988,1
+"MG",1989,0
+"MG",1990,0
+"MG",1991,0
+"MG",1992,0
+"MG",1993,0
+"MG",1994,0
+"MG",1995,0
+"MG",1996,0
+"MG",1997,0
+"MG",1998,0
+"MG",1999,0
+"MG",2000,0
+"MG",2001,0
+"MG",2002,0
+"MG",2003,0
+"MG",2004,0
+"MG",2005,0
+"MG",2006,0
+"MG",2007,0
+"MG",2008,0
+"MG",2009,0
+"MG",2010,0
+"MG",2011,0
+"MG",2012,0
+"MY",1976,0
+"MY",1977,0
+"MY",1978,0
+"MY",1979,0
+"MY",1980,0
+"MY",1981,0
+"MY",1982,0
+"MY",1983,0
+"MY",1984,0
+"MY",1985,0
+"MY",1986,0
+"MY",1987,0
+"MY",1988,0
+"MY",1989,0
+"MY",1990,0
+"MY",1991,0
+"MY",1992,0
+"MY",1993,0
+"MY",1994,0
+"MY",1995,0
+"MY",1996,0
+"MY",1997,1
+"MY",1998,1
+"MY",1999,1
+"MY",2000,0
+"MY",2001,0
+"MY",2002,0
+"MY",2003,0
+"MY",2004,0
+"MY",2005,0
+"MY",2006,0
+"MY",2007,0
+"MY",2008,0
+"MY",2009,0
+"MY",2010,0
+"MY",2011,0
+"MY",2012,0
+"ML",1976,0
+"ML",1977,0
+"ML",1978,0
+"ML",1979,0
+"ML",1980,0
+"ML",1981,0
+"ML",1982,0
+"ML",1983,0
+"ML",1984,0
+"ML",1985,0
+"ML",1986,0
+"ML",1987,1
+"ML",1988,1
+"ML",1989,1
+"ML",1990,1
+"ML",1991,1
+"ML",1992,0
+"ML",1993,0
+"ML",1994,0
+"ML",1995,0
+"ML",1996,0
+"ML",1997,0
+"ML",1998,0
+"ML",1999,0
+"ML",2000,0
+"ML",2001,0
+"ML",2002,0
+"ML",2003,0
+"ML",2004,0
+"ML",2005,0
+"ML",2006,0
+"ML",2007,0
+"ML",2008,0
+"ML",2009,0
+"ML",2010,0
+"ML",2011,0
+"ML",2012,0
+"MR",1976,0
+"MR",1977,0
+"MR",1978,0
+"MR",1979,0
+"MR",1980,0
+"MR",1981,0
+"MR",1982,0
+"MR",1983,0
+"MR",1984,1
+"MR",1985,0
+"MR",1986,0
+"MR",1987,0
+"MR",1988,0
+"MR",1989,0
+"MR",1990,0
+"MR",1991,0
+"MR",1992,0
+"MR",1993,0
+"MR",1994,0
+"MR",1995,0
+"MR",1996,0
+"MR",1997,0
+"MR",1998,0
+"MR",1999,0
+"MR",2000,0
+"MR",2001,0
+"MR",2002,0
+"MR",2003,0
+"MR",2004,0
+"MR",2005,0
+"MR",2006,0
+"MR",2007,0
+"MR",2008,0
+"MR",2009,0
+"MR",2010,0
+"MR",2011,0
+"MR",2012,0
+"MX",1976,0
+"MX",1977,0
+"MX",1978,0
+"MX",1979,0
+"MX",1980,0
+"MX",1981,1
+"MX",1982,1
+"MX",1983,1
+"MX",1984,1
+"MX",1985,1
+"MX",1986,0
+"MX",1987,0
+"MX",1988,0
+"MX",1989,0
+"MX",1990,0
+"MX",1991,0
+"MX",1992,0
+"MX",1993,0
+"MX",1994,1
+"MX",1995,1
+"MX",1996,1
+"MX",1997,0
+"MX",1998,0
+"MX",1999,0
+"MX",2000,0
+"MX",2001,0
+"MX",2002,0
+"MX",2003,0
+"MX",2004,0
+"MX",2005,0
+"MX",2006,0
+"MX",2007,0
+"MX",2008,0
+"MX",2009,0
+"MX",2010,0
+"MX",2011,0
+"MX",2012,0
+"MN",1976,0
+"MN",1977,0
+"MN",1978,0
+"MN",1979,0
+"MN",1980,0
+"MN",1981,0
+"MN",1982,0
+"MN",1983,0
+"MN",1984,0
+"MN",1985,0
+"MN",1986,0
+"MN",1987,0
+"MN",1988,0
+"MN",1989,0
+"MN",1990,0
+"MN",1991,0
+"MN",1992,0
+"MN",1993,0
+"MN",1994,0
+"MN",1995,0
+"MN",1996,0
+"MN",1997,0
+"MN",1998,0
+"MN",1999,0
+"MN",2000,0
+"MN",2001,0
+"MN",2002,0
+"MN",2003,0
+"MN",2004,0
+"MN",2005,0
+"MN",2006,0
+"MN",2007,0
+"MN",2008,1
+"MN",2009,1
+"MN",2010,1
+"MN",2011,1
+"MN",2012,1
+"MA",1976,0
+"MA",1977,0
+"MA",1978,0
+"MA",1979,0
+"MA",1980,1
+"MA",1981,1
+"MA",1982,1
+"MA",1983,1
+"MA",1984,1
+"MA",1985,0
+"MA",1986,0
+"MA",1987,0
+"MA",1988,0
+"MA",1989,0
+"MA",1990,0
+"MA",1991,0
+"MA",1992,0
+"MA",1993,0
+"MA",1994,0
+"MA",1995,0
+"MA",1996,0
+"MA",1997,0
+"MA",1998,0
+"MA",1999,0
+"MA",2000,0
+"MA",2001,0
+"MA",2002,0
+"MA",2003,0
+"MA",2004,0
+"MA",2005,0
+"MA",2006,0
+"MA",2007,0
+"MA",2008,0
+"MA",2009,0
+"MA",2010,0
+"MA",2011,0
+"MA",2012,0
+"MZ",1976,0
+"MZ",1977,0
+"MZ",1978,0
+"MZ",1979,0
+"MZ",1980,0
+"MZ",1981,0
+"MZ",1982,0
+"MZ",1983,0
+"MZ",1984,0
+"MZ",1985,0
+"MZ",1986,0
+"MZ",1987,1
+"MZ",1988,1
+"MZ",1989,1
+"MZ",1990,1
+"MZ",1991,1
+"MZ",1992,0
+"MZ",1993,0
+"MZ",1994,0
+"MZ",1995,0
+"MZ",1996,0
+"MZ",1997,0
+"MZ",1998,0
+"MZ",1999,0
+"MZ",2000,0
+"MZ",2001,0
+"MZ",2002,0
+"MZ",2003,0
+"MZ",2004,0
+"MZ",2005,0
+"MZ",2006,0
+"MZ",2007,0
+"MZ",2008,0
+"MZ",2009,0
+"MZ",2010,0
+"MZ",2011,0
+"MZ",2012,0
+"NP",1976,0
+"NP",1977,0
+"NP",1978,0
+"NP",1979,0
+"NP",1980,0
+"NP",1981,0
+"NP",1982,0
+"NP",1983,0
+"NP",1984,0
+"NP",1985,0
+"NP",1986,0
+"NP",1987,0
+"NP",1988,1
+"NP",1989,0
+"NP",1990,0
+"NP",1991,0
+"NP",1992,0
+"NP",1993,0
+"NP",1994,0
+"NP",1995,0
+"NP",1996,0
+"NP",1997,0
+"NP",1998,0
+"NP",1999,0
+"NP",2000,0
+"NP",2001,0
+"NP",2002,0
+"NP",2003,0
+"NP",2004,0
+"NP",2005,0
+"NP",2006,0
+"NP",2007,0
+"NP",2008,0
+"NP",2009,0
+"NP",2010,0
+"NP",2011,0
+"NP",2012,0
+"NL",1976,0
+"NL",1977,0
+"NL",1978,0
+"NL",1979,0
+"NL",1980,0
+"NL",1981,0
+"NL",1982,0
+"NL",1983,0
+"NL",1984,0
+"NL",1985,0
+"NL",1986,0
+"NL",1987,0
+"NL",1988,0
+"NL",1989,0
+"NL",1990,0
+"NL",1991,0
+"NL",1992,0
+"NL",1993,0
+"NL",1994,0
+"NL",1995,0
+"NL",1996,0
+"NL",1997,0
+"NL",1998,0
+"NL",1999,0
+"NL",2000,0
+"NL",2001,0
+"NL",2002,0
+"NL",2003,0
+"NL",2004,0
+"NL",2005,0
+"NL",2006,0
+"NL",2007,0
+"NL",2008,1
+"NL",2009,1
+"NL",2010,1
+"NL",2011,1
+"NL",2012,1
+"NI",1976,0
+"NI",1977,0
+"NI",1978,0
+"NI",1979,0
+"NI",1980,0
+"NI",1981,0
+"NI",1982,0
+"NI",1983,0
+"NI",1984,0
+"NI",1985,0
+"NI",1986,0
+"NI",1987,0
+"NI",1988,0
+"NI",1989,0
+"NI",1990,1
+"NI",1991,1
+"NI",1992,1
+"NI",1993,1
+"NI",1994,0
+"NI",1995,0
+"NI",1996,0
+"NI",1997,0
+"NI",1998,0
+"NI",1999,0
+"NI",2000,1
+"NI",2001,1
+"NI",2002,0
+"NI",2003,0
+"NI",2004,0
+"NI",2005,0
+"NI",2006,0
+"NI",2007,0
+"NI",2008,0
+"NI",2009,0
+"NI",2010,0
+"NI",2011,0
+"NI",2012,0
+"NE",1976,0
+"NE",1977,0
+"NE",1978,0
+"NE",1979,0
+"NE",1980,0
+"NE",1981,0
+"NE",1982,0
+"NE",1983,1
+"NE",1984,1
+"NE",1985,1
+"NE",1986,0
+"NE",1987,0
+"NE",1988,0
+"NE",1989,0
+"NE",1990,0
+"NE",1991,0
+"NE",1992,0
+"NE",1993,0
+"NE",1994,0
+"NE",1995,0
+"NE",1996,0
+"NE",1997,0
+"NE",1998,0
+"NE",1999,0
+"NE",2000,0
+"NE",2001,0
+"NE",2002,0
+"NE",2003,0
+"NE",2004,0
+"NE",2005,0
+"NE",2006,0
+"NE",2007,0
+"NE",2008,0
+"NE",2009,0
+"NE",2010,0
+"NE",2011,0
+"NE",2012,0
+"NG",1976,0
+"NG",1977,0
+"NG",1978,0
+"NG",1979,0
+"NG",1980,0
+"NG",1981,0
+"NG",1982,0
+"NG",1983,0
+"NG",1984,0
+"NG",1985,0
+"NG",1986,0
+"NG",1987,0
+"NG",1988,0
+"NG",1989,0
+"NG",1990,0
+"NG",1991,1
+"NG",1992,1
+"NG",1993,1
+"NG",1994,1
+"NG",1995,1
+"NG",1996,0
+"NG",1997,0
+"NG",1998,0
+"NG",1999,0
+"NG",2000,0
+"NG",2001,0
+"NG",2002,0
+"NG",2003,0
+"NG",2004,0
+"NG",2005,0
+"NG",2006,0
+"NG",2007,0
+"NG",2008,0
+"NG",2009,1
+"NG",2010,1
+"NG",2011,1
+"NG",2012,1
+"NO",1976,0
+"NO",1977,0
+"NO",1978,0
+"NO",1979,0
+"NO",1980,0
+"NO",1981,0
+"NO",1982,0
+"NO",1983,0
+"NO",1984,0
+"NO",1985,0
+"NO",1986,0
+"NO",1987,0
+"NO",1988,0
+"NO",1989,0
+"NO",1990,0
+"NO",1991,1
+"NO",1992,1
+"NO",1993,1
+"NO",1994,0
+"NO",1995,0
+"NO",1996,0
+"NO",1997,0
+"NO",1998,0
+"NO",1999,0
+"NO",2000,0
+"NO",2001,0
+"NO",2002,0
+"NO",2003,0
+"NO",2004,0
+"NO",2005,0
+"NO",2006,0
+"NO",2007,0
+"NO",2008,0
+"NO",2009,0
+"NO",2010,0
+"NO",2011,0
+"NO",2012,0
+"PA",1976,0
+"PA",1977,0
+"PA",1978,0
+"PA",1979,0
+"PA",1980,0
+"PA",1981,0
+"PA",1982,0
+"PA",1983,0
+"PA",1984,0
+"PA",1985,0
+"PA",1986,0
+"PA",1987,0
+"PA",1988,1
+"PA",1989,1
+"PA",1990,0
+"PA",1991,0
+"PA",1992,0
+"PA",1993,0
+"PA",1994,0
+"PA",1995,0
+"PA",1996,0
+"PA",1997,0
+"PA",1998,0
+"PA",1999,0
+"PA",2000,0
+"PA",2001,0
+"PA",2002,0
+"PA",2003,0
+"PA",2004,0
+"PA",2005,0
+"PA",2006,0
+"PA",2007,0
+"PA",2008,0
+"PA",2009,0
+"PA",2010,0
+"PA",2011,0
+"PA",2012,0
+"PY",1976,0
+"PY",1977,0
+"PY",1978,0
+"PY",1979,0
+"PY",1980,0
+"PY",1981,0
+"PY",1982,0
+"PY",1983,0
+"PY",1984,0
+"PY",1985,0
+"PY",1986,0
+"PY",1987,0
+"PY",1988,0
+"PY",1989,0
+"PY",1990,0
+"PY",1991,0
+"PY",1992,0
+"PY",1993,0
+"PY",1994,0
+"PY",1995,1
+"PY",1996,0
+"PY",1997,0
+"PY",1998,0
+"PY",1999,0
+"PY",2000,0
+"PY",2001,0
+"PY",2002,0
+"PY",2003,0
+"PY",2004,0
+"PY",2005,0
+"PY",2006,0
+"PY",2007,0
+"PY",2008,0
+"PY",2009,0
+"PY",2010,0
+"PY",2011,0
+"PY",2012,0
+"PE",1976,0
+"PE",1977,0
+"PE",1978,0
+"PE",1979,0
+"PE",1980,0
+"PE",1981,0
+"PE",1982,0
+"PE",1983,1
+"PE",1984,0
+"PE",1985,0
+"PE",1986,0
+"PE",1987,0
+"PE",1988,0
+"PE",1989,0
+"PE",1990,0
+"PE",1991,0
+"PE",1992,0
+"PE",1993,0
+"PE",1994,0
+"PE",1995,0
+"PE",1996,0
+"PE",1997,0
+"PE",1998,0
+"PE",1999,0
+"PE",2000,0
+"PE",2001,0
+"PE",2002,0
+"PE",2003,0
+"PE",2004,0
+"PE",2005,0
+"PE",2006,0
+"PE",2007,0
+"PE",2008,0
+"PE",2009,0
+"PE",2010,0
+"PE",2011,0
+"PE",2012,0
+"PH",1976,0
+"PH",1977,0
+"PH",1978,0
+"PH",1979,0
+"PH",1980,0
+"PH",1981,0
+"PH",1982,0
+"PH",1983,1
+"PH",1984,1
+"PH",1985,1
+"PH",1986,1
+"PH",1987,0
+"PH",1988,0
+"PH",1989,0
+"PH",1990,0
+"PH",1991,0
+"PH",1992,0
+"PH",1993,0
+"PH",1994,0
+"PH",1995,0
+"PH",1996,0
+"PH",1997,0
+"PH",1998,0
+"PH",1999,0
+"PH",2000,0
+"PH",2001,0
+"PH",2002,0
+"PH",2003,0
+"PH",2004,0
+"PH",2005,0
+"PH",2006,0
+"PH",2007,0
+"PH",2008,0
+"PH",2009,0
+"PH",2010,0
+"PH",2011,0
+"PH",2012,0
+"PH",1976,0
+"PH",1977,0
+"PH",1978,0
+"PH",1979,0
+"PH",1980,0
+"PH",1981,0
+"PH",1982,0
+"PH",1983,0
+"PH",1984,0
+"PH",1985,0
+"PH",1986,0
+"PH",1987,0
+"PH",1988,0
+"PH",1989,0
+"PH",1990,0
+"PH",1991,0
+"PH",1992,0
+"PH",1993,0
+"PH",1994,0
+"PH",1995,0
+"PH",1996,0
+"PH",1997,1
+"PH",1998,1
+"PH",1999,1
+"PH",2000,1
+"PH",2001,1
+"PH",2002,0
+"PH",2003,0
+"PH",2004,0
+"PH",2005,0
+"PH",2006,0
+"PH",2007,0
+"PH",2008,0
+"PH",2009,0
+"PH",2010,0
+"PH",2011,0
+"PH",2012,0
+"PL",1976,0
+"PL",1977,0
+"PL",1978,0
+"PL",1979,0
+"PL",1980,0
+"PL",1981,0
+"PL",1982,0
+"PL",1983,0
+"PL",1984,0
+"PL",1985,0
+"PL",1986,0
+"PL",1987,0
+"PL",1988,0
+"PL",1989,0
+"PL",1990,0
+"PL",1991,0
+"PL",1992,1
+"PL",1993,1
+"PL",1994,1
+"PL",1995,0
+"PL",1996,0
+"PL",1997,0
+"PL",1998,0
+"PL",1999,0
+"PL",2000,0
+"PL",2001,0
+"PL",2002,0
+"PL",2003,0
+"PL",2004,0
+"PL",2005,0
+"PL",2006,0
+"PL",2007,0
+"PL",2008,0
+"PL",2009,0
+"PL",2010,0
+"PL",2011,0
+"PL",2012,0
+"PT",1976,0
+"PT",1977,0
+"PT",1978,0
+"PT",1979,0
+"PT",1980,0
+"PT",1981,0
+"PT",1982,0
+"PT",1983,0
+"PT",1984,0
+"PT",1985,0
+"PT",1986,0
+"PT",1987,0
+"PT",1988,0
+"PT",1989,0
+"PT",1990,0
+"PT",1991,0
+"PT",1992,0
+"PT",1993,0
+"PT",1994,0
+"PT",1995,0
+"PT",1996,0
+"PT",1997,0
+"PT",1998,0
+"PT",1999,0
+"PT",2000,0
+"PT",2001,0
+"PT",2002,0
+"PT",2003,0
+"PT",2004,0
+"PT",2005,0
+"PT",2006,0
+"PT",2007,0
+"PT",2008,1
+"PT",2009,1
+"PT",2010,1
+"PT",2011,1
+"PT",2012,1
+"RO",1976,0
+"RO",1977,0
+"RO",1978,0
+"RO",1979,0
+"RO",1980,0
+"RO",1981,0
+"RO",1982,0
+"RO",1983,0
+"RO",1984,0
+"RO",1985,0
+"RO",1986,0
+"RO",1987,0
+"RO",1988,0
+"RO",1989,0
+"RO",1990,1
+"RO",1991,1
+"RO",1992,1
+"RO",1993,0
+"RO",1994,0
+"RO",1995,0
+"RO",1996,0
+"RO",1997,0
+"RO",1998,0
+"RO",1999,0
+"RO",2000,0
+"RO",2001,0
+"RO",2002,0
+"RO",2003,0
+"RO",2004,0
+"RO",2005,0
+"RO",2006,0
+"RO",2007,0
+"RO",2008,0
+"RO",2009,0
+"RO",2010,0
+"RO",2011,0
+"RO",2012,0
+"RU",1976,0
+"RU",1977,0
+"RU",1978,0
+"RU",1979,0
+"RU",1980,0
+"RU",1981,0
+"RU",1982,0
+"RU",1983,0
+"RU",1984,0
+"RU",1985,0
+"RU",1986,0
+"RU",1987,0
+"RU",1988,0
+"RU",1989,0
+"RU",1990,0
+"RU",1991,0
+"RU",1992,0
+"RU",1993,0
+"RU",1994,0
+"RU",1995,0
+"RU",1996,0
+"RU",1997,0
+"RU",1998,1
+"RU",1999,0
+"RU",2000,0
+"RU",2001,0
+"RU",2002,0
+"RU",2003,0
+"RU",2004,0
+"RU",2005,0
+"RU",2006,0
+"RU",2007,0
+"RU",2008,1
+"RU",2009,1
+"RU",2010,1
+"RU",2011,1
+"RU",2012,1
+"ST",1976,0
+"ST",1977,0
+"ST",1978,0
+"ST",1979,0
+"ST",1980,0
+"ST",1981,0
+"ST",1982,0
+"ST",1983,0
+"ST",1984,0
+"ST",1985,0
+"ST",1986,0
+"ST",1987,0
+"ST",1988,0
+"ST",1989,0
+"ST",1990,0
+"ST",1991,0
+"ST",1992,1
+"ST",1993,0
+"ST",1994,0
+"ST",1995,0
+"ST",1996,0
+"ST",1997,0
+"ST",1998,0
+"ST",1999,0
+"ST",2000,0
+"ST",2001,0
+"ST",2002,0
+"ST",2003,0
+"ST",2004,0
+"ST",2005,0
+"ST",2006,0
+"ST",2007,0
+"ST",2008,0
+"ST",2009,0
+"ST",2010,0
+"ST",2011,0
+"ST",2012,0
+"SN",1976,0
+"SN",1977,0
+"SN",1978,0
+"SN",1979,0
+"SN",1980,0
+"SN",1981,0
+"SN",1982,0
+"SN",1983,0
+"SN",1984,0
+"SN",1985,0
+"SN",1986,0
+"SN",1987,0
+"SN",1988,1
+"SN",1989,1
+"SN",1990,1
+"SN",1991,1
+"SN",1992,0
+"SN",1993,0
+"SN",1994,0
+"SN",1995,0
+"SN",1996,0
+"SN",1997,0
+"SN",1998,0
+"SN",1999,0
+"SN",2000,0
+"SN",2001,0
+"SN",2002,0
+"SN",2003,0
+"SN",2004,0
+"SN",2005,0
+"SN",2006,0
+"SN",2007,0
+"SN",2008,0
+"SN",2009,0
+"SN",2010,0
+"SN",2011,0
+"SN",2012,0
+"SL",1976,0
+"SL",1977,0
+"SL",1978,0
+"SL",1979,0
+"SL",1980,0
+"SL",1981,0
+"SL",1982,0
+"SL",1983,0
+"SL",1984,0
+"SL",1985,0
+"SL",1986,0
+"SL",1987,0
+"SL",1988,0
+"SL",1989,0
+"SL",1990,1
+"SL",1991,1
+"SL",1992,1
+"SL",1993,1
+"SL",1994,1
+"SL",1995,0
+"SL",1996,0
+"SL",1997,0
+"SL",1998,0
+"SL",1999,0
+"SL",2000,0
+"SL",2001,0
+"SL",2002,0
+"SL",2003,0
+"SL",2004,0
+"SL",2005,0
+"SL",2006,0
+"SL",2007,0
+"SL",2008,0
+"SL",2009,0
+"SL",2010,0
+"SL",2011,0
+"SL",2012,0
+"SK",1976,0
+"SK",1977,0
+"SK",1978,0
+"SK",1979,0
+"SK",1980,0
+"SK",1981,0
+"SK",1982,0
+"SK",1983,0
+"SK",1984,0
+"SK",1985,0
+"SK",1986,0
+"SK",1987,0
+"SK",1988,0
+"SK",1989,0
+"SK",1990,0
+"SK",1991,0
+"SK",1992,0
+"SK",1993,0
+"SK",1994,0
+"SK",1995,0
+"SK",1996,0
+"SK",1997,0
+"SK",1998,1
+"SK",1999,1
+"SK",2000,1
+"SK",2001,1
+"SK",2002,1
+"SK",2003,0
+"SK",2004,0
+"SK",2005,0
+"SK",2006,0
+"SK",2007,0
+"SK",2008,0
+"SK",2009,0
+"SK",2010,0
+"SK",2011,0
+"SK",2012,0
+"SI",1976,0
+"SI",1977,0
+"SI",1978,0
+"SI",1979,0
+"SI",1980,0
+"SI",1981,0
+"SI",1982,0
+"SI",1983,0
+"SI",1984,0
+"SI",1985,0
+"SI",1986,0
+"SI",1987,0
+"SI",1988,0
+"SI",1989,0
+"SI",1990,0
+"SI",1991,0
+"SI",1992,1
+"SI",1993,0
+"SI",1994,0
+"SI",1995,0
+"SI",1996,0
+"SI",1997,0
+"SI",1998,0
+"SI",1999,0
+"SI",2000,0
+"SI",2001,0
+"SI",2002,0
+"SI",2003,0
+"SI",2004,0
+"SI",2005,0
+"SI",2006,0
+"SI",2007,0
+"SI",2008,1
+"SI",2009,1
+"SI",2010,1
+"SI",2011,1
+"SI",2012,1
+"ES",1976,0
+"ES",1977,1
+"ES",1978,1
+"ES",1979,1
+"ES",1980,1
+"ES",1981,1
+"ES",1982,0
+"ES",1983,0
+"ES",1984,0
+"ES",1985,0
+"ES",1986,0
+"ES",1987,0
+"ES",1988,0
+"ES",1989,0
+"ES",1990,0
+"ES",1991,0
+"ES",1992,0
+"ES",1993,0
+"ES",1994,0
+"ES",1995,0
+"ES",1996,0
+"ES",1997,0
+"ES",1998,0
+"ES",1999,0
+"ES",2000,0
+"ES",2001,0
+"ES",2002,0
+"ES",2003,0
+"ES",2004,0
+"ES",2005,0
+"ES",2006,0
+"ES",2007,0
+"ES",2008,1
+"ES",2009,1
+"ES",2010,1
+"ES",2011,1
+"ES",2012,1
+"LK",1976,0
+"LK",1977,0
+"LK",1978,0
+"LK",1979,0
+"LK",1980,0
+"LK",1981,0
+"LK",1982,0
+"LK",1983,0
+"LK",1984,0
+"LK",1985,0
+"LK",1986,0
+"LK",1987,0
+"LK",1988,0
+"LK",1989,1
+"LK",1990,1
+"LK",1991,1
+"LK",1992,0
+"LK",1993,0
+"LK",1994,0
+"LK",1995,0
+"LK",1996,0
+"LK",1997,0
+"LK",1998,0
+"LK",1999,0
+"LK",2000,0
+"LK",2001,0
+"LK",2002,0
+"LK",2003,0
+"LK",2004,0
+"LK",2005,0
+"LK",2006,0
+"LK",2007,0
+"LK",2008,0
+"LK",2009,0
+"LK",2010,0
+"LK",2011,0
+"LK",2012,0
+"SZ",1976,0
+"SZ",1977,0
+"SZ",1978,0
+"SZ",1979,0
+"SZ",1980,0
+"SZ",1981,0
+"SZ",1982,0
+"SZ",1983,0
+"SZ",1984,0
+"SZ",1985,0
+"SZ",1986,0
+"SZ",1987,0
+"SZ",1988,0
+"SZ",1989,0
+"SZ",1990,0
+"SZ",1991,0
+"SZ",1992,0
+"SZ",1993,0
+"SZ",1994,0
+"SZ",1995,1
+"SZ",1996,1
+"SZ",1997,1
+"SZ",1998,1
+"SZ",1999,1
+"SZ",2000,0
+"SZ",2001,0
+"SZ",2002,0
+"SZ",2003,0
+"SZ",2004,0
+"SZ",2005,0
+"SZ",2006,0
+"SZ",2007,0
+"SZ",2008,0
+"SZ",2009,0
+"SZ",2010,0
+"SZ",2011,0
+"SZ",2012,0
+"SE",1976,0
+"SE",1977,0
+"SE",1978,0
+"SE",1979,0
+"SE",1980,0
+"SE",1981,0
+"SE",1982,0
+"SE",1983,0
+"SE",1984,0
+"SE",1985,0
+"SE",1986,0
+"SE",1987,0
+"SE",1988,0
+"SE",1989,0
+"SE",1990,0
+"SE",1991,1
+"SE",1992,1
+"SE",1993,1
+"SE",1994,1
+"SE",1995,1
+"SE",1996,0
+"SE",1997,0
+"SE",1998,0
+"SE",1999,0
+"SE",2000,0
+"SE",2001,0
+"SE",2002,0
+"SE",2003,0
+"SE",2004,0
+"SE",2005,0
+"SE",2006,0
+"SE",2007,0
+"SE",2008,0
+"SE",2009,0
+"SE",2010,0
+"SE",2011,0
+"SE",2012,0
+"SE",1976,0
+"SE",1977,0
+"SE",1978,0
+"SE",1979,0
+"SE",1980,0
+"SE",1981,0
+"SE",1982,0
+"SE",1983,0
+"SE",1984,0
+"SE",1985,0
+"SE",1986,0
+"SE",1987,0
+"SE",1988,0
+"SE",1989,0
+"SE",1990,0
+"SE",1991,0
+"SE",1992,0
+"SE",1993,0
+"SE",1994,0
+"SE",1995,0
+"SE",1996,0
+"SE",1997,0
+"SE",1998,0
+"SE",1999,0
+"SE",2000,0
+"SE",2001,0
+"SE",2002,0
+"SE",2003,0
+"SE",2004,0
+"SE",2005,0
+"SE",2006,0
+"SE",2007,0
+"SE",2008,1
+"SE",2009,1
+"SE",2010,1
+"SE",2011,1
+"SE",2012,1
+"CH",1976,0
+"CH",1977,0
+"CH",1978,0
+"CH",1979,0
+"CH",1980,0
+"CH",1981,0
+"CH",1982,0
+"CH",1983,0
+"CH",1984,0
+"CH",1985,0
+"CH",1986,0
+"CH",1987,0
+"CH",1988,0
+"CH",1989,0
+"CH",1990,0
+"CH",1991,0
+"CH",1992,0
+"CH",1993,0
+"CH",1994,0
+"CH",1995,0
+"CH",1996,0
+"CH",1997,0
+"CH",1998,0
+"CH",1999,0
+"CH",2000,0
+"CH",2001,0
+"CH",2002,0
+"CH",2003,0
+"CH",2004,0
+"CH",2005,0
+"CH",2006,0
+"CH",2007,0
+"CH",2008,1
+"CH",2009,1
+"CH",2010,1
+"CH",2011,1
+"CH",2012,1
+"TZ",1976,0
+"TZ",1977,0
+"TZ",1978,0
+"TZ",1979,0
+"TZ",1980,0
+"TZ",1981,0
+"TZ",1982,0
+"TZ",1983,0
+"TZ",1984,0
+"TZ",1985,0
+"TZ",1986,0
+"TZ",1987,1
+"TZ",1988,1
+"TZ",1989,0
+"TZ",1990,0
+"TZ",1991,0
+"TZ",1992,0
+"TZ",1993,0
+"TZ",1994,0
+"TZ",1995,0
+"TZ",1996,0
+"TZ",1997,0
+"TZ",1998,0
+"TZ",1999,0
+"TZ",2000,0
+"TZ",2001,0
+"TZ",2002,0
+"TZ",2003,0
+"TZ",2004,0
+"TZ",2005,0
+"TZ",2006,0
+"TZ",2007,0
+"TZ",2008,0
+"TZ",2009,0
+"TZ",2010,0
+"TZ",2011,0
+"TZ",2012,0
+"TH",1976,0
+"TH",1977,0
+"TH",1978,0
+"TH",1979,0
+"TH",1980,0
+"TH",1981,0
+"TH",1982,0
+"TH",1983,1
+"TH",1984,0
+"TH",1985,0
+"TH",1986,0
+"TH",1987,0
+"TH",1988,0
+"TH",1989,0
+"TH",1990,0
+"TH",1991,0
+"TH",1992,0
+"TH",1993,0
+"TH",1994,0
+"TH",1995,0
+"TH",1996,0
+"TH",1997,1
+"TH",1998,1
+"TH",1999,1
+"TH",2000,1
+"TH",2001,0
+"TH",2002,0
+"TH",2003,0
+"TH",2004,0
+"TH",2005,0
+"TH",2006,0
+"TH",2007,0
+"TH",2008,0
+"TH",2009,0
+"TH",2010,0
+"TH",2011,0
+"TH",2012,0
+"TG",1976,0
+"TG",1977,0
+"TG",1978,0
+"TG",1979,0
+"TG",1980,0
+"TG",1981,0
+"TG",1982,0
+"TG",1983,0
+"TG",1984,0
+"TG",1985,0
+"TG",1986,0
+"TG",1987,0
+"TG",1988,0
+"TG",1989,0
+"TG",1990,0
+"TG",1991,0
+"TG",1992,0
+"TG",1993,1
+"TG",1994,1
+"TG",1995,0
+"TG",1996,0
+"TG",1997,0
+"TG",1998,0
+"TG",1999,0
+"TG",2000,0
+"TG",2001,0
+"TG",2002,0
+"TG",2003,0
+"TG",2004,0
+"TG",2005,0
+"TG",2006,0
+"TG",2007,0
+"TG",2008,0
+"TG",2009,0
+"TG",2010,0
+"TG",2011,0
+"TG",2012,0
+"TN",1976,0
+"TN",1977,0
+"TN",1978,0
+"TN",1979,0
+"TN",1980,0
+"TN",1981,0
+"TN",1982,0
+"TN",1983,0
+"TN",1984,0
+"TN",1985,0
+"TN",1986,0
+"TN",1987,0
+"TN",1988,0
+"TN",1989,0
+"TN",1990,0
+"TN",1991,1
+"TN",1992,0
+"TN",1993,0
+"TN",1994,0
+"TN",1995,0
+"TN",1996,0
+"TN",1997,0
+"TN",1998,0
+"TN",1999,0
+"TN",2000,0
+"TN",2001,0
+"TN",2002,0
+"TN",2003,0
+"TN",2004,0
+"TN",2005,0
+"TN",2006,0
+"TN",2007,0
+"TN",2008,0
+"TN",2009,0
+"TN",2010,0
+"TN",2011,0
+"TN",2012,0
+"TR",1976,0
+"TR",1977,0
+"TR",1978,0
+"TR",1979,0
+"TR",1980,0
+"TR",1981,0
+"TR",1982,1
+"TR",1983,1
+"TR",1984,1
+"TR",1985,0
+"TR",1986,0
+"TR",1987,0
+"TR",1988,0
+"TR",1989,0
+"TR",1990,0
+"TR",1991,0
+"TR",1992,0
+"TR",1993,0
+"TR",1994,0
+"TR",1995,0
+"TR",1996,0
+"TR",1997,0
+"TR",1998,0
+"TR",1999,0
+"TR",2000,1
+"TR",2001,1
+"TR",2002,0
+"TR",2003,0
+"TR",2004,0
+"TR",2005,0
+"TR",2006,0
+"TR",2007,0
+"TR",2008,0
+"TR",2009,0
+"TR",2010,0
+"TR",2011,0
+"TR",2012,0
+"UG",1976,0
+"UG",1977,0
+"UG",1978,0
+"UG",1979,0
+"UG",1980,0
+"UG",1981,0
+"UG",1982,0
+"UG",1983,0
+"UG",1984,0
+"UG",1985,0
+"UG",1986,0
+"UG",1987,0
+"UG",1988,0
+"UG",1989,0
+"UG",1990,0
+"UG",1991,0
+"UG",1992,0
+"UG",1993,0
+"UG",1994,1
+"UG",1995,0
+"UG",1996,0
+"UG",1997,0
+"UG",1998,0
+"UG",1999,0
+"UG",2000,0
+"UG",2001,0
+"UG",2002,0
+"UG",2003,0
+"UG",2004,0
+"UG",2005,0
+"UG",2006,0
+"UG",2007,0
+"UG",2008,0
+"UG",2009,0
+"UG",2010,0
+"UG",2011,0
+"UG",2012,0
+"UA",1976,0
+"UA",1977,0
+"UA",1978,0
+"UA",1979,0
+"UA",1980,0
+"UA",1981,0
+"UA",1982,0
+"UA",1983,0
+"UA",1984,0
+"UA",1985,0
+"UA",1986,0
+"UA",1987,0
+"UA",1988,0
+"UA",1989,0
+"UA",1990,0
+"UA",1991,0
+"UA",1992,0
+"UA",1993,0
+"UA",1994,0
+"UA",1995,0
+"UA",1996,0
+"UA",1997,0
+"UA",1998,0
+"UA",1999,0
+"UA",2000,0
+"UA",2001,0
+"UA",2002,0
+"UA",2003,0
+"UA",2004,0
+"UA",2005,0
+"UA",2006,0
+"UA",2007,0
+"UA",2008,1
+"UA",2009,1
+"UA",2010,1
+"UA",2011,1
+"UA",2012,1
+"UA",1976,0
+"UA",1977,0
+"UA",1978,0
+"UA",1979,0
+"UA",1980,0
+"UA",1981,0
+"UA",1982,0
+"UA",1983,0
+"UA",1984,0
+"UA",1985,0
+"UA",1986,0
+"UA",1987,0
+"UA",1988,0
+"UA",1989,0
+"UA",1990,0
+"UA",1991,0
+"UA",1992,0
+"UA",1993,0
+"UA",1994,0
+"UA",1995,0
+"UA",1996,0
+"UA",1997,0
+"UA",1998,1
+"UA",1999,1
+"UA",2000,0
+"UA",2001,0
+"UA",2002,0
+"UA",2003,0
+"UA",2004,0
+"UA",2005,0
+"UA",2006,0
+"UA",2007,0
+"UA",2008,0
+"UA",2009,0
+"UA",2010,0
+"UA",2011,0
+"UA",2012,0
+"GB",1976,0
+"GB",1977,0
+"GB",1978,0
+"GB",1979,0
+"GB",1980,0
+"GB",1981,0
+"GB",1982,0
+"GB",1983,0
+"GB",1984,0
+"GB",1985,0
+"GB",1986,0
+"GB",1987,0
+"GB",1988,0
+"GB",1989,0
+"GB",1990,0
+"GB",1991,0
+"GB",1992,0
+"GB",1993,0
+"GB",1994,0
+"GB",1995,0
+"GB",1996,0
+"GB",1997,0
+"GB",1998,0
+"GB",1999,0
+"GB",2000,0
+"GB",2001,0
+"GB",2002,0
+"GB",2003,0
+"GB",2004,0
+"GB",2005,0
+"GB",2006,0
+"GB",2007,1
+"GB",2008,1
+"GB",2009,1
+"GB",2010,1
+"GB",2011,1
+"GB",2012,1
+"US",1976,0
+"US",1977,0
+"US",1978,0
+"US",1979,0
+"US",1980,0
+"US",1981,0
+"US",1982,0
+"US",1983,0
+"US",1984,0
+"US",1985,0
+"US",1986,0
+"US",1987,0
+"US",1988,0
+"US",1989,0
+"US",1990,0
+"US",1991,0
+"US",1992,0
+"US",1993,0
+"US",1994,0
+"US",1995,0
+"US",1996,0
+"US",1997,0
+"US",1998,0
+"US",1999,0
+"US",2000,0
+"US",2001,0
+"US",2002,0
+"US",2003,0
+"US",2004,0
+"US",2005,0
+"US",2006,0
+"US",2007,1
+"US",2008,1
+"US",2009,1
+"US",2010,1
+"US",2011,1
+"US",2012,1
+"US",1976,0
+"US",1977,0
+"US",1978,0
+"US",1979,0
+"US",1980,0
+"US",1981,0
+"US",1982,0
+"US",1983,0
+"US",1984,0
+"US",1985,0
+"US",1986,0
+"US",1987,0
+"US",1988,1
+"US",1989,0
+"US",1990,0
+"US",1991,0
+"US",1992,0
+"US",1993,0
+"US",1994,0
+"US",1995,0
+"US",1996,0
+"US",1997,0
+"US",1998,0
+"US",1999,0
+"US",2000,0
+"US",2001,0
+"US",2002,0
+"US",2003,0
+"US",2004,0
+"US",2005,0
+"US",2006,0
+"US",2007,0
+"US",2008,0
+"US",2009,0
+"US",2010,0
+"US",2011,0
+"US",2012,0
+"UY",1976,0
+"UY",1977,0
+"UY",1978,0
+"UY",1979,0
+"UY",1980,0
+"UY",1981,1
+"UY",1982,1
+"UY",1983,1
+"UY",1984,1
+"UY",1985,1
+"UY",1986,0
+"UY",1987,0
+"UY",1988,0
+"UY",1989,0
+"UY",1990,0
+"UY",1991,0
+"UY",1992,0
+"UY",1993,0
+"UY",1994,0
+"UY",1995,0
+"UY",1996,0
+"UY",1997,0
+"UY",1998,0
+"UY",1999,0
+"UY",2000,0
+"UY",2001,0
+"UY",2002,1
+"UY",2003,1
+"UY",2004,1
+"UY",2005,1
+"UY",2006,0
+"UY",2007,0
+"UY",2008,0
+"UY",2009,0
+"UY",2010,0
+"UY",2011,0
+"UY",2012,0
+"VE",1976,0
+"VE",1977,0
+"VE",1978,0
+"VE",1979,0
+"VE",1980,0
+"VE",1981,0
+"VE",1982,0
+"VE",1983,0
+"VE",1984,0
+"VE",1985,0
+"VE",1986,0
+"VE",1987,0
+"VE",1988,0
+"VE",1989,0
+"VE",1990,0
+"VE",1991,0
+"VE",1992,0
+"VE",1993,0
+"VE",1994,1
+"VE",1995,1
+"VE",1996,1
+"VE",1997,1
+"VE",1998,1
+"VE",1999,0
+"VE",2000,0
+"VE",2001,0
+"VE",2002,0
+"VE",2003,0
+"VE",2004,0
+"VE",2005,0
+"VE",2006,0
+"VE",2007,0
+"VE",2008,0
+"VE",2009,0
+"VE",2010,0
+"VE",2011,0
+"VE",2012,0
+"VN",1976,0
+"VN",1977,0
+"VN",1978,0
+"VN",1979,0
+"VN",1980,0
+"VN",1981,0
+"VN",1982,0
+"VN",1983,0
+"VN",1984,0
+"VN",1985,0
+"VN",1986,0
+"VN",1987,0
+"VN",1988,0
+"VN",1989,0
+"VN",1990,0
+"VN",1991,0
+"VN",1992,0
+"VN",1993,0
+"VN",1994,0
+"VN",1995,0
+"VN",1996,0
+"VN",1997,1
+"VN",1998,0
+"VN",1999,0
+"VN",2000,0
+"VN",2001,0
+"VN",2002,0
+"VN",2003,0
+"VN",2004,0
+"VN",2005,0
+"VN",2006,0
+"VN",2007,0
+"VN",2008,0
+"VN",2009,0
+"VN",2010,0
+"VN",2011,0
+"VN",2012,0
+"YE",1976,0
+"YE",1977,0
+"YE",1978,0
+"YE",1979,0
+"YE",1980,0
+"YE",1981,0
+"YE",1982,0
+"YE",1983,0
+"YE",1984,0
+"YE",1985,0
+"YE",1986,0
+"YE",1987,0
+"YE",1988,0
+"YE",1989,0
+"YE",1990,0
+"YE",1991,0
+"YE",1992,0
+"YE",1993,0
+"YE",1994,0
+"YE",1995,0
+"YE",1996,1
+"YE",1997,0
+"YE",1998,0
+"YE",1999,0
+"YE",2000,0
+"YE",2001,0
+"YE",2002,0
+"YE",2003,0
+"YE",2004,0
+"YE",2005,0
+"YE",2006,0
+"YE",2007,0
+"YE",2008,0
+"YE",2009,0
+"YE",2010,0
+"YE",2011,0
+"YE",2012,0
+"ZM",1976,0
+"ZM",1977,0
+"ZM",1978,0
+"ZM",1979,0
+"ZM",1980,0
+"ZM",1981,0
+"ZM",1982,0
+"ZM",1983,0
+"ZM",1984,0
+"ZM",1985,0
+"ZM",1986,0
+"ZM",1987,0
+"ZM",1988,0
+"ZM",1989,0
+"ZM",1990,0
+"ZM",1991,0
+"ZM",1992,0
+"ZM",1993,0
+"ZM",1994,0
+"ZM",1995,1
+"ZM",1996,1
+"ZM",1997,1
+"ZM",1998,1
+"ZM",1999,0
+"ZM",2000,0
+"ZM",2001,0
+"ZM",2002,0
+"ZM",2003,0
+"ZM",2004,0
+"ZM",2005,0
+"ZM",2006,0
+"ZM",2007,0
+"ZM",2008,0
+"ZM",2009,0
+"ZM",2010,0
+"ZM",2011,0
+"ZM",2012,0
+"ZW",1976,0
+"ZW",1977,0
+"ZW",1978,0
+"ZW",1979,0
+"ZW",1980,0
+"ZW",1981,0
+"ZW",1982,0
+"ZW",1983,0
+"ZW",1984,0
+"ZW",1985,0
+"ZW",1986,0
+"ZW",1987,0
+"ZW",1988,0
+"ZW",1989,0
+"ZW",1990,0
+"ZW",1991,0
+"ZW",1992,0
+"ZW",1993,0
+"ZW",1994,0
+"ZW",1995,1
+"ZW",1996,1
+"ZW",1997,1
+"ZW",1998,1
+"ZW",1999,1
+"ZW",2000,0
+"ZW",2001,0
+"ZW",2002,0
+"ZW",2003,0
+"ZW",2004,0
+"ZW",2005,0
+"ZW",2006,0
+"ZW",2007,0
+"ZW",2008,0
+"ZW",2009,0
+"ZW",2010,0
+"ZW",2011,0
+"ZW",2012,0
