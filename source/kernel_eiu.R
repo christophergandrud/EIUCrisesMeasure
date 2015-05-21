@@ -39,7 +39,7 @@ clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 1) %>%
-                    tm_map(removeNumbers, mc.cores = 1) 
+                    tm_map(removeNumbers, mc.cores = 1)
 
 # Kernal length
 length_spec = 5
@@ -81,7 +81,7 @@ kernals <- stringdot(type = "spectrum", length = length_spec)
 
 #### Kernel PCA ################################################################
 # Number of components
-feature_num = 7
+feature_num = 10
 
 # Estimate
 kpca_out <- kpca(clean_corpus, kernal = kernals, features = feature_num)
@@ -119,7 +119,7 @@ results_kpca <- results_kpca %>% group_by(country) %>%
 
 # Find previous periods moving average
 sma_mod <- function(x) SMA(x, n = 2)
-results_kpca <- results_kpca %>% group_by(country) %>% 
+results_kpca <- results_kpca %>% group_by(country) %>%
                 mutate(C1_ma = sma_mod(C1))
 
 export(results_kpca,
@@ -149,23 +149,25 @@ for (i in unique(results_kpca$country)[60:89]) {
 do.call(grid.arrange, kpca_list)
 
 # Find change points
-devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
+# devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
 
-kpca_changepoint <- list()
-for (i in unique(date_country$country)) {
-    message(i)
-    temp_data <- subset(results_kpca, country == i)
-    temp_data$C1 <- temp_data$C1 * -1
-    temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
-                                     TimeVar = 'date', min.size = 6) +
-                                ggtitle(i)
-    kpca_changepoint[[i]] <- temp_plot
-}
+# kpca_changepoint <- list()
+# for (i in unique(date_country$country)) {
+#     message(i)
+#     temp_data <- subset(results_kpca, country == i)
+#     temp_data$C1 <- temp_data$C1 * -1
+#     temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
+#                                      TimeVar = 'date', min.size = 6) +
+#                                 ggtitle(i)
+#     kpca_changepoint[[i]] <- temp_plot
+# }
 
-do.call(grid.arrange, kpca_changepoint)
+# do.call(grid.arrange, kpca_changepoint)
 
 # Scree plot to examine model fit
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_2015_05_21a.csv')
+
+export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_22.csv')
+
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
