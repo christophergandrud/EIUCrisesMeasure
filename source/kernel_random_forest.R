@@ -1,12 +1,12 @@
 # ---------------------------------------------------------------------------- #
 # Compare Kernal PCA to Stem Frequency
 # Christopher Gandrud
-# 21 May 2015
+# 22 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu/eiu_extracted/')
+setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -24,7 +24,7 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-    tm_map(removeWords, c(stopwords('english'), 'the'), mc.cores = 1) %>%
+    tm_map(removeWords, c(stopwords('english'), 'the')) %>%
     tm_map(stemDocument, mc.cores = 1) %>%
     tm_map(stripWhitespace) %>%
     # Results correspond to priors much more closely when case is retained
@@ -68,7 +68,7 @@ term_freq <- merge(date_country, term_freq, by = c('country_country', 'date_date
 term_freq <- term_freq %>% select(-country_country, -date_date)
 
 #### Download KPCA results ####
-kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
+kpca <- import('/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
 #### Combine ####
 cor_pca <- function(var) {

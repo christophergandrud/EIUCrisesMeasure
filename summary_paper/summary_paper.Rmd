@@ -104,6 +104,16 @@ How does our measure compare to previous ways of measuring and timing financial 
 
 There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above.
 
+\begin{figure}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven and Valencia (2012) Banking Crisis}
+    \label{compare_1}
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/compare_to_lv.pdf}
+    \end{center}
+
+    {\scriptsize{Shadded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises.}}
+\end{figure}
+
 ### Developed vs. Developing countries
 
 An important finding from examining the Index is that there is a clear difference in the level of perceived financial market stress in developed and developing countries. Notably, developing countries often have scores well above 0.5, while many developed countries only reach this level during financial crises. Developing countries often lack strong financial institutions and systems [CITE], so we should expect them to face generally tighter credit market conditions than developed countries. Formal financial markets are less important for developing countries' economies [CITE].

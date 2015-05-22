@@ -95,8 +95,10 @@ of real-time perceptions of financial market stress based on kernel
 principal component analysis (PCA) of
 \href{http://www.eiu.com/}{Economist Intelligence Unit} monthly country
 reports. Not only do we develop a novel indicator of financial market
-stress, but we also demonstrate how kernel PCA can be used to summarize
-vast quantities of texts into useful cross-sectional time-series.
+stress, but we also make a contribution to the wider political science
+literature by demonstrating how kernel PCA can be used to summarize vast
+quantities of qualitative texts into useful cross-sectional time-series
+indicators.
 \end{quote}
 
 Why and how do politicians respond to financial market stress? This
@@ -118,10 +120,14 @@ prohibiting sub-annual analysis.
 
 In this paper we aim to overcome these problems by develop a new index
 of real-time perceptions of financial market stress. The index is
-created using a kernel principal component analysis of monthly Economist
-Intelligence Unit (EIU) reports. This measure should supplant previous
-second-best measures of financial market stress by researchers aiming to
-understand why and how policy-makers respond to financial crisis.
+created using a kernel principal component analysis (PCA) of monthly
+Economist Intelligence Unit (EIU) reports. This measure should supplant
+previous second-best measures of financial market stress by researchers
+aiming to understand why and how policy-makers respond to financial
+crisis. In so doing, we make a contribution to the wider political
+science literature by showing how kernel PCA can be used to summarize
+vast quantities of qualitative texts into cross-sectional time-series
+indicators.
 
 We start the paper by detailing our motivation for creating a real-time
 index of perceptions of financial market stress. We then discuss the
@@ -217,8 +223,8 @@ significant time span. In contrast, the OECD \emph{Economic Outlook}
 provides comparable reports for a very small number of wealthy countries
 on a bi-annual basis.
 
-\subsection{Summarising Financial Market Stress in the
-EIU}\label{summarising-financial-market-stress-in-the-eiu}
+\subsection{Summarizing Financial Market Stress in the
+EIU}\label{summarizing-financial-market-stress-in-the-eiu}
 
 Our aim is to create an index that classifies financial conditions on a
 continuous more-stressed/less stressed spectrum. So we clearly need an
@@ -309,7 +315,7 @@ conducted a scree test, the results of which are shown in Figure
 \ref{scree_plot}. There is not a clear `elbow' in the plot. This
 suggests that there is perhaps substantively meaningful variation in the
 first six dimensions. The drop from the first to second component is
-substantial. We focus on it as the main dimensions summarising financial
+substantial. We focus on it as the main dimensions summarizing financial
 market conditions.\footnote{We also examined a number of the other
   dimensions. However, these noticeably did not closely correspond to
   our priors about financial market stress based on previous indicators.}
@@ -371,6 +377,16 @@ i.e.~June. Second, we rescaled Romer and Romer's 15-point scale (in
 effect 13-points because they do not classify any country-quarter in
 their sample as being at the upper two positions on the scale) to be
 between 0 and 1 using the same method as above.
+
+\begin{figure}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven and Valencia (2012) Banking Crisis}
+    \label{compare_1}
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/compare_to_lv.pdf}
+    \end{center}
+
+    {\scriptsize{Shadded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises.}}
+\end{figure}
 
 \subsubsection{Developed vs.~Developing
 countries}\label{developed-vs.developing-countries}
