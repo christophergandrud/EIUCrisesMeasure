@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 7 May 2015
+# 22 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -14,8 +14,6 @@ library(rvest)
 library(dplyr)
 library(stringr)
 library(lubridate)
-if (!('rio' %in% installed.packages()[, 1]))
-    devtools::install_github('leeper/rio', ref = 'fread')
 library(rio)
 ## Also requires the installation of qdap
 
@@ -47,12 +45,12 @@ file_txt <- sprintf('%s_%s.txt', dates, country)
 keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
               "crunch", "default", "financial", "lend", "loan", "squeeze")
 
-for (i in 1:length(file_txt)){
+for (i in 1:length(file_txt)) {
     # Read in file
     message(raw_files[i])
     full <- htmlParse(sprintf('eiu_raw/%s', raw_files[i]))
 
-    if (!is.null(full)){
+    if (!is.null(full)) {
         # Extract headlines and body text
         extracted <- xpathSApply(doc = full,
                                 path = "//div[@class='headline'] | //body//p")
