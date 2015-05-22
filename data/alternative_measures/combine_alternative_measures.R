@@ -144,7 +144,7 @@ select_countries <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                       'Brazil', 'Canada', 'China', 'Denmark', 
                       'France', 'Germany', 'Greece', 'Iceland', 
                       'India', 'Ireland', 'United Kingdom', 'United States'
-)
+                      )
 pdf(file = 'summary_paper/analysis/figures/compare_to_lv.pdf', width = 15, 
     height = 15)
 do.call(grid.arrange, kpca_list[select_countries])

@@ -71,7 +71,7 @@ In order to address these issues we use kernel principal component analysis. Thi
 
 ### Dimensionality
 
-To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is not a clear 'elbow' in the plot. This suggests that there is perhaps substantively meaningful variation in the first six dimensions. The drop from the first to second component is substantial. We focus on it as the main dimensions summarizing financial market conditions.[^other-dimensions]
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is an 'elbow' in the plot at about six topics. This suggests that there is perhaps substantively meaningful variation approximately the first six dimensions. The drop from the first to second component is clear. We focus on the first dimension as the main dimension summarizing financial market conditions.[^other-dimensions]
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
