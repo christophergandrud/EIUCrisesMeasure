@@ -74,7 +74,7 @@ rr_spell_finder <- function(x) {
 
         rr_comb <- rbind(rr_comb, temp_comb)
         rr_comb[, 3] <- rr_comb[, 3] %>% as.character
-        rr_comb[, 3][is.na(rr_comb[, 3])] <- '2011-12-30' # Assume end in 2012 to match assumption in LV
+        rr_comb[, 3][is.na(rr_comb[, 3])] <- '2009-12-30' # Assume end 2009
     }
 
     rr_comb[, 'iso2c'] <- rr_comb[, 'iso2c'] %>% as.character

@@ -118,14 +118,22 @@ for (i in country_vector) {
 }
 
 # Plot selection
-select_countries <- c('Argentina', 'Australia', 'Austria', 'Belgium', 
+select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium', 
                       'Brazil', 'Canada', 'China', 'Denmark', 
                       'France', 'Germany', 'Greece', 'Iceland', 
-                      'India', 'Ireland', 'United Kingdom', 'United States'
+                      'India', 'Ireland', 'Italy', 'Japan', 
+                      'Singapore', 'Spain',  'United Kingdom', 'United States'
                       )
-pdf(file = 'summary_paper/analysis/figures/compare_to_lv.pdf', width = 15, 
+pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr.pdf', width = 15, 
     height = 15)
-do.call(grid.arrange, kpca_list[select_countries])
+    do.call(grid.arrange, kpca_list[select_countries_1])
 dev.off()
 
 
+# Plot selection
+select_countries_2 <- c('Bulgaria', 'Czech Republic', 'Estonia', 'Hungary', 'Latvia', 'Lithuania', 
+                        'Russian Federation', 'Slovenia', 'Ukraine')
+pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr_2.pdf', width = 15, 
+    height = 15)
+    do.call(grid.arrange, kpca_list[select_countries_2])
+dev.off()
