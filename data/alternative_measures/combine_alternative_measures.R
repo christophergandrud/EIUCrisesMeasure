@@ -37,6 +37,11 @@ romer_romer <- romer_romer %>% select(-country)
 
 romer_romer$rr_rescale <- range01(romer_romer$rr_distress)
 
+romer_romer$country <- countrycode(romer_romer$iso2c, origin = 'iso2c', 
+                                    destination = 'country.name')
+
+
+
 ## Load Reinhart and Rogoff
 source('data/alternative_measures/reinhart_rogoff.R')
 rr_bc <- rr_bc %>% filter(RR_BankingCrisis_start >= '2003-01-01')
@@ -78,7 +83,7 @@ comb_se$country <- countrycode(comb_se$iso2c, origin = 'iso2c',
 compare_to_dummy <- function(data_cont, data_dummy, id) {
     temp_cont <- subset(data_cont, country == id)
     temp_dummy <- subset(data_dummy, country == id)
-
+    
     if (nrow(temp_dummy) == 0) {
         ggplot(data = temp_cont, aes(date, C1_ma)) +
             geom_line() +
@@ -104,8 +109,9 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
             ylab('Perceptions of \n Financial Market Conditions\n') +
             theme_bw() +
             theme(legend.position = "none") 
-    } 
-}
+    }
+} 
+
 
 country_vector <- unique(perceptions$country)
 kpca_list <- list()
