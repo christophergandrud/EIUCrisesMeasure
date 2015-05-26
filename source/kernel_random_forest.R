@@ -28,7 +28,6 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 clean_corpus_full <- Corpus(DirSource()) %>%
     tm_map(removeWords, c(stopwords('english'), 'the')) %>%
     tm_map(stemDocument, mc.cores = 1) %>%
-    tm_map(removeWords, c(stopwords('english'), 'the')) %>%
     tm_map(stripWhitespace) %>%
     # Results correspond to priors much more closely when case is retained
     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
