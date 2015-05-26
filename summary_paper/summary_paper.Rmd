@@ -88,7 +88,7 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ## Random forest
 
-@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case 833 stems--relative to the number of documents--7,888. The result of this analysis that we focus on is variable importance shown in Figure \ref{rf_importance}.
+@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case 833 stems--relative to the number of documents--12,486. The result of this analysis that we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
