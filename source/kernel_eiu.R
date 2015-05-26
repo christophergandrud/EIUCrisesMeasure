@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu/eiu_extracted_2/')
+setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -49,13 +49,15 @@ clean_corpus_full <- clean_corpus_full %>% as.list
 # Keep texts that have more words than the kernal length
 keep_vec <- vector()
 for (i in 1:length(clean_corpus_full)) {
+    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>% 
+                                        paste(collapse = '')
     temp <- clean_corpus_full[[i]]$content
     more_length <- wordcount(temp) > length_spec
     if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
 }
 
 clean_corpus <- clean_corpus_full[keep_vec]
-rm(clean_corpus_full)
+#(clean_corpus_full)
 
 date_country <- date_country[keep_vec, ]
 
