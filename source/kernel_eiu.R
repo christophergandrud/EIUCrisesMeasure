@@ -155,7 +155,6 @@ do.call(grid.arrange, kpca_list)
 # for (i in unique(date_country$country)) {
 #     message(i)
 #     temp_data <- subset(results_kpca, country == i)
-#     temp_data$C1 <- temp_data$C1 * -1
 #     temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
 #                                      TimeVar = 'date', min.size = 6) +
 #                                 ggtitle(i)

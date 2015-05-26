@@ -15,11 +15,12 @@ library(gridExtra)
 setwd('/git_repositories/EIUCrisesMeasure/')
 
 #### Scree plot ####
-eigen <- import('data/kpca_eigen_2015_05_21a.csv')
+eigen <- import('data/kpca_eigen_10.csv')
 
 ggplot(eigen, aes(components, eigenvalues)) +
     geom_line() +
     geom_point() +
+    scale_x_discrete(breaks = c(1, 5, 10)) +
     xlab('\nNumber of Components') + ylab('Eigenvalues\n') +
     theme_bw()
 
@@ -40,7 +41,6 @@ kpca_plotter <- function(indvidual, data = kpca_results){
     indv <- ggplot(temp_data, aes(date, C1_ma, group = country)) +
                 geom_line(alpha = 0.3) +
                 stat_smooth(se = F, colour = 'black') +
-                geom_hline(yintercept = 0, linetype = 'dotted') +
                 scale_y_continuous(limits = c(0, 1),
                                    breaks = c(0, 0.25, 0.5, 0.75, 1)) +
                 xlab('') + ggtitle(indvidual) +

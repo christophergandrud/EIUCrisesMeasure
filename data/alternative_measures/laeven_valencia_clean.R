@@ -16,14 +16,14 @@ library(countrycode)
 
 # Load data
 raw_lv <- import('raw/SYSTEMIC BANKING CRISES DATABASE.xlsx', sheet = 4) %>%
-            select(Country, Start, End) %>% .[1:147, ] %>% 
+            select(Country, Start, End) %>% .[1:147, ] %>%
             rename(country = Country)
 
 # Re-add in Slovak Republic 1998 start year
 raw_lv[118, 2] <- 1998
 
-raw_lv$iso2c <- countrycode(raw_lv$country, origin = 'country.name', 
-                               destination = 'iso2c') 
+raw_lv$iso2c <- countrycode(raw_lv$country, origin = 'country.name',
+                               destination = 'iso2c')
 
 for (i in names(raw_lv)) {
     raw_lv[, i] <- gsub('../', '', raw_lv[, i])
@@ -34,13 +34,13 @@ raw_lv$ongoing <- 0
 raw_lv$ongoing[raw_lv$End == 'ongoing'] <- 1
 
 # Replace 'ongoing' with 2012
-raw_lv$End[raw_lv$End == 'ongoing'] <- 2012
+raw_lv$End[raw_lv$End == 'ongoing'] <- 2011
 raw_lv$End <- raw_lv$End %>% as.integer
 
 #### Start-End Only ####
-lv_se <- raw_lv %>% select(-ongoing) 
-lv_se$Start <- sprintf('%s-06-01', lv_se$Start)
-lv_se$End <- sprintf('%s-06-01', lv_se$End)
+lv_se <- raw_lv %>% select(-ongoing)
+lv_se$Start <- sprintf('%s-12-30', lv_se$Start)
+lv_se$End <- sprintf('%s-12-30', lv_se$End)
 
 lv_se <- lv_se %>% select(iso2c, Start, End)
 export(lv_se, 'cleaned/laeven_valencia_start_end.csv')
@@ -51,13 +51,12 @@ raw_lv$Start <- raw_lv$Start %>% as.integer
 range <- seq(min(raw_lv$Start), max(raw_lv$End), by = 1)
 
 lv_filled <- TimeFill(raw_lv, GroupVar = 'country', StartVar = 'Start',
-                      EndVar = 'End', NewTimeVar = 'year', 
+                      EndVar = 'End', NewTimeVar = 'year',
                       NewVar = 'lv_bank_crisis')
 
-lv_filled$iso2c <- countrycode(lv_filled$country, origin = 'country.name', 
-                               destination = 'iso2c') 
+lv_filled$iso2c <- countrycode(lv_filled$country, origin = 'country.name',
+                               destination = 'iso2c')
 
 lv_filled <- lv_filled %>% select(iso2c, year, lv_bank_crisis)
 
 export(lv_filled, 'cleaned/laeven_valencia_banking_crisis.csv')
-

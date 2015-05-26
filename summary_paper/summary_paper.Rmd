@@ -67,11 +67,9 @@ Texts are frequently summarized using unordered 'bag-of-words' approaches, such 
 
 In order to address these issues we use kernel principal component analysis. This method was developed by @Scholkopf1998 and @lodhi2002 and introduced recently into political science by @Spirling2012.[^spirling-why] The unit of analysis is a sub-string kernel: in effect a short sequence of letters[^kernel-length] that can be shared within and across words. Thus we can distinguish between two simple documents with the stemmed strings 'slow credit' and 'expand credit'. They share the five character kernels 'credit, but differ on 'slowc' and 'pandc' among others. Using @lodhi2002 we can summarize the similarity of these documents using with the frequency distribution of five-length strings that they have in common--one--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.[^cite-kernlab]
 
-## Characteristics of the Index
-
 ### Dimensionality
 
-To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is not a clear 'elbow' in the plot. This suggests that there is perhaps substantively meaningful variation in the first six dimensions. The drop from the first to second component is substantial. We focus on it as the main dimensions summarizing financial market conditions.[^other-dimensions]
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is an 'elbow' in the plot at about six topics. This suggests that there is perhaps substantively meaningful variation approximately the first six dimensions. The drop from the first to second component is clear. We focus on the first dimension as the main dimension summarizing financial market conditions.[^other-dimensions]
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
@@ -81,44 +79,53 @@ To determine the number of dimensions that best describe the data, we conducted 
     \end{center}
 \end{figure}
 
-### Results
+# Results
 
-Figure \ref{basic_sample} shows the results of the kernel PCA analysis for a selection of countries'. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one. This eases interpretation and comparability to other measures. Then we slightly smoothed the results by taking a two period--usually two months--moving average. The results with these transformations are shown.
+The lines in figures \ref{compare_1} \ref{compare_2} show the results of the kernel PCA analysis for a selection of countries. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one. This eases interpretation and comparability to other measures. Then we slightly smoothed the results by taking a two period--usually two months--moving average.
 
-\begin{figure}
-    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial market stress)}
-    \label{scree_plot}
-    \begin{center}
-        \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
-    \end{center}
-\end{figure}
-
-### Representation
+## Representation
 
 What does this dimension represent? We took a number of approaches to answer this question. First we conducted an 'interocular' test, e.g. looking a plots of the results and comparing them to our priors on financial market stress. Second, we used a random forest regression [@jones2015].
 
-
-### Comparison to Other Crisis Measures
+## Representation and comparison to other crisis measures
 
 How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure.
 
-There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above.
+There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above. Finally, it should be noted that @Reinhart2009 only cover 70 countries and they have updated their data least recently.
+
+The shaded boxes in figures \ref{compare_1} and \ref{compare_2} show the periods where @laeven2013 and @Reinhart2009[^reinhart-address] classify there as being a banking crisis.
+
+In many cases, the three indices
 
 \begin{figure}
-    \caption{Comparing Perceptions of Financial Market Conditions to Laeven and Valencia (2012) Banking Crisis}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}
     \label{compare_1}
     \begin{center}
-        \includegraphics[scale=0.4]{analysis/figures/compare_to_lv.pdf}
+        \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr.pdf}
     \end{center}
 
-    {\scriptsize{Shadded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises.}}
+    {\scriptsize{Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
 
-### Developed vs. Developing countries
+\begin{figure}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (2)}
+    \label{compare_w}
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr_2.pdf}
+    \end{center}
+
+    {\scriptsize{Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Orange areas indicate periods where a crisis is recorded for both measures.}}
+\end{figure}
+
+## Developed vs. Developing countries
 
 An important finding from examining the Index is that there is a clear difference in the level of perceived financial market stress in developed and developing countries. Notably, developing countries often have scores well above 0.5, while many developed countries only reach this level during financial crises. Developing countries often lack strong financial institutions and systems [CITE], so we should expect them to face generally tighter credit market conditions than developed countries. Formal financial markets are less important for developing countries' economies [CITE].
 
-These observations should lead to an important refinement to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not "crisis" directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing economies face generally tight credit market conditions, these persistent conditions likely do not threaten the wider *status quo* economy. As such, we would not expect significant policy responses to address financial market stress in these places. Conversely, tightening of credit market conditions in a developed, financialised economy would likely have large negative implications for the wider economy. So, we would expect these politicians to respond to worsening credit market conditions.
+These observations should lead to an important refinement to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not "crisis" directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing economies face generally tight credit market conditions, these persistent conditions likely do not threaten the wider *status quo* economy. As such, we would not expect significant policy responses to address financial market stress in these places. Conversely, tightening of credit market conditions in a developed, financialized economy would likely have large negative implications for the wider economy. So, we would expect these politicians to respond to worsening credit market conditions.
 
 Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. *Post-hoc* measures of crisis in particular capture the outcome of this process, rather than the process itself.
 
@@ -151,3 +158,7 @@ Previous measures of financial market distress and crises have generally been un
 [^cite-kernlab]: We conducted kernel PCA with the R package `kernlab` [@kerblabCite].
 
 [^other-dimensions]: We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
+
+[^lv-address]: We used data downloaded from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015.
+
+[^reinhart-address]: We used data downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
