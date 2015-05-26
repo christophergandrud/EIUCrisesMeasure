@@ -101,7 +101,7 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
             stat_smooth(data = subset(temp_cont, 
                                       Source == "EIU Perceptions Index"), 
                                       aes(date, stress_measure),
-                        se = F, colour = 'black') +
+                        se = F, colour = 'black', linetype = 'dotted') +
             scale_y_continuous(limits = c(0, 1),
                                breaks = c(0, 0.25, 0.5, 0.75, 1)) +
             scale_linetype_manual(values = c('solid', 'dashed')) +
@@ -118,7 +118,7 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
             stat_smooth(data = subset(temp_cont, 
                                       Source == "EIU Perceptions Index"), 
                         aes(date, stress_measure),
-                        se = F, colour = 'black') +
+                        se = F, colour = 'black', linetype = 'dotted') +
             geom_rect(data = temp_dummy, aes(xmin = start, xmax = end,
                                                 ymin = -Inf, ymax = Inf,
                                                 fill = Source),
