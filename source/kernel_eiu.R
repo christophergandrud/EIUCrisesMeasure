@@ -168,6 +168,6 @@ do.call(grid.arrange, kpca_list)
 kpca_eigen <- eig(kpca_out)
 eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
 
-export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_22.csv')
+export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_10.csv')
 
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
