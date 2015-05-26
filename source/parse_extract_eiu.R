@@ -42,8 +42,9 @@ file_txt <- sprintf('%s_%s.txt', dates, country)
 # Keywords to seach/extract for. Modified from Romer and Romer (2015):
 # http://eml.berkeley.edu/~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
 # NEED TO ADD TO/THINK ABOUT
-keywords <- c("bail-out", "bailout", "balance sheet", "bank", "credit",
-              "crunch", "default", "financial", "lend", "loan", "squeeze")
+keywords <- c("bail-out", "bailout", "balance sheet", "balance-sheet", "bank",
+              "banks", "banking", "credit", "crunch", "debt", "default", "finance", 
+              "financial", "lend", "loan", "squeeze")
 
 for (i in 1:length(file_txt)) {
     # Read in file
