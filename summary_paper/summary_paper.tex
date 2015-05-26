@@ -82,25 +82,15 @@
 
 
 \textbf{Note: This work is in the early stages of development. It will
-be updated significantly.}
-
-\textbf{Abstract}\footnote{Please contact Christopher Gandrud
+be updated significantly.}\footnote{Please contact Christopher Gandrud
   (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
   Thank you to Ronen Palan for helpful comments. All data and
   replication material can be found at:
   \url{https://github.com/christophergandrud/EIUCrisesMeasure}.}
 
-\begin{quote}
-This paper describes the motivation and construction of our new measure
-of real-time perceptions of financial market stress based on kernel
-principal component analysis (PCA) of
-\href{http://www.eiu.com/}{Economist Intelligence Unit} monthly country
-reports. Not only do we develop a novel indicator of financial market
-stress, but we also make a contribution to the wider political science
-literature by demonstrating how kernel PCA can be used to summarize vast
-quantities of qualitative texts into useful cross-sectional time-series
-indicators.
-\end{quote}
+\begin{abstract}
+A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: Reinhart and Rogoff (2009) or Laeven and Valencia (2013). These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely Jing et al. (2015), Rosas (2009), and Romer and Romer (2015) have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in Jing et al. (2015) and Rosas (2009), is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+\end{abstract}
 
 Why and how do politicians respond to financial market stress? This
 question has attracted considerable attention recently following the
@@ -120,9 +110,10 @@ intensity. The measures are also at gross intervals, typically yearly,
 prohibiting sub-annual analysis.
 
 In this paper we aim to overcome these problems by develop a new index
-of real-time perceptions of financial market stress. The index is
+of real-time perceptions of financial market stress. The Index is
 created using a kernel principal component analysis (PCA) of monthly
-Economist Intelligence Unit (EIU) reports. This measure should supplant
+Economist Intelligence Unit (EIU) reports. We it the EIU Perceptions of
+Financial Market Stress (EPFMS) Index. This measure should supplant
 previous second-best measures of financial market stress by researchers
 aiming to understand why and how policy-makers respond to financial
 crisis. In so doing, we make a contribution to the wider political
@@ -202,27 +193,26 @@ Third, the scale is created by simply summing
 Index}\label{creating-the-perceptions-of-financial-market-stress-index}
 
 We propose a new method of estimating a real-time measure of perceptions
-of financial market stress. The index is created with kernel principle
-component analysis (Scholkopf, Smola, and Muller 1998; Lodhi et al.
-2002; Spirling 2012) of monthly country reports from the \emph{Economist
-Intelligence Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May
-  2015.}
+of financial market stress using kernel principle component analysis
+(Scholkopf, Smola, and Muller 1998; Lodhi et al. 2002; Spirling 2012) of
+monthly country reports from the \emph{Economist Intelligence
+Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.}
 
 \subsection{Why the EIU?}\label{why-the-eiu}
 
 The EIU is the product of a an analysis of real-time, third-party
 assessments of financial market conditions reported monthly or quarterly
-(depending on the country). These reports are both a summary of
-real-time information and forecasts on counties' economic conditions as
-well as a channel through which this information is disseminated to
-public and private actors. Together, the reports create a very large
-corpus (more than 20,000 texts from 1997 through 2011 {[}CHECK{]}) of
-monthly reports for more than 100 countries. As the texts generally
-follow the same format and style, they contain directly comparable
-assessments of economic conditions monthly across the globe for a
-significant time span. In contrast, the OECD \emph{Economic Outlook}
-provides comparable reports for a very small number of wealthy countries
-on a bi-annual basis.
+(depending on the country). These reports contain both summaries of
+real-time information and forecasts of future economic conditions. They
+are a channel through which this information is disseminated to public
+and private actors. Together, the reports create a very large corpus
+(more than 20,000 texts from 1997 through 2011 {[}CHECK{]}) of monthly
+reports for more than 100 countries. As the texts generally follow the
+same format and style, they contain directly comparable assessments of
+economic conditions monthly across the globe for a significant time
+span. In contrast, the OECD \emph{Economic Outlook} provides comparable
+reports for a very small number of wealthy countries on a bi-annual
+basis.
 
 \subsection{Summarizing Financial Market Stress in the
 EIU}\label{summarizing-financial-market-stress-in-the-eiu}
@@ -364,7 +354,7 @@ for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
 stems that were found in 90 percent of the documents. Random forest
 regressions as opposed to ordinary least squares regressions are useful
 in this context because there are many variables--in this case {[}GET{]}
-stems--relative to the number of documents--12,486 {[}UPATE{]}. The
+stems--relative to the number of documents--12,482 {[}UPDATE{]}. The
 result of this analysis\footnote{We conducted the random forest
   regressions using the \texttt{rfsrc} function from the
   \textbf{randomForestSRC} R package (Ishwaran and Kogalur 2015).} that
@@ -407,15 +397,39 @@ The solid lines in figures \ref{compare_1} and \ref{compare_2} show the
 EIU Perceptions of Financial Market Stress Index. The dashed lines show
 Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
 periods where Laeven and Valencia (2013) and Reinhart and Rogoff (2009)
-classify there as being a banking crisis.\footnote{We used Table 1 from
-  the April 2015 version of C. Romer and Romer (2015) to recreate their
-  data set. We downloaded Laeven and Valencia's data from:
+classify there as being a banking crisis.\footnote{We used Table 1 in C.
+  Romer and Romer (2015) to recreate their data set. We downloaded
+  Laeven and Valencia's data from:
   \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
   Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
   \url{http://www.carmenreinhart.com/data/browse-by-topic/topics/7/}.
   Accessed May 2015.}
 
-In many cases, the three indices
+In many cases--given the time period limitations of each data series--,
+the indices are roughly congruent. Comparisons with C. Romer and Romer
+(2015) are limited, but we can see that in general, where comparable
+time series are available, that the EPFMS and their index are roughly
+similar. In particular, both indices increase in the US from early 2007.
+They both decline for Japan through 2004-2005. A notable difference is
+how Romer and Romer classify Japan as being without stress from
+mid-2005, while the EPFMS stays high relative to many other economically
+developed countries. While they both classify Iceland as being under
+stress in the late 2000s, the timing is markedly different. Romer and
+Romer classify Iceland as in stress\footnote{They classify Iceland as
+  being in a ``minor crisis'' in the second half of 2006 and a ``credit
+  disruption'' in the first half of 2007.} in 2006-2007. This is earlier
+than not only a marked increase in the EPFMS Index, but also Reinhart
+and Rogoff and Laeven and Valencia's timing.
+
+A notable difference between the data series is for Russian crises.
+Reinhart and Rogoff and Laeven and Valencia both record a crisis in the
+late 2000s, though their timing differ slightly. However, there is no
+noticeable change in the EPFMS during this period. {[}CHECK WHEN RESULTS
+ARE UPDATED{]}
+
+Overall, this suggests that the EPFMS Index does capture aspects of
+financial market stress, but does so in a unique way that sheds light on
+processes not captured well by previous indices.
 
 \begin{figure}
     \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}

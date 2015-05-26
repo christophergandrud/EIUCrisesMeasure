@@ -12,19 +12,17 @@ bibliography: main.bib
 linestretch: 1.5
 ---
 
-**Note: This work is in the early stages of development. It will be updated significantly.**
+**Note: This work is in the early stages of development. It will be updated significantly.**[^ThankYou]
 
-**Abstract**[^ThankYou]
-
-> This paper describes the motivation and construction of our new measure of
-real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of
-[Economist Intelligence Unit](http://www.eiu.com/) monthly country reports. Not only do we develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+\begin{abstract}
+A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: Reinhart and Rogoff (2009) or Laeven and Valencia (2013). These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely Jing et al. (2015), Rosas (2009), and Romer and Romer (2015) have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in Jing et al. (2015) and Rosas (2009), is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+\end{abstract}
 
 Why and how do politicians respond to financial market stress? This question has attracted considerable attention recently following the 2007-2009 financial crisis and earlier following the late-1990s Asian financial crisis. However, virtually all of this research lacks a crucial variable: a real-time indication of the level of financial market stress that policy-makers believed that they faced. To understand why politicians made a given policy choice, we need to have a measure the conditions that they believed they were responding to.
 
 Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected. In addition, these measures are typically binary and so give no indication of stress intensity. The measures are also at gross intervals, typically yearly, prohibiting sub-annual analysis.
 
-In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The index is created using a kernel principal component analysis (PCA) of monthly Economist Intelligence Unit (EIU) reports. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series indicators.
+In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The Index is created using a kernel principal component analysis (PCA) of monthly Economist Intelligence Unit (EIU) reports. We it the EIU Perceptions of Financial Market Stress (EPFMS) Index. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series indicators.
 
 We start the paper by detailing our motivation for creating a real-time index of perceptions of financial market stress. We then discuss the construction of the Index and compare it to widely used previous measures of financial market stress. [WOULD BE NICE TO HAVE A REPLICATION OF AN IMPORTANT PAPER].
 
@@ -46,7 +44,7 @@ Their approach could be improved in a number of key ways. First, they are necess
 
 # Creating the Perceptions of Financial Market Stress Index
 
-We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @lodhi2002; @Spirling2012] of monthly country reports from the *Economist Intelligence Unit*.[^EIU]
+We propose a new method of estimating a real-time measure of perceptions of financial market stress using kernel principle component analysis [@Scholkopf1998; @lodhi2002; @Spirling2012] of monthly country reports from the *Economist Intelligence Unit*.[^EIU]
 
 ## Why the EIU?
 
@@ -108,7 +106,12 @@ There are some limitations in comparability based simply on the different covera
 
 The solid lines in figures \ref{compare_1} and \ref{compare_2} show the EIU Perceptions of Financial Market Stress Index. The dashed lines show Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the periods where @laeven2013 and @Reinhart2009 classify there as being a banking crisis.[^lv-reinhart-address]
 
-In many cases, the three indices
+In many cases--given the time period limitations of each data series--, the indices are roughly congruent. Comparisons with @Romer2015 are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007. They both decline for Japan through 2004-2005. A notable difference is how Romer and Romer classify Japan as being without stress from mid-2005, while the EPFMS stays high relative to many other economically developed countries. While they both classify Iceland as being under stress in the late 2000s, the timing is markedly different. Romer and Romer classify Iceland as in stress[^iceland-rr] in 2006-2007. This is earlier than not only a marked increase in the EPFMS Index, but also Reinhart and Rogoff and Laeven and Valencia's timing.
+
+
+A notable difference between the data series is for Russian crises. Reinhart and Rogoff and Laeven and Valencia both record a crisis in the late 2000s, though their timing differ slightly. However, there is no noticeable change in the EPFMS during this period. [CHECK WHEN RESULTS ARE UPDATED]
+
+Overall, this suggests that the EPFMS Index does capture aspects of financial market stress, but does so in a unique way that sheds light on processes not captured well by previous indices.
 
 \begin{figure}
     \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}
@@ -185,4 +188,6 @@ Previous measures of financial market distress and crises have generally been un
 
 [^other-dimensions]: We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
 
-[^lv-reinhart-address]: We used Table 1 from the April 2015 version of @Romer2015 to recreate their data set. We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
+[^lv-reinhart-address]: We used Table 1 in @Romer2015 to recreate their data set. We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
+
+[^iceland-rr]: They classify Iceland as being in a "minor crisis" in the second half of 2006 and a "credit disruption" in the first half of 2007.
