@@ -13,3 +13,5 @@
 # Nohup
 nohup.out
 nohup.out.swp
+
+completer.hist
