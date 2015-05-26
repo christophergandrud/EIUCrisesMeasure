@@ -1,12 +1,13 @@
 # ---------------------------------------------------------------------------- #
 # Compare Kernal PCA to Stem Frequency
 # Christopher Gandrud
-# 22 May 2015
+# 26 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+# setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+setwd('~/Desktop/eiu/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -18,6 +19,7 @@ library(ggplot2)
 library(gridExtra)
 library(tidyr)
 library(rio)
+library(randomForestSRC)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
@@ -68,7 +70,7 @@ term_freq <- merge(date_country, term_freq, by = c('country_country', 'date_date
 term_freq <- term_freq %>% select(-country_country, -date_date)
 
 #### Download KPCA results ####
-kpca <- import('/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
+kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
 #### Combine ####
 cor_pca <- function(var) {
@@ -83,9 +85,7 @@ c1_cor <- cor_pca('C1')
 c2_cor <- cor_pca('C2')
 c3_cor <- cor_pca('C3')
 
-#### Random forest test ####
-library(randomForestSRC)
-
+#### Random forest ####
 comb <- cbind(kpca$C1, term_freq)
 comb <- dplyr::rename(comb, C1 = `kpca$C1`)
 
@@ -94,5 +94,16 @@ addq <- function(x) paste0("`", x, "`")
 form <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
           as.formula
 
-rfsrc_test <- rfsrc(form, data = comb)
-plot(rfsrc_test)
+rfsrc_c1 <- rfsrc(form, data = comb)
+
+# Plot variable importance
+plot(rfsrc_c1)
+
+# Save results to a data frame
+imp <- rfsrc_c1$importance %>% as.data.frame
+imp$stem <- row.names(imp)
+names(imp) <- c('variable_importance', 'word_stem')
+imp <- imp %>% select(word_stem, variable_importance)
+
+setwd('~/git_repositories/EIUCrisesMeasure/data/')
+export(imp, file = 'random_forest_var_imp_C1.csv')
