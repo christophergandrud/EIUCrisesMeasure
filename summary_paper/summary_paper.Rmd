@@ -38,7 +38,7 @@ Overall, we lack the continuous real-time measure of financial market stress tha
 
 There have been a number of recent attempts to create crisis measures that overcome these issues. Building on @vonHagen2007, @Jing2015 developed am index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses, assuming central banks use the same reaction function to increased demand for liquidity. @Rosas2009 developed a dynamic latent trait model of banking system distress. However, his measure relies on nationally reported data to the IMF's International Financial Statistics, which @GandrudCopHal2015 show can be endogenous to financial market distress.
 
-@Romer2014 aimed to address this issue by manually classifying 24 countries on a 15 point scale capturing the cost of credit intermediation. They code countries using information from OECD semi-annual *Economic Outlook* reports from 1967 to 2007. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress. This would allow us to examine policy choices that head off trouble or unsustainably prolong brewing difficulties. Their, relatively, continuous measure gives an indication of market distress intensity.
+@Romer2015 aimed to address this issue by manually classifying 24 countries on a 15 point scale capturing the cost of credit intermediation. They code countries using information from OECD semi-annual *Economic Outlook* reports from 1967 to 2007. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress. This would allow us to examine policy choices that head off trouble or unsustainably prolong brewing difficulties. Their, relatively, continuous measure gives an indication of market distress intensity.
 
 Their approach could be improved in a number of key ways. First, they are necessarily limited to the relatively small sample of OECD countries. Second, their measure is laborious to create and update. Third, the scale is created by simply summing
 
@@ -50,7 +50,7 @@ We propose a new method of estimating a real-time measure of perceptions of fina
 
 ## Why the EIU?
 
-The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports are both a summary of real-time information and forecasts on counties' economic conditions as well as a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
+The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports contain both summaries of real-time information and forecasts of future economic conditions. They are a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
 
 ## Summarizing Financial Market Stress in the EIU
 
@@ -88,7 +88,7 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ## Random forest
 
-@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case 833 stems--relative to the number of documents--12,486. The result of this analysis that we focus on is variable importance shown in Figure \ref{rf_importance}.
+@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case [GET] stems--relative to the number of documents--12,482 [UPDATE]. The result of this analysis[^cite-randomForestSRC] that we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
@@ -102,9 +102,9 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ## Comparison to other crisis measures
 
-How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure.
+How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2015] continuous measure.
 
-There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above. Finally, it should be noted that @Reinhart2009 only cover 70 countries and they have updated their data least recently.
+There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2015 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above. Finally, it should be noted that @Reinhart2009 only cover 70 countries and they have updated their data least recently.
 
 The solid lines in figures \ref{compare_1} and \ref{compare_2} show the EIU Perceptions of Financial Market Stress Index. The dashed lines show Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the periods where @laeven2013 and @Reinhart2009 classify there as being a banking crisis.[^lv-reinhart-address]
 
@@ -169,8 +169,7 @@ Previous measures of financial market distress and crises have generally been un
 
 [^EIU]: See <http://www.eiu.com/>. Accessed May 2015.
 
-[^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *bank*, *credit*,
-              *crunch*, *default*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2014 and are intended to select passages that discusses credit market conditions.  
+[^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *balance-sheet*, *bank*, *banks*, *banking*, *credit*, *crunch*, *default*, *finance*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2015 and are intended to select passages that discusses credit market conditions.  
 
 [^tm-package]: All preprocessing was done using the `tm` package [@tm2015] in R [@R-cite].
 
@@ -178,10 +177,12 @@ Previous measures of financial market distress and crises have generally been un
 
 [^kernel-length]: Following @Spirling2012, we used kernels with a length of 5, i.e. those that are five letters long. See also @lodhi2002 who demonstrate that in English strings lengths between four and seven are often optimal.  
 
-[^cite-kernlab]: We conducted kernel PCA with the R package `kernlab` [@kerblabCite].
+[^cite-kernlab]: We conducted kernel PCA with the `kpca` function from the R package **kernlab** [@kerblabCite].
+
+[^cite-randomForestSRC]: We conducted the random forest regressions using the `rfsrc` function from the **randomForestSRC** R package [@randomForestSRCCite].
 
 [^rescale-equation]: $\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}$, where $\bm{X}$ is the vector of the first principal component and $x$ is an individual value from this vector.
 
 [^other-dimensions]: We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
 
-[^lv-reinhart-address]: We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
+[^lv-reinhart-address]: We used Table 1 from the April 2015 version of @Romer2015 to recreate their data set. We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.

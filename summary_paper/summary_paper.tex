@@ -181,7 +181,7 @@ nationally reported data to the IMF's International Financial
 Statistics, which Copelovitch, Gandrud, and Hallerberg (2015) show can
 be endogenous to financial market distress.
 
-C. Romer and Romer (2014) aimed to address this issue by manually
+C. Romer and Romer (2015) aimed to address this issue by manually
 classifying 24 countries on a 15 point scale capturing the cost of
 credit intermediation. They code countries using information from OECD
 semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Relying
@@ -246,13 +246,15 @@ reports--the reports were in HTML format. We then extracted the portions
 of the texts--headlines and paragraphs--that contained at least one of a
 number of keywords concerning banking and financial markets.\footnote{The
   keywords included: \emph{bail-out}, \emph{bailout}, \emph{balance
-  sheet}, \emph{bank}, \emph{credit}, \emph{crunch}, \emph{default},
-  \emph{financial}, \emph{lend}, \emph{loan}, \emph{squeeze} {[}MAKE
-  SURE TO UPDATE{]}. These keywords were adapted from those used by C.
-  Romer and Romer (2014) and are intended to select passages that
-  discusses credit market conditions.} Due to a significant change in
-how the reports were constructed in 2003, we also selected only texts
-from 2003 in order to maintain comparability across the time-series.
+  sheet}, \emph{balance-sheet}, \emph{bank}, \emph{banks},
+  \emph{banking}, \emph{credit}, \emph{crunch}, \emph{default},
+  \emph{finance}, \emph{financial}, \emph{lend}, \emph{loan},
+  \emph{squeeze} {[}MAKE SURE TO UPDATE{]}. These keywords were adapted
+  from those used by C. Romer and Romer (2015) and are intended to
+  select passages that discusses credit market conditions.} Due to a
+significant change in how the reports were constructed in 2003, we also
+selected only texts from 2003 in order to maintain comparability across
+the time-series.
 
 We then preprocessed these texts using standard techniques (see Grimmer
 and Stewart 2013).\footnote{All preprocessing was done using the
@@ -304,7 +306,8 @@ five-length strings that they have in common--one--standardized by
 document length. We can find these pairs for all of the documents in our
 corpus to create a kernel matrix. Finally, we can scale the documents
 using principal component analysis.\footnote{We conducted kernel PCA
-  with the R package \texttt{kernlab} (Karatzoglou et al. 2004).}
+  with the \texttt{kpca} function from the R package \textbf{kernlab}
+  (Karatzoglou et al. 2004).}
 
 \subsubsection{Dimensionality}\label{dimensionality}
 
@@ -360,9 +363,12 @@ frequency matrix from the stemmed documents. Effectively this is a
 for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
 stems that were found in 90 percent of the documents. Random forest
 regressions as opposed to ordinary least squares regressions are useful
-in this context because there are many variables--in this case 833
-stems--relative to the number of documents--7,888. The result of this
-analysis that we focus on is variable importance.
+in this context because there are many variables--in this case {[}GET{]}
+stems--relative to the number of documents--12,486 {[}UPATE{]}. The
+result of this analysis\footnote{We conducted the random forest
+  regressions using the \texttt{rfsrc} function from the
+  \textbf{randomForestSRC} R package (Ishwaran and Kogalur 2015).} that
+we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
@@ -380,10 +386,10 @@ measures}\label{comparison-to-other-crisis-measures}
 How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
 dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
-Valencia (2013) as well as Romer and Romer's (2014) continuous measure.
+Valencia (2013) as well as Romer and Romer's (2015) continuous measure.
 
 There are some limitations in comparability based simply on the
-different coverage of the different indices. C. Romer and Romer (2014)
+different coverage of the different indices. C. Romer and Romer (2015)
 in particular largely does not include the most recent crisis in their
 sample as they did not collect data past 2007. We had to make a number
 of transformations and assumptions to be able to compare the different
@@ -401,8 +407,9 @@ The solid lines in figures \ref{compare_1} and \ref{compare_2} show the
 EIU Perceptions of Financial Market Stress Index. The dashed lines show
 Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
 periods where Laeven and Valencia (2013) and Reinhart and Rogoff (2009)
-classify there as being a banking crisis.\footnote{We downloaded Laeven
-  and Valencia's data from:
+classify there as being a banking crisis.\footnote{We used Table 1 from
+  the April 2015 version of C. Romer and Romer (2015) to recreate their
+  data set. We downloaded Laeven and Valencia's data from:
   \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
   Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
   \url{http://www.carmenreinhart.com/data/browse-by-topic/topics/7/}.
@@ -509,6 +516,10 @@ Grimmer, Justin, and Brandon M Stewart. 2013. ``Text as Data: The
 Promise and Pitfalls of Automatic Content Analysis Methods for Political
 Texts.'' \emph{Political Analysis} 21 (3): 267--97.
 
+Ishwaran, H., and U.B. Kogalur. 2015. \emph{Random Forests for Survival,
+Regression and Classification (RF-SRC)}. manual.
+\url{http://cran.r-project.org/web/packages/randomForestSRC/}.
+
 Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
 ``Identifying Banking Crises Using Money Market Pressure: New Evidence
 for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
@@ -538,8 +549,8 @@ Reinhart, Carmen, and Kenneth Rogoff. 2009. \emph{This Time Is
 Different: Eight Centuries of Financial Folly}. Princeton: Princeton
 University Press.
 
-Romer, Christina, and David Romer. 2014. ``New Evidence on the Impact of
-Financial Crises in Advanced Countries,'' Nov, 1--65.
+Romer, Christina, and David Romer. 2015. ``New Evidence on the Impact of
+Financial Crises in Advanced Countries,'' April, 1--65.
 
 Rosas, Guillermo. 2009. ``Dynamic Latent Trait Models: An Application to
 Latin American Banking Crises.'' \emph{Electoral Studies} 28: 375--87.
