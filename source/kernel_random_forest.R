@@ -86,6 +86,8 @@ c2_cor <- cor_pca('C2')
 c3_cor <- cor_pca('C3')
 
 #### Random forest ####
+setwd('~/git_repositories/EIUCrisesMeasure/')
+
 comb <- cbind(kpca$C1, term_freq)
 comb <- dplyr::rename(comb, C1 = `kpca$C1`)
 
@@ -97,7 +99,7 @@ form <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
 rfsrc_c1 <- rfsrc(form, data = comb)
 
 # Plot variable importance
-plot(rfsrc_c1)
+plot.rfsrc(rfsrc_c1, plots.one.page = F)
 
 # Save results to a data frame
 imp <- rfsrc_c1$importance %>% as.data.frame
@@ -105,5 +107,6 @@ imp$stem <- row.names(imp)
 names(imp) <- c('variable_importance', 'word_stem')
 imp <- imp %>% select(word_stem, variable_importance)
 
-setwd('~/git_repositories/EIUCrisesMeasure/data/')
-export(imp, file = 'random_forest_var_imp_C1.csv')
+export(imp, file = 'data/random_forest_var_imp_C1.csv')
+
+plot.variable(rfsrc_c1)

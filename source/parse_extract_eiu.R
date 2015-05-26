@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 22 May 2015
+# 26 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -43,8 +43,8 @@ file_txt <- sprintf('%s_%s.txt', dates, country)
 # http://eml.berkeley.edu/~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
 # NEED TO ADD TO/THINK ABOUT
 keywords <- c("bail-out", "bailout", "balance sheet", "balance-sheet", "bank",
-              "banks", "banking", "credit", "crunch", "debt", "default", "finance", 
-              "financial", "lend", "loan", "squeeze")
+              "banks", "banking", "credit", "crunch", "debt", "default", 
+              "finance", "financial", "lend", "loan", "squeeze")
 
 for (i in 1:length(file_txt)) {
     # Read in file
