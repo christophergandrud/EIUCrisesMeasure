@@ -21,10 +21,13 @@ imp$variable_importance <- imp$variable_importance * 100
 
 # Find 30 top
 imp <- imp %>% arrange(desc(variable_importance))
-imp <- imp[1:30, ]
-
+imp <- imp[1:40, ]
 
 # Plot
-ggplot(imp, aes(variable_importance, word_stem)) +
+ggplot(imp, aes(variable_importance, y = reorder(word_stem, variable_importance))) +
     geom_point() +
+    ylab('Word Stem\n') + xlab('\nVariable Importance (%)') +
     theme_bw()
+    
+ggsave('summary_paper/analysis/figures/rf_stem_importance.pdf')
+    

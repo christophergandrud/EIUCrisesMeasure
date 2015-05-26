@@ -344,11 +344,11 @@ results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to
 answer this question. First, following Spirling (2012) we used a random
-forest regression (Jones and Linder 2015) to examine the relationships
-between word stems from the texts and the Perceptions Index. Second, we
-compared the Index to previous indices using an `interocular' test,
-e.g.~looking a plots of the results and comparing them to our priors on
-financial market stress.
+forest regression (Breiman 2001; Jones and Linder 2015) to examine the
+relationships between word stems from the texts and the Perceptions
+Index. Second, we compared the Index to previous indices using an
+`interocular' test, e.g.~looking a plots of the results and comparing
+them to our priors on financial market stress.
 
 \subsection{Random forest}\label{random-forest}
 
@@ -363,6 +363,16 @@ regressions as opposed to ordinary least squares regressions are useful
 in this context because there are many variables--in this case 833
 stems--relative to the number of documents--7,888. The result of this
 analysis that we focus on is variable importance.
+
+\begin{figure}
+    \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
+    \label{rf_importance}
+
+    \begin{center}
+        \includegraphics[scale=0.5]{analysis/figures/rf_stem_importance.pdf}
+    \end{center}
+
+\end{figure}
 
 \subsection{Comparison to other crisis
 measures}\label{comparison-to-other-crisis-measures}
@@ -476,6 +486,9 @@ Work}\label{conclusions-and-possible-future-work}
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
+
+Breiman, Leo. 2001. ``Random Forests.'' \emph{Machine Learning} 45 (1):
+5--32.
 
 Chaudron, Raymond, and Jakob de Haan. 2014. ``Dating Banking Crises
 Using Incidence and Size of Bank Failures: Four Crises Reconsidered.''

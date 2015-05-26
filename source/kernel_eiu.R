@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu/eiu_extracted/')
+setwd('~/Desktop/eiu/eiu_extracted_2/')
 
 # Load packages
 library(tm)
