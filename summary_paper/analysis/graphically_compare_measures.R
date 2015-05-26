@@ -20,7 +20,7 @@ library(gridExtra)
 # Function to rescale between 0 and 1
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 
-## Import MIMFS
+## Import EIU Percpetions Index
 perceptions <- import('data/results_kpca_rescaled.csv')
 perceptions$iso2c <- countrycode(perceptions$country, origin = 'country.name',
                            destination = 'iso2c')
@@ -29,20 +29,28 @@ perceptions$date <- ymd(perceptions$date)
 
 perceptions$country <- countrycode(perceptions$iso2c, origin = 'iso2c',
                                    destination = 'country.name')
-
-perceptions$
+perceptions$Source <- 'EIU Perceptions Index'
 
 ## Import Romer and Romer (2015)
-romer_romer <- import('data/alternative_measures/cleaned/rommer_romer.csv')
+romer_romer <- import('data/alternative_measures/cleaned/rommer_romer.csv') 
 romer_romer$date <- ymd(romer_romer$date)
 romer_romer <- romer_romer %>% select(-country)
 
-romer_romer$rr_rescale <- range01(romer_romer$rr_distress)
+romer_romer$rr_rescale <- romer_romer$rr_distress %>% 
+                            range01()
 
 romer_romer$country <- countrycode(romer_romer$iso2c, origin = 'iso2c',
                                     destination = 'country.name')
-
 romer_romer$Source <- 'Romer/Romer'
+
+## Combine Perceptions Index and Romer and Romer
+perceptions <- perceptions %>% select(country, date, Source, C1_ma) %>% 
+                rename(stress_measure = C1_ma)
+romer_romer <- romer_romer %>% select(country, date, Source, rr_rescale) %>% 
+                rename(stress_measure = rr_rescale)
+
+comb_continuous <- rbind(perceptions, romer_romer) %>%
+                    filter(date >= '2003-01-01')
 
 ## Load Reinhart and Rogoff
 source('data/alternative_measures/reinhart_rogoff.R')
@@ -51,7 +59,7 @@ rr_bc <- rr_bc %>% filter(RR_BankingCrisis_start >= '2003-01-01')
 rr_bc_start <- rr_bc %>% select(iso2c, RR_BankingCrisis_start) %>%
                 rename(start = RR_BankingCrisis_start)
 rr_bc_end <- rr_bc %>% select(RR_BankingCrisis_end) %>%
-    rename(end = RR_BankingCrisis_end)
+                rename(end = RR_BankingCrisis_end)
 
 rr_bc <- cbind(rr_bc_start, rr_bc_end)
 rr_bc$Source <- 'Reinhart/Rogoff'
@@ -87,28 +95,41 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
     temp_dummy <- subset(data_dummy, country == id)
 
     if (nrow(temp_dummy) == 0) {
-        ggplot(data = temp_cont, aes(date, C1_ma)) +
-            geom_line() +
-            stat_smooth(se = F, colour = 'black') +
+        ggplot(data = temp_cont, aes(date, stress_measure, group = Source, 
+                                     linetype = Source)) +
+            geom_line(alpha = 0.6) +
+            stat_smooth(data = subset(temp_cont, 
+                                      Source == "EIU Perceptions Index"), 
+                                      aes(date, stress_measure),
+                        se = F, colour = 'black', linetype = 'dotted') +
             scale_y_continuous(limits = c(0, 1),
                                breaks = c(0, 0.25, 0.5, 0.75, 1)) +
+            scale_linetype_manual(values = c('solid', 'dashed')) +
             ggtitle(id) + xlab('') +
-            ylab('Perceptions of \n Financial Market Conditions\n') +
-            theme_bw()
+            ylab('Rescaled\nCrisis Measures\n') +
+            # ylab('Perceptions of \n Financial Market Conditions\n') +
+            theme_bw() +
+            theme(legend.position = "none")
     } else if (nrow(temp_dummy)) {
         ggplot() +
-            geom_line(data = temp_cont, aes(date, C1_ma)) +
-            stat_smooth(data = temp_cont, aes(date, C1_ma),
-                        se = F, colour = 'black') +
+            geom_line(data = temp_cont, aes(date, stress_measure, 
+                                            group = Source,
+                                            linetype = Source), alpha = 0.6) +
+            stat_smooth(data = subset(temp_cont, 
+                                      Source == "EIU Perceptions Index"), 
+                        aes(date, stress_measure),
+                        se = F, colour = 'black', linetype = 'dotted') +
             geom_rect(data = temp_dummy, aes(xmin = start, xmax = end,
                                                 ymin = -Inf, ymax = Inf,
                                                 fill = Source),
                       alpha = 0.4) +
             scale_fill_manual(values = c("#D8B70A", "#972D15")) +
+            scale_linetype_manual(values = c('solid', 'dashed')) +
             scale_y_continuous(limits = c(0, 1),
                                breaks = c(0, 0.25, 0.5, 0.75, 1)) +
             ggtitle(id) + xlab('') +
-            ylab('Perceptions of \n Financial Market Conditions\n') +
+            ylab('Rescaled\nCrisis Measures\n') +
+            # ylab('Perceptions of \n Financial Market Conditions\n') +
             theme_bw() +
             theme(legend.position = "none")
     }
@@ -120,7 +141,7 @@ kpca_list <- list()
 for (i in country_vector) {
     message(i)
     kpca_list[[i]] <- suppressMessages(
-            compare_to_dummy(data_cont = perceptions,
+            compare_to_dummy(data_cont = comb_continuous,
                              data_dummy = comb_se,
                              id = i))
 }
@@ -138,8 +159,9 @@ pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr.pdf', width = 15,
 dev.off()
 
 # Plot selection (2)
-select_countries_2 <- c('Bulgaria', 'Czech Republic', 'Estonia', 'Hungary', 'Latvia', 'Lithuania',
-                        'Russian Federation', 'Slovenia', 'Ukraine')
+select_countries_2 <- c('Bulgaria', 'Czech Republic', 'Estonia', 'Hungary', 
+                        'Latvia', 'Lithuania', 'Russian Federation', 'Slovenia', 
+                        'Ukraine')
 pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr_2.pdf', width = 15,
     height = 15)
     do.call(grid.arrange, kpca_list[select_countries_2])

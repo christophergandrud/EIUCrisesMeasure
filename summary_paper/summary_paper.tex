@@ -73,6 +73,7 @@
   \predate{}\postdate{}
 
 \usepackage{graphicx}
+\usepackage{bm}
 
 
 \begin{document}
@@ -328,27 +329,43 @@ dimension summarizing financial market conditions.\footnote{We also
 
 \section{Results}\label{results}
 
-The lines in figures \ref{compare_1} \ref{compare_2} show the results of
-the kernel PCA analysis for a selection of countries. We use the first
-principal component throughout the paper. Similar plots for all
-countries in the analysis are available in the Appendix. Before
+The lines in figures \ref{compare_1} and \ref{compare_2} show the
+results of the kernel PCA analysis for a selection of countries. We use
+the first principal component throughout the paper. Similar plots for
+all countries in the analysis are available in the Appendix. Before
 discussing diving deeper into these results, it's important to note two
 simple transformations we conducted on the raw results. First, we
-rescaled the index so that it would be between zero and one. This eases
-interpretation and comparability to other measures. Then we slightly
-smoothed the results by taking a two period--usually two months--moving
-average.
-
-\subsection{Representation}\label{representation}
+rescaled the index so that it would be between zero and one.\footnote{\(\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}\),
+  where \(\bm{X}\) is the vector of the first principal component and
+  \(x\) is an individual value from this vector.} This eases
+interpretation and comparability to other measures. Henceforth we only
+use the rescaled version of the Index. Then we slightly smoothed the
+results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to
-answer this question. First we conducted an `interocular' test,
+answer this question. First, following Spirling (2012) we used a random
+forest regression (Jones and Linder 2015) to examine the relationships
+between word stems from the texts and the Perceptions Index. Second, we
+compared the Index to previous indices using an `interocular' test,
 e.g.~looking a plots of the results and comparing them to our priors on
-financial market stress. Second, we used a random forest regression
-(Jones and Linder 2015).
+financial market stress.
 
-\subsection{Representation and~comparison to other crisis
-measures}\label{representation-andcomparison-to-other-crisis-measures}
+\subsection{Random forest}\label{random-forest}
+
+Spirling (2012, 6--8) demonstrated the usefulness of using random forest
+``regressions'' to explore what principal components from textual
+analyses represent. To do this we first created a document-term
+frequency matrix from the stemmed documents. Effectively this is a
+\(k \times s\) matrix recording the frequency of each term in \(\bm{S}\)
+for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
+stems that were found in 90 percent of the documents. Random forest
+regressions as opposed to ordinary least squares regressions are useful
+in this context because there are many variables--in this case 833
+stems--relative to the number of documents--7,888. The result of this
+analysis that we focus on is variable importance.
+
+\subsection{Comparison to other crisis
+measures}\label{comparison-to-other-crisis-measures}
 
 How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
@@ -370,7 +387,9 @@ between 0 and 1 using the same method as above. Finally, it should be
 noted that Reinhart and Rogoff (2009) only cover 70 countries and they
 have updated their data least recently.
 
-The shaded boxes in figures \ref{compare_1} and \ref{compare_2} show the
+The solid lines in figures \ref{compare_1} and \ref{compare_2} show the
+EIU Perceptions of Financial Market Stress Index. The dashed lines show
+Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
 periods where Laeven and Valencia (2013) and Reinhart and Rogoff (2009)
 classify there as being a banking crisis.\footnote{We downloaded Laeven
   and Valencia's data from:
@@ -388,8 +407,14 @@ In many cases, the three indices
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr.pdf}
     \end{center}
 
-    {\scriptsize{Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    {\tiny{Solid lines show the (rescaled) EIU Perceptions of Financial Market Stress indicator. Dotted lines represent a loess smooth of these series. \\
+
+    Dashed lines show Romer and Romer's (2015) rescaled index. \\
+
+    Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
     Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
 
@@ -400,8 +425,12 @@ In many cases, the three indices
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr_2.pdf}
     \end{center}
 
-    {\scriptsize{Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    {\tiny{Solid lines show the (rescaled) EIU Perceptions of Financial Market Stress indicator. Dotted lines represent a loess smooth of these series. \\
+
+    Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
     Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
 
