@@ -155,6 +155,10 @@ These observations should lead to an important refinement to how the Index shoul
 
 Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. *Post-hoc* measures of crisis in particular capture the outcome of this process, rather than the process itself.
 
+# How Good are the EIU Perceptions at Predicting Future Economic Conditions
+
+[THINK ABOUT WHETHER OR NOT TO INCLUDE]
+
 # Replication
 
 # Conclusions and Possible Future Work
@@ -163,10 +167,6 @@ Previous measures of financial market distress and crises have generally been un
 
 
 # References
-
-
-
-
 
 [^ThankYou]: Please contact Christopher Gandrud (gandrud@hertie-school.org). Thank you to Ronen Palan for helpful comments. All data and replication material can be found at: <https://github.com/christophergandrud/EIUCrisesMeasure>.
 

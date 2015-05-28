@@ -64,24 +64,6 @@ date_country <- date_country[keep_vec, ]
 # Create string kernels
 kernals <- stringdot(type = "spectrum", length = length_spec)
 
-#### Test spectral clustering ##################################################
-# clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
-
-# Create output data frame
-# results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
-#                      stringsAsFactors = F) %>%
-#                      arrange(country, date)
-
-# Plot results
-# ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
-#                    colour = country)) +
-#        facet_grid(country ~ .) +
-#        geom_line() +
-#        scale_color_brewer(palette = 'Set1') +
-#        xlab('') + ylab('') +
-#        theme_bw()
-
-#### Kernel PCA ################################################################
 # Number of components
 feature_num = 10
 
@@ -134,6 +116,27 @@ eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
 export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_10.csv')
 
 plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
+
+# ---------------------------------------------------------------------------- #
+
+#### Test spectral clustering ####
+# clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
+
+# Create output data frame
+# results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
+#                      stringsAsFactors = F) %>%
+#                      arrange(country, date)
+
+# Plot results
+# ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
+#                    colour = country)) +
+#        facet_grid(country ~ .) +
+#        geom_line() +
+#        scale_color_brewer(palette = 'Set1') +
+#        xlab('') + ylab('') +
+#        theme_bw()
+
+#### Kernel PCA ################################################################
 
 
 #### Find change points ####
