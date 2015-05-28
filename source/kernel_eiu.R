@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 26 May 2015
+# 28 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
@@ -49,7 +49,7 @@ clean_corpus_full <- clean_corpus_full %>% as.list
 # Keep texts that have more words than the kernal length
 keep_vec <- vector()
 for (i in 1:length(clean_corpus_full)) {
-    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>% 
+    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>%
                                         paste(collapse = '')
     temp <- clean_corpus_full[[i]]$content
     more_length <- wordcount(temp) > length_spec
@@ -127,30 +127,16 @@ results_kpca <- results_kpca %>% group_by(country) %>%
 export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
-#### ----------------- Plot results --------------------------------------- ####
-kpca_plotter <- function(indvidual, data = results_kpca){
-    temp_data <- subset(data, country == indvidual)
-    indv <- ggplot(temp_data, aes(date, C1_ma, group = country)) +
-                geom_line(alpha = 0.3) +
-                stat_smooth(se = F, colour = 'black') +
-                geom_hline(yintercept = 0, linetype = 'dotted') +
-                scale_y_continuous(limits = c(0, 1),
-                                   breaks = c(0, 0.25, 0.5, 0.75, 1)) +
-                xlab('') + ggtitle(indvidual) +
-                ylab('') +
-                theme_bw()
-    return(indv)
-}
+# Scree plot to examine model fit
+kpca_eigen <- eig(kpca_out)
+eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
 
-kpca_list <- list()
-for (i in unique(results_kpca$country)[60:89]) {
-    message(i)
-    kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
-}
+export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_10.csv')
 
-do.call(grid.arrange, kpca_list)
+plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
 
-# Find change points
+
+#### Find change points ####
 # devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
 
 # kpca_changepoint <- list()
@@ -164,11 +150,3 @@ do.call(grid.arrange, kpca_list)
 # }
 
 # do.call(grid.arrange, kpca_changepoint)
-
-# Scree plot to examine model fit
-kpca_eigen <- eig(kpca_out)
-eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-
-export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_10.csv')
-
-plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')

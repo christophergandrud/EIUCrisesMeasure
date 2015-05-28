@@ -282,22 +282,25 @@ analysis. This method was developed by Scholkopf, Smola, and Muller
 (1998) and Lodhi et al. (2002) and introduced recently into political
 science by Spirling (2012).\footnote{He used it to summarize changing
   trends in treaties between the US government and Native American
-  groups.} The unit of analysis is a sub-string kernel: in effect a
-short sequence of letters\footnote{Following Spirling (2012), we used
-  kernels with a length of 5, i.e.~those that are five letters long. See
-  also Lodhi et al. (2002) who demonstrate that in English strings
-  lengths between four and seven are often optimal.} that can be shared
-within and across words. Thus we can distinguish between two simple
-documents with the stemmed strings `slow credit' and `expand credit'.
-They share the five character kernels `credit, but differ on 'slowc' and
-`pandc' among others. Using Lodhi et al. (2002) we can summarize the
-similarity of these documents using with the frequency distribution of
-five-length strings that they have in common--one--standardized by
-document length. We can find these pairs for all of the documents in our
-corpus to create a kernel matrix. Finally, we can scale the documents
-using principal component analysis.\footnote{We conducted kernel PCA
-  with the \texttt{kpca} function from the R package \textbf{kernlab}
-  (Karatzoglou et al. 2004).}
+  groups.} Kernel PCA allows us to extract structure from this likely
+high-dimensional corpus (Zhang, Wang, and Ma 2010, 6531--37) while
+preserving word order. The unit of analysis is a sub-string kernel: in
+effect a short sequence of letters\footnote{Following Spirling (2012),
+  we used kernels with a length of 5, i.e.~those that are five letters
+  long. See also Lodhi et al. (2002) who demonstrate that in English
+  strings lengths between four and seven are often optimal.} that can be
+shared within and across words. Thus we can distinguish between two
+simple documents with the stemmed strings `slow credit' and `expand
+credit'. They share the five character kernels `credit, but differ on
+'slowc' and `pandc' among others. Using Lodhi et al. (2002) we can
+summarize the similarity of these documents with the frequency
+distribution of five-length strings that they have in
+common--one--standardized by document length. We can find these pairs
+for all of the documents in our corpus to create a kernel matrix.
+Finally, we can scale the documents using principal component
+analysis.\footnote{We conducted kernel PCA with the \texttt{kpca}
+  function from the R package \textbf{kernlab} (Karatzoglou et al.
+  2004).}
 
 \subsubsection{Dimensionality}\label{dimensionality}
 
@@ -326,9 +329,12 @@ The lines in figures \ref{compare_1} and \ref{compare_2} show the
 results of the kernel PCA analysis for a selection of countries. We use
 the first principal component throughout the paper. Similar plots for
 all countries in the analysis are available in the Appendix. Before
-discussing diving deeper into these results, it's important to note two
-simple transformations we conducted on the raw results. First, we
-rescaled the index so that it would be between zero and one.\footnote{\(\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}\),
+diving deeper into these results, it is important to note three simple
+transformations we conducted on the raw results. First, we flipped the
+scale. As we demonstrate when we compare the Index to other measures of
+crisis, this allows higher values of the EPFMS to be interpreted as
+`more financial market stress'. Second, we rescaled the Index so that it
+would be between zero and one.\footnote{\(\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}\),
   where \(\bm{X}\) is the vector of the first principal component and
   \(x\) is an individual value from this vector.} This eases
 interpretation and comparability to other measures. Henceforth we only
@@ -421,15 +427,24 @@ Romer classify Iceland as in stress\footnote{They classify Iceland as
 than not only a marked increase in the EPFMS Index, but also Reinhart
 and Rogoff and Laeven and Valencia's timing.
 
-A notable difference between the data series is for Russian crises.
-Reinhart and Rogoff and Laeven and Valencia both record a crisis in the
-late 2000s, though their timing differ slightly. However, there is no
-noticeable change in the EPFMS during this period. {[}CHECK WHEN RESULTS
+A notable difference between the data series is for Russian. Reinhart
+and Rogoff and Laeven and Valencia both record a crisis in the late
+2000s, though their timing differ slightly. However, there is no
+noticeable change in the EPFMS during this period. This suggests that
+perceptions of Russian financial markets in real-time EIU documents did
+not noticeably indicate a change in conditions. {[}CHECK WHEN RESULTS
 ARE UPDATED{]}
 
-Overall, this suggests that the EPFMS Index does capture aspects of
-financial market stress, but does so in a unique way that sheds light on
-processes not captured well by previous indices.
+Overall, the similarities between EPFMS scores and other measures of
+banking crises suggests that the EPFMS Index does capture aspects of
+financial market stress. In particular, higher values of the EPFMS are
+indicate higher levels of perceived financial market stress. At the same
+time, the differences between the measures also indicates that the EPFMS
+sheds unique light on processes not captured well by previous indices.
+One major difference that we will now look at in more detail is how
+having a continuous indicator allows us to consider how levels perceived
+financial market stress differ between developed and developing
+countries.
 
 \begin{figure}
     \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}
@@ -580,5 +595,9 @@ Journal of Political Science} 56 (1): 84--97.
 {Von Hagen}, Jorgen, and T. Ho. 2007. ``Money Market Pressure and the
 Determinants of Banking Crises.'' \emph{Journal of Money, Credit, and
 Banking} 39 (5): 1037--66.
+
+Zhang, Rui, Wenjian Wang, and Yichen Ma. 2010. ``Approximations of the
+Standard Principal Components Analysis and Kernel PCA.'' \emph{Expert
+Systems with Applications} 37 (9): 6531--37.
 
 \end{document}
