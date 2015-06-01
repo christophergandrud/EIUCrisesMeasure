@@ -14,6 +14,6 @@ A wide range of political economy research on the causes, responses to, and effe
 
 ## Preview
 
-This is a selection of scores:
+The following figure shows a selection of financial market stress perceptions scores (solid grey lines). It also compares these scores to other measures of financial market stress and crisis. Dashed lines show Romer and Romer (2015). Red boxes are for Reinhart and Rogoff (2009). Yellow boxes are for Laeven and Valencia (2013).
 
-![perceptions index plot](perceptions_index_16.png)
+![perceptions index plot](perceptions_compare.png)
