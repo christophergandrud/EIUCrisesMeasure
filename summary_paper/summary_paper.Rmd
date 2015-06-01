@@ -12,19 +12,17 @@ bibliography: main.bib
 linestretch: 1.5
 ---
 
-**Note: This work is in the early stages of development. It will be updated significantly.**
+**Note: This work is in the early stages of development. It will be updated significantly.**[^ThankYou]
 
-**Abstract**[^ThankYou]
-
-> This paper describes the motivation and construction of our new measure of
-real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of
-[Economist Intelligence Unit](http://www.eiu.com/) monthly country reports. Not only do we develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+\begin{abstract}
+A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: Reinhart and Rogoff (2009) or Laeven and Valencia (2013). These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely Jing et al. (2015), Rosas (2009), and Romer and Romer (2015) have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in Jing et al. (2015) and Rosas (2009), is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+\end{abstract}
 
 Why and how do politicians respond to financial market stress? This question has attracted considerable attention recently following the 2007-2009 financial crisis and earlier following the late-1990s Asian financial crisis. However, virtually all of this research lacks a crucial variable: a real-time indication of the level of financial market stress that policy-makers believed that they faced. To understand why politicians made a given policy choice, we need to have a measure the conditions that they believed they were responding to.
 
 Most research has used *post-hoc* assessments of banking crisis as a second-best alternative. However, this presents clear problems. Chiefly, using such measures creates clear selection bias as stress that politicians responded to effectively will not be selected. In addition, these measures are typically binary and so give no indication of stress intensity. The measures are also at gross intervals, typically yearly, prohibiting sub-annual analysis.
 
-In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The index is created using a kernel principal component analysis (PCA) of monthly Economist Intelligence Unit (EIU) reports. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series indicators.
+In this paper we aim to overcome these problems by develop a new index of real-time perceptions of financial market stress. The Index is created using a kernel principal component analysis (PCA) of monthly Economist Intelligence Unit (EIU) reports. We it the EIU Perceptions of Financial Market Stress (EPFMS) Index. This measure should supplant previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series indicators.
 
 We start the paper by detailing our motivation for creating a real-time index of perceptions of financial market stress. We then discuss the construction of the Index and compare it to widely used previous measures of financial market stress. [WOULD BE NICE TO HAVE A REPLICATION OF AN IMPORTANT PAPER].
 
@@ -38,7 +36,7 @@ Overall, we lack the continuous real-time measure of financial market stress tha
 
 There have been a number of recent attempts to create crisis measures that overcome these issues. Building on @vonHagen2007, @Jing2015 developed am index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses, assuming central banks use the same reaction function to increased demand for liquidity. @Rosas2009 developed a dynamic latent trait model of banking system distress. However, his measure relies on nationally reported data to the IMF's International Financial Statistics, which @GandrudCopHal2015 show can be endogenous to financial market distress.
 
-@Romer2014 aimed to address this issue by manually classifying 24 countries on a 15 point scale capturing the cost of credit intermediation. They code countries using information from OECD semi-annual *Economic Outlook* reports from 1967 to 2007. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress. This would allow us to examine policy choices that head off trouble or unsustainably prolong brewing difficulties. Their, relatively, continuous measure gives an indication of market distress intensity.
+@Romer2015 aimed to address this issue by manually classifying 24 countries on a 15 point scale capturing the cost of credit intermediation. They code countries using information from OECD semi-annual *Economic Outlook* reports from 1967 to 2007. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress. This would allow us to examine policy choices that head off trouble or unsustainably prolong brewing difficulties. Their, relatively, continuous measure gives an indication of market distress intensity.
 
 Their approach could be improved in a number of key ways. First, they are necessarily limited to the relatively small sample of OECD countries. Second, their measure is laborious to create and update. Third, the scale is created by simply summing
 
@@ -46,11 +44,11 @@ Their approach could be improved in a number of key ways. First, they are necess
 
 # Creating the Perceptions of Financial Market Stress Index
 
-We propose a new method of estimating a real-time measure of perceptions of financial market stress. The index is created with kernel principle component analysis [@Scholkopf1998; @lodhi2002; @Spirling2012] of monthly country reports from the *Economist Intelligence Unit*.[^EIU]
+We propose a new method of estimating a real-time measure of perceptions of financial market stress using kernel principle component analysis [@Scholkopf1998; @lodhi2002; @Spirling2012] of monthly country reports from the *Economist Intelligence Unit*.[^EIU]
 
 ## Why the EIU?
 
-The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports are both a summary of real-time information and forecasts on counties' economic conditions as well as a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
+The EIU is the product of a an analysis of real-time, third-party assessments of financial market conditions reported monthly or quarterly (depending on the country). These reports contain both summaries of real-time information and forecasts of future economic conditions. They are a channel through which this information is disseminated to public and private actors. Together, the reports create a very large corpus (more than 20,000 texts from 1997 through 2011 [CHECK]) of monthly reports for more than 100 countries. As the texts generally follow the same format and style, they contain directly comparable assessments of economic conditions monthly across the globe for a significant time span. In contrast, the OECD *Economic Outlook* provides comparable reports for a very small number of wealthy countries on a bi-annual basis.
 
 ## Summarizing Financial Market Stress in the EIU
 
@@ -66,7 +64,7 @@ We then preprocessed these texts using standard techniques [see @Grimmer2013].[^
 
 Texts are frequently summarized using unordered 'bag-of-words' approaches, such as Latent Dirichlet Allocation, that do not retain word order. The result of these approaches is often clusters of 'topics' within speeches or speeches to clusters [see @Grimmer2013 for a review]. We would like to accomplish something different. Ideally, we would like to preserve the order of the words in our texts and we would like to place the texts on a continuous scale that will be interpretable as a measure of perceived financial market stress. We would like to preserve the order of the words in the texts. Many financial terms such as 'credit growth' and 'borrowing costs' are used in completely different senses depending on the adjectives that modify them. For example, 'slowing credit growth' vs. 'expanding credit growth' or 'falling borrowing costs' vs. 'increasing borrowing costs'. A bag-of-words approach that treated each word as having meaning as an individual unit, rather than having meaning in ordered association with other words, would not adequately capture common and radically different meanings in the EIU documents.
 
-In order to address these issues we use kernel principal component analysis. This method was developed by @Scholkopf1998 and @lodhi2002 and introduced recently into political science by @Spirling2012.[^spirling-why] The unit of analysis is a sub-string kernel: in effect a short sequence of letters[^kernel-length] that can be shared within and across words. Thus we can distinguish between two simple documents with the stemmed strings 'slow credit' and 'expand credit'. They share the five character kernels 'credit, but differ on 'slowc' and 'pandc' among others. Using @lodhi2002 we can summarize the similarity of these documents using with the frequency distribution of five-length strings that they have in common--one--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.[^cite-kernlab]
+In order to address these issues we use kernel principal component analysis. This method was developed by @Scholkopf1998 and @lodhi2002 and introduced recently into political science by @Spirling2012[].[^spirling-why] Kernel PCA allows us to extract structure from this likely high-dimensional corpus [@Zhang2010, 6531-6537] while preserving word order. The unit of analysis is a sub-string kernel: in effect a short sequence of letters[^kernel-length] that can be shared within and across words. Thus we can distinguish between two simple documents with the stemmed strings 'slow credit' and 'expand credit'. They share the five character kernels 'credit, but differ on 'slowc' and 'pandc' among others. Using @lodhi2002 we can summarize the similarity of these documents with the frequency distribution of five-length strings that they have in common--one--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.[^cite-kernlab]
 
 ### Dimensionality
 
@@ -82,13 +80,13 @@ To determine the number of dimensions that best describe the data, we conducted 
 
 # Results
 
-The lines in figures \ref{compare_1} and \ref{compare_2} show the results of the kernel PCA analysis for a selection of countries. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before discussing diving deeper into these results, it's important to note two simple transformations we conducted on the raw results. First, we rescaled the index so that it would be between zero and one.[^rescale-equation] This eases interpretation and comparability to other measures. Henceforth we only use the rescaled version of the Index. Then we slightly smoothed the results by taking a two period--usually two months--moving average.
+The lines in figures \ref{compare_1} and \ref{compare_2} show the results of the kernel PCA analysis for a selection of countries. We use the first principal component throughout the paper. Similar plots for all countries in the analysis are available in the Appendix. Before diving deeper into these results, it is important to note three simple transformations we conducted on the raw results. First, we flipped the scale. As we demonstrate when we compare the Index to other measures of crisis, this allows higher values of the EPFMS to be interpreted as 'more financial market stress'. Second, we rescaled the Index so that it would be between zero and one.[^rescale-equation] This eases interpretation and comparability to other measures. Henceforth we only use the rescaled version of the Index. Then we slightly smoothed the results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to answer this question. First, following @Spirling2012 we used a random forest regression [@Breiman2001;@jones2015] to examine the relationships between word stems from the texts and the Perceptions Index. Second, we compared the Index to previous indices using an 'interocular' test, e.g. looking a plots of the results and comparing them to our priors on financial market stress.
 
 ## Random forest
 
-@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case 833 stems--relative to the number of documents--12,486. The result of this analysis that we focus on is variable importance shown in Figure \ref{rf_importance}.
+@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case [GET] stems--relative to the number of documents--12,482 [UPDATE]. The result of this analysis[^cite-randomForestSRC] that we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
@@ -102,13 +100,18 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ## Comparison to other crisis measures
 
-How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2014] continuous measure.
+How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2015] continuous measure.
 
-There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2014 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above. Finally, it should be noted that @Reinhart2009 only cover 70 countries and they have updated their data least recently.
+There are some limitations in comparability based simply on the different coverage of the different indices. @Romer2015 in particular largely does not include the most recent crisis in their sample as they did not collect data past 2007. We had to make a number of transformations and assumptions to be able to compare the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data on recorded only at yearly intervals. So, we assumed that the crisis start and end dates they referred to were in the middle of the year, i.e. June. Second, we rescaled Romer and Romer's 15-point scale (in effect 13-points because they do not classify any country-quarter in their sample as being at the upper two positions on the scale) to be between 0 and 1 using the same method as above. Finally, it should be noted that @Reinhart2009 only cover 70 countries and they have updated their data least recently.
 
 The solid lines in figures \ref{compare_1} and \ref{compare_2} show the EIU Perceptions of Financial Market Stress Index. The dashed lines show Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the periods where @laeven2013 and @Reinhart2009 classify there as being a banking crisis.[^lv-reinhart-address]
 
-In many cases, the three indices
+In many cases--given the time period limitations of each data series--, the indices are roughly congruent. Comparisons with @Romer2015 are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007. They both decline for Japan through 2004-2005. A notable difference is how Romer and Romer classify Japan as being without stress from mid-2005, while the EPFMS stays high relative to many other economically developed countries. While they both classify Iceland as being under stress in the late 2000s, the timing is markedly different. Romer and Romer classify Iceland as in stress[^iceland-rr] in 2006-2007. This is earlier than not only a marked increase in the EPFMS Index, but also Reinhart and Rogoff and Laeven and Valencia's timing.
+
+
+A notable difference between the data series is for Russian. Reinhart and Rogoff and Laeven and Valencia both record a crisis in the late 2000s, though their timing differ slightly. However, there is no noticeable change in the EPFMS during this period. This suggests that perceptions of Russian financial markets in real-time EIU documents did not noticeably indicate a change in conditions. [CHECK WHEN RESULTS ARE UPDATED]
+
+Overall, the similarities between EPFMS scores and other measures of banking crises suggests that the EPFMS Index does capture aspects of financial market stress. In particular, higher values of the EPFMS are indicate higher levels of perceived financial market stress. At the same time, the differences between the measures also indicates that the EPFMS sheds unique light on processes not captured well by previous indices. One major difference that we will now look at in more detail is how having a continuous indicator allows us to consider how levels perceived financial market stress differ between developed and developing countries.  
 
 \begin{figure}
     \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}
@@ -152,6 +155,10 @@ These observations should lead to an important refinement to how the Index shoul
 
 Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. *Post-hoc* measures of crisis in particular capture the outcome of this process, rather than the process itself.
 
+# How Good are the EIU Perceptions at Predicting Future Economic Conditions
+
+[THINK ABOUT WHETHER OR NOT TO INCLUDE]
+
 # Replication
 
 # Conclusions and Possible Future Work
@@ -161,16 +168,11 @@ Previous measures of financial market distress and crises have generally been un
 
 # References
 
-
-
-
-
 [^ThankYou]: Please contact Christopher Gandrud (gandrud@hertie-school.org). Thank you to Ronen Palan for helpful comments. All data and replication material can be found at: <https://github.com/christophergandrud/EIUCrisesMeasure>.
 
 [^EIU]: See <http://www.eiu.com/>. Accessed May 2015.
 
-[^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *bank*, *credit*,
-              *crunch*, *default*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2014 and are intended to select passages that discusses credit market conditions.  
+[^keywords]: The keywords included: *bail-out*, *bailout*, *balance sheet*, *balance-sheet*, *bank*, *banks*, *banking*, *credit*, *crunch*, *default*, *finance*, *financial*, *lend*, *loan*, *squeeze* [MAKE SURE TO UPDATE]. These keywords were adapted from those used by @Romer2015 and are intended to select passages that discusses credit market conditions.  
 
 [^tm-package]: All preprocessing was done using the `tm` package [@tm2015] in R [@R-cite].
 
@@ -178,10 +180,14 @@ Previous measures of financial market distress and crises have generally been un
 
 [^kernel-length]: Following @Spirling2012, we used kernels with a length of 5, i.e. those that are five letters long. See also @lodhi2002 who demonstrate that in English strings lengths between four and seven are often optimal.  
 
-[^cite-kernlab]: We conducted kernel PCA with the R package `kernlab` [@kerblabCite].
+[^cite-kernlab]: We conducted kernel PCA with the `kpca` function from the R package **kernlab** [@kerblabCite].
+
+[^cite-randomForestSRC]: We conducted the random forest regressions using the `rfsrc` function from the **randomForestSRC** R package [@randomForestSRCCite].
 
 [^rescale-equation]: $\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}$, where $\bm{X}$ is the vector of the first principal component and $x$ is an individual value from this vector.
 
 [^other-dimensions]: We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
 
-[^lv-reinhart-address]: We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
+[^lv-reinhart-address]: We used Table 1 in @Romer2015 to recreate their data set. We downloaded Laeven and Valencia's data from: <https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0>. Accessed May 2015. Reinhart and Rogoff's data was downloaded from: <http://www.carmenreinhart.com/data/browse-by-topic/topics/7/>. Accessed May 2015.
+
+[^iceland-rr]: They classify Iceland as being in a "minor crisis" in the second half of 2006 and a "credit disruption" in the first half of 2007.
