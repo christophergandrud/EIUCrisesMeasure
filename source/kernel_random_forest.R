@@ -57,8 +57,8 @@ kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.c
 # Create matching corpus
 kpca_included <- kpca %>% select(date, country)
 names(kpca_included) <- c('date_date', 'country_country')
-term_freq <- merge(kpca_included, term_freq, 
-                   by = c('country_country', 'date_date'), 
+term_freq <- merge(kpca_included, term_freq,
+                   by = c('country_country', 'date_date'),
                    all.x = T) %>%
                 select(-country_country, -date_date)
 
