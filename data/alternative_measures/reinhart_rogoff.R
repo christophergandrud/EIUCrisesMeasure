@@ -1,6 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# Clean Reinhart and Rogoff
-# Data downloaded from https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0
+# Download and clean Reinhart and Rogoff
 # Christopher Gandrud
 # MIT License
 # ---------------------------------------------------------------------------- #
