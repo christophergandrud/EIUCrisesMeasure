@@ -86,7 +86,7 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 ## Random forest
 
-@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case [GET] stems--relative to the number of documents--12,482 [UPDATE]. The result of this analysis[^cite-randomForestSRC] that we focus on is variable importance shown in Figure \ref{rf_importance}.
+@Spirling2012[6-8] demonstrated the usefulness of using random forest "regressions" to explore what principal components from textual analyses represent. To do this we first created a document-term frequency matrix from the stemmed documents. Effectively this is a $k \times s$ matrix recording the frequency of each term in $\bm{S}$ for each document in $\bm{K}$. We removed sparse terms, i.e. kept only stems that were found in 90 percent of the documents. Random forest regressions as opposed to ordinary least squares regressions are useful in this context because there are many variables--in this case 1,072 stems--relative to the number of documents--12,473. The result of this analysis[^cite-randomForestSRC] that we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
@@ -98,6 +98,21 @@ What does this dimension represent? We took a number of approaches to answer thi
 
 \end{figure}
 
+\begin{table}
+    \caption{Comparision of Crisis Measures}
+    \label{comp_table}
+    \begin{center}
+        \begin{tabular}{l | c}
+            Source & Definition of Financial Market Distress \\
+            \hline
+                \cite{Reinhart2009} & \\
+                \cite{laeven2013} & \\
+                \cite{Romer2015} & \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
 ## Comparison to other crisis measures
 
 How does our measure compare to previous ways of measuring and timing financial market stress and crisis? We directly compare our measure to dichotomous measures in @Reinhart2009 and @laeven2013 as well as Romer and Romer's [-@Romer2015] continuous measure.
@@ -108,8 +123,13 @@ The solid lines in figures \ref{compare_1} and \ref{compare_2} show the EIU Perc
 
 In many cases--given the time period limitations of each data series--, the indices are roughly congruent. Comparisons with @Romer2015 are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007. They both decline for Japan through 2004-2005. A notable difference is how Romer and Romer classify Japan as being without stress from mid-2005, while the EPFMS stays high relative to many other economically developed countries. While they both classify Iceland as being under stress in the late 2000s, the timing is markedly different. Romer and Romer classify Iceland as in stress[^iceland-rr] in 2006-2007. This is earlier than not only a marked increase in the EPFMS Index, but also Reinhart and Rogoff and Laeven and Valencia's timing.
 
+One very nice characteristic of the EPFMS is that we are able to follow progression of crises over time. @laeven2013[227] comment that part of the problem with dating financial crises is that they develop differently:x:
 
-A notable difference between the data series is for Russian. Reinhart and Rogoff and Laeven and Valencia both record a crisis in the late 2000s, though their timing differ slightly. However, there is no noticeable change in the EPFMS during this period. This suggests that perceptions of Russian financial markets in real-time EIU documents did not noticeably indicate a change in conditions. [CHECK WHEN RESULTS ARE UPDATED]
+> Some crises evolve gradually, gaining speed as the ripple effects from a seemingly small shock propagate forward in time . . . other episodes happen more abruptly and are often the result of sudden stops.
+
+The real-time and relatively granular nature of the EPFMS allows to distinguish these types of crises. For example, we can see in Figure \ref{compare_1} that financial market difficulties in the United States crisis built over along period of time, with a few spikes during notable banking difficulties. Conversely, countries such as Germany, Hungary, and Iceland clearly have much more sudden periods of perceived financial distress. Using an binary definition of crises would no allow us to capture these trajectories.
+
+We can use the EPMFS to identify periods where financial market conditions were perceived to be worsening, though for whatever reason these perceptions changed before other measures would record a financial crisis. Australia, Brazil, and the Czech Republic, among others, in about late-2008/2009 are notable examples. They all see noticeable spikes in perceptions of stress shortly after Lehman Brothers collapsed in the US. Fairly quickly thereafter, their EPMFS scores return to previous levels. Laeven and Valencia and Reinhart and Rogoff do not record these episodes as crises. The perceived stress likely experienced by policy-makers at this time would therefore be excluded from political science work using previous binary measures of crisis.
 
 Overall, the similarities between EPFMS scores and other measures of banking crises suggests that the EPFMS Index does capture aspects of financial market stress. In particular, higher values of the EPFMS are indicate higher levels of perceived financial market stress. At the same time, the differences between the measures also indicates that the EPFMS sheds unique light on processes not captured well by previous indices. One major difference that we will now look at in more detail is how having a continuous indicator allows us to consider how levels perceived financial market stress differ between developed and developing countries.  
 

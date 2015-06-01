@@ -66,7 +66,8 @@ date_country <- date_country %>% group_by(country_country) %>%
     mutate(obs_sum = sum(fake_fake)) %>%
     filter(obs_sum > 5) %>% select(-fake_fake, -obs_sum)
 
-term_freq <- merge(date_country, term_freq, by = c('country_country', 'date_date'))
+term_freq <- merge(date_country, term_freq,
+                    by = c('country_country', 'date_date'))
 term_freq <- term_freq %>% select(-country_country, -date_date)
 
 #### Download KPCA results ####

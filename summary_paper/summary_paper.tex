@@ -1,79 +1,39 @@
 \documentclass[]{article}
-\usepackage{lmodern}
+\usepackage{fullpage}
+\usepackage[authoryear]{natbib}
 \usepackage{setspace}
-\setstretch{1.5}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\usepackage[margin=1in]{geometry}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg},
-            pdftitle={Measuring Real-time Perceptions of Financial Market Stress},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{5}
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
+    \doublespacing
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=cyan,
+    urlcolor=cyan
 }
-
-\setlength{\droptitle}{-2em}
-  \title{Measuring Real-time Perceptions of Financial Market Stress}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \date{}
-  \predate{}\postdate{}
-
-\usepackage{graphicx}
+\usepackage{amssymb,amsmath}
 \usepackage{bm}
+\usepackage{dcolumn}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{todonotes}
+\usepackage{lscape}
+\usepackage{float}
+
+
+\title{Measuring Real-time Perceptions of Financial Market Stress}
+\author{Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg\footnote{Please contact Christopher Gandrud
+(\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
+Thank you to Ronen Palan for helpful comments. All data and
+replication material can be found at:
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}.}}
+
+
 
 
 \begin{document}
@@ -82,14 +42,10 @@
 
 
 \textbf{Note: This work is in the early stages of development. It will
-be updated significantly.}\footnote{Please contact Christopher Gandrud
-  (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
-  Thank you to Ronen Palan for helpful comments. All data and
-  replication material can be found at:
-  \url{https://github.com/christophergandrud/EIUCrisesMeasure}.}
+be updated significantly.}
 
 \begin{abstract}
-A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: Reinhart and Rogoff (2009) or Laeven and Valencia (2013). These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely Jing et al. (2015), Rosas (2009), and Romer and Romer (2015) have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in Jing et al. (2015) and Rosas (2009), is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: \cite{Reinhart2009} or \cite{laeven2013}. These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely \cite{Jing2015}, \cite{Rosas2009}, and \cite{Romer2015} have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in \cite{Jing2015} and \cite{Rosas2009}, is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
 \end{abstract}
 
 Why and how do politicians respond to financial market stress? This
@@ -131,7 +87,7 @@ REPLICATION OF AN IMPORTANT PAPER{]}.
 
 Researchers have tended to rely on two data sources for cross-country
 information on when a country is facing a financial crisis: Laeven and
-Valencia (2013) and Reinhart and Rogoff (2009). Knowing when crises
+Valencia (2013) and \cite{Reinhart2009}. Knowing when crises
 started (and when they have ended) is crucial for research trying to
 understand issues such as how crises affect economic output, how
 governments choose to respond to financial market distress, and what the
@@ -140,12 +96,11 @@ fiscal costs of financial crises are.
 There are a number of problems with these indicators. Unlike economic
 recessions, financial crises are poorly defined in previous sources.
 This contributes to large inconsistencies between the timing of crises
-in the Laeven and Valencia (2013) and Reinhart and Rogoff (2009) data
-sets (Chaudron and Haan 2014). For example, Japan is labeled as having a
+in the \cite{laeven2013} and \cite{Reinhart2009} data
+sets \citep{Chaudron2014}. For example, Japan is labeled as having a
 crisis between 1997 and 2001 by the former, but 1992-1997 in the latter.
-Gandrud and Hallerberg (2015) also find that there are significant
-difference in crisis timing between different versions of the Laeven and
-Valencia (2013) data. Crises are also identified by researchers who know
+\cite{GandrudHallerberg2015} also find that there are significant
+difference in crisis timing between different versions of the \cite{laeven2013} data. Crises are also identified by researchers who know
 what happened. Financial market stress that is addressed well by
 policymakers, preventing a major crisis, may therefore not be included.
 Similarly, stress that is temporarily dampened through unsustainable
@@ -161,18 +116,17 @@ stress that we need to be able to adequately examine why and how
 policy-makers respond to financial market problems.
 
 There have been a number of recent attempts to create crisis measures
-that overcome these issues. Building on {Von Hagen} and Ho (2007), Jing
-et al. (2015) developed am index of money market pressure based on
+that overcome these issues. Building on \cite{vonHagen2007}, \cite{Jing2015} developed am index of money market pressure based on
 changes in short-term interest rates and stocks of central bank
 reserves. However, this measure conflates distress and policy responses,
 assuming central banks use the same reaction function to increased
-demand for liquidity. Rosas (2009) developed a dynamic latent trait
+demand for liquidity. \cite{Rosas2009} developed a dynamic latent trait
 model of banking system distress. However, his measure relies on
 nationally reported data to the IMF's International Financial
 Statistics, which Copelovitch, Gandrud, and Hallerberg (2015) show can
 be endogenous to financial market distress.
 
-C. Romer and Romer (2015) aimed to address this issue by manually
+\cite{Romer2015} aimed to address this issue by manually
 classifying 24 countries on a 15 point scale capturing the cost of
 credit intermediation. They code countries using information from OECD
 semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Relying
@@ -193,10 +147,7 @@ Third, the scale is created by simply summing
 Index}\label{creating-the-perceptions-of-financial-market-stress-index}
 
 We propose a new method of estimating a real-time measure of perceptions
-of financial market stress using kernel principle component analysis
-(Scholkopf, Smola, and Muller 1998; Lodhi et al. 2002; Spirling 2012) of
-monthly country reports from the \emph{Economist Intelligence
-Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.}
+of financial market stress using kernel principle component analysis \citep{Scholkopf1998,lodhi2002,Spirling2012} of monthly country reports from the \emph{Economist Intelligence Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.}
 
 \subsection{Why the EIU?}\label{why-the-eiu}
 
@@ -240,16 +191,14 @@ number of keywords concerning banking and financial markets.\footnote{The
   \emph{banking}, \emph{credit}, \emph{crunch}, \emph{default},
   \emph{finance}, \emph{financial}, \emph{lend}, \emph{loan},
   \emph{squeeze} {[}MAKE SURE TO UPDATE{]}. These keywords were adapted
-  from those used by C. Romer and Romer (2015) and are intended to
+  from those used by \cite{Romer2015} and are intended to
   select passages that discusses credit market conditions.} Due to a
 significant change in how the reports were constructed in 2003, we also
 selected only texts from 2003 in order to maintain comparability across
 the time-series.
 
-We then preprocessed these texts using standard techniques (see Grimmer
-and Stewart 2013).\footnote{All preprocessing was done using the
-  \texttt{tm} package (Feinerer and Hornik 2015) in R (R Core Team
-  2015).} This involved removing common English words, such as `was' and
+We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the
+  \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and
 `its', stemming the words so that different variants of the same word
 are grouped together, removing extra whitespace between the words,
 removing punctuation and numbers. Finally, we dropped texts that
@@ -262,8 +211,7 @@ Analysis}\label{kernel-principal-component-analysis}
 Texts are frequently summarized using unordered `bag-of-words'
 approaches, such as Latent Dirichlet Allocation, that do not retain word
 order. The result of these approaches is often clusters of `topics'
-within speeches or speeches to clusters (see Grimmer and Stewart 2013
-for a review). We would like to accomplish something different. Ideally,
+within speeches or speeches to clusters \citep[see][for a review]{Grimmer2013}. We would like to accomplish something different. Ideally,
 we would like to preserve the order of the words in our texts and we
 would like to place the texts on a continuous scale that will be
 interpretable as a measure of perceived financial market stress. We
@@ -278,21 +226,20 @@ other words, would not adequately capture common and radically different
 meanings in the EIU documents.
 
 In order to address these issues we use kernel principal component
-analysis. This method was developed by Scholkopf, Smola, and Muller
-(1998) and Lodhi et al. (2002) and introduced recently into political
-science by Spirling (2012).\footnote{He used it to summarize changing
+analysis. This method was developed by \cite{Scholkopf1998} and \cite{lodhi2002} and introduced recently into political
+science by \cite{Spirling2012}.\footnote{He used it to summarize changing
   trends in treaties between the US government and Native American
   groups.} Kernel PCA allows us to extract structure from this likely
 high-dimensional corpus (Zhang, Wang, and Ma 2010, 6531--37) while
 preserving word order. The unit of analysis is a sub-string kernel: in
-effect a short sequence of letters\footnote{Following Spirling (2012),
+effect a short sequence of letters\footnote{Following \cite{Spirling2012},
   we used kernels with a length of 5, i.e.~those that are five letters
-  long. See also Lodhi et al. (2002) who demonstrate that in English
+  long. See also \cite{lodhi2002} who demonstrate that in English
   strings lengths between four and seven are often optimal.} that can be
 shared within and across words. Thus we can distinguish between two
 simple documents with the stemmed strings `slow credit' and `expand
 credit'. They share the five character kernels `credit, but differ on
-'slowc' and `pandc' among others. Using Lodhi et al. (2002) we can
+'slowc' and `pandc' among others. Using \cite{lodhi2002} we can
 summarize the similarity of these documents with the frequency
 distribution of five-length strings that they have in
 common--one--standardized by document length. We can find these pairs
@@ -342,8 +289,8 @@ use the rescaled version of the Index. Then we slightly smoothed the
 results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to
-answer this question. First, following Spirling (2012) we used a random
-forest regression (Breiman 2001; Jones and Linder 2015) to examine the
+answer this question. First, following \cite{Spirling2012} we used a random
+forest regression \citep{Breiman2001,jones2015} to examine the
 relationships between word stems from the texts and the Perceptions
 Index. Second, we compared the Index to previous indices using an
 `interocular' test, e.g.~looking a plots of the results and comparing
@@ -351,7 +298,7 @@ them to our priors on financial market stress.
 
 \subsection{Random forest}\label{random-forest}
 
-Spirling (2012, 6--8) demonstrated the usefulness of using random forest
+\cite[6--8]{Spirling2012} demonstrated the usefulness of using random forest
 ``regressions'' to explore what principal components from textual
 analyses represent. To do this we first created a document-term
 frequency matrix from the stemmed documents. Effectively this is a
@@ -363,7 +310,7 @@ in this context because there are many variables--in this case {[}GET{]}
 stems--relative to the number of documents--12,482 {[}UPDATE{]}. The
 result of this analysis\footnote{We conducted the random forest
   regressions using the \texttt{rfsrc} function from the
-  \textbf{randomForestSRC} R package (Ishwaran and Kogalur 2015).} that
+  \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} that
 we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \begin{figure}
@@ -376,16 +323,31 @@ we focus on is variable importance shown in Figure \ref{rf_importance}.
 
 \end{figure}
 
+\begin{table}
+    \caption{Comparision of Crisis Measures}
+    \label{comp_table}
+    \begin{center}
+        \begin{tabular}{l | c}
+            Source & Definition of Financial Market Distress \\
+            \hline
+                \cite{Reinhart2009} & \\
+                \cite{laeven2013} & \\
+                \cite{Romer2015} & \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
 \subsection{Comparison to other crisis
 measures}\label{comparison-to-other-crisis-measures}
 
 How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
-dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
+dichotomous measures in \cite{Reinhart2009} and Laeven and
 Valencia (2013) as well as Romer and Romer's (2015) continuous measure.
 
 There are some limitations in comparability based simply on the
-different coverage of the different indices. C. Romer and Romer (2015)
+different coverage of the different indices. \cite{Romer2015}
 in particular largely does not include the most recent crisis in their
 sample as they did not collect data past 2007. We had to make a number
 of transformations and assumptions to be able to compare the different
@@ -396,15 +358,14 @@ i.e.~June. Second, we rescaled Romer and Romer's 15-point scale (in
 effect 13-points because they do not classify any country-quarter in
 their sample as being at the upper two positions on the scale) to be
 between 0 and 1 using the same method as above. Finally, it should be
-noted that Reinhart and Rogoff (2009) only cover 70 countries and they
+noted that \cite{Reinhart2009} only cover 70 countries and they
 have updated their data least recently.
 
 The solid lines in figures \ref{compare_1} and \ref{compare_2} show the
 EIU Perceptions of Financial Market Stress Index. The dashed lines show
 Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
-periods where Laeven and Valencia (2013) and Reinhart and Rogoff (2009)
-classify there as being a banking crisis.\footnote{We used Table 1 in C.
-  Romer and Romer (2015) to recreate their data set. We downloaded
+periods where \cite{laeven2013} and \cite{Reinhart2009}
+classify there as being a banking crisis.\footnote{We used Table 1 in \cite{Romer2015} to recreate their data set. We downloaded
   Laeven and Valencia's data from:
   \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
   Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
@@ -427,13 +388,35 @@ Romer classify Iceland as in stress\footnote{They classify Iceland as
 than not only a marked increase in the EPFMS Index, but also Reinhart
 and Rogoff and Laeven and Valencia's timing.
 
-A notable difference between the data series is for Russian. Reinhart
-and Rogoff and Laeven and Valencia both record a crisis in the late
-2000s, though their timing differ slightly. However, there is no
-noticeable change in the EPFMS during this period. This suggests that
-perceptions of Russian financial markets in real-time EIU documents did
-not noticeably indicate a change in conditions. {[}CHECK WHEN RESULTS
-ARE UPDATED{]}
+One very nice characteristic of the EPFMS is that we are able to follow
+progression of crises over time. \cite[227]{laeven2013} comment
+that part of the problem with dating financial crises is that they
+develop differently:
+
+\begin{quote}
+    Some crises evolve gradually, gaining speed as the ripple effects from a seemingly small shock propagate forward in time . . . other episodes happen more abruptly and are often the result of sudden stops.
+\end{quote}
+
+The real-time and relatively granular nature of the EPFMS allows to
+distinguish these types of crises. For example, we can see in Figure
+\ref{compare_1} that financial market difficulties in the United States
+crisis built over along period of time, with a few spikes during notable
+banking difficulties. Conversely, countries such as Germany, Hungary,
+and Iceland clearly have much more sudden periods of perceived financial
+distress. Using an binary definition of crises would no allow us to
+capture these trajectories.
+
+We can use the EPMFS to identify periods where financial market
+conditions were perceived to be worsening, though for whatever reason
+these perceptions changed before other measures would record a financial
+crisis. Australia, Brazil, and the Czech Republic, among others, in
+about late-2008/2009 are notable examples. They all see noticeable
+spikes in perceptions of stress shortly after Lehman Brothers collapsed
+in the US. Fairly quickly thereafter, their EPMFS scores return to
+previous levels. Laeven and Valencia and Reinhart and Rogoff do not
+record these episodes as crises. The perceived stress likely experienced
+by policy-makers at this time would therefore be excluded from political
+science work using previous binary measures of crisis.
 
 Overall, the similarities between EPFMS scores and other measures of
 banking crises suggests that the EPFMS Index does capture aspects of
@@ -447,7 +430,7 @@ financial market stress differ between developed and developing
 countries.
 
 \begin{figure}
-    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (1)}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and \cite{Reinhart2009} (1)}
     \label{compare_1}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr.pdf}
@@ -459,13 +442,13 @@ countries.
 
     Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
-    Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Red shaded areas indicate periods that \cite{Reinhart2009} classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
 
 \begin{figure}
-    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and Reinhart \& Rogoff (2009) (2)}
+    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and \cite{Reinhart2009} (2)}
     \label{compare_2}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr_2.pdf}
@@ -475,7 +458,7 @@ countries.
 
     Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
-    Red shaded areas indicate periods that Reinhart and Rogoff (2009) classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Red shaded areas indicate periods that \cite{Reinhart2009} classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
@@ -514,7 +497,7 @@ measures of crisis in particular capture the outcome of this process,
 rather than the process itself.
 
 \section{How Good are the EIU Perceptions at Predicting Future Economic
-Conditions}\label{how-good-are-the-eiu-perceptions-at-predicting-future-economic-conditions}
+Conditions}
 
 {[}THINK ABOUT WHETHER OR NOT TO INCLUDE{]}
 
@@ -523,86 +506,12 @@ Conditions}\label{how-good-are-the-eiu-perceptions-at-predicting-future-economic
 \section{Conclusions and Possible Future
 Work}\label{conclusions-and-possible-future-work}
 
-\section{Appendix}\label{appendix}
+\section*{Appendix}\label{appendix}
 
 \section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
 
-Breiman, Leo. 2001. ``Random Forests.'' \emph{Machine Learning} 45 (1):
-5--32.
+\bibliographystyle{apsr}
+\bibliography{main.bib}
 
-Chaudron, Raymond, and Jakob de Haan. 2014. ``Dating Banking Crises
-Using Incidence and Size of Bank Failures: Four Crises Reconsidered.''
-\emph{Journal of Financial Stability}, 1--34.
-
-Copelovitch, Mark, Christopher Gandrud, and Mark Hallerberg. 2015.
-``Financial Regulatory Transparency, International Institutions, and
-Borrowing Costs.'' \emph{Working Paper}.
-
-Feinerer, Ingo, and Kurt Hornik. 2015. \emph{tm: Text Mining Package}.
-\url{http://CRAN.R-project.org/package=tm}.
-
-Gandrud, Christopher, and Mark Hallerberg. 2015. ``When All Is Said and
-Done: Updating 'Elections, Special Interests, and Financial Crisis'.''
-\emph{Research and Politics}.
-
-Grimmer, Justin, and Brandon M Stewart. 2013. ``Text as Data: The
-Promise and Pitfalls of Automatic Content Analysis Methods for Political
-Texts.'' \emph{Political Analysis} 21 (3): 267--97.
-
-Ishwaran, H., and U.B. Kogalur. 2015. \emph{Random Forests for Survival,
-Regression and Classification (RF-SRC)}. manual.
-\url{http://cran.r-project.org/web/packages/randomForestSRC/}.
-
-Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
-``Identifying Banking Crises Using Money Market Pressure: New Evidence
-for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
-1--20.
-
-Jones, Zachary, and Fridolin Linder. 2015. ``Exploratory Data Analysis
-Using Random Forests.'' \emph{Paper Presented at the Annual MPSA
-Conference}.
-
-Karatzoglou, Alexandros, Alex Smola, Kurt Hornik, and Achim Zeileis.
-2004. ``kernlab -- an S4 Package for Kernel Methods in R.''
-\emph{Journal of Statistical Software} 11 (9): 1--20.
-\url{http://www.jstatsoft.org/v11/i09/}.
-
-Laeven, Luc, and Fabi{á}n Valencia. 2013. ``Systemic Banking Crisis
-Database.'' \emph{IMF Economic Review} 61 (2): 225--70.
-
-Lodhi, Huma, Craig Saunders, John Shawe-Taylor, Nello Cristianini, and
-Chris Watkins. 2002. ``Text Classification Using String Kernels.''
-\emph{The Journal of Machine Learning Research} 2. JMLR. org: 419--44.
-
-R Core Team. 2015. \emph{R: A Language and Environment for Statistical
-Computing}. Vienna, Austria: R Foundation for Statistical Computing.
-\url{http://www.R-project.org/}.
-
-Reinhart, Carmen, and Kenneth Rogoff. 2009. \emph{This Time Is
-Different: Eight Centuries of Financial Folly}. Princeton: Princeton
-University Press.
-
-Romer, Christina, and David Romer. 2015. ``New Evidence on the Impact of
-Financial Crises in Advanced Countries,'' April, 1--65.
-
-Rosas, Guillermo. 2009. ``Dynamic Latent Trait Models: An Application to
-Latin American Banking Crises.'' \emph{Electoral Studies} 28: 375--87.
-
-Scholkopf, B., A. Smola, and K. Muller. 1998. ``Nonlinear Component
-Analysis as a Kernel Eigenvalue Problem.'' \emph{Neural Computation} 10:
-1299--1319.
-
-Spirling, Arthur. 2012. ``U.S. Treaty Making with American Indians:
-Institutional Change and Relative Power, 1784-1911.'' \emph{American
-Journal of Political Science} 56 (1): 84--97.
-
-{Von Hagen}, Jorgen, and T. Ho. 2007. ``Money Market Pressure and the
-Determinants of Banking Crises.'' \emph{Journal of Money, Credit, and
-Banking} 39 (5): 1037--66.
-
-Zhang, Rui, Wenjian Wang, and Yichen Ma. 2010. ``Approximations of the
-Standard Principal Components Analysis and Kernel PCA.'' \emph{Expert
-Systems with Applications} 37 (9): 6531--37.
 
 \end{document}
