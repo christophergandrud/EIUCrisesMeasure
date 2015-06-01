@@ -25,13 +25,12 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-    tm_map(removeWords, c(stopwords('english'), 'the')) %>%
-    tm_map(stemDocument, mc.cores = 1) %>%
-    tm_map(stripWhitespace) %>%
-    # Results correspond to priors much more closely when case is retained
-    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-    tm_map(removePunctuation, mc.cores = 1) %>%
-    tm_map(removeNumbers, mc.cores = 1)
+                    tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
+                    tm_map(stemDocument, mc.cores = 1) %>%
+                    tm_map(stripWhitespace) %>%
+                    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
+                    tm_map(removePunctuation, mc.cores = 1) %>%
+                    tm_map(removeNumbers, mc.cores = 1)
 
 # Kernal length
 length_spec = 5
@@ -41,6 +40,8 @@ clean_corpus_full <- clean_corpus_full %>% as.list
 # Keep texts that have more words than the kernal length
 keep_vec <- vector()
 for (i in 1:length(clean_corpus_full)) {
+    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>%
+                                        paste(collapse = '')
     temp <- clean_corpus_full[[i]]$content
     more_length <- wordcount(temp) > length_spec
     if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
