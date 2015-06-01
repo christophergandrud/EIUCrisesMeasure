@@ -324,15 +324,15 @@ we focus on is variable importance shown in Figure \ref{rf_importance}.
 \end{figure}
 
 \begin{table}
-    \caption{Comparision of Crisis Measures}
+    \caption{Comparision of Crisis Measures' Definitions}
     \label{comp_table}
     \begin{center}
-        \begin{tabular}{l | c}
-            Source & Definition of Financial Market Distress \\
+        \begin{tabular}{m{3cm} | m{2.5cm} m{7cm}}
+            Source & Level of Measurement &  Definition of Financial Market Distress/Crisis \\
             \hline
-                \cite{Reinhart2009} & \\
-                \cite{laeven2013} & \\
-                \cite{Romer2015} & \\
+                \cite{Reinhart2009} & binary & \\
+                Laeven and Valencia \citeyearpar[228]{laeven2013} & binary & Meets two conditions: (1) significant sign of financial distress in the banking system and (2) significant banking policy intervention measures in response to significant losses in the banking system.  \\
+                Romer and Romer \citeyearpar[3]{Romer2015} & ordinal (0 to 15 scale) & Hand-coded perceptions of funding problems and rising loan defaults in \emph{OECD Economic Outlook}  \\
             \hline
         \end{tabular}
     \end{center}
@@ -364,19 +364,13 @@ have updated their data least recently.
 The solid lines in figures \ref{compare_1} and \ref{compare_2} show the
 EIU Perceptions of Financial Market Stress Index. The dashed lines show
 Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
-periods where \cite{laeven2013} and \cite{Reinhart2009}
-classify there as being a banking crisis.\footnote{We used Table 1 in \cite{Romer2015} to recreate their data set. We downloaded
-  Laeven and Valencia's data from:
-  \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
+periods where \cite{laeven2013} and \cite{Reinhart2009} classify there as being a banking crisis.\footnote{We used Table 1 in \cite{Romer2015} to recreate their data set. We downloaded Laeven and Valencia's data from: \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
   Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
   \url{http://www.carmenreinhart.com/data/browse-by-topic/topics/7/}.
   Accessed May 2015.}
 
 In many cases--given the time period limitations of each data series--,
-the indices are roughly congruent. Comparisons with C. Romer and Romer
-(2015) are limited, but we can see that in general, where comparable
-time series are available, that the EPFMS and their index are roughly
-similar. In particular, both indices increase in the US from early 2007.
+the indices are roughly congruent. Comparisons with \cite{Romer2015} are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007.
 They both decline for Japan through 2004-2005. A notable difference is
 how Romer and Romer classify Japan as being without stress from
 mid-2005, while the EPFMS stays high relative to many other economically
@@ -388,13 +382,15 @@ Romer classify Iceland as in stress\footnote{They classify Iceland as
 than not only a marked increase in the EPFMS Index, but also Reinhart
 and Rogoff and Laeven and Valencia's timing.
 
+\cite{reinhardt2009} consistently place crisis timing as being before \cite{laeven2013}. This likely reflects the slightly different definitions of crises that they utilize.
+
 One very nice characteristic of the EPFMS is that we are able to follow
 progression of crises over time. \cite[227]{laeven2013} comment
 that part of the problem with dating financial crises is that they
 develop differently:
 
 \begin{quote}
-    Some crises evolve gradually, gaining speed as the ripple effects from a seemingly small shock propagate forward in time . . . other episodes happen more abruptly and are often the result of sudden stops.
+    Some crises evolve gradually, gaining speed as the ripple effects from a seemingly small shock propagate forward in time \ldots other episodes happen more abruptly and are often the result of sudden stops.
 \end{quote}
 
 The real-time and relatively granular nature of the EPFMS allows to
@@ -430,7 +426,7 @@ financial market stress differ between developed and developing
 countries.
 
 \begin{figure}
-    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and \cite{Reinhart2009} (1)}
+    \caption{Comparing Perceptions of Financial Market Conditions to \cite{laeven2013} and \cite{Reinhart2009} (1)}
     \label{compare_1}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr.pdf}
@@ -440,7 +436,7 @@ countries.
 
     Dashed lines show Romer and Romer's (2015) rescaled index. \\
 
-    Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Yellow shaded areas indicate periods that \cite{laeven2013} classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
     Red shaded areas indicate periods that \cite{Reinhart2009} classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
@@ -448,7 +444,7 @@ countries.
 \end{figure}
 
 \begin{figure}
-    \caption{Comparing Perceptions of Financial Market Conditions to Laeven \& Valencia (2012) and \cite{Reinhart2009} (2)}
+    \caption{Comparing Perceptions of Financial Market Conditions to \cite{laeven2013} and \cite{Reinhart2009} (2)}
     \label{compare_2}
     \begin{center}
         \includegraphics[scale=0.4]{analysis/figures/compare_to_lv_rr_2.pdf}
@@ -456,7 +452,7 @@ countries.
 
     {\tiny{Solid lines show the (rescaled) EIU Perceptions of Financial Market Stress indicator. Dotted lines represent a loess smooth of these series. \\
 
-    Yellow shaded areas indicate periods that Laeven and Valencia (2012) classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+    Yellow shaded areas indicate periods that \cite{laeven2013} classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
     Red shaded areas indicate periods that \cite{Reinhart2009} classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
 
