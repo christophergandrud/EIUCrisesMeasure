@@ -25,20 +25,18 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-                    tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
-                    tm_map(stemDocument, mc.cores = 1) %>%
+                    tm_map(removeWords, 
+                           stopwords(kind = "SMART"), mc.cores = 2) %>%
+                    tm_map(stemDocument, mc.cores = 2) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-                    tm_map(removePunctuation, mc.cores = 1) %>%
-                    tm_map(removeNumbers, mc.cores = 1)
-
-# Kernal length
-length_spec = 5
+                    tm_map(removePunctuation, mc.cores = 2) %>%
+                    tm_map(removeNumbers, mc.cores = 2)
 
 clean_corpus_full <- clean_corpus_full %>% as.list
 
-clean_corpus <- clean_corpus_full[keep_vec] %>% as.VCorpus %>%
-                    DocumentTermMatrix
+clean_corpus <- clean_corpus_full %>% as.VCorpus %>%
+                    DocumentTermMatrix(control = list(stopwords = T))
 term_freq <- inspect(removeSparseTerms(clean_corpus, 0.9)) %>% as.data.frame
 
 ## Drop countries with fewer than 5 observations
