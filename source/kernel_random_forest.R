@@ -37,16 +37,6 @@ length_spec = 5
 
 clean_corpus_full <- clean_corpus_full %>% as.list
 
-# Keep texts that have more words than the kernal length
-keep_vec <- vector()
-for (i in 1:length(clean_corpus_full)) {
-    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>%
-                                        paste(collapse = '')
-    temp <- clean_corpus_full[[i]]$content
-    more_length <- wordcount(temp) > length_spec
-    if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
-}
-
 clean_corpus <- clean_corpus_full[keep_vec] %>% as.VCorpus %>%
                     DocumentTermMatrix
 term_freq <- inspect(removeSparseTerms(clean_corpus, 0.9)) %>% as.data.frame
@@ -57,21 +47,20 @@ date_country <- row.names(term_freq) %>% gsub('\\.txt', '', .) %>%
     str_split_fixed('_', n = 2) %>%
     as.data.frame(stringsAsFactors = F)
 date_country[, 2] <- gsub('-', ' ', date_country[, 2])
-names(date_country) <- c('date_date', 'country_country')
+names(date_country) <- c('date_date', 'country_country') # date and country are terms
 
 term_freq <- cbind(date_country, term_freq)
 
-date_country$fake_fake <- 1
-date_country <- date_country %>% group_by(country_country) %>%
-    mutate(obs_sum = sum(fake_fake)) %>%
-    filter(obs_sum > 5) %>% select(-fake_fake, -obs_sum)
-
-term_freq <- merge(date_country, term_freq,
-                    by = c('country_country', 'date_date'))
-term_freq <- term_freq %>% select(-country_country, -date_date)
-
 #### Download KPCA results ####
 kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
+
+# Create matching corpus
+kpca_included <- kpca %>% select(date, country)
+names(kpca_included) <- c('date_date', 'country_country')
+term_freq <- merge(kpca_included, term_freq,
+                   by = c('country_country', 'date_date'),
+                   all.x = T) %>%
+                select(-country_country, -date_date)
 
 #### Combine ####
 cor_pca <- function(var) {
