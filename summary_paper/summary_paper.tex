@@ -27,11 +27,12 @@
 
 
 \title{Measuring Real-time Perceptions of Financial Market Stress}
-\author{Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg\footnote{Please contact Christopher Gandrud
+\author{Christopher Gandrud, Mark Hallerberg \\ \emph{Hertie School of Governance}\footnote{Please contact Christopher Gandrud
 (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
 Thank you to Ronen Palan for helpful comments. All data and
 replication material can be found at:
-\url{https://github.com/christophergandrud/EIUCrisesMeasure}.}}
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}.} \\
+Sahil Deo, Christian Franz}
 
 
 
@@ -306,8 +307,8 @@ frequency matrix from the stemmed documents. Effectively this is a
 for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
 stems that were found in 90 percent of the documents. Random forest
 regressions as opposed to ordinary least squares regressions are useful
-in this context because there are many variables--in this case {[}GET{]}
-stems--relative to the number of documents--12,482 {[}UPDATE{]}. The
+in this context because there are many variables--in this case 958
+stems--relative to the number of documents--12,473. The
 result of this analysis\footnote{We conducted the random forest
   regressions using the \texttt{rfsrc} function from the
   \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} that
@@ -327,10 +328,10 @@ we focus on is variable importance shown in Figure \ref{rf_importance}.
     \caption{Comparision of Crisis Measures' Definitions}
     \label{comp_table}
     \begin{center}
-        \begin{tabular}{m{3cm} | m{2.5cm} m{7cm}}
+        \begin{tabular}{m{3cm} | m{2.25cm} m{7cm}}
             Source & Level of Measurement &  Definition of Financial Market Distress/Crisis \\
             \hline
-                \cite{Reinhart2009} & binary & \\
+                \cite{Reinhart2009} & binary & One of two types of events: (1) bank runs leading to closures, mergers, or public sector takeovers of one or more financial institution or (2) the closure, merger, takeover, or large-scale government assistant of an important financial institution marking the start of a string of similar events.  \\
                 Laeven and Valencia \citeyearpar[228]{laeven2013} & binary & Meets two conditions: (1) significant sign of financial distress in the banking system and (2) significant banking policy intervention measures in response to significant losses in the banking system.  \\
                 Romer and Romer \citeyearpar[3]{Romer2015} & ordinal (0 to 15 scale) & Hand-coded perceptions of funding problems and rising loan defaults in \emph{OECD Economic Outlook}  \\
             \hline
@@ -343,8 +344,7 @@ measures}\label{comparison-to-other-crisis-measures}
 
 How does our measure compare to previous ways of measuring and timing
 financial market stress and crisis? We directly compare our measure to
-dichotomous measures in \cite{Reinhart2009} and Laeven and
-Valencia (2013) as well as Romer and Romer's (2015) continuous measure.
+dichotomous measures in \cite{Reinhart2009} and \cite{laeven2013}, as well as Romer and Romer's (2015) continuous measure.
 
 There are some limitations in comparability based simply on the
 different coverage of the different indices. \cite{Romer2015}
@@ -382,7 +382,7 @@ Romer classify Iceland as in stress\footnote{They classify Iceland as
 than not only a marked increase in the EPFMS Index, but also Reinhart
 and Rogoff and Laeven and Valencia's timing.
 
-\cite{reinhardt2009} consistently place crisis timing as being before \cite{laeven2013}. This likely reflects the slightly different definitions of crises that they utilize.
+\cite{Reinhart2009} consistently time crises to start before \cite{laeven2013}. This reflects the slightly different definitions of crises that they utilize. As summarized in Table \ref{comp_table}, \cite{Reinhart2009} date crises when bank runs occur. \cite{laeven2013} begin the crisis clock when not only are there significant events in the financial system, but also when the government follows the distress with a policy response.
 
 One very nice characteristic of the EPFMS is that we are able to follow
 progression of crises over time. \cite[227]{laeven2013} comment
@@ -502,9 +502,6 @@ Conditions}
 \section{Conclusions and Possible Future
 Work}\label{conclusions-and-possible-future-work}
 
-\section*{Appendix}\label{appendix}
-
-\section*{References}\label{references}
 
 \bibliographystyle{apsr}
 \bibliography{main.bib}
