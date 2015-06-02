@@ -19,6 +19,12 @@ library(gridExtra)
 library(tidyr)
 library(rio)
 library(randomForestSRC)
+library(parallel)
+
+# Set number of coures for random forests. 
+cores_custom <- detectCores() - 1
+# Note randomForestSRC must be correctly configured
+options(rf.cores = cores_custom, mc.cores = cores_custom)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
@@ -26,12 +32,12 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(removeWords, 
-                           stopwords(kind = "SMART"), mc.cores = 2) %>%
-                    tm_map(stemDocument, mc.cores = 2) %>%
+                           stopwords(kind = "SMART")) %>%
+                    tm_map(stemDocument) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-                    tm_map(removePunctuation, mc.cores = 2) %>%
-                    tm_map(removeNumbers, mc.cores = 2)
+                    tm_map(removePunctuation) %>%
+                    tm_map(removeNumbers)
 
 clean_corpus_full <- clean_corpus_full %>% as.list
 
@@ -76,15 +82,20 @@ c3_cor <- cor_pca('C3')
 #### Random forest ####
 setwd('~/git_repositories/EIUCrisesMeasure/')
 
-comb <- cbind(kpca$C1, term_freq)
-comb <- dplyr::rename(comb, C1 = `kpca$C1`)
+comb <- cbind(kpca$C1, kpca$C2, term_freq) %>%
+            dplyr::rename(C1 = `kpca$C1`) %>%
+            dplyr::rename(C2 = `kpca$C2`)
 
 addq <- function(x) paste0("`", x, "`")
 
-form <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
+form_c1 <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
           as.formula
+form_c2 <- paste('C2 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
+    as.formula
 
-rfsrc_c1 <- rfsrc(form, data = comb)
+rfsrc_c1 <- rfsrc(form_c1, data = comb)
+rfsrc_c2 <- rfsrc(form_c2, data = comb)
+
 
 # Plot variable importance
 plot.rfsrc(rfsrc_c1, plots.one.page = F)
