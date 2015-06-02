@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# Clean Laeven and Valencia (2012)
+# Clean Laeven and Valencia (2013)
 # Data downloaded from https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0
 # Christopher Gandrud
 # MIT License
@@ -39,10 +39,11 @@ raw_lv$End <- raw_lv$End %>% as.integer
 
 #### Start-End Only ####
 lv_se <- raw_lv %>% select(-ongoing)
-lv_se$Start <- sprintf('%s-12-30', lv_se$Start)
-lv_se$End <- sprintf('%s-12-30', lv_se$End)
+lv_se$Start <- sprintf('%s-06-01', lv_se$Start)
+lv_se$End <- sprintf('%s-06-01', lv_se$End)
 
-lv_se <- lv_se %>% select(iso2c, Start, End)
+lv_se <- lv_se %>% select(iso2c, Start, End) %>%
+            arrange(iso2c, Start)
 export(lv_se, 'cleaned/laeven_valencia_start_end.csv')
 
 #### Expand in missing years ####

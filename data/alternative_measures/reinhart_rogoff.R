@@ -4,7 +4,6 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-
 # Set working directory
 setwd('/git_repositories/EIUCrisesMeasure/')
 
