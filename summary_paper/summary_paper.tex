@@ -31,7 +31,7 @@
 (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
 Thank you to Ronen Palan for helpful comments. All data and
 replication material can be found at:
-\url{https://github.com/christophergandrud/EIUCrisesMeasure}.} 
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}.}}
 
 \begin{document}
 
@@ -287,20 +287,19 @@ them to our priors on financial market stress.
 
 \subsection{Random forests}\label{random-forests}
 
-\cite[6--8]{Spirling2012} demonstrated the usefulness of using random forests
+Spirling \citeyearpar[6--8]{Spirling2012} demonstrated the usefulness of using random forests
 ``regressions'' to explore what principal components from textual
-analyses represent. To do this we first created a document-term
+analyses represent. To use this tool to explore our data, we first created a document-term
 frequency matrix from the stemmed documents. Effectively this is a
 \(k \times s\) matrix recording the frequency of each term in \(\bm{S}\)
 for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
 stems that were found in 90 percent of the documents. Random forests
-regressions as opposed to ordinary least squares regressions are useful
-in this context because there are many variables--in this case 958
-stems--relative to the number of documents--12,473. The
-result of this analysis\footnote{We conducted the random forests
-  regressions using the \texttt{rfsrc} function from the
-  \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} that
-we focus on is variable importance shown in Figure \ref{rf_importance}.
+regressions, as opposed to ordinary least squares regressions, are useful
+for exploring this data's associations with the estimated principal components because it can handle many variables--in this case 958 stems--relative to the number of documents--12,473.
+
+We focus on the variable importance from this analysis.\footnote{We conducted the random forests
+regressions using the \texttt{rfsrc} function from the
+\textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} The results are shown in Figure \ref{rf_importance}. The logic behind variable importance in this context is as a measure of how well the frequency of a given stem in a text allows the model to predict the EPFMS score for that text.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
