@@ -96,16 +96,25 @@ form_c2 <- paste('C2 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
 rfsrc_c1 <- rfsrc(form_c1, data = comb)
 rfsrc_c2 <- rfsrc(form_c2, data = comb)
 
-
 # Plot variable importance
 plot.rfsrc(rfsrc_c1, plots.one.page = F)
+plot.rfsrc(rfsrc_c2, plots.one.page = F)
+
 
 # Save results to a data frame
-imp <- rfsrc_c1$importance %>% as.data.frame
-imp$stem <- row.names(imp)
-names(imp) <- c('variable_importance', 'word_stem')
-imp <- imp %>% select(word_stem, variable_importance)
+extract_importance <- function(x){
+    imp <- x %>% as.data.frame
+    imp$stem <- row.names(imp)
+    names(imp) <- c('variable_importance', 'word_stem')
+    imp <- imp %>% select(word_stem, variable_importance)
+    return(imp)
+}
 
-export(imp, file = 'data/random_forest_var_imp_C1.csv')
+imp_c1 <- extract_importance(rfsrc_c1$importance)
+imp_c2 <- extract_importance(rfsrc_c2$importance)
+
+export(imp_c1, file = 'data/random_forest_var_imp_C1.csv')
+export(imp_c2, file = 'data/random_forest_var_imp_C2.csv')
+
 
 plot.variable(rfsrc_c1)
