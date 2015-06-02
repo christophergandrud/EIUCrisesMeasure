@@ -31,11 +31,7 @@
 (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
 Thank you to Ronen Palan for helpful comments. All data and
 replication material can be found at:
-\url{https://github.com/christophergandrud/EIUCrisesMeasure}.} \\
-Sahil Deo, Christian Franz}
-
-
-
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}.} 
 
 \begin{document}
 
@@ -320,12 +316,12 @@ we focus on is variable importance shown in Figure \ref{rf_importance}.
     \caption{Comparision of Crisis Measures' Definitions}
     \label{comp_table}
     \begin{center}
-        \begin{tabular}{m{3cm} | m{2.25cm} m{7cm}}
-            Source & Level of Measurement &  Definition of Financial Market Distress/Crisis \\
+        \begin{tabular}{m{3cm} | m{2cm} m{2cm} m{7cm}}
+            Source & Measurement Level & Periodicity &  Definition of Financial Market Distress/Crisis \\
             \hline
-                \cite{Reinhart2009} & binary & One of two types of events: (1) bank runs leading to closures, mergers, or public sector takeovers of one or more financial institution or (2) the closure, merger, takeover, or large-scale government assistant of an important financial institution marking the start of a string of similar events.  \\
-                Laeven and Valencia \citeyearpar[228]{laeven2013} & binary & Meets two conditions: (1) significant sign of financial distress in the banking system and (2) significant banking policy intervention measures in response to significant losses in the banking system.  \\
-                Romer and Romer \citeyearpar[3]{Romer2015} & ordinal (0 to 15 scale) & Hand-coded perceptions of funding problems and rising loan defaults in \emph{OECD Economic Outlook}  \\
+                Reinhart and Rogoff \citeyearpar[11]{Reinhart2009} & binary & annual & One of two types of events: (1) bank runs leading to closures, mergers, or public sector takeovers of one or more financial institution or (2) the closure, merger, takeover, or large-scale government assistant of an important financial institution marking the start of a string of similar events.  \\
+                Laeven and Valencia \citeyearpar[228]{laeven2013} & binary & annual & Meets two conditions: (1) significant sign of financial distress in the banking system and (2) significant banking policy intervention measures in response to significant losses in the banking system.  \\
+                Romer and Romer \citeyearpar[3]{Romer2015} & ordinal (0 to 15 scale) & bi-annual & Hand-coded perceptions of funding problems and rising loan defaults in \emph{OECD Economic Outlook}  \\
             \hline
         \end{tabular}
     \end{center}
@@ -346,8 +342,7 @@ of transformations and assumptions to be able to compare the different
 data sets. First, the Laeven and Valencia and Reinhart and Rogoff data
 on recorded only at yearly intervals. So, we assumed that the crisis
 start and end dates they referred to were in the middle of the year,
-i.e.~June. Second, we rescaled Romer and Romer's 15-point scale (in
-effect 13-points because they do not classify any country-quarter in
+i.e. June. Second, we rescaled Romer and Romer's 16-point scale (in effect 13-points because they do not classify any country-quarter in
 their sample as being at the upper two positions on the scale) to be
 between 0 and 1 using the same method as above. Finally, it should be
 noted that \cite{Reinhart2009} only cover 70 countries and they
@@ -359,22 +354,22 @@ Romer and Romer's (rescaled) measure. Finally, the shaded boxes show the
 periods where \cite{laeven2013} and \cite{Reinhart2009} classify there as being a banking crisis.\footnote{We used Table 1 in \cite{Romer2015} to recreate their data set. We downloaded Laeven and Valencia's data from: \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
   Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
   \url{http://www.carmenreinhart.com/data/browse-by-topic/topics/7/}.
-  Accessed May 2015.}
+  Accessed May 2015.} It should be noted that \cite{laeven2013} identify eight ``borderline'' crises in this period, in that the countries almost meet their systemic banking crisis definition because they only used two rather than three policy responses.\footnote{The cases are: France, Hungary, Italy, Portugal, Russia, Slovenia, Sweden, and Switzerland.} Some of these borderline cases are shown in the figures \ref{compare_1} and \ref{compare_2}.
 
 In many cases--given the time period limitations of each data series--,
-the indices are roughly congruent. Comparisons with \cite{Romer2015} are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007.
+the indices overlap. Comparisons with \cite{Romer2015} are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007.
 They both decline for Japan through 2004-2005. A notable difference is
 how Romer and Romer classify Japan as being without stress from
 mid-2005, while the EPFMS stays high relative to many other economically
 developed countries. While they both classify Iceland as being under
-stress in the late 2000s, the timing is markedly different. Romer and
+stress in the late 2000s, the timing is different. Romer and
 Romer classify Iceland as in stress\footnote{They classify Iceland as
   being in a ``minor crisis'' in the second half of 2006 and a ``credit
   disruption'' in the first half of 2007.} in 2006-2007. This is earlier
 than not only a marked increase in the EPFMS Index, but also Reinhart
 and Rogoff and Laeven and Valencia's timing.
 
-\cite{Reinhart2009} consistently time crises to start before \cite{laeven2013}. This reflects the slightly different definitions of crises that they utilize. As summarized in Table \ref{comp_table}, \cite{Reinhart2009} date crises when bank runs occur. \cite{laeven2013} begin the crisis clock when not only are there significant events in the financial system, but also when the government follows the distress with a policy response.
+\cite{Reinhart2009} sometimes start dating a crisis before \cite{laeven2013}--particularly in Iceland and Ireland. This could reflect the slightly different definitions that they use. As summarized in Table \ref{comp_table}, \cite{Reinhart2009} date crises when bank runs occur. \cite{laeven2013} begin the crisis clock when not only are there significant events in the financial system, but also when the government follows the distress with a policy response.
 
 One very nice characteristic of the EPFMS is that we are able to follow
 progression of crises over time. \cite[227]{laeven2013} comment
@@ -406,7 +401,7 @@ record these episodes as crises. The perceived stress likely experienced
 by policy-makers at this time would therefore be excluded from political
 science work using previous binary measures of crisis.
 
-The advantages of the EPFMS are also apparent for timing the end of financial crises. This is a particularly difficult issue for the binary indicators. For example, in many cases \cite{laeven2013} simply conclude a crisis five years after it began. Though we are limited in the range of EIU texts we have at our disposal, it is clear that some countries, notably then United Kingdom and the United States, were perceived to be having improved financial market conditions from about 2010. Other countries, particularly in Western and Souther Europe plateaued at a high level through the end of 2011. While still others go through `double dips'. Italy, for example, appeared to be improving in late 2009 through mid-2010. But perceptions worsened around 2011, likely in relation to the Eurozone crisis. Laeven and Valencia's measure simply describes this entire period as a crisis. Not only does the EPMFS allow us to more accurately date when conditions were seen to have improved, but it also allows us to study this trajectory of these improvements.
+The advantages of the EPFMS are also apparent for timing the end of financial crises. This is a particularly difficult issue for the binary indicators. Though crisis onset is typically well defined, these measures rarely have a clear or non-ad hoc way of determining when a crisis has ended. In many cases \cite{laeven2013} simply determine that a crisis has concluded five years after it began. Though we are limited in the range of EIU texts we have at our disposal, it is clear that some countries, notably then United Kingdom and the United States, were perceived to be having improved financial market conditions from about 2010. Other countries, particularly in Western and Souther Europe plateaued at a high level through the end of 2011. While still others go through `double dips'. Italy, for example, appeared to be improving in late 2009 through mid-2010. But perceptions worsened around 2011, likely in relation to the Eurozone crisis. Laeven and Valencia's measure simply describes this entire period as a crisis. Not only does the EPMFS allow us to more accurately date when conditions were seen to have improved, but it also allows us to study this trajectory of these improvements.
 
 Overall, the similarities between EPFMS scores and other measures of
 banking crises suggests that the EPFMS Index does capture aspects of
