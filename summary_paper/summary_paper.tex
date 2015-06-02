@@ -42,11 +42,10 @@ Sahil Deo, Christian Franz}
 \maketitle
 
 
-\textbf{Note: This work is in the early stages of development. It will
-be updated significantly.}
+\textbf{Note: Incomplete Working Draft}
 
 \begin{abstract}
-A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: \cite{Reinhart2009} or \cite{laeven2013}. These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely \cite{Jing2015}, \cite{Rosas2009}, and \cite{Romer2015} have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but as Copelovitch, Gandrud, and Hallerberg (2015) show the reporting of this data is often endogenous to financial system difficulties [MAYBE CHANGE]. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in \cite{Jing2015} and \cite{Rosas2009}, is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: \cite{Reinhart2009} or \cite{laeven2013}. These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely \cite{Jing2015}, \cite{Rosas2009}, and \cite{Romer2015} have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but this in formation is notoriously opaque \citep{gandrud2015does} and can be subject to significant revisions. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in \cite{Jing2015} and \cite{Rosas2009}, is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
 \end{abstract}
 
 Why and how do politicians respond to financial market stress? This
@@ -199,11 +198,7 @@ selected only texts from 2003 in order to maintain comparability across
 the time-series.
 
 We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the
-  \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and
-`its', stemming the words so that different variants of the same word
-are grouped together, removing extra whitespace between the words,
-removing punctuation and numbers. Finally, we dropped texts that
-included very few words (less than six). Including these texts prevented
+  \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and `its'. The `stopword' list we used was from \cite{dhillon:modha:mlj01}. We also stemmed the words so that different variants of the same word are grouped together, removing extra whitespace between the words, removing punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented
 the estimation of the kernel PCA model.
 
 \subsubsection{Kernel Principal Component
@@ -254,14 +249,11 @@ analysis.\footnote{We conducted kernel PCA with the \texttt{kpca}
 
 To determine the number of dimensions that best describe the data, we
 conducted a scree test, the results of which are shown in Figure
-\ref{scree_plot}. There is an `elbow' in the plot at about six topics.
-This suggests that there is perhaps substantively meaningful variation
-approximately the first six dimensions. The drop from the first to
-second component is clear. We focus on the first dimension as the main
-dimension summarizing financial market conditions.\footnote{We also
-  examined a number of the other dimensions. However, these noticeably
-  did not closely correspond to our priors about financial market stress
-  based on previous indicators.}
+\ref{scree_plot}. There something of an `elbow' in the plot at three components.
+This suggests that there is perhaps substantively meaningful variation in
+approximately the first three dimensions. The drop from the first to
+second component notable. We focus on the first dimension as the main
+dimension summarizing financial market conditions. We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
@@ -291,25 +283,25 @@ results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to
 answer this question. First, following \cite{Spirling2012} we used a random
-forest regression \citep{Breiman2001,jones2015} to examine the
+forests regression \citep{Breiman2001,jones2015} to examine the
 relationships between word stems from the texts and the Perceptions
 Index. Second, we compared the Index to previous indices using an
 `interocular' test, e.g.~looking a plots of the results and comparing
 them to our priors on financial market stress.
 
-\subsection{Random forest}\label{random-forest}
+\subsection{Random forests}\label{random-forests}
 
-\cite[6--8]{Spirling2012} demonstrated the usefulness of using random forest
+\cite[6--8]{Spirling2012} demonstrated the usefulness of using random forests
 ``regressions'' to explore what principal components from textual
 analyses represent. To do this we first created a document-term
 frequency matrix from the stemmed documents. Effectively this is a
 \(k \times s\) matrix recording the frequency of each term in \(\bm{S}\)
 for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
-stems that were found in 90 percent of the documents. Random forest
+stems that were found in 90 percent of the documents. Random forests
 regressions as opposed to ordinary least squares regressions are useful
 in this context because there are many variables--in this case 958
 stems--relative to the number of documents--12,473. The
-result of this analysis\footnote{We conducted the random forest
+result of this analysis\footnote{We conducted the random forests
   regressions using the \texttt{rfsrc} function from the
   \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} that
 we focus on is variable importance shown in Figure \ref{rf_importance}.
@@ -413,6 +405,8 @@ previous levels. Laeven and Valencia and Reinhart and Rogoff do not
 record these episodes as crises. The perceived stress likely experienced
 by policy-makers at this time would therefore be excluded from political
 science work using previous binary measures of crisis.
+
+The advantages of the EPFMS are also apparent for timing the end of financial crises. This is a particularly difficult issue for the binary indicators. For example, in many cases \cite{laeven2013} simply conclude a crisis five years after it began. Though we are limited in the range of EIU texts we have at our disposal, it is clear that some countries, notably then United Kingdom and the United States, were perceived to be having improved financial market conditions from about 2010. Other countries, particularly in Western and Souther Europe plateaued at a high level through the end of 2011. While still others go through `double dips'. Italy, for example, appeared to be improving in late 2009 through mid-2010. But perceptions worsened around 2011, likely in relation to the Eurozone crisis. Laeven and Valencia's measure simply describes this entire period as a crisis. Not only does the EPMFS allow us to more accurately date when conditions were seen to have improved, but it also allows us to study this trajectory of these improvements.
 
 Overall, the similarities between EPFMS scores and other measures of
 banking crises suggests that the EPFMS Index does capture aspects of
