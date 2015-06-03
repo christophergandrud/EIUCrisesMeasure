@@ -1,36 +1,142 @@
 library(repmis)
 library(rio)
 library(dplyr)
+library(countrycode)
 library(lubridate)
+library(tidyr)
 library(earlywarnings)
+library(ggplot2)
+library(gridExtra)
 
-#### Download KPCA results ####
 # Set working directory of kpca project. Change as needed.
 pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
                  '/git_repositories/EIUCrisesMeasure/')
 
 set_valid_wd(pos_directs)
-kpca <- import('data/results_kpca_rescaled.csv')
-kpca$date <- ymd(kpca$date)
+
+# Function to rescale between 0 and 1
+range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 
 # Find diffusion and jump for one country
-sub_ddj <- function(data, id) {
-    temp <- subset(data, country == id) 
-    temp_sub <- temp[-1, 'C1_ma'] %>% as.data.frame
-    results <- ddjnonparam_ews(temp_sub, logtransform = T)
-    
-    comb <- data.frame(country = id, 
-                       date = temp[-1, 'date'], 
-                       diffusion = results$Diff2.t,
-                       jump = results$Lamda.t)
+sub_ddj <- function(x) {
+    comb <- data.frame()
+    for (i in unique(x$country)) {
+        message(i)
+        temp <- subset(x, country == i)
+        temp_sub <- temp[-1, 'C1_ma'] %>% as.data.frame
+        temp_results <- ddjnonparam_ews(temp_sub, logtransform = T)
+
+        if (length(temp_results$Diff2.t) == length(temp[-1, 'date'])) {
+        temp_comb <- data.frame(country = i,
+                           date = temp[-1, 'date'],
+                           diffusion = temp_results$Diff2.t,
+                           jump = temp_results$Lamda.t)
+        comb <- rbind(comb, temp_comb)
+        }
+    }
     return(comb)
 }
 
-uk <- sub_ddj(kpca, 'United Kingdom')
+#### Load KPCA results ####
+kpca <- import('data/results_kpca_rescaled.csv')
+kpca$date <- ymd(kpca$date)
+kpca$country <- countrycode(kpca$country, origin = 'country.name',
+                            destination = 'country.name')
 
+# Remove problem countries
+kpca <- kpca[duplicated(kpca$country, kpca$date), ]
+kpca <- kpca %>% filter(country != 'Congo')
+kpca <- kpca %>% filter(country != 'Timor-Leste')
 
-sub_ch <- function(data, id) {
-    temp <- subset(data, country == id) 
-    temp_sub <- temp[-1, 'C1_ma'] %>% as.data.frame
-    results <- ch_ews(temp_sub)
+dj_kpca <- sub_ddj(kpca)
+
+comb_continuous <- gather(dj_kpca, jump_diffusion, value, 3:4)
+
+## Load Reinhart and Rogoff
+source('data/alternative_measures/reinhart_rogoff.R')
+rr_bc <- rr_bc %>% filter(RR_BankingCrisis_start >= '2003-01-01')
+
+rr_bc_start <- rr_bc %>% select(iso2c, RR_BankingCrisis_start) %>%
+                rename(start = RR_BankingCrisis_start)
+rr_bc_end <- rr_bc %>% select(RR_BankingCrisis_end) %>%
+                rename(end = RR_BankingCrisis_end)
+
+rr_bc <- cbind(rr_bc_start, rr_bc_end)
+rr_bc$Source <- 'Reinhart/Rogoff'
+
+## Laeven and Valencia
+lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
+lv_se$Start <- ymd(lv_se$Start)
+lv_se$End <- ymd(lv_se$End)
+lv_se <- lv_se %>% filter(Start >= '2003-01-01')
+
+lv_se_start <- lv_se %>% select(iso2c, Start) %>%
+            rename(start = Start)
+lv_se_end <- lv_se %>% select(End) %>%
+                rename(end = End)
+
+lv_se <- cbind(lv_se_start, lv_se_end)
+lv_se$Source <- 'Laeven/Valencia'
+
+comb_se <- rbind(rr_bc, lv_se)
+
+comb_se$country <- countrycode(comb_se$iso2c, origin = 'iso2c',
+                                 destination = 'country.name')
+
+#### Compare to LV ####
+compare_to_dummy <- function(data_cont, data_dummy, id, 
+                             jd = 'diffusion') {
+    temp_cont <- subset(data_cont, country == id)
+    temp_cont <- subset(temp_cont, jump_diffusion == jd)
+    temp_dummy <- subset(data_dummy, country == id)
+
+    if (nrow(temp_dummy) == 0) {
+        ggplot(data = temp_cont, aes(date, value)) +
+            geom_line(alpha = 0.6) +
+            scale_linetype_manual(values = c('solid', 'dashed', 'dotted')) +
+            ggtitle(id) + xlab('') + ylab(sprintf('%s\n', jd)) +
+            theme_bw() +
+            theme(legend.position = "none")
+    } else if (nrow(temp_dummy)) {
+        ggplot() +
+            geom_line(data = temp_cont, aes(date, value), alpha = 0.6) +
+            geom_rect(data = temp_dummy, aes(xmin = start, xmax = end,
+                                             ymin = -Inf, ymax = Inf,
+                                             fill = Source),
+                   alpha = 0.4) +
+            scale_fill_manual(values = c("#D8B70A", "#972D15")) +
+            scale_linetype_manual(values = c('solid', 'dashed', 'dotted')) +
+            ggtitle(id) + xlab('') + ylab(sprintf('%s\n', jd)) +
+            theme_bw() +
+            theme(legend.position = "none")
+    }
 }
+
+country_vector <- unique(kpca$country)
+kpca_list <- list()
+for (i in country_vector) {
+ message(i)
+ kpca_list[[i]] <- suppressMessages(
+         compare_to_dummy(data_cont = comb_continuous,
+                          data_dummy = comb_se,
+                          id = i, jd = 'diffusion'))
+}
+
+# Plot selection (1)
+select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
+                      'Brazil','Bulgaria', 'Canada', 'China',
+                      'Czech Republic', 'Denmark', 'Estonia', 'France',
+                      'Germany', 'Greece','Hungary', 'Iceland',
+                      'India', 'Ireland', 'Italy', 'Japan'
+                      )
+
+select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
+                        'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation',
+                        'Singapore', 'Slovenia', 'South Africa', 'Spain',
+                        'Switzerland', 'Ukraine', 'United Kingdom', 'United States'
+                        )
+
+do.call(grid.arrange, kpca_list[select_countries_1])
+
+do.call(grid.arrange, kpca_list[select_countries_2])
+

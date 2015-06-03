@@ -32,11 +32,11 @@ perceptions$country <- countrycode(perceptions$iso2c, origin = 'iso2c',
 perceptions$Source <- 'EIU Perceptions Index'
 
 ## Import Romer and Romer (2015)
-romer_romer <- import('data/alternative_measures/cleaned/rommer_romer.csv') 
+romer_romer <- import('data/alternative_measures/cleaned/rommer_romer.csv')
 romer_romer$date <- ymd(romer_romer$date)
 romer_romer <- romer_romer %>% select(-country)
 
-romer_romer$rr_rescale <- romer_romer$rr_distress %>% 
+romer_romer$rr_rescale <- romer_romer$rr_distress %>%
                             range01()
 
 romer_romer$country <- countrycode(romer_romer$iso2c, origin = 'iso2c',
@@ -44,9 +44,9 @@ romer_romer$country <- countrycode(romer_romer$iso2c, origin = 'iso2c',
 romer_romer$Source <- 'Romer/Romer'
 
 ## Combine Perceptions Index and Romer and Romer
-perceptions <- perceptions %>% select(country, date, Source, C1_ma) %>% 
+perceptions <- perceptions %>% select(country, date, Source, C1_ma) %>%
                 rename(stress_measure = C1_ma)
-romer_romer <- romer_romer %>% select(country, date, Source, rr_rescale) %>% 
+romer_romer <- romer_romer %>% select(country, date, Source, rr_rescale) %>%
                 rename(stress_measure = rr_rescale)
 
 comb_continuous <- rbind(perceptions, romer_romer) %>%
@@ -95,11 +95,11 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
     temp_dummy <- subset(data_dummy, country == id)
 
     if (nrow(temp_dummy) == 0) {
-        ggplot(data = temp_cont, aes(date, stress_measure, group = Source, 
+        ggplot(data = temp_cont, aes(date, stress_measure, group = Source,
                                      linetype = Source)) +
             geom_line(alpha = 0.6) +
-            stat_smooth(data = subset(temp_cont, 
-                                      Source == "EIU Perceptions Index"), 
+            stat_smooth(data = subset(temp_cont,
+                                      Source == "EIU Perceptions Index"),
                                       aes(date, stress_measure),
                         se = F, colour = 'black', linetype = 'dotted') +
             scale_y_continuous(limits = c(0, 1),
@@ -112,11 +112,11 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
             theme(legend.position = "none")
     } else if (nrow(temp_dummy)) {
         ggplot() +
-            geom_line(data = temp_cont, aes(date, stress_measure, 
+            geom_line(data = temp_cont, aes(date, stress_measure,
                                             group = Source,
                                             linetype = Source), alpha = 0.6) +
-            stat_smooth(data = subset(temp_cont, 
-                                      Source == "EIU Perceptions Index"), 
+            stat_smooth(data = subset(temp_cont,
+                                      Source == "EIU Perceptions Index"),
                         aes(date, stress_measure),
                         se = F, colour = 'black', linetype = 'dotted') +
             geom_rect(data = temp_dummy, aes(xmin = start, xmax = end,
@@ -135,7 +135,6 @@ compare_to_dummy <- function(data_cont, data_dummy, id) {
     }
 }
 
-
 country_vector <- unique(perceptions$country)
 kpca_list <- list()
 for (i in country_vector) {
@@ -149,7 +148,7 @@ for (i in country_vector) {
 # Plot selection (1)
 select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                       'Brazil','Bulgaria', 'Canada', 'China',
-                      'Czech Republic', 'Denmark', 'Estonia', 'France', 
+                      'Czech Republic', 'Denmark', 'Estonia', 'France',
                       'Germany', 'Greece','Hungary', 'Iceland',
                       'India', 'Ireland', 'Italy', 'Japan'
                       )
@@ -159,9 +158,9 @@ pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr.pdf', width = 15,
 dev.off()
 
 # Plot selection (2)
-select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg', 
-                        'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation', 
-                        'Singapore', 'Slovenia', 'South Africa', 'Spain', 
+select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
+                        'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation',
+                        'Singapore', 'Slovenia', 'South Africa', 'Spain',
                         'Switzerland', 'Ukraine', 'United Kingdom', 'United States'
                         )
 pdf(file = 'summary_paper/analysis/figures/compare_to_lv_rr_2.pdf', width = 15,
