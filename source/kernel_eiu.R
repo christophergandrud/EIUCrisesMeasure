@@ -4,9 +4,6 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-# Set working directory of parsed texts. Change as needed.
-setwd('/Volumes/Gandrud1TB/eiu/eiu_extracted/')
-
 # Load packages
 library(tm)
 library(SnowballC)
@@ -18,6 +15,12 @@ library(ggplot2)
 library(gridExtra)
 library(rio)
 library(TTR)
+
+# Set working directory of parsed texts. Change as needed.
+pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
+                   '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+
+set_valid_wd(pos_directs)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1

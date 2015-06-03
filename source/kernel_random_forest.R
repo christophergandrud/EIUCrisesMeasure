@@ -20,7 +20,6 @@ library(rio)
 library(randomForestSRC)
 
 # Set working directory of parsed texts. Change as needed.
-
 pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
                    '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
 
@@ -31,7 +30,7 @@ wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-                    tm_map(removeWords, 
+                    tm_map(removeWords,
                            stopwords(kind = "SMART"), mc.cores = 2) %>%
                     tm_map(stemDocument, mc.cores = 2) %>%
                     tm_map(stripWhitespace) %>%
@@ -55,8 +54,13 @@ names(date_country) <- c('date_date', 'country_country') # date and country are 
 
 term_freq <- cbind(date_country, term_freq)
 
-#### Download KPCA results ####
-kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
+#### Load KPCA results ####
+# Set working directory of kpca project. Change as needed.
+pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
+                 '/git_repositories/EIUCrisesMeasure/')
+
+set_valid_wd(pos_directs)
+kpca <- import('data/results_kpca_rescaled.csv')
 
 # Create matching corpus
 kpca_included <- kpca %>% select(date, country)

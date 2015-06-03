@@ -301,6 +301,7 @@ We focus on the variable importance from this analysis.\footnote{We conducted th
 regressions using the \texttt{rfsrc} function from the
 \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} The results are shown in Figure \ref{rf_importance}. The logic behind variable importance in this context is as a measure of how well the frequency of a given stem in a text allows the model to predict the EPFMS score for that text.
 
+Unsurprisingly, two of the three stems with the largest variable importance are `bank' and `financi'. Terms with these stems were used to select the texts.
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
     \label{rf_importance}
@@ -479,6 +480,10 @@ Previous measures of financial market distress and crises have generally
 been unable to explore this possible interaction. \emph{Post-hoc}
 measures of crisis in particular capture the outcome of this process,
 rather than the process itself.
+
+\section{Summarizing Trends in the EPFMS}
+
+We can use nonparametric drift-diffusion-jump models (DDJ) \citep{Carpenter2011,Dakos2012} to draw more general conclusions about how perceptions of financial market stress change in more demanding and less demanding times. Nonparametric DDJ models allow us to approximate processes of change in a time series without needing to make explicit assumptions about the underlying process that creates these changes.\footnote{It should be stressed that unlike in other applications of DDJ models, such as in ecology and related work in finance \citep{Kou2008}, that use them to predict future states, we are soley using this statistical approach to summarize changes in observed data.} 
 
 \section{How Good are the EIU Perceptions at Predicting Future Economic
 Conditions}
