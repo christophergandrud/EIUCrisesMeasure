@@ -1,3 +1,10 @@
+# ---------------------------------------------------------------------------- #
+# Find nonparametric jump and diffusion parameters. Compare to LV and RR
+# Christopher Gandrud
+# MIT LICENSE
+# ---------------------------------------------------------------------------- #
+
+# Load required packages
 library(repmis)
 library(rio)
 library(dplyr)
