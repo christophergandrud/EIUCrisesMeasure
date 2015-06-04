@@ -14,6 +14,8 @@ library(tidyr)
 library(earlywarnings)
 library(ggplot2)
 library(gridExtra)
+library(WDI)
+
 
 # Set working directory of kpca project. Change as needed.
 pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
@@ -164,16 +166,20 @@ comb <- merge(dj_kpca, lv, by = c('iso2c', 'year'))
 crisis <- comb %>% filter(lv_bank_crisis == 1)
 non_crisis <- comb %>% filter(lv_bank_crisis == 0)
 
-ks.test(crisis$diffusion, non_crisis$diffusion)
-ks.test(crisis$jump, non_crisis$jump)
-ks.test(crisis$total_variance, non_crisis$total_variance)
+ks.test(crisis$diffusion, non_crisis$diffusion, alternative = 'less')
+ks.test(crisis$jump, non_crisis$jump, alternative = 'less')
+ks.test(crisis$total_variance, non_crisis$total_variance, 
+        alternative = 'greater')
 
 #### Plot density comparisions ####
 comb_gathered <- comb %>% gather(measure, value, 5:7)
 comb_gathered$lv_bank_crisis <- factor(comb_gathered$lv_bank_crisis, 
                                        labels = c('No Crisis', 'Crisis'))
 comb_gathered$measure <- factor(comb_gathered$measure, 
-                                       labels = c('Diffusion', 'Jump', 'Total Variance'))
+                                        levels = c('jump', 'diffusion', 
+                                                   'total_variance'),
+                                        labels = c('Jump', 'Diffusion', 
+                                                  'Total Variance'))
 
 ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
     geom_density(aes(linetype = lv_bank_crisis)) +
@@ -183,3 +189,27 @@ ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
     theme_bw() +
     guides(color = guide_legend(title = 'Laeven/Valencia'),
            linetype = guide_legend(title = 'Laeven/Valencia'))
+
+ggsave('summary_paper/analysis/figures/compare_jump_diffusion_basic.pdf')
+
+#### Compare with WDI income groups
+# Gather and clean income groupd data
+income <- WDI(indicator = 'NY.GDP.MKTP.KD', extra = T, start = 2003)
+
+income <- income %>% filter(income != 'Aggregates')
+income <- income %>% filter(!is.na(income$income))
+
+income$high_income <- 0
+income$high_income[income$income == 'High income: OECD'] <- 1
+income$high_income[income$income == 'High income: nonOECD'] <- 1
+
+# Merge
+income <- income %>% select(iso2c, year, high_income) %>% arrange(iso2c, year)
+comb_income <- merge(comb_gathered, income, by = c('iso2c', 'year'))
+
+
+temp_sub <- comb_income %>% filter(measure == 'Diffusion')
+ggplot(temp_sub, aes(value, color = lv_bank_crisis)) +
+    geom_density() +
+    facet_wrap(~high_income, scales = 'free') +
+    theme_bw()

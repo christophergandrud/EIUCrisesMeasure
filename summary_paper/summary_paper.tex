@@ -495,9 +495,21 @@ The approach we take to estimating the DDJ model is from \cite{Carpenter2011}. I
       dx_{t} = f(x_{t}\theta_{t})dt + g(x_{t}\theta_{t})dw + dJ_{t}
 \end{equation}
 
-\noindent $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details.\footnote{We estimated the model using the \tt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}.} Note that we estimated the parameters for each country's time series separately.
+\noindent $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details.\footnote{We estimated the model using the \texttt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}.} Note that we estimated the parameters for each country's time series separately.
 
-In the abstract we would perhaps expect that jumps would be more common in countries' EPFMS scores during crisis periods because there would be large moves in the index. Interestingly, we actually find the opposite to be the case.  
+In the abstract we would perhaps expect that jumps would be more common in countries' EPFMS scores during crisis periods because there would be large moves in the index. To test this we first graphically compared the distributions of jump and diffusion parameters across what Laeven and Valencia\footnote{They are the most recently updated and comprehensive binary measure of crises.} classify as crisis and non-crisis periods. Figure \ref{comp_jump_diff} shows these densities. We have also included a measure of total variance, which is a summary of both jump and diffusion parameters.
+
+\begin{figure}
+    \caption{Diffusion, Jump, and Total Variance Estimate Distributions Across Crisis and Non-Crisis Periods from \cite{laeven2013}}
+    \label{comp_jump_diff}
+    \begin{center}
+        \includegraphics[scale=0.5]{analysis/figures/compare_jump_diffusion_basic.pdf}
+    \end{center}
+\end{figure}
+
+We can see that the distribution of estimated jump parameters in `non-crisis' periods is shifted upward from the distribution of jump parameters in `crisis' periods. Conversely, the distribution of diffusion parameters in crisis periods is shifted upward from non-crisis periods. Finally, the distribution of total variance in crisis periods is lower than non-crisis periods. We found these distributions to be statistically significantly different in the described direction at all conventional levels using one-sided Kolmogorov–Smirnov tests.\footnote{We ran the tests using the \tt{ks.test} function from base R.}
+
+This is an interesting result considering our prior expectations. How can we make sense of them?
 
 \section{Replication}\label{replication}
 
