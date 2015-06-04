@@ -170,12 +170,16 @@ ks.test(crisis$total_variance, non_crisis$total_variance)
 
 #### Plot density comparisions ####
 comb_gathered <- comb %>% gather(measure, value, 5:7)
-# comb_gathered <- comb_gathered %>% filter(measure == 'jump' & value <= 10)
 comb_gathered$lv_bank_crisis <- factor(comb_gathered$lv_bank_crisis, 
                                        labels = c('No Crisis', 'Crisis'))
+comb_gathered$measure <- factor(comb_gathered$measure, 
+                                       labels = c('Diffusion', 'Jump', 'Total Variance'))
 
 ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
-    geom_density() +
+    geom_density(aes(linetype = lv_bank_crisis)) +
     facet_wrap(~measure, scales = "free", ncol = 1) +
-    theme_bw()
-
+    scale_color_manual(values = c("#00A08A", "#FF0000")) +
+    ylab('Density\n') + xlab('') +
+    theme_bw() +
+    guides(color = guide_legend(title = 'Laeven/Valencia'),
+           linetype = guide_legend(title = 'Laeven/Valencia'))
