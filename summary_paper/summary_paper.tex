@@ -382,7 +382,7 @@ develop differently:
 
 The real-time and relatively granular nature of the EPFMS allows to
 distinguish these types of crises. For example, we can see in Figure
-\ref{compare_1} that financial market difficulties in the United States
+\ref{compare_2} that financial market difficulties in the United States
 crisis built over along period of time, with a few spikes during notable
 banking difficulties. Conversely, countries such as Germany, Hungary,
 and Iceland clearly have much more sudden periods of perceived financial
@@ -492,7 +492,7 @@ Drift is a measure of local rate of change. Diffusion is the small changes that 
 The approach we take to estimating the DDJ model is from \cite{Carpenter2011}. It approximates the unknown process generating the EPFMS scores:
 
 \begin{equation}
-      dx_{t} = f(x_{t}\theta_{t})dt + g(x_{t}\theta_{t})dw + dJ_{t}
+      dx_{t} = f(x_{t},\;\theta_{t})dt + g(x_{t},\;\theta_{t})dw + dJ_{t}
 \end{equation}
 
 \noindent $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details.\footnote{We estimated the model using the \texttt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}.} Note that we estimated the parameters for each country's time series separately.
@@ -509,12 +509,17 @@ In the abstract we would perhaps expect that jumps would be more common in count
 
 We can see that the distribution of estimated jump parameters in `non-crisis' periods is shifted upward from the distribution of jump parameters in `crisis' periods. Conversely, the distribution of diffusion parameters in crisis periods is shifted upward from non-crisis periods. Finally, the distribution of total variance in crisis periods is lower than non-crisis periods. We found these distributions to be statistically significantly different in the described direction at all conventional levels using one-sided Kolmogorov–Smirnov tests.\footnote{We ran the tests using the \tt{ks.test} function from base R.}
 
-This is an interesting result considering our prior expectations. How can we make sense of them?
+This is an interesting result considering our prior expectations. How can we make sense of it? It is useful to refer back to figures \ref{compare_1} and \ref{compare_2}. Notice that many of there periods that are classified across measures as a crisis do indeed begin with a jump. Belgium, Denmark, and Germany are particularly illustrative of this. However, these changes are not unusually large relative to changes in previous years. What is different, however, is what happens after the jump. Before crisis periods there are relatively many jumps in both positive and negative directions. In crisis periods there are a few positive jumps followed by many smallish, often positive, changes in the EPFMS.
+
+In non-crisis times there may effectively be more noise in economic events, causing relatively large positive and negative swings in perceptions of financial market conditions. When crises occur, the information used to create perceptions of financial market stress are clearer. Think for example of Lehman Brother's collapse and the continually bad news that followed. During a crisis initial shocks are followed by additional bad news. During non-crisis times a possible shock could be followed relatively quickly afterwards by good news.
+
+Not all crises are the same. Most of the crises in the period for which we have data have been protracted. In some cases, however, crises came quickly and left almost as quickly. Kazakstan is a notable example. In late 2009 there was a prominent spike in perceptions of financial market stress. Within a few months, the EPFMS score returned to almost its previous--though still relatively elevated--trend level.
+
+While the EPMFS is a fine-grained description of perceived stress, we should avoid using it as a predictive measure of when a crisis will begin or end.
 
 \section{Replication}\label{replication}
 
-\section{Conclusions and Possible Future
-Work}\label{conclusions-and-possible-future-work}
+\section{Conclusions}\label{conclusions}
 
 
 \bibliographystyle{apsr}
