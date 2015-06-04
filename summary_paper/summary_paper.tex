@@ -38,7 +38,7 @@ replication material can be found at:
 \maketitle
 
 
-\textbf{Note: Incomplete Working Draft}
+\textbf{Incomplete Working Draft}
 
 \begin{abstract}
 A wide range of political economy research on the causes, responses to, and effects of banking crisis needs an accurate and reliable measure of banking crises that is comparable across countries and ideally includes information on crisis severity. Most research to date uses one of two series of crisis data: \cite{Reinhart2009} or \cite{laeven2013}. These measures are lacking in that they are simple dichotomous indicators of financial crisis and differ considerably in their start and end dates for many incidents. They are also constructed after the fact and so tend to be biased towards severe crises and away from those where government responses effectively calmed emerging trouble. Recent efforts, namely \cite{Jing2015}, \cite{Rosas2009}, and \cite{Romer2015} have attempted to develop more reliable measures of crises that also include continuous information on severity. Each of these approaches have important shortcomings. Jing et al.’s measure is based on central bank’s policy responses, which researchers may want to examine as a dependent variable. Rosas relies on nationally reported banking system data, but this in formation is notoriously opaque \citep{gandrud2015does} and can be subject to significant revisions. Romer and Romer’s approach relies on very time intensive human coding of texts from the OECD and aggregates these codings using a simple summation method. Their approach, though it avoids the issues present in \cite{Jing2015} and \cite{Rosas2009}, is very laborious to construct, subjective, and equally weights each item in their coding scheme, which may not be reasonable. This paper describes the motivation and construction of our new measure of real-time perceptions of financial market stress based on kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. In doing so, we not only develop a novel indicator of financial market stress, but we also make a contribution to the wider political science literature by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
@@ -481,14 +481,23 @@ been unable to explore this possible interaction. \emph{Post-hoc}
 measures of crisis in particular capture the outcome of this process,
 rather than the process itself.
 
-\section{Summarizing Trends in the EPFMS}
+\section{Summarizing Changes in the EPFMS}
 
-We can use nonparametric drift-diffusion-jump models (DDJ) \citep{Carpenter2011,Dakos2012} to draw more general conclusions about how perceptions of financial market stress change in more demanding and less demanding times. Nonparametric DDJ models allow us to approximate processes of change in a time series without needing to make explicit assumptions about the underlying process that creates these changes.\footnote{It should be stressed that unlike in other applications of DDJ models, such as in ecology and related work in finance \citep{Kou2008}, that use them to predict future states, we are soley using this statistical approach to summarize changes in observed data.} 
+So far we have largely examined EPFMS score levels. Now we turn to examining changes in the EPFMS. To do this we use nonparametric drift-diffusion-jump models (DDJ) \citep{Carpenter2011,Dakos2012}. This approach allows us to draw more general conclusions about how perceptions of financial market stress change in more demanding and less demanding times.
 
-\section{How Good are the EIU Perceptions at Predicting Future Economic
-Conditions}
+This approach allow us to approximate processes of change in a time series without needing to make explicit assumptions about the underlying process that creates these changes.\footnote{It should be stressed that unlike in other applications of DDJ models, such as in ecology and related work in finance \citep{Kou2008}, that use them to predict future states, we are exclusively using this statistical approach to summarize changes and elucidate patterns in observed data.}
 
-{[}THINK ABOUT WHETHER OR NOT TO INCLUDE{]}
+Drift is a measure of local rate of change. Diffusion is the small changes that happen at each time increment. Jumps are larger shocks that occur intermittently and are uncorrelated in time.
+
+The approach we take to estimating the DDJ model is from \cite{Carpenter2011}. It approximates the unknown process generating the EPFMS scores:
+
+\begin{equation}
+      dx_{t} = f(x_{t}\theta_{t})dt + g(x_{t}\theta_{t})dw + dJ_{t}
+\end{equation}
+
+\noindent $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details.\footnote{We estimated the model using the \tt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}.} Note that we estimated the parameters for each country's time series separately.
+
+In the abstract we would perhaps expect that jumps would be more common in countries' EPFMS scores during crisis periods because there would be large moves in the index. Interestingly, we actually find the opposite to be the case.  
 
 \section{Replication}\label{replication}
 

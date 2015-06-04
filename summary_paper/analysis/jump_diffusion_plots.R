@@ -37,7 +37,8 @@ sub_ddj <- function(x) {
         temp_comb <- data.frame(country = i,
                            date = temp[-1, 'date'],
                            diffusion = temp_results$Diff2.t,
-                           jump = temp_results$Lamda.t)
+                           jump = temp_results$Lamda.t,
+                           total_variance = temp_results$TotVar.t)
         comb <- rbind(comb, temp_comb)
         }
     }
@@ -57,7 +58,7 @@ kpca <- kpca %>% filter(country != 'Timor-Leste')
 
 dj_kpca <- sub_ddj(kpca)
 
-comb_continuous <- gather(dj_kpca, jump_diffusion, value, 3:4)
+comb_continuous <- gather(dj_kpca, jump_diffusion, value, 3:5)
 
 ## Load Reinhart and Rogoff
 source('data/alternative_measures/reinhart_rogoff.R')
@@ -126,7 +127,7 @@ for (i in country_vector) {
  kpca_list[[i]] <- suppressMessages(
          compare_to_dummy(data_cont = comb_continuous,
                           data_dummy = comb_se,
-                          id = i, jd = 'diffusion'))
+                          id = i, jd = 'jump'))
 }
 
 # Plot selection (1)
@@ -146,4 +147,35 @@ select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
 do.call(grid.arrange, kpca_list[select_countries_1])
 
 do.call(grid.arrange, kpca_list[select_countries_2])
+
+# ---------------------------------------------------------------------------- # 
+#### Compare distributions of DDJ parameters for crisis and non-crisis      ####
+
+dj_kpca$iso2c <- countrycode(dj_kpca$country, origin = 'country.name',
+                             destination = 'iso2c')
+dj_kpca$year <- year(dj_kpca$date)
+
+## Laeven and Valencia
+lv <- import('data/alternative_measures/cleaned/laeven_valencia_banking_crisis.csv')
+
+comb <- merge(dj_kpca, lv, by = c('iso2c', 'year'))
+
+#### Kolmogorov-Smirnov test of equality of distributions in crisis and non-crisis
+crisis <- comb %>% filter(lv_bank_crisis == 1)
+non_crisis <- comb %>% filter(lv_bank_crisis == 0)
+
+ks.test(crisis$diffusion, non_crisis$diffusion)
+ks.test(crisis$jump, non_crisis$jump)
+ks.test(crisis$total_variance, non_crisis$total_variance)
+
+#### Plot density comparisions ####
+comb_gathered <- comb %>% gather(measure, value, 5:7)
+# comb_gathered <- comb_gathered %>% filter(measure == 'jump' & value <= 10)
+comb_gathered$lv_bank_crisis <- factor(comb_gathered$lv_bank_crisis, 
+                                       labels = c('No Crisis', 'Crisis'))
+
+ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
+    geom_density() +
+    facet_wrap(~measure, scales = "free", ncol = 1) +
+    theme_bw()
 
