@@ -203,8 +203,9 @@ income$high_income <- 0
 income$high_income[income$income == 'High income: OECD'] <- 1
 income$high_income[income$income == 'High income: nonOECD'] <- 1
 
-# Merge
 income <- income %>% select(iso2c, year, high_income) %>% arrange(iso2c, year)
+
+# Merge
 comb_income <- merge(comb_gathered, income, by = c('iso2c', 'year'))
 
 
