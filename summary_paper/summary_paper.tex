@@ -168,20 +168,18 @@ basis. As such, the EIU is preferable for creating a cross-country indicator of 
 EIU}\label{summarizing-financial-market-stress-in-the-eiu}
 
 Our aim is to create an index that classifies financial conditions on a
-continuous more-stressed/less stressed spectrum. So we clearly need an
+continuous more-stressed/less stressed spectrum for as many country-months as possible. Therefore, we clearly need an
 efficient way to summarize the vast quantity of information in the EIU
-reports. To do this we first collected and processed the texts. Then we
-used kernel principal component analysis to summarize the texts into a
+reports along such a spectrum. To do this we first collected and processed the texts. We then used kernel principal component analysis to summarize the texts into a
 dimension of financial market stress. We rescaled the Index to ease
-interpretation. Finally, we used a number of strategies to examine the
-Index's validity.
+interpretation.
 
 \subsubsection{Text selection}\label{text-selection}
 
 EIU reports contain assessments of a wide range of countries' economies,
-not just their financial system. So, our first step was to select the
+not just their financial system. Our first step was to select the
 portions of the EIU texts that contained relevant information about
-countries' banking and financial systems. We collected the parsed
+countries' banking and financial systems. We automatically collected and the parsed
 reports--the reports were in HTML format. We then extracted the portions
 of the texts--headlines and paragraphs--that contained at least one of a
 number of keywords concerning banking and financial markets.\footnote{The
@@ -196,7 +194,7 @@ significant change in how the reports were constructed in 2003, we also
 selected only texts from 2003 in order to maintain comparability across
 the time-series.
 
-We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and `its'. The `stopword' list we used was from \cite{dhillon:modha:mlj01}. We also stemmed the words so that different variants of the same word are grouped together, removing extra whitespace between the words, removing punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented the estimation of the kernel PCA model.
+We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and `its'. The `stopword' list we used was from \cite{dhillon:modha:mlj01}. We stemmed the words so that different variants of the same word are grouped together. We removed extra whitespace between the words, as well as removed punctuation and numbers. Finally, we dropped texts that included very few words (less than six). Including these texts prevented the estimation of the kernel PCA model.
 
 \subsubsection{Kernel Principal Component
 Analysis}\label{kernel-principal-component-analysis}
@@ -260,7 +258,7 @@ dimension summarizing financial market conditions. We also examined a number of 
     \end{center}
 \end{figure}
 
-\section{Results}\label{results}
+\section{Results, Validation, and Description}\label{results}
 
 The lines in figures \ref{compare_1} and \ref{compare_2} show the
 results of the kernel PCA analysis for a selection of countries. We use
@@ -283,7 +281,7 @@ answer this question. First, following \cite{Spirling2012} we used a random
 forests regression \citep{Breiman2001,jones2015} to examine the
 relationships between word stems from the texts and the Perceptions
 Index. Second, we compared the Index to previous indices using an
-`interocular' test, e.g.~looking a plots of the results and comparing
+`interocular' test, i.e. looking at plots of the results and comparing
 them to our priors on financial market stress.
 
 \subsection{Random forests}\label{random-forests}
@@ -298,8 +296,7 @@ stems that were found in 90 percent of the documents. Random forests
 regressions, as opposed to ordinary least squares regressions, are useful
 for exploring this data's associations with the estimated principal components because it can handle many variables--in this case 958 stems--relative to the number of documents--12,473.
 
-We focus on the variable importance from this analysis.\footnote{We conducted the random forests
-regressions using the \texttt{rfsrc} function from the
+We focus on the variable importance from this analysis.\footnote{We conducted the random forests regressions using the \texttt{rfsrc} function from the
 \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} The results are shown in Figure \ref{rf_importance}. The logic behind variable importance in this context is as a measure of how well the frequency of a given stem in a text allows the model to predict the EPFMS score for that text.
 
 Unsurprisingly, two of the three stems with the largest variable importance are `bank' and `financi'. Terms with these stems were used to select the texts.
@@ -343,8 +340,7 @@ periods where \cite{laeven2013} and \cite{Reinhart2009} classify there as being 
   Accessed May 2015.} It should be noted that \cite{laeven2013} identify eight ``borderline'' crises in this period, in that the countries almost meet their systemic banking crisis definition because they only used two rather than three policy responses.\footnote{The cases are: France, Hungary, Italy, Portugal, Russia, Slovenia, Sweden, and Switzerland.} Some of these borderline cases are shown in the figures \ref{compare_1} and \ref{compare_2}.
 
 In many cases--given the time period limitations of each data series--,
-the indices overlap. Comparisons with \cite{Romer2015} are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007.
-They both decline for Japan through 2004-2005. A notable difference is
+the indices overlap. Comparisons with \cite{Romer2015} are limited, but we can see that in general, where comparable time series are available, that the EPFMS and their index are roughly similar. In particular, both indices increase in the US from early 2007. They both decline for Japan through 2004-2005. A notable difference is
 how Romer and Romer classify Japan as being without stress from
 mid-2005, while the EPFMS stays high relative to many other economically
 developed countries. While they both classify Iceland as being under
