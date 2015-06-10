@@ -15,6 +15,8 @@ library(ggplot2)
 library(gridExtra)
 library(rio)
 library(TTR)
+library(countrycode)
+library(DataCombine)
 
 # Set working directory of parsed texts. Change as needed.
 pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
@@ -80,6 +82,14 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
                     arrange(country, date) %>% select(-stirngsAsFactors)
 
 #### Save ####
+# Clean up country name and add in iso2c code
+epfms$country <- gsub('%28', ' ', epfms$country)
+epfms$country <- gsub('%29', '', epfms$country)
+epfms <- epfms %>% filter(!is.na(iso2c))
+results_kpca_raw$iso2c <- countrycode(results_kpca_raw$country,
+                            origin = 'country.name', destination = 'iso2c')
+results_kpca_raw <- results_kpca_raw %>% MoveFront(c('iso2c', 'country',
+                        'date'))
 export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')
 
