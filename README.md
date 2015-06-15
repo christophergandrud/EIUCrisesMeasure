@@ -1,6 +1,6 @@
 # Real-time Perceptions of Financial Market Stress
 
-**Note: This work is in the early stages of development. It will be updated significantly.**
+**Note: Work In Progress.**
 
 ## What
 
@@ -17,3 +17,16 @@ Political economy research on the causes, responses to, and effects of banking c
 The following figure shows a selection of financial market stress perceptions scores (solid grey lines). It also compares these scores to other measures of financial market stress and crisis. Dashed lines show Romer and Romer (2015). Red boxes are for Reinhart and Rogoff (2009). Yellow boxes are for Laeven and Valencia (2013).
 
 ![perceptions index plot](perceptions_compare.png)
+
+## Download
+
+To download the development version of the Index into R use:
+
+```{S}
+URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca_rescaled.csv'
+epfms_index <- rio::import(URL)
+```
+
+The primary indicator is labelled: `C1_ma`. See the
+[paper](https://github.com/christophergandrud/EIUCrisesMeasure/blob/master/summary_paper/summary_paper.pdf)
+describing the Index for more details.
