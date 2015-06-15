@@ -118,12 +118,10 @@ Their approach is limited in a number of key ways. First, they
 are necessarily confined to the relatively small sample of OECD
 countries. Second, their measure is laborious to create and update. If there was a more encompassing corpus of texts than the OECD \emph{Economic Outlook}, actually applying the method would be very costly. Third, relying on human coders introduces well-known problems of inter-coder reliability.
 
-There have been a number of recent attempts to create crisis measures using quantitative economic data. Building on \cite{vonHagen2007}, \cite{Jing2015} developed an index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses,
+Others have attempted to create measures of national banking system fragility and crisis using using quantitative accounting and economic data. The finance literature widely uses `z-scores' to measure financial system fragility to examine how banking system structure and policies affect the probability of financial system difficulties \citep[73]{Lepetit2013}. Though there are various ways to calculate this measure, it creates a country-level measure of the probability of `banking system insolvency' using accounting information on banks' capital-asset ratio and return on assets. Building on \cite{vonHagen2007}, \cite{Jing2015} developed an index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. However, this measure conflates distress and policy responses,
 assuming central banks use the same reaction function to increased
 demand for liquidity. \cite{Rosas2009} developed a dynamic latent trait
-model of banking system distress. His measure relies on
-nationally reported data to the IMF's International Financial
-Statistics (IFS). \cite{GandrudCopHal2015} show that data reporting to the IFS is very uneven across countries and time. They indicate that decisions to report data to the IFS could be endogenous to political events, complicating attempts to use IFS data to date crisis occurrence and severity. Furthermore, as \cite{KayserLeininger2015} show, people make decisions based contemporaneously available data, but researchers often use data that has been updated after the fact. Using revised IFS data will give an inaccurate impression of the conditions that politicians believed they were in at the time.
+model of banking system distress. His measure relies on nationally reported data to the IMF's International Financial Statistics (IFS). \cite{GandrudCopHal2015} show that data reporting to the IFS is very uneven across countries and time. They indicate that decisions to report data to the IFS could be endogenous to political events, complicating attempts to use IFS data to date crisis occurrence and severity. Furthermore, as \cite{KayserLeininger2015} show, people make decisions based contemporaneously available data, but researchers often use data that has been updated after the fact. Using revised IFS data will give an inaccurate impression of the conditions that politicians believed they were in at the time. Apart from Z-Scores, one version of which is available from the World Bank's Global Financial Development Database,\footnote{See: \url{http://data.worldbank.org/data-catalog/global-financial-development}. Accessed June 2015.} these various quantitative measures have not been made publicly available to researchers.
 
 \section{~Creating the EIU Perceptions of Financial Market Stress
 Index}\label{creating-the-perceptions-of-financial-market-stress-index}
@@ -238,10 +236,7 @@ second component is notable. In the rest of the article we focus on the first di
 \section{Results, Validation, and Description}\label{results}
 
 The lines in figures \ref{compare_1} and \ref{compare_2} show the
-results of the kernel PCA analysis--the first principal compenent--for a selection of countries. Similar plots for
-all countries in the analysis are available in the Appendix. Before
-diving deeper into these results, it is important to note three simple
-transformations we conducted on the raw results. First, we flipped the
+results of the kernel PCA analysis--the first principal compenent--for a selection of countries. Similar plots for all countries in the analysis are available in the Appendix. Before diving deeper into these results, it is important to note three simple transformations we conducted on the raw results. First, we flipped the
 scale. As we demonstrate when we compare the Index to other measures of
 crisis, this allows higher values of the EPFMS to be interpreted as
 `more financial market stress'. Second, we rescaled the Index so that it
@@ -405,6 +400,29 @@ countries.
 
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
+
+\subsection{Comparision to Accounting Measures of Banking System Fragility}
+
+How does the EPFMS compare to the widely used Z-Score measure of banking system fragility? Though they measure different quantities--perceptions for the former, bank accounting quantities for the latter--both potentially provide an indication of national banking market stress. We compare the EPFMS to the Bank Z-Score measure compiled from Bankscope data by by the World Bank's Development Indicators.\footnote{Indicator ID: GFDD.SI.01. Accessed June 2015.} The measure interpretable as the inverse of the upper bound of the probability of the banking system's insolvency.\footnote{Formally: $\frac{\mathrm{ROA}_{t} + \frac{\mathrm{equity}_{t}}{\mathrm{assets}_{t}}}{\sigma_{\mathrm{ROA}}}$. $\mathrm{ROA}$ is return on equity. $\sigma_{\mathrm{ROA}}$ is for the entire period for which data is available. All quantities are in country aggregates.}
+
+Figure~\ref{z_score} shows a comparison of the two measures. Note that to easy visual comparability we rescaled the Z-Score to be within zero and one as before, and also reversed the scale so that larger values indicate a higher probability of banking system insolvency. We also converted the EPFMS to yearly averages for comparability.
+
+There appears to be very little relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, as we would expect, but this is very weak with a correlation coefficient of 0.07 (significant at the 5\% level). Interestingly, the Z-Score does not appear to vary considerably within countries over time, especially compared to the EPFMS. There appears to be very little difference between Z-Scores for countries during the financial crisis (however measures) and during more stable times. Thus it does not appear to be a useful indicator of financial crisis. Z-Scores also do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that included lagged EPFMS, Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress.
+
+It is beyond the scope of our article to determine why the Z-Score appears to be a sub-optimal measure of financial market stress. However, the measure's peculiar aspects of found here are important to note for future researchers: the measure's seeming time-invariance and poor power at predicting a measure of perceived financial market stress that accords with widely accepted priors.
+
+\begin{landscape}
+\begin{figure}
+
+    \caption{Annual Mean EPFMS Compared to Country-level Z-Scores}
+    \label{z_score}
+
+    \begin{center}
+        \includegraphics[scale=0.4]{analysis/figures/compare_to_z-score.pdf}
+    \end{center}
+
+\end{figure}
+\end{landscape}
 
 \subsection{Developed vs.~Developing
 countries}\label{developed-vs.developing-countries}

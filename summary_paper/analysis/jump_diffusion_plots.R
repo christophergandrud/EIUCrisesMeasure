@@ -50,14 +50,8 @@ sub_ddj <- function(x) {
 #### Load KPCA results ####
 kpca <- import('data/results_kpca_rescaled.csv')
 kpca$date <- ymd(kpca$date)
-kpca$country <- countrycode(kpca$country, origin = 'country.name',
-                            destination = 'country.name')
 
 # Remove problem countries
-kpca <- kpca[duplicated(kpca$country, kpca$date), ]
-kpca <- kpca %>% filter(country != 'Congo')
-kpca <- kpca %>% filter(country != 'Timor-Leste')
-
 dj_kpca <- sub_ddj(kpca)
 
 comb_continuous <- gather(dj_kpca, jump_diffusion, value, 3:5)
