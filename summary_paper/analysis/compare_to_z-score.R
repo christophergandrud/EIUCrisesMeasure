@@ -101,7 +101,7 @@ ggsave('summary_paper/analysis/figures/compare_to_z-score.pdf',
 #### Test prediction of EPFMS based on Z-Scores ####
 comb <- slide(comb, Var = 'mean_stress', TimeVar = 'year', GroupVar = 'iso2c',
               NewVar = 'stress_lag1')
-comb <- slide(comb, Var = 'z_score', TimeVar = 'year', GroupVar = 'country',
+comb <- slide(comb, Var = 'z_score', TimeVar = 'year', GroupVar = 'iso2c',
               NewVar = 'z_lag1', slideBy = -1)
 
 m1 <- lm(mean_stress ~ stress_lag1 + z_lag1 + as.factor(iso2c), data = comb)
