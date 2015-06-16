@@ -9,6 +9,7 @@
 library(repmis)
 library(rio)
 library(WDI)
+library(lubridate)
 library(countrycode)
 library(DataCombine)
 library(dplyr)
@@ -33,6 +34,9 @@ epfms <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesM
 wdi <- WDI(indicator = c('GFDD.SI.01'), start = 2003) %>% 
     rename(z_score = GFDD.SI.01) %>%
     select(iso2c, year, z_score)
+
+# Create log z-score
+wdi$ihs_score <- wdi$z_score %>% ihs
 
 # Convert EPFMS to annual so that it is comparable with the FRT
 epfms$year <- epfms$date %>% year
@@ -95,4 +99,9 @@ ggsave('summary_paper/analysis/figures/compare_to_z-score.pdf',
        width = 17, height = 15)
 
 #### Test prediction of EPFMS based on Z-Scores ####
-comb <- 
+comb <- slide(comb, Var = 'mean_stress', TimeVar = 'year', GroupVar = 'iso2c',
+              NewVar = 'stress_lag1')
+comb <- slide(comb, Var = 'z_score', TimeVar = 'year', GroupVar = 'country',
+              NewVar = 'z_lag1', slideBy = -1)
+
+m1 <- lm(mean_stress ~ stress_lag1 + z_lag1 + as.factor(iso2c), data = comb)
