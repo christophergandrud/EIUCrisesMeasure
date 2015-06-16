@@ -1,14 +1,11 @@
 # ---------------------------------------------------------------------------- #
 # Parse EIU texts and conduct keyword searches
 # Christopher Gandrud
-# 26 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-# Set working directory for the scrapped pages. Change as needed.
-setwd('/Volumes/Gandrud1TB/eiu/')
-
 # Load required packages
+library(repmis)
 library(XML)
 library(rvest)
 library(dplyr)
@@ -16,6 +13,12 @@ library(stringr)
 library(lubridate)
 library(rio)
 ## Also requires the installation of qdap
+
+# Set working directory of parsed texts. Change as needed.
+pos_directs <- c('~/Desktop/eiu/',
+                   '/Volumes/Gandrud1TB/eiu/')
+
+set_valid_wd(pos_directs)
 
 #### Clean file names ##########################################################
 # List files
@@ -43,7 +46,7 @@ file_txt <- sprintf('%s_%s.txt', dates, country)
 # http://eml.berkeley.edu/~cromer/RomerandRomerFinancialCrisesAppendixA.pdf
 # NEED TO ADD TO/THINK ABOUT
 keywords <- c("bail-out", "bailout", "balance sheet", "balance-sheet", "bank",
-              "banks", "banking", "credit", "crunch", "debt", "default", 
+              "banks", "banking", "credit", "crunch", "debt", "default",
               "finance", "financial", "lend", "loan", "squeeze")
 
 for (i in 1:length(file_txt)) {
@@ -60,12 +63,12 @@ for (i in 1:length(file_txt)) {
         text <- lapply(extracted, html_text)
 
         # Find/extract nodes containing keywords
-        contains <- sapply(keywords, 
+        contains <- sapply(keywords,
                            function(x) grep(x, text, ignore.case = T)) %>%
                     unlist %>% as.vector
-        text_out <- text[contains] %>% paste(collapse = '')
+        text_out <- text[unique(contains)] %>% paste(collapse = '')
 
         # Write to file
-        writeLines(text_out, sprintf('eiu_extracted/%s', file_txt[i]))
+        writeLines(text_out, sprintf('eiu_extracted_test/%s', file_txt[i]))
     }
 }

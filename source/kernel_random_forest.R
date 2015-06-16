@@ -4,8 +4,6 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-# Set working directory of parsed texts. Change as needed.
-
 # Load packages
 library(repmis)
 library(tm)
@@ -48,6 +46,7 @@ clean_corpus_full <- clean_corpus_full %>% as.list
 
 clean_corpus <- clean_corpus_full %>% as.VCorpus %>%
                     DocumentTermMatrix(control = list(stopwords = T))
+
 term_freq <- inspect(removeSparseTerms(clean_corpus, 0.9)) %>% as.data.frame
 
 ## Drop countries with fewer than 5 observations
@@ -57,6 +56,10 @@ date_country <- row.names(term_freq) %>% gsub('\\.txt', '', .) %>%
     as.data.frame(stringsAsFactors = F)
 date_country[, 2] <- gsub('-', ' ', date_country[, 2])
 names(date_country) <- c('date_date', 'country_country') # date and country are terms
+
+# Clean up odd names
+date_country$country_country <- gsub('%28', ' ', date_country$country_country)
+date_country$country_country <- gsub('%29', '', date_country$country_country)
 
 term_freq <- cbind(date_country, term_freq)
 
@@ -79,7 +82,7 @@ term_freq <- merge(kpca_included, term_freq,
 #### Combine ####
 cor_pca <- function(var) {
     temp_function <- function(x) cor(kpca[, var], x)
-    corrs <- apply(term_freq, 2, temp_function)
+    corrs <- base::apply(term_freq, 2, temp_function)
     corrs <- data.frame(terms = names(term_freq), correlations = corrs)
     corrs_sorted <- corrs %>% arrange(desc(correlations))
     return(corrs_sorted)

@@ -254,7 +254,7 @@ Index. Second, we compared the Index to previous indices using an
 `interocular' test, i.e. looking at plots of the results and comparing
 them to our priors on financial market stress.
 
-\subsection{Random forests}\label{random-forests}
+\subsection{Random forests and Correlations}\label{random-forests}
 
 Spirling \citeyearpar[6--8]{Spirling2012} demonstrated the usefulness of using random forests
 ``regressions'' to explore what principal components from textual
@@ -269,7 +269,10 @@ for exploring this data's associations with the estimated principal components b
 We focus on the variable importance from this analysis.\footnote{We conducted the random forests regressions using the \texttt{rfsrc} function from the
 \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} The results are shown in Figure \ref{rf_importance}. The logic behind variable importance in this context is as a measure of how well the frequency of a given stem in a text allows the model to predict the EPFMS score for that text.
 
-Unsurprisingly, two of the three stems with the largest variable importance are `bank' and `financi'. Terms with these stems were used to select the texts.
+Unsurprisingly, two of the three stems with the largest variable importance are `bank', `financi', and `loan'. Terms with these stems were used to select the texts. The prevalence of these terms and others that are clearly related to the banking sector, such as interest, rate, and fund, indicate that the EPFMS is indeed about banking sector conditions and not some other topic.
+
+
+
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
     \label{rf_importance}
@@ -406,9 +409,7 @@ How does the EPFMS compare to the widely used Z-Score measure of banking system 
 
 We compare the EPFMS to the Bank Z-Score measure compiled from Bankscope data by the World Bank's Global Financial Development Database project \citep{worldbank2013}.\footnote{Indicator ID: GFDD.SI.01. Accessed June 2015.} The measure is interpretable as the inverse of the upper bound of the probability of the banking system's insolvency.\footnote{Formally: $\frac{\mathrm{ROA}_{t} + \frac{\mathrm{equity}_{t}}{\mathrm{assets}_{t}}}{\sigma_{\mathrm{ROA}}}$. $\mathrm{ROA}$ is return on equity. $\sigma_{\mathrm{ROA}}$ is presumably for the entire period for which data is available, though the World Bank's documentation does not explicitly specify this. It is common in other work for the $\sigma_{\mathrm{ROA}}$ to be based on a three year rolling window \cite[225]{beck2013bank}. All quantities are in country aggregates.} Figure~\ref{z_score} shows a comparison of the two measures for selected countries. Note that to ease visual comparability we rescaled the Z-Score to be within zero and one as before, and also reversed the scale so that larger values indicate a higher probability of banking system insolvency.\footnote{It is also common to log-transform the Z-Scores \cite[225]{beck2013bank}. However, it is unclear how this is done as there are negative values in the Z-score that create undefined values when logged.} We also converted the EPFMS to yearly averages for comparability.
 
-There appears to be very little relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, as we would expect, but this is very weak with a correlation coefficient of 0.07 (significant at the 5\% level). Interestingly, the Z-Score does not appear to vary considerably within countries over time, especially compared to the EPFMS. There appears to be very little difference between Z-Scores for countries during the financial crisis (however measures) and during more stable times. Thus it does not appear to be a useful indicator of financial crisis. Z-Scores also do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that included lagged EPFMS, Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress.
-
-It is beyond the scope of our article to determine why the Z-Score appears to be a sub-optimal measure of financial market stress. However, the measure's peculiar aspects of found here are important to note for future researchers: the measure's seeming time-invariance and poor power at predicting a measure of perceived financial market stress that accords with widely accepted priors.
+There appears to be very little relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, as we would expect, but this is very weak with a correlation coefficient of 0.07 (significant at the 5\% level). Interestingly, the Z-Score does not vary significantly within countries over time, especially compared to the EPFMS. There is very little difference between Z-Scores for countries during the financial crisis (however measured) and during more stable times. Thus Z-Scores may not be useful indicators of financial crisis. Z-Scores also do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that had EPFMS as the dependent variable and included lagged EPFMS, lagged Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress. It is beyond the scope of our article to determine why the Z-Score is a sub-optimal measure of financial market stress. However, the measure's peculiar aspects found here are important to note for future researchers: the indicator has weak time-variance, it does not distinguish between periods of significant know financial market stress and less stressful times, and it has poor power predicting perceived financial market stress.
 
 \begin{landscape}
 \begin{figure}
