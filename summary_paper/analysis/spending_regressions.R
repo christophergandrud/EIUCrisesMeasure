@@ -44,7 +44,8 @@ ggplot(comb, aes(mean_stress, gov_spend_gdp2005_change)) +
 #### Create residuals ####
 comb$output_change <- comb$output_gap_1 - comb$output_gap
 
-m_r1 <- lm(gov_liabilities_gdp2005 ~ gov_liabilities_gdp2005_1 + output_gap + output_gap_1 + iso2c,
+m_r1 <- lm(gov_liabilities_gdp2005 ~ gov_liabilities_gdp2005_1 + 
+               output_gap + output_gap_1 + iso2c,
            data = comb)
 gov_output_residuals <- residuals(m_r1)
 sub_gov_liab <- comb %>% DropNA('gov_liabilities_gdp2005_1')
@@ -67,7 +68,7 @@ plot_me(obj = m2_o, term1 = 'election_year1', term2 = 'lpr_1',
     scale_y_continuous(limits = c(-10, 10)) +
     xlab('\nElectoral Loss Probability (lag 1)') +
     ylab('Marginal Effect of Election Year\n') +
-    ggtitle('Liabilities Above Output Gap Prediction\n')
+    ggtitle('DV: Liabilities Above Output Gap Prediction\n')
 
 #### Estimate effect on stress residuals ####
 m1_s <- lm(residuals_stress ~ election_year + iso2c, data = sub_gov_liab)
@@ -83,4 +84,41 @@ plot_me(obj = m2_s, term1 = 'election_year1', term2 = 'lpr_1',
     scale_y_continuous(limits = c(-10, 10)) +
     xlab('\nElectoral Loss Probability (lag 1)') +
     ylab('Marginal Effect of Election Year\n') +
-    ggtitle('Liabilities Above Output Gap and EPFMS Predictions\n')
+    ggtitle('DV: Liabilities Above Output Gap and EPFMS Predictions\n')
+
+
+
+# ------------------------- Robustness Compare to Econ Spending -------------- #
+#### Create Total Spending Residuals ####
+m_r1_spend <- lm(gov_spend_gdp2005 ~ gov_spend_gdp2005_1 + 
+                     output_gap + output_gap_1 + iso2c,
+             data = comb)
+gov_spend_residuals <- residuals(m_r1_spend)
+sub_gov_liab_spend <- comb %>% DropNA(c('gov_spend', 'gov_spend_1', 
+                                        'output_gap', 'mean_stress_1'))
+sub_gov_liab_spend$residuals_output <- gov_spend_residuals
+
+m_r2_spend <- lm(residuals_output ~ mean_stress_1 + iso2c, 
+             data = sub_gov_liab_spend)
+sub_gov_liab_spend$residuals_stress <- residuals(m_r2_spend)
+
+m2_spend <- lm(residuals_stress ~ election_year*lpr_1 + iso2c, 
+           data = sub_gov_liab_spend)
+
+#### Create Economic Affairs Spending Residuals ####
+m_r1_econ <- lm(gov_econ_spend_gdp2005 ~ gov_econ_spend_gdp2005_1 + 
+                 output_gap + output_gap_1 + iso2c,
+             data = comb)
+
+gov_spend_residuals <- residuals(m_r1_econ)
+sub_gov_liab_spend <- comb %>% DropNA(c('gov_econ_spend', 'gov_econ_spend_1', 
+                                        'output_gap', 'mean_stress_1'))
+sub_gov_liab_spend$residuals_output <- gov_spend_residuals
+
+m_r2_econ <- lm(residuals_output ~ mean_stress_1 + iso2c, 
+                 data = sub_gov_liab_spend)
+sub_gov_liab_spend$residuals_stress <- residuals(m_r2_spend)
+
+m2_econ <- lm(residuals_stress ~ election_year*lpr_1 + iso2c, 
+               data = sub_gov_liab_spend)
+
