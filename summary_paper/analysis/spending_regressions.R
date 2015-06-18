@@ -54,12 +54,13 @@ sub_gov_liab$residuals_output <- gov_output_residuals
 m_r2 <- lm(residuals_output ~ mean_stress_1 + iso2c, data = sub_gov_liab)
 sub_gov_liab$residuals_stress <- residuals(m_r2)
 
+# ----------------------------- Election Year (t0) --------------------------- #
 #### Estimate effect on output residuals ####
 m1_o <- lm(residuals_output ~ election_year + iso2c, data = sub_gov_liab)
 
 m2_o <- lm(residuals_output ~ election_year*lpr_1 + iso2c, data = sub_gov_liab)
 
-m3_o <- lm(residuals_output ~ lpr_1*election_year + execrlc + polconiii + iso2c,
+m3_o <- lm(residuals_output ~ election_year*lpr_1 + execrlc + polconiii + iso2c,
          data = sub_gov_liab)
 
 # Plot results
@@ -75,7 +76,7 @@ m1_s <- lm(residuals_stress ~ election_year + iso2c, data = sub_gov_liab)
 
 m2_s <- lm(residuals_stress ~ election_year*lpr_1 + iso2c, data = sub_gov_liab)
 
-m3_s <- lm(residuals_stress ~ lpr_1*election_year + execrlc + polconiii + iso2c,
+m3_s <- lm(residuals_stress ~ election_year*lpr_1 + execrlc + polconiii + iso2c,
            data = sub_gov_liab)
 
 # Plot results
@@ -86,7 +87,42 @@ plot_me(obj = m2_s, term1 = 'election_year1', term2 = 'lpr_1',
     ylab('Marginal Effect of Election Year\n') +
     ggtitle('DV: Liabilities Above Output Gap and EPFMS Predictions\n')
 
+#------------------------------- Post-election Year (t1) ----------------------#
+#### Output Gap ####
+m1_o <- lm(residuals_output ~ election_year_1 + iso2c, data = sub_gov_liab)
 
+m2_o <- lm(residuals_output ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
+
+m3_o <- lm(residuals_output ~ election_year*lpr + execrlc + polconiii + iso2c,
+           data = sub_gov_liab)
+
+# Plot results
+plot_me(obj = m2_o, term1 = 'election_year_1', term2 = 'lpr',
+        fitted2 = seq(0, 0.75, by = 0.05)) +
+    scale_y_continuous(limits = c(-10, 10)) +
+    xlab('\nElectoral Loss Probability') +
+    ylab('Marginal Effect of Post-Election Year\n') +
+    ggtitle('DV: Liabilities Above Output Gap Prediction\n')
+
+#### Financial Stress #### 
+m1_s <- lm(residuals_stress ~ election_year_1 + iso2c, data = sub_gov_liab)
+
+m2_s <- lm(residuals_stress ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
+
+# Remove extreme outlier
+m2_1_s <- lm(residuals_stress ~ election_year_1*lpr + iso2c, 
+             data = subset(sub_gov_liab, country != 'Iceland'))
+
+m3_s <- lm(residuals_stress ~ election_year_1*lpr + execrlc + polconiii + iso2c,
+           data = sub_gov_liab)
+
+# Plot results
+plot_me(obj = m2_s, term1 = 'election_year_1', term2 = 'lpr',
+        fitted2 = seq(0, 0.75, by = 0.05)) +
+    scale_y_continuous(limits = c(-10, 10)) +
+    xlab('\nElectoral Loss Probability') +
+    ylab('Marginal Effect of Post-Election Year\n') +
+    ggtitle('DV: Liabilities Above Output Gap and EPFMS Predictions\n')
 
 # ------------------------- Robustness Compare to Econ Spending -------------- #
 #### Create Total Spending Residuals ####
