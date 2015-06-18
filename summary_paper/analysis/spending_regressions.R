@@ -75,7 +75,8 @@ plot_me(obj = m2_o_t0, term1 = 'election_year1', term2 = 'lpr_1',
     ggtitle('DV: Change in Liabilities Above Output Gap Prediction\n')
 
 #### Estimate effect on stress residuals ####
-m1_s_t0 <- lm(residuals_stress ~ election_year + iso2c, data = sub_gov_liab)
+m1_s_t0 <- lm(residuals_stress ~ election_year + lpr_1 + iso2c, 
+              data = sub_gov_liab)
 
 m2_s_t0 <- lm(residuals_stress ~ election_year*lpr_1 + iso2c, 
               data = sub_gov_liab)
@@ -110,7 +111,8 @@ plot_me(obj = m2_o_t1, term1 = 'election_year_1', term2 = 'lpr',
     ggtitle('DV: Change in Liabilities Above Output Gap Prediction\n')
 
 #### Financial Stress #### 
-m1_s_t1 <- lm(residuals_stress ~ election_year_1 + iso2c, data = sub_gov_liab)
+m1_s_t1 <- lm(residuals_stress ~ election_year_1 + lpr + iso2c, 
+              data = sub_gov_liab)
 
 m2_s_t1 <- lm(residuals_stress ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
 
