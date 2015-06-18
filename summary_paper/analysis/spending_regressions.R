@@ -12,12 +12,12 @@ library(DataCombine)
 library(ggplot2)
 
 # Set working directory. Change as needed.
-setwd('/git_repositories/EIUCrisesMeasure/summary_paper/analysis')
+setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
 
 # Load plot function
 source_gist('d270ff55c2ca26286e90')
 
-comb <- import('covariate_data/epfms_covariates.csv')
+comb <- import('analysis/covariate_data/epfms_covariates.csv')
 
 # Convert key varaiables to factors
 comb$iso2c <- comb$iso2c %>% as.factor
