@@ -119,7 +119,9 @@ corrected_elections$election_year[corrected_elections$yrcurnt_corrected == 0] <-
 endog_election <- import('raw/endogenous_elections.csv') %>%
                     select(country, year, `Elect-endogHW`, `Elect-predHW`) %>%
                     rename(endog_electionHW = `Elect-endogHW`) %>%
-                    rename(endog_pred = `Elect-predHW`)
+                    rename(endog_predHW = `Elect-predHW`)
+
+endog_election <- endog_election[!duplicated(endog_election[, 1:2]), ]
 
 endog_election <- endog_election %>% iso_oecd
 
@@ -200,7 +202,8 @@ vars_to_lag <- c('mean_stress', 'output_gap', 'gov_liabilities',
                  'gov_econ_spend', 'gov_econ_spend_gdp2005', 
                  'gov_econ_spend_gdp2005_change',
                  'financial_transactions_gdp2005',
-                 'lpr', 'lprsq', 'election_year', 'endog_electionHW')
+                 'lpr', 'lprsq', 'election_year', 'endog_electionHW', 
+                 'endog_predHW')
 
 lagger <- function(var) {
     newvar <- sprintf('%s_1', var)
