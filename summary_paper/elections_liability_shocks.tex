@@ -55,6 +55,14 @@ How do elections and electoral competitiveness affect governments' fiscal decisi
 
 [SOMETHING LIKE 1.3 and 1.4 FROM THE WEP PAPER]
 
+\begin{quote}
+        $H_{1}$: Governments facing re-election will have a smaller fiscal response to financial market stress.
+\end{quote}
+
+\begin{quote}
+        $H_{2}$: Immediately following elections, governments will have a larger fiscal response to financial market stress.
+\end{quote}
+
 \section{Measurement}
 
 Accurately measuring the occurrence and intensity of financial crises as well as fiscal response to these crises is particularly difficult. In this section we describe these difficulties as well as our innovative approach to measuring overcoming them. We then discuss the right-hand variables we use to help explain these choices.
@@ -67,7 +75,7 @@ Responding to financial crisis often does not involve direct spending, e.g. the 
 
 We take a new approach to measuring fiscal responses to financial crises. Rather than focusing on final costs, which are difficult to ascribe to choices of particular governments and may be the result of disparate accounting regimes, we focus on deviations from trend changes in government liabilities and spending. This approach is based on the underlying assumption that all governments, particularly in advanced democracies--respond to economic shocks by increasing their fiscal allocations. This can be from a combination of automatic shock responses, such as unemployment insurance and deposit insurance as well as new allocations to, for example, purchase toxic assets from trouble banks or provide them with liquidity assistance. In both cases, we expect that there will be a larger fiscal response the more sever the crisis. As such we are interested in examining how political factors affect government decisions to do more (or less) than the `trend' response at a given level of crisis severity.
 
-Before discussing the specific variables it is important to note that both our interest in policy responses in advanced democracies and data availability combine to constrict our sample to 30 OECD countries from 2003 through 2011. Please see the Online Appendix for the full list. These countries had a wide range of experiences with financial crises over this period.
+Before discussing the specific variables it is important to note that both our interest in policy responses in advanced democracies and data availability combine to constrict our sample to 30 OECD countries from 2003 through 2010. Please see the Online Appendix for the full list. These countries had a wide range of experiences with financial crises over this period.
 
 We estimate trend fiscal responses to financial market stress by first gathering data on general government liabilities--debt and other liabilities--and spending per country-year from the OECD.\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} Separate data on economic affairs spending is available, so we use that as the most relevant spending quantity. The original variables were expressed as percentages of GDP. To focus exclusively on changes to fiscal policy, rather than GDP, we transformed the variables to be in terms of the countries' 2005 GDP.\footnote{GDP data was from the OECD. Accessed June 2015.} Finally, we are primarily concerned with changes to fiscal policy, not the absolute level, which is strongly dependent on pre-shock policy choices. As such we created year-on-year change versions of our liability and spending variables.
 
@@ -83,7 +91,7 @@ We estimate trend fiscal responses to financial market stress by first gathering
 
 Financial crises and economic growth shocks are highly related \cite[see][]{Reinhart2009}. We separated out the trend responses to economic growth shocks by first regressing the output gap\footnote{Output gap data was from the OECD. Accessed June 2015.} on changes in fiscal policies. The first and third columns of Figure~\ref{liab_resid} show coefficient estimates from these regressions. We can see that a worsening output gap is associated with increases in government liabilities. Interestingly, improving output gaps are positively associated with spending. On average governments increase their spending when the economy is doing well and increase their liabilities when the government is doing poorly.
 
-We then took residuals from these two models and used them in a regression with a measure of perceived financial market stress. This measure is from \cite{gandrudHallEPFMS}. They conduct a textual analysis of monthly Economist Intelligence Unit (EIU) country reports to develop an index of real-time perceptions of financial market stress that they call the EIU Perceptions of Financial Market Stress (EPFMS). The Index ranges from zero--low stress--to 1--high stress. Please see \cite{gandrudHallEPFMS} for a review of other measures of financial market stress and crisis and a justification for my their measure is preferable for studying policy responses to crises. We can see in the second column of Figure~\ref{liab_resid} that perceived financial market stress is very strongly positively associated with the residuals from the output gap-liabilities regression,\footnote{The residuals range from about -15 to 40, with the inter-quartile range of about 5.} i.e. increases in financial market stress have an important effect on increases in government liabilities that are not explained by drops in economic output. As expected, these results indicate that governments are taking on liabilities to support financial markets, not just the broader economy. Perceived financial market stress is not associated with the residual of changes in spending. This makes sense given we found spending tended to increase when the economy was doing well and many financial crisis policies are either liabilities or financed via government debt.
+We then took residuals from these two models and used them in a regression with a measure of perceived financial market stress. This measure is from \cite{gandrudHallEPFMS}. They conduct a textual analysis of monthly Economist Intelligence Unit (EIU) country reports to develop an index of real-time perceptions of financial market stress that they call the EIU Perceptions of Financial Market Stress (EPFMS). The Index ranges from zero--low stress--to 1--high stress. We found the annual mean of the monthly observations of the EPFMS Index. Please see \cite{gandrudHallEPFMS} for a review of other measures of financial market stress and crisis and a justification for my their measure is preferable for studying policy responses to crises. We can see in the second column of Figure~\ref{liab_resid} that perceived financial market stress is very strongly positively associated with the residuals from the output gap-liabilities regression,\footnote{The residuals range from about -15 to 40, with the inter-quartile range of about 5.} i.e. increases in financial market stress have an important effect on increases in government liabilities that are not explained by drops in economic output. As expected, these results indicate that governments are taking on liabilities to support financial markets, not just the broader economy. Perceived financial market stress is not associated with the residual of changes in spending. This makes sense given we found spending tended to increase when the economy was doing well and many financial crisis policies are either liabilities or financed via government debt.
 
 We focus on residuals from the liabilities regressions as the most relevant dependent variable of interest. These residuals are estimated model two from Figure~\ref{liab_resid}. These residuals can be thought of as deviations from trend financial stress liabilities. Positive financial stress liability residuals indicate that governments are taking on more government liabilities in response to a given level of perceived stress and output gaps.
 
@@ -109,7 +117,8 @@ Our primary right-hand variable of interest is a simple dummy of whether or not 
         \includegraphics[scale=0.7]{analysis/figures/me_liab_stress.pdf}
     \end{center}
 
-    {\scriptsize{Shadded areas represent 90\% confidence intervals.}}
+    {\scriptsize{Shadded areas represent 90\% confidence intervals. \\
+    Plots made using model 2 in Table~\ref{t0_stress} and Table~\ref{t1_stress}.}}
 
 \end{figure}
 
@@ -125,7 +134,7 @@ Our primary right-hand variable of interest is a simple dummy of whether or not 
 
 \begin{table}
     \caption{Linear Regression of Non-Trend Liability Responses to Perceived Financial Market Stress (post-election year)}
-    \label{t0_stress}
+    \label{t1_stress}
 
     \begin{center}
         \input{tables/stress_regress_t1.tex}

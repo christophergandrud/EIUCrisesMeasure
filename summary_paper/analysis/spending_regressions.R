@@ -29,17 +29,6 @@ cor.test(comb$mean_stress, comb$output_gap)
 cor.test(comb$mean_stress, comb$gov_liabilities_gdp2005)
 cor.test(comb$mean_stress, comb$gov_spend_gdp2005)
 
-# Plot
-ggplot(comb, aes(mean_stress, output_gap)) +
-    geom_point() +
-    stat_smooth(se = F, colour = '#ff4c4c') +
-    theme_bw()
-
-ggplot(comb, aes(mean_stress, gov_spend_gdp2005_change)) +
-    geom_point() +
-    stat_smooth(se = F, colour = '#ff4c4c') +
-    theme_bw()
-
 # ------------------------------ Create residuals ---------------------------- #
 #### Create residuals ####
 comb$output_change <- comb$output_gap - comb$output_gap_1
@@ -55,6 +44,7 @@ sub_gov_liab$residuals_output <- gov_output_residuals
 
 # Financial Stress Residuals
 m_r2 <- lm(residuals_output ~ mean_stress + iso2c, data = sub_gov_liab)
+sub_gov_liab <- sub_gov_liab %>% DropNA('mean_stress')
 sub_gov_liab$residuals_stress <- residuals(m_r2)
 
 # ----------------------------- Election Year (t0) --------------------------- #
@@ -75,7 +65,7 @@ plot_me(obj = m2_o_t0, term1 = 'election_year1', term2 = 'lpr_1',
     ggtitle('DV: Change in Liabilities Above Output Gap Prediction\n')
 
 #### Estimate effect on stress residuals ####
-m1_s_t0 <- lm(residuals_stress ~ election_year + lpr_1 + iso2c, 
+m1_s_t0 <- lm(residuals_stress ~ election_year + iso2c, 
               data = sub_gov_liab)
 
 m2_s_t0 <- lm(residuals_stress ~ election_year*lpr_1 + iso2c, 
@@ -111,7 +101,7 @@ plot_me(obj = m2_o_t1, term1 = 'election_year_1', term2 = 'lpr',
     ggtitle('DV: Change in Liabilities Above Output Gap Prediction\n')
 
 #### Financial Stress #### 
-m1_s_t1 <- lm(residuals_stress ~ election_year_1 + lpr + iso2c, 
+m1_s_t1 <- lm(residuals_stress ~ election_year_1 + iso2c, 
               data = sub_gov_liab)
 
 m2_s_t1 <- lm(residuals_stress ~ election_year_1*lpr + iso2c, data = sub_gov_liab)

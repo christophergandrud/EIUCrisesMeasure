@@ -97,22 +97,24 @@ oecd <- merge(oecd, gov_total_spend, by = c('iso2c', 'year'), all = T)
 oecd <- merge(oecd, gov_econ_spend, by = c('iso2c', 'year'), all = T)
 
 #### Import DPI ####
-dpi <- DpiGet(vars = c('execrlc', 'yrcurnt')) %>%
-        select(iso2c, year, execrlc, yrcurnt)
+dpi <- DpiGet(vars = c('execrlc')) %>%
+        select(iso2c, year, execrlc)
 dpi$execrlc[dpi$execrlc == -999] <- NA
-dpi$yrcurnt[dpi$yrcurnt == -999] <- NA
 
-# Import election timing
-eu_election <- import('https://raw.githubusercontent.com/christophergandrud/yrcurnt_corrected/master/data/yrcurnt_original_corrected.csv') %>%
+#### Import election timing ####
+corrected_elections <- import('https://raw.githubusercontent.com/christophergandrud/yrcurnt_corrected/master/data/yrcurnt_original_corrected.csv') %>%
                 select(iso2c, year, yrcurnt_corrected)
 
+corrected_elections$election_year <- 0
+corrected_elections$election_year[is.na(corrected_elections$yrcurnt_corrected)] <- NA
+corrected_elections$election_year[corrected_elections$yrcurnt_corrected == 0] <- 1
+
 ##### Import Kayser Lin loss probability variable ####
-loss_prob <- import('raw/TheLossProbVariable.csv') %>%
-            select(isocode, elecyr, lpr, lpr2) %>%
+loss_prob <- import('raw/LossProbVariable.csv', na.strings = '.') %>%
+            select(isocode, elecyr, lpr, lprsq, SameAsPM, ParlSys) %>%
             rename(iso2c = isocode) %>%
             rename(year = elecyr)
 loss_prob$iso2c[loss_prob$iso2c == 'AUL'] <- 'AUS'
-loss_prob$election_year <- 1
 
 loss_prob$iso2c <- countrycode(loss_prob$iso2c, origin = 'iso3c',
                                destination = 'iso2c')
@@ -134,20 +136,49 @@ constraints <- import('raw/polcon2012.dta') %>%
 constraints <- constraints %>% iso_oecd
 
 #### Merge All ###
-comb <- merge(epfms_sum, oecd, by = c('iso2c', 'year'))
+comb <- merge(epfms_sum, oecd, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, dpi, by = c('iso2c', 'year'), all.x = T)
-comb <- merge(comb, eu_election, by = c('iso2c', 'year'), all.x = T)
+comb <- merge(comb, corrected_elections, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, loss_prob, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, constraints, by = c('iso2c', 'year'), all.x = T)
 
-comb$election_year[is.na(comb$election_year)] <- 0
+comb <- comb %>% group_by(iso2c) %>% mutate(lpr = FillDown(Var = lpr))
+comb <- comb %>% mutate(lprsq = FillDown(Var = lprsq))
+comb <- comb %>% mutate(SameAsPM = FillDown(Var = SameAsPM))
+comb <- comb %>% mutate(ParlSys = FillDown(Var = ParlSys))
 
-comb <- FillDown(comb, 'lpr')
-comb <- FillDown(comb, 'lpr2')
+
 
 comb$country <- countrycode(comb$iso2c, origin = 'iso2c',
                             destination = 'country.name')
 comb <- comb %>% MoveFront('country')
+
+#### Clean up Loss Probability Variables ####
+# Fix missing in Kayser and Lindstät
+comb$lpr[comb$country == 'Australia' & comb$year >= 2007] <- NA
+comb$lprsq[comb$country == 'Australia' & comb$year >= 2007] <- NA
+comb$SameAsPM[comb$country == 'Australia' & comb$year >= 2007] <- NA
+comb$ParlSys[comb$country == 'Australia' & comb$year >= 2007] <- NA
+
+
+comb$lpr[comb$country == 'France' & comb$year >= 2007] <- NA
+comb$lprsq[comb$country == 'France' & comb$year >= 2007] <- NA
+comb$SameAsPM[comb$country == 'France' & comb$year >= 2007] <- NA
+comb$ParlSys[comb$country == 'France' & comb$year >= 2007] <- NA
+
+comb$lpr[comb$country == 'United Kingdom' & comb$year >= 2010] <- NA
+comb$lprsq[comb$country == 'United Kingdom' & comb$year >= 2010] <- NA
+comb$SameAsPM[comb$country == 'United Kingdom' & comb$year >= 2010] <- NA
+comb$ParlSys[comb$country == 'United Kingdom' & comb$year >= 2010] <- NA
+
+
+loss_vars <- c('lpr', 'lprsq', 'SameAsPM', 'ParlSys')
+for (i in loss_vars) {
+    comb[, i][!(comb$iso2c %in% unique(loss_prob$iso2c))] <- NA
+    comb[, i][comb$year > 2010 & comb$election_year != 0] <- NA
+}
+
+comb <- comb %>% filter(year <= 2011)
 
 # Create year lags
 vars_to_lag <- c('mean_stress', 'output_gap', 'gov_liabilities',
@@ -155,7 +186,7 @@ vars_to_lag <- c('mean_stress', 'output_gap', 'gov_liabilities',
                  'gov_spend', 'gov_spend_gdp2005', 'gov_spend_gdp2005_change',
                  'gov_econ_spend', 'gov_econ_spend_gdp2005', 
                  'gov_econ_spend_gdp2005_change',
-                 'lpr', 'lpr2', 'election_year')
+                 'lpr', 'lprsq', 'election_year')
 
 lagger <- function(var) {
     newvar <- sprintf('%s_1', var)
@@ -166,6 +197,5 @@ lagger <- function(var) {
 
 for (i in vars_to_lag) comb <- lagger(i)
 
-
-# Save data 
+#### Save data #### 
 export(comb, file = 'epfms_covariates.csv')
