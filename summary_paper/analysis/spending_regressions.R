@@ -28,6 +28,7 @@ comb$election_year <- comb$election_year %>% as.factor
 cor.test(comb$mean_stress, comb$output_gap)
 cor.test(comb$mean_stress, comb$gov_liabilities_gdp2005)
 cor.test(comb$mean_stress, comb$gov_spend_gdp2005)
+cor.test(comb$mean_stress, comb$financial_transactions)
 
 # ------------------------------ Create residuals ---------------------------- #
 #### Create residuals ####
@@ -101,8 +102,7 @@ plot_me(obj = m2_o_t1, term1 = 'election_year_1', term2 = 'lpr',
     ggtitle('DV: Change in Liabilities Above Output Gap Prediction\n')
 
 #### Financial Stress #### 
-m1_s_t1 <- lm(residuals_stress ~ election_year_1 + iso2c, 
-              data = sub_gov_liab)
+m1_s_t1 <- lm(residuals_stress ~ election_year_1 + iso2c, data = sub_gov_liab)
 
 m2_s_t1 <- lm(residuals_stress ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
 
