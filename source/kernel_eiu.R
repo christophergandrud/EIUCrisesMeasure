@@ -65,13 +65,13 @@ clean_corpus <- clean_corpus_full[keep_vec]
 date_country <- date_country[keep_vec, ]
 
 # Create string kernels
-kernals <- stringdot(type = "spectrum", length = length_spec)
+kernels <- stringdot(type = "spectrum", length = length_spec)
 
 # Number of components
 feature_num = 10
 
 # Estimate
-kpca_out <- kpca(clean_corpus, kernal = kernals, features = feature_num)
+kpca_out <- kpca(clean_corpus, kernel = kernels, features = feature_num)
 
 kpca_df <- pcv(kpca_out) %>% as.data.frame
 names(kpca_df) <- sprintf('C%s', 1:feature_num)
