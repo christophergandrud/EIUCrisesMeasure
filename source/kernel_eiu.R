@@ -11,12 +11,11 @@ library(dplyr)
 library(kernlab)
 library(stringr)
 library(lubridate)
-library(ggplot2)
-library(gridExtra)
 library(rio)
 library(TTR)
 library(countrycode)
 library(DataCombine)
+library(repmis)
 
 # Set working directory of parsed texts. Change as needed.
 pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
