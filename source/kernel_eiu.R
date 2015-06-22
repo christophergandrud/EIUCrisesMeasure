@@ -35,7 +35,6 @@ date_country[, 2] <- gsub('-', ' ', date_country[, 2])
 names(date_country) <- c('date', 'country')
 date_country$date <- ymd(date_country$date)
 
-
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(removeWords,
@@ -83,12 +82,13 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
 
 #### Save ####
 # Clean up country name and add in iso2c code
-epfms$country <- gsub('%28', ' ', epfms$country)
-epfms$country <- gsub('%29', '', epfms$country)
-epfms <- epfms %>% filter(!is.na(iso2c))
-results_kpca_raw$iso2c <- countrycode(results_kpca_raw$country,
+results_kpca$country <- gsub('%28', ' ', results_kpca$country)
+results_kpca$country <- gsub('%29', '', results_kpca$country)
+results_kpca$iso2c <- countrycode(results_kpca$country,
                             origin = 'country.name', destination = 'iso2c')
-results_kpca_raw <- results_kpca_raw %>% MoveFront(c('iso2c', 'country',
+results_kpca <- results_kpca %>% filter(!is.na(iso2c))
+
+results_kpca <- results_kpca %>% MoveFront(c('iso2c', 'country',
                         'date'))
 export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')

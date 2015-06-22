@@ -69,6 +69,6 @@ for (i in 1:length(file_txt)) {
         text_out <- text[unique(contains)] %>% paste(collapse = '')
 
         # Write to file
-        writeLines(text_out, sprintf('eiu_extracted_test/%s', file_txt[i]))
+        writeLines(text_out, sprintf('eiu_extracted/%s', file_txt[i]))
     }
 }
