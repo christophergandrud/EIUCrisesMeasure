@@ -77,7 +77,7 @@ lv_se$End <- ymd(lv_se$End)
 lv_se <- lv_se %>% filter(Start >= '2003-01-01')
 
 lv_se_start <- lv_se %>% select(iso2c, Start) %>%
-            rename(start = Start)
+                rename(start = Start)
 lv_se_end <- lv_se %>% select(End) %>%
                 rename(end = End)
 
