@@ -25,6 +25,8 @@ stargazer(m_r1, m_r1_econ, m_r2, m_r2_econ,
           covariate.labels = c('Liabilities$_{t-1}$', 
                                'Spending$_{t-1}$',
                                'Output Gap',
+                               'Liab. Resid.$_{t-1}$',
+                               'Econ. Spend Resid.$_{t-1}$',
                                'Perceived Financial Stress'),
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
@@ -33,13 +35,14 @@ stargazer(m_r1, m_r1_econ, m_r2, m_r2_econ,
 
 # Financail stress Regressions, post-election year
 stargazer(m1_sc, m2_sc, m3_sc,
-          dep.var.labels.include = F,
+          dep.var.labels = c('$\\Delta$ Off-Trend Liabilities'),
           covariate.labels = c('Post-Election Yr.', 'Loss Prob.', 
                                'Econ Ideology', 'Political Constraints',
                                'Election Yr. * Loss Prob.'),
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
           font.size = 'footnotesize',
+          notes = ('Standard errors in parentheses.'),
           out = 'tables/stress_regress_t1.tex'
 )
 
