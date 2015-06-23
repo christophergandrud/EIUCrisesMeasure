@@ -24,6 +24,20 @@ output_gap <- output_gap %>%
                 gather(year, output_gap, 2:ncol(output_gap)) %>%
                 arrange(country, year)
 
+# Import OECD General Government Debt
+debt <- import('raw/oecd_debt.csv', header = T) 
+
+debt <- debt %>%
+            gather(year, debt, 2:ncol(debt)) %>%
+            arrange(country, year)
+
+# Import OECD General Government Deficit
+deficit <- import('raw/oecd_deficit.csv', header = T) 
+
+deficit <- deficit %>%
+            gather(year, deficit, 2:ncol(deficit)) %>%
+            arrange(country, year)
+
 # Import OECD General gov. gross financial liabilities (% of GDP)
 gov_liab <- import('raw/oecd_gov_liabilities.csv')
 
@@ -59,13 +73,15 @@ iso_oecd <- function(df) {
 }
 
 output_gap <- output_gap %>% iso_oecd
+debt <- debt %>% iso_oecd
+deficit <- deficit %>% iso_oecd
 gov_liab <- gov_liab %>% iso_oecd
 gov_total_spend <- gov_total_spend %>% iso_oecd
 gov_econ_spend <- gov_econ_spend %>% iso_oecd
 fin_tranac <- fin_tranac %>% iso_oecd
 gdp <- gdp %>% iso_oecd
 
-# Find raw government liabilities
+# Find raw government finance numbers
 fix_gdp <- function(data, var, fix_year = 2005) {
     data <- merge(data, gdp, by = c('iso2c', 'year'))
     
@@ -77,7 +93,8 @@ fix_gdp <- function(data, var, fix_year = 2005) {
     data[, raw_var] <- data$temp_prop * data$gdp_billions
     
     # As a percent of 2005 GDP
-    gdp_2005 <- gdp %>% filter(year == fix_year) %>% select(iso2c, gdp_billions) %>%
+    gdp_2005 <- gdp %>% filter(year == fix_year) %>% 
+                    select(iso2c, gdp_billions) %>%
                     rename(gdp_2005 = gdp_billions)
     
     data <- merge(data, gdp_2005)
@@ -89,6 +106,10 @@ fix_gdp <- function(data, var, fix_year = 2005) {
 }
 
 gov_liab <- fix_gdp(data = gov_liab, var = 'gov_liabilities')
+debt <- fix_gdp(data = debt, var = 'debt') %>% 
+            select(-debt_raw, -gdp_2005, -gdp_billions)
+deficit <- fix_gdp(data = deficit, var = 'deficit') %>% 
+            select(-deficit_raw, -gdp_2005, -gdp_billions)
 gov_total_spend <- fix_gdp(data = gov_total_spend, var = 'gov_spend') %>% 
                     select(-gov_spend_raw, -gdp_2005, -gdp_billions)
 gov_econ_spend <- fix_gdp(data = gov_econ_spend, var = 'gov_econ_spend') %>% 
@@ -98,9 +119,14 @@ fin_tranac <- fix_gdp(data = fin_tranac, var = 'financial_transactions') %>%
 
 # Merge
 oecd <- merge(gov_liab, output_gap, by = c('iso2c', 'year'), all = T)
+oecd <- merge(oecd, debt, by = c('iso2c', 'year'), all = T)
+oecd <- merge(oecd, deficit, by = c('iso2c', 'year'), all = T)
 oecd <- merge(oecd, gov_total_spend, by = c('iso2c', 'year'), all = T)
 oecd <- merge(oecd, gov_econ_spend, by = c('iso2c', 'year'), all = T)
 oecd <- merge(oecd, fin_tranac, by = c('iso2c', 'year'), all = T)
+
+## Create Stock Flow Adjustment
+oecd$sfa <- oecd$debt_gdp2005_change + oecd$deficit_gdp2005
 
 #### Import DPI ####
 dpi <- DpiGet(vars = c('execrlc')) %>%
@@ -136,13 +162,12 @@ loss_prob$iso2c <- countrycode(loss_prob$iso2c, origin = 'iso3c',
                                destination = 'iso2c')
 
 ##### Import EPFMS ####
-URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca_rescaled.csv'
-epfms_index <- import(URL)
+epfms_index <- import('/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
 # Convert EPFMS to annual so that it is comparable with the FRT
 epfms_index$year <- epfms_index$date %>% year
 epfms_sum <- epfms_index %>% group_by(iso2c, year) %>%
-    summarise(mean_stress = mean(C1_ma, na.rm = T))
+                summarise(mean_stress = mean(C1_ma, na.rm = T))
 
 #### Henisz Political Constraints ####
 constraints <- import('raw/polcon2012.dta') %>%
@@ -197,6 +222,9 @@ comb <- comb %>% filter(year <= 2011)
 
 # Create year lags
 vars_to_lag <- c('mean_stress', 'output_gap', 'gov_liabilities',
+                 'debt', 'debt_gdp2005', 'debt_gdp2005_change',
+                 'deficit', 'deficit_gdp2005', 'deficit_gdp2005_change',
+                 'sfa',
                  'gov_liabilities_gdp2005', 'gov_liabilities_gdp2005_change', 
                  'gov_spend', 'gov_spend_gdp2005', 'gov_spend_gdp2005_change',
                  'gov_econ_spend', 'gov_econ_spend_gdp2005', 
