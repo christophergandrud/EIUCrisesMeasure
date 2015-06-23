@@ -5,7 +5,6 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-library(devtools)
 library(rio)
 library(dplyr)
 library(lubridate)
@@ -14,9 +13,6 @@ library(ggplot2)
 
 # Set working directory. Change as needed.
 setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
-
-# Load plot function
-source_gist('d270ff55c2ca26286e90')
 
 comb <- import('analysis/covariate_data/epfms_covariates.csv')
 
@@ -81,35 +77,31 @@ sub_gov_liab_spend$rs_change_spend <- sub_gov_liab_spend$residuals_stress_spend 
 # ------------------------------- Regressions -------------------------------- #
 #### Election Year #### 
 # Spending
-m1_t0 <- lm(rs_change_spend ~ election_year + lpr_1 + iso2c, data = sub_gov_liab_spend)
+m1_t0 <- lm(rs_change_spend ~ election_year + iso2c, data = sub_gov_liab_spend)
 
-m2_t0 <- lm(rsrs_change_spend_change ~ election_year*lpr_1 + iso2c, 
+m2_t0 <- lm(rs_change_spend ~ election_year + lpr_1 + iso2c, data = sub_gov_liab_spend)
+
+m3_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + iso2c, 
                   data = sub_gov_liab_spend)
 
-m3_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + execrlc + polconiii + iso2c, 
+m4_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + execrlc + polconiii + iso2c, 
                   data = sub_gov_liab_spend)
 
 # Liabilities
-m4_t0 <- lm(rs_change_liab ~ election_year + lpr + iso2c, data = sub_gov_liab)
+m5_t0 <- lm(rs_change_liab ~ election_year + lpr_1 + execrlc + polconiii + 
+                iso2c, data = sub_gov_liab)
 
 #### Post-Election Year ####
 # Liabilities
 m1_t1 <- lm(rs_change_liab ~ election_year_1 + lpr + iso2c, data = sub_gov_liab)
 
-m2_t2 <- lm(rs_change_liab ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
+m2_t1 <- lm(rs_change_liab ~ election_year_1 + lpr + iso2c, data = sub_gov_liab)
 
-m3_t3 <- lm(rs_change_liab ~ election_year_1*lpr + execrlc + polconiii + iso2c, 
+m3_t1 <- lm(rs_change_liab ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
+
+m4_t1 <- lm(rs_change_liab ~ election_year_1*lpr + execrlc + polconiii + iso2c, 
             data = sub_gov_liab)
 
 # Spending
-m4_t1 <- lm(rs_change_spend ~ election_year_1 + lpr + iso2c,
-            data = sub_gov_liab_spend)
-
-
-plot_me(obj = m1, term1 = 'election_year1', term2 = 'lpr_1',
-        fitted2 = seq(0, 0.75, by = 0.05)) +
-    scale_y_continuous(limits = c(-10, 10)) +
-    xlab('\nElectoral Loss Probability') +
-    ylab('Marginal Effect of Election Year\n') +
-    ggtitle('DV: Change in Spending Above Output Gap and EPFMS Predictions\n')
-
+m5_t1 <- lm(rs_change_spend ~ election_year_1 + lpr + execrlc + polconiii + 
+                iso2c, data = sub_gov_liab_spend)
