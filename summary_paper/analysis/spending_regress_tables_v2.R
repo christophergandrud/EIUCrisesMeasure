@@ -17,15 +17,18 @@ setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
 source('analysis/spending_regressions_v2.R')
 
 # Residual Regressions
-stargazer(m_r1, m_r2, m_r1_spend, m_r2_spend,
-          dep.var.labels = c('$\\Delta$ Liabilities', 
-                             '$\\Delta$ Liabilities Resid.',
-                             '$\\Delta$ Econ. Spend', 
-                             '$\\Delta$ Econ. Spend Resid.'),
-          covariate.labels = c('Output Gap', 'Perceived Financial Stress'),
+stargazer(m_r1, m_r1_econ, m_r2, m_r2_econ,
+          dep.var.labels = c('Liabilities', 
+                             'Econ. Spend', 
+                             'Liabilities Resid.',
+                             'Econ. Spend Resid.'),
+          covariate.labels = c('Liabilities$_{t-1}$', 
+                               'Spending$_{t-1}$',
+                               'Output Gap',
+                               'Perceived Financial Stress'),
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
-          font.size = 'footnotesize',
+          font.size = 'tiny',
           out = 'tables/liab_residual_regress.tex')
 
 # Financail stress Regressions, post-election year

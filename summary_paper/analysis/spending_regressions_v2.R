@@ -27,18 +27,16 @@ comb$election_year_1 <- comb$election_year_1 %>% as.factor
 
 ##### Create residuals #####
 # Create output gap change and government liabilities change variables
-comb$output_change <- comb$output_gap - comb$output_gap_1
-
 
 # Output Gap Residuals
 m_r1 <- lm(gov_liabilities_gdp2005 ~ gov_liabilities_gdp2005_1 + output_gap + 
                iso2c, data = comb)
 
 sub_gov_liab <- comb %>% DropNA(c('gov_liabilities_gdp2005_1', 'output_gap'))
-sub_gov_liab$residuals_output <- residuals(m_r1)
+sub_gov_liab$residuals_output_liab <- residuals(m_r1)
 
 # Financial Stress Residuals
-m_r2 <- lm(residuals_output ~ mean_stress + iso2c, data = sub_gov_liab)
+m_r2 <- lm(residuals_output_liab ~ mean_stress + iso2c, data = sub_gov_liab)
 sub_gov_liab <- sub_gov_liab %>% DropNA(c('mean_stress'))
 sub_gov_liab$residuals_stress <- residuals(m_r2)
 
@@ -71,15 +69,33 @@ m3_sc <- lm(rs_change ~ election_year_1*lpr + execrlc + polconiii + iso2c,
 
 # ------------------------- Robustness Compare to Econ Spending -------------- #
 #### Create Total Spending Residuals ####
-comb$gov_spend_change <- comb$gov_spend_gdp2005 - comb$gov_spend_gdp2005_1
-m_r1_spend <- lm(gov_spend_change ~ output_gap + iso2c,
-                 data = comb)
-gov_spend_residuals <- residuals(m_r1_spend)
-sub_gov_liab_spend <- comb %>% DropNA(c('gov_spend_change'))
-sub_gov_liab_spend$residuals_output <- gov_spend_residuals
+m_r1_econ <- lm(gov_econ_spend_gdp2005 ~ gov_econ_spend_gdp2005_1 + output_gap + iso2c,
+                data = comb)
 
-m_r2_spend <- lm(residuals_output ~ mean_stress + iso2c, 
-                 data = sub_gov_liab_spend)
+sub_gov_liab_spend <- comb %>% DropNA(c('gov_econ_spend_gdp2005', 
+                                        'gov_econ_spend_gdp2005_1',
+                                        'output_gap'))
+sub_gov_liab_spend$residuals_output_spend <- residuals(m_r1_econ)
+
+m_r2_econ <- lm(residuals_output_spend ~ mean_stress + iso2c, 
+                data = sub_gov_liab_spend)
 sub_gov_liab_spend <- sub_gov_liab_spend %>% DropNA(c('mean_stress'))
-sub_gov_liab_spend$residuals_stress <- residuals(m_r2_spend)
+sub_gov_liab_spend$residuals_stress <- residuals(m_r2_econ)
+
+sub_gov_liab_spend <- slide(sub_gov_liab_spend, Var = 'residuals_stress', 
+                      NewVar = 'residuals_stress_1',
+                      GroupVar = 'country', TimeVar = 'year')
+
+sub_gov_liab_spend$rs_change <- sub_gov_liab_spend$residuals_stress -
+                                    sub_gov_liab_spend$residuals_stress_1 
+
+m1 <- lm(rs_change ~ election_year*lpr_1 + iso2c, data = sub_gov_liab_spend)
+
+
+plot_me(obj = m1, term1 = 'election_year1', term2 = 'lpr_1',
+        fitted2 = seq(0, 0.75, by = 0.05)) +
+    scale_y_continuous(limits = c(-10, 10)) +
+    xlab('\nElectoral Loss Probability') +
+    ylab('Marginal Effect of Election Year\n') +
+    ggtitle('DV: Change in Spending Above Output Gap and EPFMS Predictions\n')
 
