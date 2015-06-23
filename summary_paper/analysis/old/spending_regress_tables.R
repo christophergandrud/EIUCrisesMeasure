@@ -13,7 +13,7 @@ library(xtable)
 setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
 
 # Run regressions
-source('analysis/spending_regressions.R')
+source('analysis/spending_regressions_v2.R')
 
 # Residual Regressions
 stargazer(m_r1, m_r2, m_r1_spend, m_r2_spend,

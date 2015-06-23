@@ -1,5 +1,6 @@
 # ---------------------------------------------------------------------------- #
 # Elections, Electoral Loss Probabilities, and Government Liabilities Shocks
+# Version 1
 # Christopher Gandrud
 # MIT License
 # ---------------------------------------------------------------------------- #
