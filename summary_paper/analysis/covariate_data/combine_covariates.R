@@ -176,6 +176,12 @@ constraints <- import('raw/polcon2012.dta') %>%
 
 constraints <- constraints %>% iso_oecd
 
+#### Euro membership ####
+euro <- import('https://raw.githubusercontent.com/christophergandrud/euro_membership/master/data/euro_membership_data.csv') %>%
+            select(-country)
+euro$euro_member <- 1
+
+
 #### Merge All ###
 comb <- merge(epfms_sum, oecd, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, dpi, by = c('iso2c', 'year'), all.x = T)
@@ -183,6 +189,7 @@ comb <- merge(comb, corrected_elections, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, endog_election, by = c('iso2c', 'year'), all.x = T )
 comb <- merge(comb, loss_prob, by = c('iso2c', 'year'), all = T)
 comb <- merge(comb, constraints, by = c('iso2c', 'year'), all.x = T)
+comb <- merge(comb, euro, by = c('iso2c', 'year'), all.x = T)
 
 comb <- comb %>% group_by(iso2c) %>% mutate(lpr = FillDown(Var = lpr))
 comb <- comb %>% mutate(lprsq = FillDown(Var = lprsq))
@@ -192,6 +199,21 @@ comb <- comb %>% mutate(ParlSys = FillDown(Var = ParlSys))
 comb$country <- countrycode(comb$iso2c, origin = 'iso2c',
                             destination = 'country.name')
 comb <- comb %>% MoveFront('country')
+
+# Clean up Euro membership and create pegged/fixed exchange rate variable
+comb$euro_member[is.na(comb$euro_member)] <- 0
+comb$fixed_exchange <- comb$euro_member
+
+comb$fixed_exchange[comb$country == 'Denmark'] <- 1
+comb$fixed_exchange[comb$country == 'Estonia' & comb$year >= 2004] <- 1
+comb$fixed_exchange[comb$country == 'Greece' & comb$year >= 1996] <- 1
+comb$fixed_exchange[comb$country == 'Hungary' & comb$year >= 2004 & 
+                        comb$year <= 2008] <- 1
+comb$fixed_exchange[comb$country == 'Slovakia' & comb$year >= 2006] <- 1
+comb$fixed_exchange[comb$country == 'Slovenia' & comb$year >= 2004] <- 1
+comb$fixed_exchange[comb$country == 'Switzerland' & comb$year >= 2011 &
+                        comb$year < 2015] <- 1
+
 
 #### Clean up Loss Probability Variables ####
 # Fix missing in Kayser and Lindstät
