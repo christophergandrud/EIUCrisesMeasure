@@ -46,7 +46,6 @@ sub_gov_liab <- slide(sub_gov_liab, Var = 'residuals_output_liab',
 sub_gov_liab$rs_change_liab <- sub_gov_liab$residuals_stress_liab -
                             sub_gov_liab$residuals_stress_liab_1 
 
-
 # ------------------------- Econ Spending Residuals -------------- #
 #### Create Total Spending Residuals ####
 m_r1_econ <- lm(gov_econ_spend_gdp2005 ~ gov_econ_spend_gdp2005_1 + output_gap + iso2c,
@@ -84,24 +83,25 @@ m2_t0 <- lm(rs_change_spend ~ election_year + lpr_1 + iso2c, data = sub_gov_liab
 m3_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + iso2c, 
                   data = sub_gov_liab_spend)
 
-m4_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + execrlc + polconiii + iso2c, 
-                  data = sub_gov_liab_spend)
+m4_t0 <- lm(rs_change_spend ~ election_year*lpr_1 + execrlc + polconiii + 
+                fixed_exchange + iso2c, data = sub_gov_liab_spend)
 
 # Liabilities
 m5_t0 <- lm(rs_change_liab ~ election_year + lpr_1 + execrlc + polconiii + 
-                iso2c, data = sub_gov_liab)
+                fixed_exchange + iso2c, data = sub_gov_liab)
 
 #### Post-Election Year ####
 # Liabilities
-m1_t1 <- lm(rs_change_liab ~ election_year_1 + lpr + iso2c, data = sub_gov_liab)
+m1_t1 <- lm(rs_change_liab ~ election_year_1 + iso2c, data = sub_gov_liab)
 
 m2_t1 <- lm(rs_change_liab ~ election_year_1 + lpr + iso2c, data = sub_gov_liab)
 
 m3_t1 <- lm(rs_change_liab ~ election_year_1*lpr + iso2c, data = sub_gov_liab)
 
-m4_t1 <- lm(rs_change_liab ~ election_year_1*lpr + execrlc + polconiii + iso2c, 
+m4_t1 <- lm(rs_change_liab ~ election_year_1*lpr + execrlc + polconiii +
+                fixed_exchange + iso2c, 
             data = sub_gov_liab)
 
 # Spending
 m5_t1 <- lm(rs_change_spend ~ election_year_1 + lpr + execrlc + polconiii + 
-                iso2c, data = sub_gov_liab_spend)
+                fixed_exchange + iso2c, data = sub_gov_liab_spend)

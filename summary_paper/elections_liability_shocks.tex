@@ -41,7 +41,7 @@ All data and replication material can be found at:
 \textbf{Incomplete Working Draft}
 
 \begin{abstract}
-How do elections and electoral competitiveness affect governments' fiscal decisions during financial crises? Some previous research has found that having competitive elections reduces the costs of financial crises. The idea is that politicians need to keep costs low to please taxpaying voters. However, governments have plenty of avenues to obscure costs and so have some degree of control over when costs are revealed. We reexamine the relationship between elections and fiscal responses to financial crises in OECD countries using a novel approach to measuring changes in government liabilities as a result of financial stress. We find that governments do change their budgetary behaviour in response to elections in that they are more likely to expose more liabilities when they are as safe as possible. Public liabilities from responding to financial market stress noticeably increase immediately following elections.
+How do elections and electoral competitiveness affect governments' fiscal decisions during financial crises? Some previous research has found that having competitive elections reduces the costs of financial crises. The idea is that politicians need to keep costs low to please taxpaying voters. However, governments have plenty of avenues to obscure costs and so have some degree of control over when costs are revealed. We reexamine the relationship between elections and fiscal responses to financial crises in OECD countries using a novel approach to measuring changes in government liabilities as a result of financial stress. We find that governments do change their budgetary behaviour in response to elections in that they are more likely to have lower spending in response to financial market stress during election years and expose more liabilities in post-election years, when they are electorally safer.
 
 \end{abstract}
 
@@ -107,7 +107,8 @@ We include a number of other variables in an attempt to control for omitted vari
 
 Governments may be constrained in their ability to actually change fiscal policy in a given year in response to economic shocks \cite[e.g.][]{MacIntyre2001}. If there are more checks on a government then they might not be able to change fiscal policy as they otherwise would like to. So, we include a measure of political constraints from \cite[][updated through 2011]{Henisz2004}.\footnote{We specifically used the POLCONIII variable.}
 
-Many of the countries in our sample do not have independent control over their monetary policy as they are in the Eurozone or, in the case of Denmark, in a fixed exchange rate regime with the Eurozone. As such, they have limited ability to use monetary policy tools such as central bank liquidity assistance to aid their troubled banks. They may therefore be more reliant on fiscal policies. To examine this possibility, we included a fixed exchange rate regime dummy variable. This is one for both Eurozone member states and states with fixed or pegged exchange rates including pre-Euro members and Switzerland in 2011.  
+Many of the countries in our sample do not have independent control over their monetary policy as they are in the Eurozone or, in the case of Denmark, in a fixed exchange rate regime with the Eurozone. As such, they have limited ability to use monetary policy tools such as central bank liquidity assistance to aid their troubled banks. They may therefore be more reliant on fiscal policies. To examine this possibility, we included a fixed exchange rate regime dummy variable. This is one for both Eurozone member states and states with fixed or pegged exchange rates including pre-Euro members and Switzerland in 2011. The results were the same for a pure Eurozone variable as well.
+
 [...]
 
 \section{Regression results}
@@ -115,6 +116,8 @@ Many of the countries in our sample do not have independent control over their m
 Key linear regression results are shown in tables \ref{t0_stress} and \ref{t1_stress}. We can see that election years and post-election years are associated with different fiscal responses to financial crises. We can see in Table \ref{t0_stress} that there is evidence that in election years governments lower their off trend spending given the output gaps and perceived financial market stress. There is very weak evidence that this also applies to liabilities, though this affect is not significant at the 10 percent level. Conversely, in Table \ref{t1_stress} we can see that governments increase off trend liabilities in post-election years. This could be because they are realising previously obscured liabilities and/or not putting effort into obscuring liabilities. This affect does not appear to extend to spending.
 
 We also found that the probability that plurality parties will loose in the next election mediates these findings. Marginal effects from these interactions are show in Figure \ref{me_stress}. In the left-panel we can see that a higher loss probability decreases the negative spending effect of election years. Plurality parties that have a higher probability of losing do not spend less than trend in response to crises. Perhaps, having governments with less chance of remaining in office feel less pressure to contain their spending.\todo{This explanation stinks.} In the case of post-election years, higher loss probabilities decrease governments' tendencies to take on and reveal liabilities. These governments are fairly insecure and likely worry about how more immediate elections and how voters may punish them for adding to the government debt.
+
+In the literature on political business cycles, \cite{clark2000} found that pre-election years spending increases--to boost the economy and please voters--were conditional on having a fixed exchange rate as governments were unable to use monetary policy to spur on the economy. We did test interactions between the fixed exchange rate and election timing variables, but did not find a significant effect--not shown. 
 
 
 \begin{figure}
@@ -126,7 +129,7 @@ We also found that the probability that plurality parties will loose in the next
     \end{center}
 
     {\scriptsize{Shadded areas represent 90\% confidence intervals. \\
-    Plots made using model 2 in Table~\ref{t1_stress}.}}
+    Plots made using model 3 in Tables \ref{t0_stress} and \ref{t1_stress}.}}
 
 \end{figure}
 
