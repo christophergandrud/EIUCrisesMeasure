@@ -42,7 +42,7 @@ clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
                     tm_map(removePunctuation, mc.cores = 2) %>%
-                    tm_map(removeNumbers, mc.cores = 2)
+                    tm_map(removeNumbers, mc.cores = 2) 
 
 # Kernal length
 length_spec = 5
@@ -103,7 +103,7 @@ components_names <- names(results_kpca)[grep('^C[1-9]', names(results_kpca))]
 
 # Transform Scale
 for (i in components_names) {
-    results_kpca[, i] <- results_kpca[, i] * -1
+    # results_kpca[, i] <- results_kpca[, i] * -1
     results_kpca[, i] <- range01(results_kpca[, i])
 }
 
