@@ -206,10 +206,8 @@ analysis.\footnote{We conducted kernel PCA with the \texttt{kpca}
 
 To determine the number of dimensions that best describe the data, we
 conducted a scree test, the results of which are shown in Figure
-\ref{scree_plot}. There is something of an `elbow' in the plot at three components.
-This suggests that there is perhaps substantively meaningful variation in
-approximately the first three dimensions. The drop from the first to
-second component is notable. In the rest of the article we focus on the first dimension as the main dimension summarizing financial market conditions. We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
+\ref{scree_plot}. There is a clear `elbow' in the plot at component two.
+This suggests that the first component explains the most variation in the data. In the rest of the article we focus on the first dimension as the main dimension summarizing financial market conditions. We also examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators.
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
@@ -222,15 +220,12 @@ second component is notable. In the rest of the article we focus on the first di
 \section{Results, Validation, and Description}\label{results}
 
 The lines in figures \ref{compare_1} and \ref{compare_2} show the
-results of the kernel PCA analysis--the first principal compenent--for a selection of countries. Similar plots for all countries in the analysis are available in the Appendix. Before diving deeper into these results, it is important to note three simple transformations we conducted on the raw results. First, we flipped the
-scale. As we demonstrate when we compare the Index to other measures of
-crisis, this allows higher values of the EPFMS to be interpreted as
-`more financial market stress'. Second, we rescaled the Index so that it
+results of the kernel PCA analysis--the first principal compenent--for a selection of countries. Before diving deeper into these results, it is important to note two simple transformations we conducted on the raw results. First, we rescaled the Index so that it
 would be between zero and one.\footnote{\(\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}\),
   where \(\bm{X}\) is the vector of the first principal component and
   \(x\) is an individual value from this vector.} This eases
 interpretation and comparability to other measures. Henceforth we only
-use the rescaled version of the Index. Then we slightly smoothed the
+use the rescaled version of the Index. Second, we slightly smoothed the
 results by taking a two period--usually two months--moving average.
 
 What does this dimension represent? We took a number of approaches to
