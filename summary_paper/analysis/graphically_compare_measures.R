@@ -4,9 +4,6 @@
 # MIT License
 #########################################
 
-# Set working directory
-setwd('/git_repositories/EIUCrisesMeasure/')
-
 # Load required packages
 library(rio)
 library(DataCombine)
@@ -16,6 +13,13 @@ library(lubridate)
 library(tidyr)
 library(ggplot2)
 library(gridExtra)
+library(repmis)
+
+# Set working directory
+pos <- c('/git_repositories/EIUCrisesMeasure/', 
+         '~/git_repositories/EIUCrisesMeasure/')
+
+set_valid_wd(pos)
 
 # Function to rescale between 0 and 1
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}

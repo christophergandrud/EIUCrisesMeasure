@@ -5,7 +5,10 @@
 # ---------------------------------------------------------------------------- #
 
 # Set working directory
-setwd('/git_repositories/EIUCrisesMeasure/')
+pos <- c('/git_repositories/EIUCrisesMeasure/', 
+         '~/git_repositories/EIUCrisesMeasure/')
+
+repmis::set_valid_wd(pos)
 
 # Load packages
 library(rio)
@@ -46,7 +49,7 @@ rr_spell <- rein_rog_sub %>% filter(date >= '1970-01-01')
 # Function to find Spells
 rr_spell_finder <- function(x) {
     # Find crisis start and stop
-    rr_spell <- StartEnd(rr_spell, SpellVar = x, TimeVar = 'date',
+    rr_spell <- StartEnd(rr_spell, SpellVar = x,
                          GroupVar = 'iso2c', SpellValue = 1)
 
     # Find start and stop dates
