@@ -92,6 +92,8 @@ c1_cor <- cor_pca('C1')
 c2_cor <- cor_pca('C2')
 c3_cor <- cor_pca('C3')
 
+export(c1_cor, file = 'data/C1_stem_correlations.csv')
+
 #### Random forest ####
 setwd('~/git_repositories/EIUCrisesMeasure/')
 

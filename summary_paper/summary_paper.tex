@@ -25,6 +25,10 @@
 \usepackage{lscape}
 \usepackage{float}
 
+\usepackage{subfig}
+
+\captionsetup{belowskip=12pt,aboveskip=4pt}
+
 
 \title{Measuring Real-time Perceptions of Financial Market Stress}
 \author{Christopher Gandrud and Mark Hallerberg \\ \emph{Hertie School of Governance}\footnote{Please contact Christopher Gandrud
@@ -59,7 +63,7 @@ vast quantities of qualitative texts into cross-sectional time-series
 indicators.
 
 We start the paper by detailing previous attempts to measure financial market crises and stress and areas where they could be improved. We then discuss the
-construction of the EPFMS Index and undertake a number of approaches to assessing its validity. This includes, comparing it to widely used previous measures of financial market stress that are based on both quantitative and qualitative data. We then further explore important characteristics of the Index including how it differs across developed and developing countries and how it changes over time within countries. Doing so allows us to draw conclusions about how financial market conditions differ across countries and how perceptions of financial market stress change over the course of a crisis.
+construction of the EPFMS Index and undertake a number of approaches to assessing its validity. This includes, comparing it to widely used previous measures of financial market stress that are based on both quantitative and qualitative data. We then further explore important characteristics of the Index including how it differs across developed and developing countries and how it changes over time within countries. Doing so allows us to draw conclusions about how financial market conditions differ across countries and how perceptions of financial market stress change over the course of a crisis. We also given an example of how the Index could be used in applied research on political budget cycles in responses to perceived financial market stress.
 
 \todo{Plan to include at least one replication.}
 
@@ -246,12 +250,14 @@ frequency matrix from the stemmed documents. Effectively this is a
 for each document in \(\bm{K}\). We removed sparse terms, i.e.~kept only
 stems that were found in 90 percent of the documents. Random forests
 regressions, as opposed to ordinary least squares regressions, are useful
-for exploring this data's associations with the estimated principal components because it can handle many variables--in this case 958 stems--relative to the number of documents--12,473.
+for exploring this data's associations with the estimated principal components because it can handle many variables--in this case 1,116 stems--relative to the number of documents--12,377.
 
 We focus on the variable importance from this analysis.\footnote{We conducted the random forests regressions using the \texttt{rfsrc} function from the
 \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} The results are shown in Figure \ref{rf_importance}. The logic behind variable importance in this context is as a measure of how well the frequency of a given stem in a text allows the model to predict the EPFMS score for that text.
 
-Unsurprisingly, two of the three stems with the largest variable importance are `bank', `financi', and `loan'. Terms with these stems were used to select the texts. The prevalence of these terms and others that are clearly related to the financial sector, such as interest, rate, and fund, indicate that the EPFMS is indeed about financial sector conditions and not some other topic.
+Unsurprisingly, a number of the stems with the largest variable importance are `bank', `financi', and `loan'. Terms with these stems were used to select the texts. The prevalence of these terms and others that are clearly related to the financial sector, such as interest, rate, and fund, indicate that the EPFMS is indeed about financial sector conditions and not some other topic. Words relating to the direction of financial conditions are also important including, `growth' and `rise'. We can also see that words relating to the the macro-political economic environment of finance are also important, including `govern', `imf', and `currentaccount'.
+
+To get a sense of the general direction of the relationship between the stems and the Index, Table \ref{stem_correlations} shows a selection of correlations. We can see that a number of terms related to debt, financial assistance, and aid are positively related to the EPFMS. Suggesting that the positive direction of the scale is in fact capturing periods where policy-makers would perceive heightened financial market stress. Words that are generally about positive credit conditions, such as `growth', `surplus', and `boom' are negatively associated with the Index. This suggests that the lower end of the scale indeed indicates more positive financial market conditions. Finally, we can see that adjectives that have seemingly opposite directions--`stronger' and `weaker'--are both negatively associated with the Index. Such a finding indicates that a kernel PCA approach is useful compared to contextless bag-of-words approaches.
 
 \begin{figure}
     \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
@@ -262,6 +268,8 @@ Unsurprisingly, two of the three stems with the largest variable importance are 
     \end{center}
 
 \end{figure}
+
+\input{tables/stem_correlations.tex}
 
 \subsection{Comparison to other crisis
 measures}\label{comparison-to-other-crisis-measures}
@@ -470,10 +478,15 @@ Not all crises are the same. Most of the crises in the period for which we have 
 
 While the EPMFS is a fine-grained description of perceived stress, we should avoid using it as a predictive measure of when a crisis will begin or end.
 
-\section{Replication}\label{replication}
+\section{Application}\label{application}
+
+A clear use for the EPFMS Index is as a `right-hand' covariate in future regression analyses where the dependent variable is, for example, a particular policy choice or government failure time. The Index could also be used as a dependent variable such that we could examine how, for example, government partisanship or electoral competitiveness affects financial stability.
+
+We are going to focus on a different application to show how having a specifically continuous measure could be particularly useful in future research. 
 
 \section{Conclusions}\label{conclusions}
 
+We have introduced a new measure of perceived financial market stress, compared it to other prior measures of financial crisis and instability, and showed how our continuous measure could be used in future research to
 
 \bibliographystyle{apsr}
 \bibliography{main.bib}
