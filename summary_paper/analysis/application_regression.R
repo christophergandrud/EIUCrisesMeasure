@@ -26,7 +26,7 @@ stargazer(m_r1, m_r2,
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
           omit.stat = c('f', 'ser'),
-          font.size = 'tiny',
+          font.size = 'footnotesize',
           out = 'tables/debt_residual_regress.tex'
 )
 

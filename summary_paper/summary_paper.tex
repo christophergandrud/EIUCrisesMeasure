@@ -494,8 +494,6 @@ To do this we first need to consider what aspect of governments' fiscal position
 
 It is likely that governments can only defer realising the costs of responding to financial crises until after elections on the margins. Voters are not only worried about debt increases. They are also concerned with general economic well-being, and therefore want governments to restore financial market stability when things become unstable \citep{Rosas2009}. Doing this involves policies, such as guaranteeing deposits or providing liquidity assistance to banks such that most of the costs will likely hit the government debt in a way that is not entirely controlled by the government. As such, we would expect that on average debts will be higher when there is more financial market stress. Additionally, we would expect debts to be higher when the economy is doing worse generally, regardless of whether or not this is caused by financial or other crises. Especially in advanced democracies, previous policy decisions created automatic stabilisers, like unemployment insurance, that is more costly during crises.
 
-To estimate marginal or `off-trend' government debt changes in response to financial market stress we run a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial correction model with lagged central government debt and countries' output gap. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD.\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.}
-
 \begin{table}
     \caption{Estimating Off-Trend Debt in Response to Financial Market Stress}
     \label{residuals}
@@ -503,6 +501,10 @@ To estimate marginal or `off-trend' government debt changes in response to finan
             \input{tables/debt_residual_regress.tex}
         \end{center}
 \end{table}
+
+To estimate marginal or `off-trend' government debt changes in response to financial market stress we run a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial correction model with lagged central government debt to control for serial autocorrelation and countries' output gap as well as country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.} Unfortunately, due to the periodicity of the other variables, we need to use mean annual EPFMS scores.
+
+We can see that
 
 
 
