@@ -65,8 +65,6 @@ indicators.
 We start the paper by detailing previous attempts to measure financial market crises and stress and areas where they could be improved. We then discuss the
 construction of the EPFMS Index and undertake a number of approaches to assessing its validity. This includes, comparing it to widely used previous measures of financial market stress that are based on both quantitative and qualitative data. We then further explore important characteristics of the Index including how it differs across developed and developing countries and how it changes over time within countries. Doing so allows us to draw conclusions about how financial market conditions differ across countries and how perceptions of financial market stress change over the course of a crisis. We also given an example of how the Index could be used in applied research on political budget cycles in responses to perceived financial market stress.
 
-\todo{Plan to include at least one replication.}
-
 \section{Motivation}\label{motivation}
 
 Knowing when crises started, when they ended, and how severe they were over their course is crucial for research trying to understand how governments choose to respond to financial market distress, the fiscal costs of these responses, and the political outcomes. Researchers working on these issues have tended to rely on two data sources of cross-country information on when a country is facing a financial crisis--\cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessor versions. For a literature review see \cite{GandrudHallerberg2015}, as well as tables \ref{LitRevTable} and \ref{LitRevTable2} in the Online Appendix.
@@ -486,20 +484,28 @@ A clear use for the EPFMS Index is as a `right-hand' covariate in future regress
 
 Measuring the fiscal costs of financial crises is notoriously difficult.\footnote{This section is based on work primarily developed in \cite{gandrudHallerbergPBC}.} \cite{GandrudHallerberg2015} catalogue the many problems inherent perhaps even the most comprehensive data set of fiscal costs: \cite{laeven2013} and their predecessors. There are many different avenues to assist ailing financial institutions, many of which, like guarantees and liquidity assistance, may not involve direct expenditures that are easily attributable to a specific policy choice. Accounting rules differ across time and place \citep{gandrudHallerbergWEP} meaning that a cost in one context may be `hidden debt' \citep{reinhartRogoff2011}. We should also expect costs to vary according to crisis severity. Politician will, on average, respond more forcefully to stabilise and resolve more severe financial market stress. As such we need to be able to account for how severe politicians believed their crisis to be.
 
-Politicians also have some control over \emph{when} financial crisis costs are exposed. For example, the United Kingdom's Chancellor of the Exchequer George Osborne announced on 10 June 2015 that the government would begin selling of its stake in the Royal Bank of Scotland--a bank that had ben nationalised during the 2008 crash. This sale would likely be for a substantial loss.\footnote{See \url{http://www.theguardian.com/business/2015/jun/10/george-osborne-signals-rbs-sell-off-at-mansion-house-speech}. Accessed June 2015.} This announcement was made approximately a month after the general election.
+Politicians also have some control over \emph{when} financial crisis costs are exposed. For example, the United Kingdom's Chancellor of the Exchequer George Osborne announced on 10 June 2015 that the government would begin selling of its stake in the Royal Bank of Scotland--a bank that had ben nationalised during the 2008 crash. This sale would likely be for a substantial loss.\footnote{See \url{http://www.theguardian.com/business/2015/jun/10/george-osborne-signals-rbs-sell-off-at-mansion-house-speech}. Accessed June 2015.} This announcement was made approximately a month after the general election. In consequence, if not design, the realisation of these costs was deferred until after the election, when the government had effectively five years before they need to return to voters.
 
-This event raises an interesting question: when do politicians decide to make the costs of a financial crisis public? Do they more often, like George Osborne, choose to reveal costs when they are sitting on the safe side of an election? We can use the EPFMS to help us answer these questions.
+This event raises an interesting question: when do politicians decide to make the costs of a financial crisis public? Do they, like George Osborne, choose to reveal costs when they are sitting on the safe side of an election? We can use the EPFMS to help us answer these questions.
 
 \subsection{Estimating `off-trend' financial crisis debt}
 
+To do this we first need to consider what aspect of governments' fiscal positions voters, and so office-seeking politicians, are primarily concerned about. \cite{gandrudHallerbergWEP} argue that voters likely pay the most attention to gross debt increases. Taxpaying voters are wary of debt increases as they might lead to tax increases. Voters who benefit more from government spending are also concerned about debt increases as these might lead to spending cuts. We would therefore expect election-seeking politicians to try to shift debt increases until after elections, when they are `most safe' from being removed from office. As such, we are going to focus on gross central government debt.
 
+It is likely that governments can only defer realising the costs of responding to financial crises until after elections on the margins. Voters are not only worried about debt increases. They are also concerned with general economic well-being, and therefore want governments to restore financial market stability when things become unstable \citep{Rosas2009}. Doing this involves policies, such as guaranteeing deposits or providing liquidity assistance to banks such that most of the costs will likely hit the government debt in a way that is not entirely controlled by the government. As such, we would expect that on average debts will be higher when there is more financial market stress. Additionally, we would expect debts to be higher when the economy is doing worse generally, regardless of whether or not this is caused by financial or other crises. Especially in advanced democracies, previous policy decisions created automatic stabilisers, like unemployment insurance, that is more costly during crises.
+
+To estiamte marginal or `off-trend' government debt changes we run a series of regressions to find the trend debt response to financial market stress.
+
+ 
 
 \subsection{Debt increases after elections}
+
+[COMPARE TO LAEVEN AND VALENCIA]
 
 
 \section{Conclusions}\label{conclusions}
 
-We have introduced a new measure of perceived financial market stress, compared it to other prior measures of financial crisis and instability, and showed how our continuous measure could be used in future research to
+We have introduced a new measure of perceived financial market stress, compared it to other prior measures of financial crisis and instability, and showed how our continuous measure could be used in future research to examine fiscal decisions in response to financial crises.
 
 \bibliographystyle{apsr}
 \bibliography{main.bib}
