@@ -26,7 +26,6 @@
 \usepackage{float}
 
 \usepackage{subfig}
-
 \captionsetup{belowskip=12pt,aboveskip=4pt}
 
 
@@ -502,15 +501,31 @@ It is likely that governments can only defer realising the costs of responding t
         \end{center}
 \end{table}
 
-To estimate marginal or `off-trend' government debt changes in response to financial market stress we run a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial correction model with lagged central government debt to control for serial autocorrelation and countries' output gap as well as country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.} Unfortunately, due to the periodicity of the other variables, we need to use mean annual EPFMS scores.
+To estimate marginal or `off-trend' government debt changes in response to financial crises we ran a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial adjustment model with lagged central government debt to control for serial autocorrelation and countries' output gap. The initial model predicting debt with the output gap includes country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.}
 
-We can see that 
+\begin{figure}
+    \caption{Marginal Effect of Qualitative Banking Crises on Off-Trend Debt at Various Levels of Perceived Financial Market Stress}
+    \label{me_stress_crisis}
 
+    \begin{center}
+        \includegraphics[scale=0.45]{analysis/figures/lv_epfms.pdf}
+    \end{center}
+
+    {\scriptsize{Using a representative range of Perceptions of Financial Market stress values when there is a \cite{laeven2013} banking crisis. \\
+    Shaded area represents 90\% confidence interval. \\
+    Plot made using Model 4 in Table \ref{residuals}.}}
+
+\end{figure}
+
+We then took residuals from these two models and used them in similar partial adjustment regression models with a dummy banking crises variable from \cite{laeven2013} where one is a crisis and zero otherwise. This is interacted with a continuous measure of perceived financial market stress intensity.\footnote{These models do not include country fixed effects as they were found to be insignificant and their inclusion resulted in negative adjusted $R^{2}$ indicating that the models are over parameterised.} The perceived crisis intensity measure is from \cite{gandrudHallEPFMS}. They conduct a kernel principal component textual analysis \citep{Spirling2012} of monthly Economist Intelligence Unit (EIU) country reports to develop an index of real-time perceptions of financial market stress that they call the EIU Perceptions of Financial Market Stress (EPFMS) from 2003 through 2011. The EPFMS Index ranges from zero--low stress--to 1--high stress.
+
+This interaction helps us more accurately estimate what the trend fiscal policy is at various levels crisis intensity. The dummy banking crisis variable by itself is strongly associated with the residuals from the debt and spending regressions (Models 3 and 5). However, crises vary considerably in their intensity both across countries and across the same crisis in different years \cite{gandrudHallEPFMS}. In theory, on average governments should respond more forcefully during more intense crises. Using a crude dummy crisis measure averages over considerably different levels of intensity and would likely result in more crude estimates of off-trend fiscal responses to crises. Results from models with interactions between the dummy measure of crisis intensity and perceived financial market stress (models 4 and 6 in Table \ref{resid}) indicate this to be the case. These models have better model fit using Adjusted $R^{2}$ and F Statistic measures.
+
+The direction of the interaction (see Figure \ref{me_stress_crisis} for plotted marginal effects) in both the debt and spending cases indicates that governments in what Laeven and Valencia classify as banking crises take on more debt and spend more than average when they are in less stressed conditions, while those that are in more stressful conditions spend less than the trend. This result suggests that by interacting these two variables, we could be correcting for a deficiency in the Laeven and Valencia conceptualisation of banking crisis. One of their two criteria for a banking crisis occurring is that there is a policy response. Governments that choose to respond, when there is less financial market stress
 
 
 \subsection{Debt increases after elections}
 
-[COMPARE TO LAEVEN AND VALENCIA]
 
 
 \section{Conclusions}\label{conclusions}
