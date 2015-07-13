@@ -409,10 +409,10 @@ developed and developing countries. Notably, developing countries often have sco
 
 Developing countries often lack strong financial institutions and systems, so we should expect them to face generally tighter credit market conditions than developed countries. As a consequence, they are also more likely to be receiving assistance from multilateral parties, such as the IMF. This is all to say that financial markets are generally more stressed in developing as opposed to developed countries.
 
-Though somewhat obvious, this observation leads to important refinements to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not ``crisis'' directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing
+Though somewhat obvious, this observation leads to important refinements to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not `crisis' directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing
 economies face generally tight credit market conditions, these
 persistent conditions likely do not threaten the wider \emph{status quo} economy. As such, we would not expect significant policy responses to address financial market stress in these places. Conversely, tightening of credit market conditions in a developed, financialized economy would
-likely have large negative implications for the wider economy. So, we would expect politicians in these countries to respond to worsening credit market conditions. Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. 
+likely have large negative implications for the wider economy. So, we would expect politicians in these countries to respond to worsening credit market conditions. Previous measures of financial market distress and crises have generally been unable to explore this possible interaction.
 
 \begin{figure}
     \caption{Comparison of Mean EPFMS Scores in High vs. Low and Medium Income Countries}
@@ -435,39 +435,27 @@ It is beyond the scope of our article to determine why the Z-Score--at least in 
 
 \section{Summarizing Changes in the EPFMS}
 
-So far we have largely examined EPFMS score \emph{levels}. Now we turn to examining \emph{changes} in the EPFMS. To do this we use nonparametric drift-diffusion-jump models (DDJ) \citep{Carpenter2011,Dakos2012}. This approach allows us to draw more general conclusions about how perceptions of financial market stress change in more demanding and less demanding times.
+So far we have largely examined EPFMS score \emph{levels}. Now we turn to examining \emph{changes} in the EPFMS. To do this we use nonparametric drift-diffusion-jump models \citep[DDJ,][]{Carpenter2011,Dakos2012}. This approach allows us to draw more general conclusions about how perceptions of financial market stress change in more demanding and less demanding times.
 
-This approach allow us to approximate processes of change in a time series without needing to make explicit assumptions about the underlying process that creates these changes.\footnote{It should be stressed that unlike in other applications of DDJ models, such as in ecology and related work in finance \citep{Kou2008}, that use them to predict future states, we are exclusively using this statistical approach to summarize changes and elucidate patterns in observed data.}
+DDJ models allow us to approximate processes of change in a time series without needing to make explicit assumptions about the underlying process that creates these changes.\footnote{It should be stressed that unlike in other applications of DDJ models, such as in ecology and related work in finance \citep{Kou2008}, that use them to predict future states, we are exclusively using this statistical approach to summarize changes and elucidate patterns in observed data.} Drift is a measure of the local rate of change. Diffusion is small changes that happen at each time increment. Jumps are larger shocks that occur intermittently and are uncorrelated in time. The approach we take to estimating the DDJ model is from \cite{Carpenter2011}.\footnote{The model approximates the unknown process generating the EPFMS scores: $dx_{t} = f(x_{t},\;\theta_{t})dt + g(x_{t},\;\theta_{t})dw + dJ_{t}$. $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details. We estimated the model using the \texttt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}. Note that we estimated the parameters for each country's time series separately.}
 
-Drift is a measure of local rate of change. Diffusion is the small changes that happen at each time increment. Jumps are larger shocks that occur intermittently and are uncorrelated in time.
-
-The approach we take to estimating the DDJ model is from \cite{Carpenter2011}. It approximates the unknown process generating the EPFMS scores:
-
-\begin{equation}
-      dx_{t} = f(x_{t},\;\theta_{t})dt + g(x_{t},\;\theta_{t})dw + dJ_{t}
-\end{equation}
-
-\noindent $dx_{t}$ is the change in the EPFMS score $x$ for a country at time $t$. $\theta_{t}$ is a critical transition parameter. The drift function is given by $f(x_{t}\theta_{t})dt$. The diffusion function is given by $g(x_{t}\theta_{t})dw$. $J$ is a jump process. Please see Dakos et al. \citeyearpar[7]{Dakos2012} for further details.\footnote{We estimated the model using the \texttt{ddjnonparam\_ews} function from the \textbf{earlywarnings} R package \citep{earlywarnings2013}.} Note that we estimated the parameters for each country's time series separately.
-
-In the abstract we would perhaps expect that jumps would be more common in countries' EPFMS scores during crisis periods because there would be large moves in the index. To test this we first graphically compared the distributions of jump and diffusion parameters across what Laeven and Valencia\footnote{They are the most recently updated and comprehensive binary measure of crises.} classify as crisis and non-crisis periods. Figure \ref{comp_jump_diff} shows these densities. We have also included a measure of total variance, which is a summary of both jump and diffusion parameters.
+In the abstract we would perhaps expect that jumps would be more common in countries' EPFMS scores during crisis periods, because there would be large moves in the Index. To test this we first graphically compared the distributions of jump and diffusion parameters across what Laeven and Valencia\footnote{Despite the previously discussed short-commings, they are the most recently updated and comprehensive binary measure of crises.} classify as crisis and non-crisis periods. Figure \ref{comp_jump_diff} shows these densities. We have also included a measure of total variance, which is a summary of both jump and diffusion parameters.
 
 \begin{figure}
     \caption{Diffusion, Jump, and Total Variance Estimate Distributions Across Crisis and Non-Crisis Periods from \cite{laeven2013}}
     \label{comp_jump_diff}
     \begin{center}
-        \includegraphics[scale=0.5]{analysis/figures/compare_jump_diffusion_basic.pdf}
+        \includegraphics[scale=0.7]{analysis/figures/compare_jump_diffusion_basic.pdf}
     \end{center}
 \end{figure}
 
 We can see that the distribution of estimated jump parameters in `non-crisis' periods is shifted upward from the distribution of jump parameters in `crisis' periods. Conversely, the distribution of diffusion parameters in crisis periods is shifted upward from non-crisis periods. Finally, the distribution of total variance in crisis periods is lower than non-crisis periods. We found these distributions to be statistically significantly different in the described direction at all conventional levels using one-sided Kolmogorov–Smirnov tests.\footnote{Again, we ran the tests using the \texttt{ks.test} function from base R.}
 
-This is an interesting result considering our prior expectations. How can we make sense of it? It is useful to refer back to figures \ref{compare_1} and \ref{compare_2}. Notice that many of there periods that are classified across measures as a crisis do indeed begin with a jump. Belgium, Denmark, and Germany are particularly illustrative of this. However, these changes are not unusually large relative to changes in previous years. What is different, however, is what happens after the jump. Before crisis periods there are relatively many jumps in both positive and negative directions. In crisis periods there are a few positive jumps followed by many smallish, often positive, changes in the EPFMS.
+This is an interesting result considering our prior expectations. How can we make sense of it? It is useful to refer back to figures \ref{compare_1} and \ref{compare_2}. Notice that some of the periods that are classified across measures as a crisis do indeed begin with a jump. Iceland and Ireland in 2008 are particularly illustrative of this. However, these changes are not unusually large relative to changes in previous years. What is different, however, is what happens after the jump. Before crisis periods there are sometimes large changes in both positive and negative directions. In crisis periods there are a few periods of large positive changes followed by many small, often positive, changes in the EPFMS at a high level.
 
-In non-crisis times there may effectively be more noise in economic events, causing relatively large positive and negative swings in perceptions of financial market conditions. When crises occur, the information used to create perceptions of financial market stress are clearer. Think for example of Lehman Brother's collapse and the continually bad news that followed. During a crisis initial shocks are followed by additional bad news. During non-crisis times a possible shock could be followed relatively quickly afterwards by good news.
+In non-crisis times there may effectively be more noise in economic events, causing relatively large positive and negative swings in perceptions of financial market conditions. When crises occur, the information used to create perceptions of financial market stress is clearer. Think for example of Lehman Brother's collapse and the continually bad news that followed. During a crisis, initial shocks are followed by additional bad news that reinforces perceptions of heightened stress. During non-crisis times a possible shock could be relatively quickly followed by good news, returning perceptions of stress to a lower level.
 
-Not all crises are the same. Most of the crises in the period for which we have data have been protracted. In some cases, however, crises came quickly and left almost as quickly. Kazakstan is a notable example. In late 2009 there was a prominent spike in perceptions of financial market stress. Within a few months, the EPFMS score returned to almost its previous--though still relatively elevated--trend level.
-
-While the EPMFS is a fine-grained description of perceived stress, we should avoid using it as a predictive measure of when a crisis will begin or end.
+Not all crises are the same. Most of the crises in the period for which we have data have been protracted. In some cases, however, crises came quickly and leave almost as quickly. Kazakstan is a notable example. In late 2009 there was a prominent spike in perceptions of financial market stress. Within a few months, the EPFMS score returned to almost its previous trend level.
 
 \section{Application}\label{application}
 
@@ -526,6 +514,8 @@ The direction of the interaction (see Figure \ref{me_stress_crisis} for plotted 
 \section{Conclusions}\label{conclusions}
 
 We have introduced a new measure of perceived financial market stress, compared it to other prior measures of financial crisis and instability, and showed how our continuous measure could be used in future research to examine fiscal decisions in response to financial crises.
+
+While the EPMFS is a fine-grained description of perceived stress, we should avoid using it as a predictive measure of when a crisis will begin or end.
 
 \bibliographystyle{apsr}
 \bibliography{main.bib}

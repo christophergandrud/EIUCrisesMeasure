@@ -178,7 +178,7 @@ comb_gathered$measure <- factor(comb_gathered$measure,
 ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
     geom_density(aes(linetype = lv_bank_crisis)) +
     facet_wrap(~measure, scales = "free", ncol = 1) +
-    scale_color_manual(values = c("#00A08A", "#FF0000")) +
+    scale_colour_manual(values = c("#D8B70A", "#972D15")) +
     ylab('Density\n') + xlab('') +
     theme_bw() +
     guides(color = guide_legend(title = 'Laeven/Valencia'),
@@ -206,5 +206,6 @@ comb_income <- merge(comb_gathered, income, by = c('iso2c', 'year'))
 temp_sub <- comb_income %>% filter(measure == 'Diffusion')
 ggplot(temp_sub, aes(value, color = lv_bank_crisis)) +
     geom_density() +
+    scale_colour_manual(values = c("#D8B70A", "#972D15")) +
     facet_wrap(~high_income, scales = 'free') +
     theme_bw()
