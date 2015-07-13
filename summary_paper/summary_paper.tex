@@ -40,7 +40,7 @@ Thank you to Ronen Palan for helpful comments, as well as Christian Franz and Sa
 \maketitle
 
 
-\textbf{Incomplete Working Draft}
+\textbf{Incomplete Working Draft Prepared for the APSA 2015 Annual Conference}
 
 \begin{abstract}
 Research into the causes, responses to, and effects of banking crisis needs a measure of banking crises that is: accurate, reliable, comparable across countries, and ideally includes information about crisis severity. Most work to-date uses one of two series of crisis data: \cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessors. These measures are lacking in that they are constructed post-hoc and so tend to be biased towards severe crises and away from circumstances where governments effectively calmed emerging trouble. This creates clear selection bias. In addition, they are simple dichotomous indicators of financial crisis and do so do not indicate crisis severity. We use a kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports to develop a new real-time and continuous measure of perceived banking system stress. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. We not only develop a novel indicator of financial market stress, but also make a contribution to the wider political science and finance literatures on measurement by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
@@ -385,13 +385,7 @@ countries.
     Orange areas indicate periods where a crisis is recorded for both measures.}}
 \end{figure}
 
-\subsection{Comparision to Accounting Measures of Banking System Fragility}
-
-How does the EPFMS compare to the widely used Z-Score measure of banking system fragility? Though they measure different quantities--perceptions for the former, bank accounting quantities for the latter--both potentially provide indications of national banking market stress. We might expect them to be related to one another, either being positively correlated and/or one acting as a leading indicator of the other.
-
-We compare the EPFMS to the Bank Z-Score measure compiled from Bankscope data by the World Bank's Global Financial Development Database project \citep{worldbank2013}.\footnote{Indicator ID: GFDD.SI.01. Accessed June 2015.} The measure is interpretable as the inverse of the upper bound of the probability of the banking system's insolvency.\footnote{Formally: $\frac{\mathrm{ROA}_{t} + \frac{\mathrm{equity}_{t}}{\mathrm{assets}_{t}}}{\sigma_{\mathrm{ROA}}}$. $\mathrm{ROA}$ is return on equity. $\sigma_{\mathrm{ROA}}$ is presumably for the entire period for which data is available, though the World Bank's documentation does not explicitly specify this. It is common in other work for the $\sigma_{\mathrm{ROA}}$ to be based on a three year rolling window \cite[225]{beck2013bank}. All quantities are in country aggregates.} Figure~\ref{z_score} shows a comparison of the two measures for selected countries. Note that to ease visual comparability we rescaled the Z-Score to be within zero and one as before, and also reversed the scale so that larger values indicate a higher probability of banking system insolvency.\footnote{It is also common to log-transform the Z-Scores \cite[225]{beck2013bank}. However, it is unclear how this is done as there are negative values in the Z-score that create undefined values when logged.} We also converted the EPFMS to yearly averages for comparability.
-
-There appears to be very little relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, as we would expect, but this is very weak with a correlation coefficient of 0.07 (significant at the 5\% level). Interestingly, the Z-Score does not vary significantly within countries over time, especially compared to the EPFMS. There is very little difference between Z-Scores for countries during the financial crisis (however measured) and during more stable times. Thus Z-Scores may not be useful indicators of financial crisis. Z-Scores also do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that had EPFMS as the dependent variable and included lagged EPFMS, lagged Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress. It is beyond the scope of our article to determine why the Z-Score is a sub-optimal measure of financial market stress. However, the measure's peculiar aspects found here are important to note for future researchers: the indicator has weak time-variance, it does not distinguish between periods of significant know financial market stress and less stressful times, and it has poor power predicting perceived financial market stress.
+\clearpage
 
 \begin{landscape}
 \begin{figure}
@@ -405,6 +399,16 @@ There appears to be very little relationship between Z-Scores and the EPFMS Inde
 
 \end{figure}
 \end{landscape}
+
+\subsection{Comparision to Accounting Measures of Banking System Fragility}
+
+How does the EPFMS compare to the widely used Z-Score measure of banking system fragility? Though they measure different quantities--perceptions for the former and bank accounting quantities for the latter--potentially both provide indications of stress. We might expect them to be related to one another, either being positively correlated and/or one acting as a leading indicator of the other.
+
+To explore these possible associations we compare the EPFMS to the Bank Z-Score measure compiled from Bankscope data in the World Bank's Global Financial Development Database (GFDD) project \citep{worldbank2013}.\footnote{Indicator ID: GFDD.SI.01. Accessed June 2015.} The measure is interpretable as the inverse of the upper bound of the probability of the banking system's insolvency.\footnote{Formally: $\frac{\mathrm{ROA}_{t} + \frac{\mathrm{equity}_{t}}{\mathrm{assets}_{t}}}{\sigma_{\mathrm{ROA}}}$. $\mathrm{ROA}$ is return on equity. $\sigma_{\mathrm{ROA}}$ is presumably for the entire period for which data is available, though the World Bank's documentation does not explicitly specify this. It is common in other work for the $\sigma_{\mathrm{ROA}}$ to be based on a three year rolling window \cite[225]{beck2013bank}. All quantities are country aggregates.} Figure~\ref{z_score} shows a comparison of the two measures for selected countries. Note that to ease visual comparability we rescaled the Z-Score to be within zero and one as before, and reversed the scale so that larger values indicate a higher probability of banking system insolvency.\footnote{It is common to log-transform the Z-Scores \cite[225]{beck2013bank}. However, it is unclear how previous work has done this as there are negative values in the Z-score that would create undefined values when logged.} Finally, we converted the EPFMS to yearly averages for comparability.
+
+There does not appear to be a relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, but this is not significant at the 10\% level. Interestingly, the World Bank's Z-Scores do not vary significantly within countries over time, especially compared to the EPFMS. There is very little difference between Z-Scores for countries during financial crises (however measured) and more stable times. Thus Z-Scores are not a useful indicator of financial crisis states. Z-Scores do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that had the EPFMS as the dependent variable and included lagged EPFMS, lagged Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress (see the Online Appendix).
+
+It is beyond the scope of our article to determine why the Z-Score--at least in the version available through the World Bank's GFDD--is a sub-optimal cross-time measure of financial market stress. However, the measure's peculiar characteristics are important to note for future researchers: the indicator has weak time-variance, it does not distinguish between periods of significant know financial market stress and less stressful times, and it does not help us predict perceived financial market stress.
 
 \subsection{Developed vs.~Developing
 countries}\label{developed-vs.developing-countries}
@@ -501,7 +505,8 @@ It is likely that governments can only defer realising the costs of responding t
         \end{center}
 \end{table}
 
-To estimate marginal or `off-trend' government debt changes in response to financial crises we ran a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial adjustment model with lagged central government debt to control for serial autocorrelation and countries' output gap. The initial model predicting debt with the output gap includes country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.}
+To estimate marginal or `off-trend' government debt changes in response to financial crises we ran a series of regressions. Table \ref{residuals} shows the two step process. First, we used a partial adjustment model with lagged central government debt to control for serial autocorrelation and countries' output gap. The initial model predicting debt with the output gap includes country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased
+the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.}
 
 \begin{figure}
     \caption{Marginal Effect of Qualitative Banking Crises on Off-Trend Debt at Various Levels of Perceived Financial Market Stress}
@@ -539,9 +544,22 @@ We have introduced a new measure of perceived financial market stress, compared 
 
 \section*{Online Appendix}
 
-\todo{Make tables more relevant for paper}
+%\subsection*{Predicting Measures of Financial Market Stress with Z-Scores}
 
 \begin{table}
+    \caption{Do Z-Scores Predict Perceived Financial Market Stress?}
+    \label{epfms_z_regress}
+
+    \begin{center}
+        \input{tables/z_score_regress.tex}
+    \end{center}
+\end{table}
+
+%\subsection*{Selection of Literature Including Cross-Country Measures of Financial or Banking Market Crisis}
+
+\todo{Make tables more relevant for paper}
+
+\begin{table}[H]
 \caption{Selected Literature Review of Political Institutions and Financial
 Crisis (Political Outcomes)}
 
@@ -570,9 +588,5 @@ Crisis (Crisis Occurrence, Policy Choices/Policy Outcomes)}
 }}
 \end{center}
 \end{table}
-
-
-
-
 
 \end{document}

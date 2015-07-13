@@ -4,7 +4,6 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-
 # Load packages
 library(repmis)
 library(rio)
@@ -12,8 +11,10 @@ library(WDI)
 library(lubridate)
 library(countrycode)
 library(DataCombine)
+library(plm)
 library(dplyr)
 library(ggplot2)
+library(stargazer)
 
 # Set working directory of kpca project. Change as needed.
 pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
@@ -28,15 +29,12 @@ range01 <- function(x, na.rm = T){
 }
 
 # Import data sets
-epfms <- import('https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca_rescaled.csv')
+epfms <- import('http://bit.ly/1LFEnhM')
 
 # Other
 wdi <- WDI(indicator = c('GFDD.SI.01'), start = 2003) %>% 
-    rename(z_score = GFDD.SI.01) %>%
-    select(iso2c, year, z_score)
-
-# Create log z-score
-wdi$ihs_score <- wdi$z_score %>% ihs
+        rename(z_score = GFDD.SI.01) %>%
+        select(iso2c, year, z_score)
 
 # Convert EPFMS to annual so that it is comparable with the FRT
 epfms$year <- epfms$date %>% year
@@ -99,9 +97,15 @@ ggsave('summary_paper/analysis/figures/compare_to_z-score.pdf',
        width = 17, height = 15)
 
 #### Test prediction of EPFMS based on Z-Scores ####
-comb <- slide(comb, Var = 'mean_stress', TimeVar = 'year', GroupVar = 'iso2c',
-              NewVar = 'stress_lag1')
-comb <- slide(comb, Var = 'z_score', TimeVar = 'year', GroupVar = 'iso2c',
-              NewVar = 'z_lag1', slideBy = -1)
+comb <- comb %>% DropNA('iso2c') # Drop missing iso2c codes
 
-m1 <- lm(mean_stress ~ stress_lag1 + z_lag1 + as.factor(iso2c), data = comb)
+m1 <- plm(mean_stress ~ lag(mean_stress) + lag(z_score), index = c('iso2c', 'year'), 
+          data = comb)
+
+stargazer(m1,
+          covariate.labels = c('Annual Mean EPFMS (lag)', 'Z-Score (lag)'),
+          dep.var.labels = 'Annual Mean EPFMS',
+          add.lines = list(c("Fixed effects?", "Yes")),
+          float = F,
+          out = 'summary_paper/tables/z_score_regress.tex'
+          )
