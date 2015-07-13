@@ -40,29 +40,21 @@ Thank you to Ronen Palan for helpful comments, as well as Christian Franz and Sa
 \maketitle
 
 
-\textbf{Incomplete Working Draft Prepared for the APSA 2015 Annual Conference}
+\textbf{Incomplete Working Draft Prepared for the APSA 2015 Annual Conference, San Francisco}
 
 \begin{abstract}
-Research into the causes, responses to, and effects of banking crisis needs a measure of banking crises that is: accurate, reliable, comparable across countries, and ideally includes information about crisis severity. Most work to-date uses one of two series of crisis data: \cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessors. These measures are lacking in that they are constructed post-hoc and so tend to be biased towards severe crises and away from circumstances where governments effectively calmed emerging trouble. This creates clear selection bias. In addition, they are simple dichotomous indicators of financial crisis and do so do not indicate crisis severity. We use a kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports to develop a new real-time and continuous measure of perceived banking system stress. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. We not only develop a novel indicator of financial market stress, but also make a contribution to the wider political science and finance literatures on measurement by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful cross-sectional time-series indicators.
+Research into the causes, responses to, and effects of banking crisis needs a measure of banking crises that is: accurate, reliable, comparable across countries, and ideally includes information about crisis severity. Most work to-date uses one of two series of crisis data: \cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessors. These measures are lacking in that they are constructed post-hoc and so tend to be biased towards severe crises and away from circumstances where governments effectively calmed emerging trouble. This creates clear selection bias. In addition, they are simple dichotomous indicators of financial crisis and do so do not indicate crisis severity. We use a kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports to develop a new real-time and continuous measure of perceived banking system stress. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. We not only develop a novel indicator of financial market stress, but also make a contribution to the wider political science and finance literatures on measurement by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful continuous cross-sectional time-series indicators.
 \end{abstract}
 
 Why and how do politicians respond to financial market stress? What are the political consequences of crises? These questions have attracted considerable attention following the
 2007-2009 crisis, and earlier late-1990s Asian financial crisis. However, almost all research on these topics lack a crucial variable: a real-time indication of the level of financial
 market stress that policy-makers perceived. To understand why politicians made a given choice in response to financial market stress, we need to have a measure of the conditions that they believed they were responding to. Most recent research on the political responses to and effects of financial crises has relied on second-best alternatives; either one of two measures of financial crisis--\cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessors. These measures are post-hoc binary assessments of crisis occurrence and therefore are particularly lacking for studying politicians actions in response to financial crisis.
 
-In this paper we aim to develop a new index
-of real-time perceptions of financial market stress. The Index is
-created using a kernel principal component analysis (PCA) of detailed qualitative data, namely monthly Economist Intelligence Unit (EIU) reports. We call it the EIU Perceptions of
-Financial Market Stress (EPFMS) Index. This measure should be used instead of
-previous second-best measures of financial market stress by researchers
-aiming to understand why and how policy-makers respond to financial
-crisis. In so doing, we also make a contribution to the wider political
-science literature by showing how kernel PCA can be used to summarize
-vast quantities of qualitative texts into cross-sectional time-series
+In this paper we aim to develop a new index of real-time perceptions of financial market stress. The Index is created using a kernel principal component analysis (PCA) of detailed qualitative data, namely monthly Economist Intelligence Unit (EIU) reports. We call it the EIU Perceptions of
+Financial Market Stress (EPFMS) Index. This measure should be used instead of previous second-best measures of financial market stress by researchers aiming to understand why and how policy-makers respond to financial crisis. In so doing, we also make a contribution to the wider political science literature by showing how kernel PCA can be used to summarize vast quantities of qualitative texts into cross-sectional time-series
 indicators.
 
-We start the paper by detailing previous attempts to measure financial market crises and stress and areas where they could be improved. We then discuss the
-construction of the EPFMS Index and undertake a number of approaches to assessing its validity. This includes, comparing it to widely used previous measures of financial market stress that are based on both quantitative and qualitative data. We then further explore important characteristics of the Index including how it differs across developed and developing countries and how it changes over time within countries. Doing so allows us to draw conclusions about how financial market conditions differ across countries and how perceptions of financial market stress change over the course of a crisis. We also given an example of how the Index could be used in applied research on political budget cycles in responses to perceived financial market stress.
+We start the paper by detailing previous attempts to measure financial market crises and stress and areas where they could be improved. We then discuss the construction of the EPFMS Index and undertake a number of approaches to assessing its validity. This includes, comparing it to widely used previous measures of financial market stress that are based on both quantitative and qualitative data. We then further explore important characteristics of the Index including how it differs across developed and developing countries and how it changes over time within countries. Doing so allows us to draw conclusions about how financial market conditions differ across countries and how perceptions of financial market stress change over the course of a crisis. We also given an example of how the Index could be used in applied research on political budget cycles in responses to perceived financial market stress.
 
 \section{Motivation}\label{motivation}
 
@@ -113,7 +105,7 @@ There have been a number of recent innovations to measuring banking system stabi
 \section{~Creating the EIU Perceptions of Financial Market Stress
 Index}\label{creating-the-perceptions-of-financial-market-stress-index}
 
-We overcome many of the problems that plague previous measures by using a new approach to estimating real-time perceptions of financial market stress. Our method uses kernel principle component analysis \citep{Scholkopf1998,lodhi2002,Spirling2012} of country reports from the \emph{Economist Intelligence Unit}\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.} to create a monthly index for almost all countries from 2003 through 2011.
+We overcome many of the problems that plague previous measures by using a new approach to estimating real-time perceptions of financial market stress. Our method uses kernel principle component analysis \citep{Scholkopf1998,lodhi2002,Spirling2012} of country reports from the \emph{Economist Intelligence Unit}\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.} to create a monthly index for almost all countries from 2003 through 2011.\footnote{Our approach is broadly similar to \cite{Minhas2015} who use a supervised machine learning approach called support vector machines and United States State Department Country Reports on Human Rights Practices to classify countries according to dichotomous regime types. Our work is distinct in that it kernel PCA allows of EIU reports allows us to develop a continuous measure of perceived financial market stress.}
 
 \subsection{Why the EIU?}\label{why-the-eiu}
 
@@ -131,52 +123,34 @@ basis. As such, the EIU is preferable for creating a cross-country indicator of 
 \subsection{Summarizing Financial Market Stress in the
 EIU}\label{summarizing-financial-market-stress-in-the-eiu}
 
-Our aim is to create an index that classifies financial conditions on a
-continuous more-stressed/less-stressed spectrum for as many country-months as possible. Therefore, we clearly need an efficient way to summarize the vast quantity of information in the EIU reports along such a spectrum. To do this we first collected and processed the texts. We then used kernel principal component analysis to summarize the texts into a
+Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less-stressed spectrum for as many country-months as possible. Therefore, we need an efficient way to summarize the vast quantity of information in the EIU reports along such a spectrum. To do this we first collected and processed the texts. We then used kernel principal component analysis to summarize the texts into a
 dimension of financial market stress. We rescaled the Index to ease
 interpretation.
 
 \subsubsection{Text selection}\label{text-selection}
 
 EIU reports assess many economic sectors within a country,
-not just the financial sector. So, our first step was to select the
-portions of the EIU texts that contained relevant information about
-countries' financial systems. We automatically collected and the parsed
-reports--the reports were in HTML format. We then extracted the portions
-of the texts--headlines and paragraphs--that contained at least one of a
-number of keywords concerning financial markets.\footnote{The
+not just the financial sector. So, our first step was to select the portions of the EIU texts that contained relevant information about countries' financial systems. We automatically collected and the parsed reports--the reports were in HTML format. We then extracted the portions of the texts--headlines and paragraphs--that contained at least one of a number of keywords concerning financial markets.\footnote{The
   keywords included: \emph{bail-out}, \emph{bailout}, \emph{balance
   sheet}, \emph{balance-sheet}, \emph{bank}, \emph{banks},
   \emph{banking}, \emph{credit}, \emph{crunch}, \emph{default},
   \emph{finance}, \emph{financial}, \emph{lend}, \emph{loan},
   \emph{squeeze} {[}MAKE SURE TO UPDATE{]}. These keywords were adapted
   from those used by \cite{Romer2015} and are intended to
-  select passages that discuss credit market conditions.} Due to a
-significant change in how the reports were constructed in 2003, we also
+  select passages that discuss credit market conditions.} Due to a significant change in how the reports were constructed in 2003, we also
 selected only texts from 2003 in order to maintain comparability across
 the time-series.
 
-We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and `its'. The `stopword' list we used was from \cite{dhillon:modha:mlj01}. We stemmed the words so that different variants of the same word are grouped together. We removed extra whitespace between the words, as well as removed punctuation and numbers. Finally, we dropped texts that included very few words (less than six). In practice, including these texts had prevented the estimation of the kernel PCA model.
+We then preprocessed these texts using standard techniques \citep[see][]{Grimmer2013}.\footnote{All preprocessing was done using the \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.} This involved removing common English words, such as `was' and `its'. The `stopword' list we used was from \cite{dhillon:modha:mlj01}. We stemmed the words so that different variants of the same word are grouped together. Additionally, this allowed us to work with a more manageable number of kernels  We removed extra whitespace between the words, as well as removed punctuation and numbers. Finally, we dropped texts that included very few words (less than six). In practice, including these texts had prevented the estimation of the kernel PCA model.
 
 \subsubsection{Kernel Principal Component
 Analysis}\label{kernel-principal-component-analysis}
 
 Texts are frequently summarized using unordered `bags-of-words'
-approaches, such as Latent Dirichlet Allocation, that do not retain word
-order. The result of these approaches is often clusters (bags) of `topics'
-within speeches or clusters of speeches around topics \citep[for a review see][]{Grimmer2013}. We would like to accomplish something different. Ideally,
-we would like to preserve the order of the words in our texts and we
-would like to place the texts on a continuous scale that will be
-interpretable as a measure of perceived financial market stress. We
-would like to preserve the order of the words in the texts. Many
-financial terms such as `credit growth' and `borrowing costs' are used
-in completely different senses depending on the adjectives that modify
-them. For example, `slowing credit growth' vs. `expanding credit growth'
+approaches, such as Latent Dirichlet Allocation, that do not retain word order. The result of these approaches is often clusters (bags) of `topics' within speeches or clusters of speeches around topics \citep[for a review see][]{Grimmer2013}. We would like to accomplish something different. Ideally,
+we would like to preserve the order of the words in our texts and we would like to place the texts on a continuous scale that will be interpretable as a measure of perceived financial market stress. We would like to preserve the order of the words in the texts. Many financial terms such as `credit growth' and `borrowing costs' are used in completely different senses depending on the adjectives that modify them. For example, `slowing credit growth' vs. `expanding credit growth'
 or `falling borrowing costs' vs. `increasing borrowing costs'. Likewise, adjectives can have very different implications for describing market conditions depending on the nouns that they modify. For example, `increasing' can indicate worsening conditions as in `increasing non-perfomring loans' or improving conditions as in `increasing lending'.  A
-bags-of-words approach that treated each word as having meaning as an
-individual unit, rather than having meaning in ordered association with
-other words, would not adequately capture common and radically different
-meanings in the EIU documents.
+bags-of-words approach that treated each word as having meaning as an individual unit, rather than having meaning in ordered association with other words, would not adequately capture common and radically different meanings in the EIU documents.
 
 In order to address these issues we use kernel principal component
 analysis. This method was developed by \cite{Scholkopf1998} and \cite{lodhi2002}. \cite{Spirling2012} introduced it into political science. He used it to summarize changing
@@ -459,7 +433,7 @@ Not all crises are the same. Most of the crises in the period for which we have 
 
 \section{Application}\label{application}
 
-A clear use for the EPFMS Index is as a `right-hand' covariate in future regression analyses where the dependent variable is, for example, a particular policy choice or government failure time. The Index could also be used as a dependent variable such that we could examine how, for example, government partisanship or electoral competitiveness affects financial stability. We are going to focus on a different application to show how having a specifically continuous measure could be particularly useful in future research.
+A clear use for the EPFMS Index is as a `right-hand' covariate in future regression analyses where the dependent variable is, for example, a particular policy choice or government failure time. The Index could also be used as a dependent variable such that we could examine how, for example, government partisanship or electoral competitiveness affects perceptions of financial stability. In this section we focus on showing how having a specifically continuous measure of financial market stress could be particularly useful in future political economy research.
 
 \subsection{The problem of measuring fiscal responses to financial crises}
 
