@@ -400,6 +400,29 @@ countries.
 \end{figure}
 \end{landscape}
 
+\subsection{Developed vs.~Developing
+countries}\label{developed-vs.developing-countries}
+
+Examining the Index, it is clear that there is a
+difference in the level of perceived financial market stress in
+developed and developing countries. Notably, developing countries often have scores above 0.5. The mean score in middle and low income countries (as classified by the World Bank) in the relatively globally placid year 2005 is 0.53. While many developed countries only reach this level during financial crises (see Figure \ref{comp_dev_developing}).\footnote{The 2005 mean for high income countries is 0.44} The distribution of EPFMS scores in these two groups of countries is significantly different in the expected direction in the sample using one-sided Kolmogorov-Smirnov tests.\footnote{We ran the tests using the \texttt{ks.test} function from base R.}
+
+Developing countries often lack strong financial institutions and systems, so we should expect them to face generally tighter credit market conditions than developed countries. As a consequence, they are also more likely to be receiving assistance from multilateral parties, such as the IMF. This is all to say that financial markets are generally more stressed in developing as opposed to developed countries.
+
+Though somewhat obvious, this observation leads to important refinements to how the Index should be interpreted and how it should be used in empirical work. First, the Index measures banking market conditions, but not ``crisis'' directly. Instead, perceived crisis is likely the result of an interaction between the Index and the importance of financial markets for sustaining a country's economy. Though policy-makers in developing
+economies face generally tight credit market conditions, these
+persistent conditions likely do not threaten the wider \emph{status quo} economy. As such, we would not expect significant policy responses to address financial market stress in these places. Conversely, tightening of credit market conditions in a developed, financialized economy would
+likely have large negative implications for the wider economy. So, we would expect politicians in these countries to respond to worsening credit market conditions. Previous measures of financial market distress and crises have generally been unable to explore this possible interaction. 
+
+\begin{figure}
+    \caption{Comparison of Mean EPFMS Scores in High vs. Low and Medium Income Countries}
+    \label{comp_dev_developing}
+
+    \begin{center}
+        \includegraphics[scale=0.45]{analysis/figures/dev_vs_devoloping.pdf}
+    \end{center}
+\end{figure}
+
 \subsection{Comparision to Accounting Measures of Banking System Fragility}
 
 How does the EPFMS compare to the widely used Z-Score measure of banking system fragility? Though they measure different quantities--perceptions for the former and bank accounting quantities for the latter--potentially both provide indications of stress. We might expect them to be related to one another, either being positively correlated and/or one acting as a leading indicator of the other.
@@ -409,39 +432,6 @@ To explore these possible associations we compare the EPFMS to the Bank Z-Score 
 There does not appear to be a relationship between Z-Scores and the EPFMS Index. The rescaled Z-Score is positively correlated with the EPFMS, but this is not significant at the 10\% level. Interestingly, the World Bank's Z-Scores do not vary significantly within countries over time, especially compared to the EPFMS. There is very little difference between Z-Scores for countries during financial crises (however measured) and more stable times. Thus Z-Scores are not a useful indicator of financial crisis states. Z-Scores do not appear to predict perceptions of financial market stress. In a simple dynamic linear regression that had the EPFMS as the dependent variable and included lagged EPFMS, lagged Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress (see the Online Appendix).
 
 It is beyond the scope of our article to determine why the Z-Score--at least in the version available through the World Bank's GFDD--is a sub-optimal cross-time measure of financial market stress. However, the measure's peculiar characteristics are important to note for future researchers: the indicator has weak time-variance, it does not distinguish between periods of significant know financial market stress and less stressful times, and it does not help us predict perceived financial market stress.
-
-\subsection{Developed vs.~Developing
-countries}\label{developed-vs.developing-countries}
-
-An important finding from examining the Index is that there is a clear
-difference in the level of perceived financial market stress in
-developed and developing countries. Notably, developing countries often
-have scores well above 0.5, while many developed countries only reach
-this level during financial crises. Developing countries often lack
-strong financial institutions and systems {[}CITE{]}, so we should
-expect them to face generally tighter credit market conditions than
-developed countries. Formal financial markets are less important for
-developing countries' economies {[}CITE{]}.
-
-These observations should lead to an important refinement to how the
-Index should be interpreted and how it should be used in empirical work.
-First, the Index measures banking market conditions, but not ``crisis''
-directly. Instead, perceived crisis is likely the result of an
-interaction between the Index and the importance of financial markets
-for sustaining a country's economy. Though policy-makers in developing
-economies face generally tight credit market conditions, these
-persistent conditions likely do not threaten the wider \emph{status quo}
-economy. As such, we would not expect significant policy responses to
-address financial market stress in these places. Conversely, tightening
-of credit market conditions in a developed, financialized economy would
-likely have large negative implications for the wider economy. So, we
-would expect these politicians to respond to worsening credit market
-conditions.
-
-Previous measures of financial market distress and crises have generally
-been unable to explore this possible interaction. \emph{Post-hoc}
-measures of crisis in particular capture the outcome of this process,
-rather than the process itself.
 
 \section{Summarizing Changes in the EPFMS}
 
@@ -469,7 +459,7 @@ In the abstract we would perhaps expect that jumps would be more common in count
     \end{center}
 \end{figure}
 
-We can see that the distribution of estimated jump parameters in `non-crisis' periods is shifted upward from the distribution of jump parameters in `crisis' periods. Conversely, the distribution of diffusion parameters in crisis periods is shifted upward from non-crisis periods. Finally, the distribution of total variance in crisis periods is lower than non-crisis periods. We found these distributions to be statistically significantly different in the described direction at all conventional levels using one-sided Kolmogorov–Smirnov tests.\footnote{We ran the tests using the \texttt{ks.test} function from base R.}
+We can see that the distribution of estimated jump parameters in `non-crisis' periods is shifted upward from the distribution of jump parameters in `crisis' periods. Conversely, the distribution of diffusion parameters in crisis periods is shifted upward from non-crisis periods. Finally, the distribution of total variance in crisis periods is lower than non-crisis periods. We found these distributions to be statistically significantly different in the described direction at all conventional levels using one-sided Kolmogorov–Smirnov tests.\footnote{Again, we ran the tests using the \texttt{ks.test} function from base R.}
 
 This is an interesting result considering our prior expectations. How can we make sense of it? It is useful to refer back to figures \ref{compare_1} and \ref{compare_2}. Notice that many of there periods that are classified across measures as a crisis do indeed begin with a jump. Belgium, Denmark, and Germany are particularly illustrative of this. However, these changes are not unusually large relative to changes in previous years. What is different, however, is what happens after the jump. Before crisis periods there are relatively many jumps in both positive and negative directions. In crisis periods there are a few positive jumps followed by many smallish, often positive, changes in the EPFMS.
 

@@ -28,7 +28,7 @@ range01 <- function(x, na.rm = T){
         (max(x, na.rm = na.rm) - min(x, na.rm = na.rm))
 }
 
-# Import data sets
+# Import EPFMS
 epfms <- import('http://bit.ly/1LFEnhM')
 
 # Other
