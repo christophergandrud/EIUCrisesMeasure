@@ -40,7 +40,7 @@ Thank you to Ronen Palan for helpful comments, as well as Christian Franz and Sa
 \maketitle
 
 \begin{center}
-    \textbf{Working Draft \\ Being Prepared for the APSA 2015 Annual Conference, San Francisco}
+    \textbf{Working Draft \\ In Preparation for the APSA 2015 Annual Conference, San Francisco}
 \end{center}
 
 \begin{abstract}
@@ -472,7 +472,7 @@ As expected, we can see that perceptions of financial market stress are very str
 
 \begin{figure}
     \caption{Marginal Effect of Post-Election Year on Off-Trend Debt at Various Electoral Loss Probabilities}
-    \label{me_stress_crisis}
+    \label{post_loss_me}
 
     \begin{center}
         \includegraphics[scale=0.55]{analysis/figures/post_elect_loss.pdf}
@@ -485,14 +485,20 @@ As expected, we can see that perceptions of financial market stress are very str
 
 \subsection{Debt increases after elections}
 
-We then examined how politician's electoral safety may effect changes to `off-trend' debt. To do this we created a dependent variable of the year-on-year change in the debt residuals. Table \ref{results_elect} shows results from models examining the relationship between electoral safety and changes to off-trend financial stress debt.
+We then examined how politician's electoral safety may effect changes to `off-trend' debt. To do this we created a dependent variable of the year-on-year change in the debt residuals. Table \ref{results_elect} shows results from partial correction panel models examining the relationship between electoral safety and changes to off-trend financial stress debt. Our primary covariates of interest are a post election year dummy from \cite{gandrudYrcurnt}--which is one in years following elections and zero otherwise--and the probability that the plurality party will lose its plurality in the next election from \cite{Kayser2015comp}. In other specifications we included the governing party's economic ideology from \citep[][updated through 2012]{DPI2001}, a measure of political constraints from \cite[][updated through 2011]{Henisz2004},\footnote{We specifically used the POLCONIII variable.} a binary indicator of whether or not a country had a fixed foreign exchange regime, and an off-trend government economic policy spending indicator constructed in the same way as our off-trend debt indicator using data from the OECD.\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.}
+
+Across the various model specifications that off-trend debt from perceived financial market stress is estimated to increase in post-election. We further interacted the post-election year variable with electoral loss probability and find that off-trend debt increases after elections especially occur in countries  when there is a lower electoral loss probability (see Figure \ref{post_loss_me}). At higher loss probabilities the positive becomes insignificantly different from zero.
+
+These results indicate that the timing of government debt increases in response to financial crises may indeed be endogenous to politicians' electioneering. Very safe politicians, i.e. those who have just won an election and are less likely to lose the next one, are more likely to make public the costs of responding to financial market stress.
 
 
 \section{Conclusions}\label{conclusions}
 
-We have introduced a new measure of perceived financial market stress, compared it to other prior measures of financial crisis and instability, and showed how our continuous measure could be used in future research to examine fiscal decisions in response to financial crises.
+We have introduced a novel continuous measure of perceived financial market stress, compared it to prior measures of financial crisis and instability, and provided one application showing how our continuous measure could be used in future research to examine fiscal decisions in response to financial crises.
 
-While the EPMFS is a fine-grained description of perceived stress, we should avoid using it as a predictive measure of when a crisis will begin or end.
+Our work has implications for the wider research community. It demonstrates how researchers could construct continuous indicators of other political and economic phenomenon using machine learning and text analysis. Once a text gathering and analysis ``pipeline'' \citep{Leek2015} has been developed and validated, this approach can be quickly and cost effectively implemented, especially in comparison to time-consuming, expensive, and irreproducible human coding techniques.
+
+Ideally, we would like to re-examine previous research that has relied on prior measures of financial market stress. This is currently difficult because much of this research is strongly dependent on crises in the pre-2000 period \citep[see][]{GandrudHallerberg2015}, which is outside of the period for which we are currently able to construct the EPFMS. However, there are clearly future research projects moving forward that could undertake this work as more data becomes available.
 
 \bibliographystyle{apsr}
 \bibliography{main.bib}
@@ -513,8 +519,6 @@ While the EPMFS is a fine-grained description of perceived stress, we should avo
 \end{table}
 
 %\subsection*{Selection of Literature Including Cross-Country Measures of Financial or Banking Market Crisis}
-
-\todo{Make tables more relevant for paper}
 
 \begin{table}[H]
 \caption{Selected Literature Review of Political Institutions and Financial

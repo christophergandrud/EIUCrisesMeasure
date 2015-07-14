@@ -11,7 +11,8 @@ library(DataCombine)
 library(stargazer)
 
 # Run regressions
-devtools::source_url('http://bit.ly/1RwxRO8')
+# devtools::source_url('http://bit.ly/1RwxRO8')
+source('/git_repositories/financial_crisis_fiscal_policy/analysis_data/regressions_v3.R')
 
 # Load plot function
 devtools::source_gist('d270ff55c2ca26286e90')
