@@ -11,9 +11,7 @@ library(DataCombine)
 library(stargazer)
 
 # Run regressions
-devtools::source_url('http://bit.ly/1Hwrshl')
-
-source('/git_repositories/financial_crisis_fiscal_policy/analysis_data/spending_regressions_v2.R')
+devtools::source_url('http://bit.ly/1RwxRO8')
 
 # Load plot function
 devtools::source_gist('d270ff55c2ca26286e90')
@@ -21,36 +19,45 @@ devtools::source_gist('d270ff55c2ca26286e90')
 # Reset working directory
 setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
 
-# EPFMS only
-m_r2_basic_epfms <- lm(residuals_output_debt ~ residuals_output_debt_1 + 
-                     mean_stress, 
-                 data = sub_debt)
-
 # Create residuals table
-stargazer(m_r1, m_r2_basic, m_r2_basic_epfms, m_r2,
-          dep.var.labels = c('Debt', 
-                             'Debt Residuals'),
-          covariate.labels = c('Debt$_{t-1}$', 
-                               'Output Gap',
-                               'Debt Resid.$_{t-1}$',
-                               'Laeven \\& Valencia Bank Crisis',
+stargazer(m_r1,
+          dep.var.labels = c('Central Gov. Debt \\% GDP (2005 GDP rebased)'),
+          covariate.labels = c('Debt$_{t-1}$',
                                'EPFMS',
-                               'Crisis * EPFMS'),
+                               'Output Gap'),
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
           df = F,
-          font.size = 'footnotesize',
+          notes = ('Standard errors in parentheses.'),
           out = 'tables/debt_residual_regress.tex'
+)
+
+stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1,
+          dep.var.labels = c('$\\Delta$ Off-Trend Debt',
+                             '$\\Delta$ Off-Trend Spending'),
+          covariate.labels = c('$\\Delta$ Off-Trend Debt$_{t-1}$',
+                               '$\\Delta$ Off-Trend Spend',
+                               '$\\Delta$ Off-Trend Spend$_{t-1}$',
+                               'Post-Election Yr.', 'Loss Prob.', 
+                               'Econ Ideology', 'Political Constraints',
+                               'Fixed FX',
+                               'Post-Election Yr. * Loss Prob.'),
+          omit = 'iso2c', omit.labels = 'country fixed effects',
+          float = F,
+          df = F,
+          font.size = 'tiny',
+          notes = ('Standard errors in parentheses.'),
+          out = 'tables/elect_regressions.tex'
 )
 
 
 ##### Plot stress/crisis interaction
-plot_me(obj = m_r2, term1 = 'lv_bank_crisis', term2 = 'mean_stress',
-        fitted2 = seq(0.3, 0.75, by = 0.05)) +
-    scale_y_continuous(limits = c(-10, 15)) +
-    xlab('\nPerceptions of Financial Market Stress') +
-    ylab('Marginal Effect of Qualitative Banking Crisis\n') +
-    ggtitle('Change in Off-Trend Debt (residual of output)\n')
+plot_me(obj = m5_t1, term1 = 'election_year_11', term2 = 'lpr',
+        fitted2 = seq(0, 0.75, by = 0.05)) +
+    scale_y_continuous(limits = c(-10, 13)) +
+    xlab('\nElectoral Loss Probability') +
+    ylab('Marginal Effect of Post-Election Year\n') +
+    ggtitle('Change in Off-Trend Debt\n')
 
-ggsave(filename = 'analysis/figures/lv_epfms.pdf')
+ggsave(filename = 'analysis/figures/post_elect_loss.pdf')
 

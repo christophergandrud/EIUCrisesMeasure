@@ -39,8 +39,9 @@ Thank you to Ronen Palan for helpful comments, as well as Christian Franz and Sa
 
 \maketitle
 
-
-\textbf{Incomplete Working Draft Prepared for the APSA 2015 Annual Conference, San Francisco}
+\begin{center}
+    \textbf{Working Draft \\ Being Prepared for the APSA 2015 Annual Conference, San Francisco}
+\end{center}
 
 \begin{abstract}
 Research into the causes, responses to, and effects of banking crisis needs a measure of banking crises that is: accurate, reliable, comparable across countries, and ideally includes information about crisis severity. Most work to-date uses one of two series of crisis data: \cite{Reinhart2009,ReinhartRog2010} or \cite{laeven2013} and its predecessors. These measures are lacking in that they are constructed post-hoc and so tend to be biased towards severe crises and away from circumstances where governments effectively calmed emerging trouble. This creates clear selection bias. In addition, they are simple dichotomous indicators of financial crisis and do so do not indicate crisis severity. We use a kernel principal component analysis (PCA) of Economist Intelligence Unit monthly country reports to develop a new real-time and continuous measure of perceived banking system stress. We refer to this measure as the EIU Perceptions of Financial Market Stress (EPFMS) Index. We not only develop a novel indicator of financial market stress, but also make a contribution to the wider political science and finance literatures on measurement by demonstrating how kernel PCA can be used to summarize vast quantities of qualitative texts into useful continuous cross-sectional time-series indicators.
@@ -450,39 +451,41 @@ To do this we first need to consider what aspect of governments' fiscal position
 It is likely that governments can only defer realising the costs of responding to financial crises until after elections on the margins. Voters are not only worried about debt increases. They are also concerned with general economic well-being, and therefore want governments to restore financial market stability when markets become unstable \citep{Rosas2009}. Stabilising financial markets involves policies, such as guaranteeing deposits or providing liquidity assistance to banks such that most of the costs will likely increase the debt in a way that is not entirely controlled by the government. We would expect that on average debts will be higher when there is more financial market stress. Additionally, we would expect debts to be higher when the economy is doing worse generally, regardless of whether or not this is caused by financial or other crises. Especially in advanced democracies, previous policy decisions have created automatic stabilisers, like unemployment insurance, that is more costly during crises.
 
 \begin{table}
-    \caption{Estimating Off-Trend Debt in Response to Financial Market Stress}
+    \caption{Estimating Off-Trend Central Government Debt in Response to Financial Market Stress}
     \label{residuals}
         \begin{center}
             \input{tables/debt_residual_regress.tex}
         \end{center}
 \end{table}
 
-To estimate marginal or `off-trend' government debt changes in response to financial crises we ran a series of regressions and focused on the resulting residuals. Table \ref{residuals} shows the two step process. First, we tried to identify off-trend costs associated with general government distress. To do this, we used a partial adjustment model with lagged central government debt to control for serial autocorrelation as well as countries' output gaps. The initial model predicting debt with the output gap includes country fixed effects. The debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same-year GDP. To strip out GDP changes, we rebased
-the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.\footnote{The time periods is 2000-2011 in Table \ref{residuals} and 2003-2011 in the second.}
+To estimate marginal or `off-trend' government debt changes in response to financial crises we ran a partial correction panel regression, the results of which are in Table \ref{residuals} shows the two step process. The model includes lagged central government debt as a percentage of GDP to control for serial autocorrelation as well as countries' output gaps to control for general economic declines. The model also includes country fixed effects. The central government debt variable is from the World Bank's Development Indicators.\footnote{\url{http://data.worldbank.org/data-catalog/world-development-indicators}. Accessed June 2015. It was originally recorded as a percentage of the same year GDP. To strip out GDP changes--we are only interested in changes to the numerator not the denomiator--, we rebased the variable in terms of each countries' 2005 GDP. The GDP variable was from the OECD.} The output gap is from the OECD\footnote{Data was accessed through \url{https://data.oecd.org/} in June 2015.} and as such our sample is constricted to OECD members.
+
+As expected, we can see that perceptions of financial market stress are very strongly positively associated with higher gross central government debt. Predictions from this model can be considered as the average or `trend' central government debt at various levels of perceived financial market stress. So, residuals from the model can be thought of as how far `off-trend' a country-year is given a particular level of perceived stress.
+
+\begin{table}
+    \caption{Estiamting Marginal Changes in Off-Trend Central Government Debt in Response to Crises}
+    \label{results_elect}
+    \begin{center}
+        \input{tables/elect_regressions.tex}
+    \end{center}
+\end{table}
 
 \begin{figure}
-    \caption{Marginal Effect of Qualitative Banking Crises on Off-Trend Debt at Various Levels of Perceived Financial Market Stress}
+    \caption{Marginal Effect of Post-Election Year on Off-Trend Debt at Various Electoral Loss Probabilities}
     \label{me_stress_crisis}
 
     \begin{center}
-        \includegraphics[scale=0.45]{analysis/figures/lv_epfms.pdf}
+        \includegraphics[scale=0.55]{analysis/figures/post_elect_loss.pdf}
     \end{center}
 
-    {\scriptsize{Using a representative range of Perceptions of Financial Market stress values when there is a \cite{laeven2013} banking crisis. \\
-    Shaded area represents 90\% confidence interval. \\
-    Plot made using Model 4 in Table \ref{residuals}.}}
+    {\scriptsize{Shaded area represents the 90\% confidence interval. \\
+    Plot made using Model 5 in Table \ref{results_elect}.}}
 
 \end{figure}
 
-We then took residuals from these two models and used them in similar partial adjustment regression models with a dummy banking crises variable from \cite{laeven2013} where one is a crisis and zero otherwise. This is interacted with a continuous measure of perceived financial market stress intensity.\footnote{These models do not include country fixed effects as they were found to be insignificant and their inclusion resulted in negative adjusted $R^{2}$ indicating that the models are over parameterised.} The perceived crisis intensity measure is from \cite{gandrudHallEPFMS}. They conduct a kernel principal component textual analysis \citep{Spirling2012} of monthly Economist Intelligence Unit (EIU) country reports to develop an index of real-time perceptions of financial market stress that they call the EIU Perceptions of Financial Market Stress (EPFMS) from 2003 through 2011. The EPFMS Index ranges from zero--low stress--to 1--high stress.
-
-This interaction helps us more accurately estimate what the trend fiscal policy is at various levels crisis intensity. The dummy banking crisis variable by itself is strongly associated with the residuals from the debt and spending regressions (Models 3 and 5). However, crises vary considerably in their intensity both across countries and across the same crisis in different years \cite{gandrudHallEPFMS}. In theory, on average governments should respond more forcefully during more intense crises. Using a crude dummy crisis measure averages over considerably different levels of intensity and would likely result in more crude estimates of off-trend fiscal responses to crises. Results from models with interactions between the dummy measure of crisis intensity and perceived financial market stress (models 4 and 6 in Table \ref{resid}) indicate this to be the case. These models have better model fit using Adjusted $R^{2}$ and F Statistic measures.
-
-The direction of the interaction (see Figure \ref{me_stress_crisis} for plotted marginal effects) in both the debt and spending cases indicates that governments in what Laeven and Valencia classify as banking crises take on more debt and spend more than average when they are in less stressed conditions, while those that are in more stressful conditions spend less than the trend. This result suggests that by interacting these two variables, we could be correcting for a deficiency in the Laeven and Valencia conceptualisation of banking crisis. One of their two criteria for a banking crisis occurring is that there is a policy response. Governments that choose to respond, when there is less financial market stress
-
-
 \subsection{Debt increases after elections}
 
+We then examined how politician's electoral safety may effect changes to `off-trend' debt. To do this we created a dependent variable of the year-on-year change in the debt residuals. Table \ref{results_elect} shows results from models examining the relationship between electoral safety and changes to off-trend financial stress debt.
 
 
 \section{Conclusions}\label{conclusions}
