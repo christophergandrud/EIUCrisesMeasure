@@ -24,7 +24,7 @@ epfms <- import('http://bit.ly/1LFEnhM')
 
 # World Bank development classification
 wdi <- WDI(extra = T, start = 2005, end = 2005) %>% select(iso2c, income) %>%
-        filter(income != 'Aggregates') %>% filter(income != 'Not classifed') 
+        filter(income != 'Aggregates') %>% filter(income != 'Not classifed')
 
 wdi$high_income <- 0
 wdi$high_income[wdi$income == 'High income: nonOECD'] <- 1
@@ -42,9 +42,9 @@ sub_mid_low <- comb %>% filter(high_income == 0) %>% select(C1_ma)
 ks.test(sub_high$C1_ma, sub_mid_low$C1_ma, alternative = 'greater')
 
 # 2005
-sub_high_2005 <- comb %>% filter(high_income == 1 & year == 2005) %>% 
+sub_high_2005 <- comb %>% filter(high_income == 1 & year == 2005) %>%
                 select(C1_ma)
-sub_mid_low_2005 <- comb %>% filter(high_income == 0 & year == 2005) %>% 
+sub_mid_low_2005 <- comb %>% filter(high_income == 0 & year == 2005) %>%
                 select(C1_ma)
 
 ks.test(sub_high_2005$C1_ma, sub_mid_low_2005$C1_ma, alternative = 'greater')
@@ -53,10 +53,10 @@ ks.test(sub_high_2005$C1_ma, sub_mid_low_2005$C1_ma, alternative = 'greater')
 annual_mean <- comb %>% group_by(high_income, year) %>%
                 summarise(mean_stress = mean(C1_ma, na.rm = T))
 
-annual_mean$high_income <- factor(annual_mean$high_income, 
+annual_mean$high_income <- factor(annual_mean$high_income,
                                   labels = c('Low & Med. Income', 'High Income'))
 
-ggplot(annual_mean, aes(year, mean_stress, colour = high_income, 
+ggplot(annual_mean, aes(year, mean_stress, colour = high_income,
                         group = high_income, linetype = high_income)) +
     geom_line() +
     scale_x_continuous(breaks = c(2003, 2005, 2008, 2011)) +
@@ -65,4 +65,4 @@ ggplot(annual_mean, aes(year, mean_stress, colour = high_income,
     theme_bw() +
     theme(legend.title = element_blank())
 
-ggsave(filename = 'summary_paper/analysis/figures/dev_vs_devoloping.pdf')
+ggsave(filename = 'summary_paper/figures/dev_vs_devoloping.pdf')

@@ -27,7 +27,7 @@ subbed <- corrs %>% grepl.sub(pattern = stems, Var = 'terms') %>%
 names(subbed) <- c('Stems', 'Correlations')
 
 
-xtable(subbed, caption = 'Selection of Word Stems and Correlations with EPFMS Index', 
+xtable(subbed, caption = 'Selection of Word Stems and Correlations with FinStress', 
        label = 'stem_correlations') %>% 
     print(include.rownames = F,
           caption.placement = 'top',

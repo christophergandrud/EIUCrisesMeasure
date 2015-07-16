@@ -88,7 +88,7 @@ comb_se$country <- countrycode(comb_se$iso2c, origin = 'iso2c',
                                  destination = 'country.name')
 
 #### Compare to LV ####
-compare_to_dummy <- function(data_cont, data_dummy, id, 
+compare_to_dummy <- function(data_cont, data_dummy, id,
                              jd = 'diffusion') {
     temp_cont <- subset(data_cont, country == id)
     temp_cont <- subset(temp_cont, jump_diffusion == jd)
@@ -144,7 +144,7 @@ do.call(grid.arrange, kpca_list[select_countries_1])
 
 do.call(grid.arrange, kpca_list[select_countries_2])
 
-# ---------------------------------------------------------------------------- # 
+# ---------------------------------------------------------------------------- #
 #### Compare distributions of DDJ parameters for crisis and non-crisis      ####
 
 dj_kpca$iso2c <- countrycode(dj_kpca$country, origin = 'country.name',
@@ -162,17 +162,17 @@ non_crisis <- comb %>% filter(lv_bank_crisis == 0)
 
 ks.test(crisis$diffusion, non_crisis$diffusion, alternative = 'less')
 ks.test(crisis$jump, non_crisis$jump, alternative = 'less')
-ks.test(crisis$total_variance, non_crisis$total_variance, 
+ks.test(crisis$total_variance, non_crisis$total_variance,
         alternative = 'greater')
 
 #### Plot density comparisions ####
 comb_gathered <- comb %>% gather(measure, value, 5:7)
-comb_gathered$lv_bank_crisis <- factor(comb_gathered$lv_bank_crisis, 
+comb_gathered$lv_bank_crisis <- factor(comb_gathered$lv_bank_crisis,
                                        labels = c('No Crisis', 'Crisis'))
-comb_gathered$measure <- factor(comb_gathered$measure, 
-                                        levels = c('jump', 'diffusion', 
+comb_gathered$measure <- factor(comb_gathered$measure,
+                                        levels = c('jump', 'diffusion',
                                                    'total_variance'),
-                                        labels = c('Jump', 'Diffusion', 
+                                        labels = c('Jump', 'Diffusion',
                                                   'Total Variance'))
 
 ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
@@ -184,7 +184,7 @@ ggplot(comb_gathered, aes(value, colour = lv_bank_crisis)) +
     guides(color = guide_legend(title = 'Laeven/Valencia'),
            linetype = guide_legend(title = 'Laeven/Valencia'))
 
-ggsave('summary_paper/analysis/figures/compare_jump_diffusion_basic.pdf')
+ggsave('summary_paper/figures/compare_jump_diffusion_basic.pdf')
 
 #### Compare with WDI income groups
 # Gather and clean income groupd data

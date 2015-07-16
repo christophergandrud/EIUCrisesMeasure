@@ -4,7 +4,7 @@
 # MIT LICENSE
 # ---------------------------------------------------------------------------- #
 
-# Load required packages 
+# Load required packages
 library(devtools)
 library(dplyr)
 library(DataCombine)
@@ -24,7 +24,7 @@ setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
 stargazer(m_r1,
           dep.var.labels = c('Central Gov. Debt \\% GDP (2005 GDP rebased)'),
           covariate.labels = c('Debt$_{t-1}$',
-                               'EPFMS',
+                               'FinStress',
                                'Output Gap'),
           omit = 'iso2c', omit.labels = 'country fixed effects',
           float = F,
@@ -39,7 +39,7 @@ stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1,
           covariate.labels = c('$\\Delta$ Off-Trend Debt$_{t-1}$',
                                '$\\Delta$ Off-Trend Spend',
                                '$\\Delta$ Off-Trend Spend$_{t-1}$',
-                               'Post-Election Yr.', 'Loss Prob.', 
+                               'Post-Election Yr.', 'Loss Prob.',
                                'Econ Ideology', 'Political Constraints',
                                'Fixed FX',
                                'Post-Election Yr. * Loss Prob.'),
@@ -60,5 +60,4 @@ plot_me(obj = m5_t1, term1 = 'election_year_11', term2 = 'lpr',
     ylab('Marginal Effect of Post-Election Year\n') +
     ggtitle('Change in Off-Trend Debt\n')
 
-ggsave(filename = 'analysis/figures/post_elect_loss.pdf')
-
+ggsave(filename = 'figures/post_elect_loss.pdf')

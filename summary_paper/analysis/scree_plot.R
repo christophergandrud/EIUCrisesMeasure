@@ -24,4 +24,4 @@ ggplot(eigen, aes(components, eigenvalues)) +
     xlab('\nNumber of Components') + ylab('Eigenvalues\n') +
     theme_bw()
 
-ggsave('summary_paper/analysis/figures/scree_plot.pdf')
+ggsave('summary_paper/figures/scree_plot.pdf')
