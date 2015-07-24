@@ -116,6 +116,12 @@ cor.test(comb_spread$FinStress, comb_spread$lv_bank_crisis,
          na.rm = T)
 cor.test(comb_spread$FinStress, as.numeric(comb_spread$RR_BankingCrisis), na.rm = T)
 
+# Compare distributions
+lv_crisis <- comb_spread %>% filter(lv_bank_crisis == 1)
+lv_no_crisis <- comb_spread %>% filter(lv_bank_crisis == 0)
+
+# T-test of difference of means
+t.test(lv_crisis$FinStress, lv_no_crisis$FinStress)
 
 #### Compare to LV ####
 compare_to_dummy <- function(data_cont, data_dummy, id) {
