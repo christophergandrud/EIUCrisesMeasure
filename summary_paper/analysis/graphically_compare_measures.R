@@ -93,6 +93,30 @@ comb_se <- rbind(rr_bc, lv_se)
 comb_se$country <- countrycode(comb_se$iso2c, origin = 'iso2c',
                                  destination = 'country.name')
 
+#### Correlations ####
+# Combine
+comb_continuous$iso2c <- countrycode(comb_continuous$country, 
+                                     origin = 'country.name', 
+                                     destination = 'iso2c')
+comb_continuous <- comb_continuous %>% FindDups(c('iso2c', 'date'), NotDups = T)
+comb_spread <- comb_continuous %>% spread(Source, stress_measure)
+comb_spread <- merge(comb_spread, lv, by = c('iso2c', 'date'), all = T) %>%
+                    arrange(iso2c, date)
+comb_spread <- merge(comb_spread, rr_spell, by = c('iso2c', 'date'), all = T) %>%
+                    arrange(iso2c, date)
+comb_spread <- comb_spread %>% FindDups(c('iso2c', 'date'), NotDups = T)
+
+comb_spread <- comb_spread %>% group_by(country) %>%  FillDown('lv_bank_crisis')
+comb_spread$RR_BankingCrisis <- as.numeric(comb_spread$RR_BankingCrisis)
+comb_spread <- comb_spread %>% group_by(country) %>%  FillDown('RR_BankingCrisis')
+
+cor.test(comb_spread$`EIU Perceptions Index`, comb_spread$`Romer/Romer`, na.rm = T)
+cor.test(comb_spread$`EIU Perceptions Index`, comb_spread$lv_bank_crisis, 
+         na.rm = T)
+cor.test(comb_spread$`EIU Perceptions Index`, 
+         as.numeric(comb_spread$RR_BankingCrisis), na.rm = T)
+
+
 #### Compare to LV ####
 compare_to_dummy <- function(data_cont, data_dummy, id) {
     temp_cont <- subset(data_cont, country == id)
