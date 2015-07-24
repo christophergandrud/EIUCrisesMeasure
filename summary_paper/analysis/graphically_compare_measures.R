@@ -98,23 +98,23 @@ comb_se$country <- countrycode(comb_se$iso2c, origin = 'iso2c',
 comb_continuous$iso2c <- countrycode(comb_continuous$country, 
                                      origin = 'country.name', 
                                      destination = 'iso2c')
-comb_continuous <- comb_continuous %>% FindDups(c('iso2c', 'date'), NotDups = T)
 comb_spread <- comb_continuous %>% spread(Source, stress_measure)
-comb_spread <- merge(comb_spread, lv, by = c('iso2c', 'date'), all = T) %>%
+names(comb_spread) <-  c('country', 'date', 'iso2c', 'FinStress', 'romer')
+comb_spread <- merge(comb_spread, lv, by = c('iso2c', 'date'), all.x = T) %>%
                     arrange(iso2c, date)
-comb_spread <- merge(comb_spread, rr_spell, by = c('iso2c', 'date'), all = T) %>%
+comb_spread <- merge(comb_spread, rr_spell, by = c('iso2c', 'date'), all.x = T) %>%
                     arrange(iso2c, date)
-comb_spread <- comb_spread %>% FindDups(c('iso2c', 'date'), NotDups = T)
+#comb_spread <- comb_spread %>% FindDups(c('iso2c', 'date'), NotDups = F)
 
+comb_spread <- comb_spread %>% group_by(country) %>%  FillDown('FinStress')
 comb_spread <- comb_spread %>% group_by(country) %>%  FillDown('lv_bank_crisis')
 comb_spread$RR_BankingCrisis <- as.numeric(comb_spread$RR_BankingCrisis)
 comb_spread <- comb_spread %>% group_by(country) %>%  FillDown('RR_BankingCrisis')
 
-cor.test(comb_spread$`EIU Perceptions Index`, comb_spread$`Romer/Romer`, na.rm = T)
-cor.test(comb_spread$`EIU Perceptions Index`, comb_spread$lv_bank_crisis, 
+cor.test(comb_spread$FinStress, comb_spread$romer, na.rm = T)
+cor.test(comb_spread$FinStress, comb_spread$lv_bank_crisis, 
          na.rm = T)
-cor.test(comb_spread$`EIU Perceptions Index`, 
-         as.numeric(comb_spread$RR_BankingCrisis), na.rm = T)
+cor.test(comb_spread$FinStress, as.numeric(comb_spread$RR_BankingCrisis), na.rm = T)
 
 
 #### Compare to LV ####

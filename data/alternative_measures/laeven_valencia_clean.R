@@ -13,6 +13,7 @@ library(rio)
 library(dplyr)
 library(DataCombine)
 library(countrycode)
+library(stringr)
 
 # Load data
 raw_lv <- import('raw/SYSTEMIC BANKING CRISES DATABASE.xlsx', sheet = 4) %>%
@@ -51,12 +52,9 @@ raw_lv$Start <- raw_lv$Start %>% as.integer
 
 range <- seq(min(raw_lv$Start), max(raw_lv$End), by = 1)
 
-lv_filled <- TimeFill(raw_lv, GroupVar = 'country', StartVar = 'Start',
+lv_filled <- TimeFill(raw_lv, GroupVar = 'iso2c', StartVar = 'Start',
                       EndVar = 'End', NewTimeVar = 'year',
                       NewVar = 'lv_bank_crisis')
-
-lv_filled$iso2c <- countrycode(lv_filled$country, origin = 'country.name',
-                               destination = 'iso2c')
 
 lv_filled <- lv_filled %>% select(iso2c, year, lv_bank_crisis)
 
