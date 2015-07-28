@@ -58,7 +58,11 @@ comb_continuous <- rbind(perceptions, romer_romer) %>%
 
 ## Load Reinhart and Rogoff
 source('data/alternative_measures/reinhart_rogoff.R')
-rr_bc <- rr_bc %>% filter(RR_BankingCrisis_start >= '2003-01-01')
+rr_bc$RR_BankingCrisis_start[rr_bc$RR_BankingCrisis_start < '2003-01-01' & 
+                                 rr_bc$RR_BankingCrisis_end > '2003-01-01'] <- 
+                                '2003-01-01'
+
+rr_bc <- rr_bc %>% filter(RR_BankingCrisis_end >= '2003-01-01')
 
 rr_bc_start <- rr_bc %>% select(iso2c, RR_BankingCrisis_start) %>%
                 rename(start = RR_BankingCrisis_start)
@@ -78,7 +82,9 @@ lv <- lv %>% select(iso2c, date, lv_bank_crisis)
 lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
 lv_se$Start <- ymd(lv_se$Start)
 lv_se$End <- ymd(lv_se$End)
-lv_se <- lv_se %>% filter(Start >= '2003-01-01')
+lv_se$Start[lv_se$Start < '2003-01-01' & lv_se$End > '2003-01-01'] <- '2003-01-01'
+
+lv_se <- lv_se %>% filter(End >= '2003-01-01')
 
 lv_se_start <- lv_se %>% select(iso2c, Start) %>%
                 rename(start = Start)
@@ -193,9 +199,11 @@ dev.off()
 
 # Plot selection (2)
 select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
+                        'Mexico', 'Mongolia',
                         'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation',
                         'Singapore', 'Slovenia', 'South Africa', 'Spain',
-                        'Switzerland', 'Ukraine', 'United Kingdom', 'United States'
+                        'Switzerland', 'Thailand', 'Ukraine', 'United Kingdom', 'United States',
+                        'Uruguay'
                         )
 pdf(file = 'summary_paper/figures/compare_to_lv_rr_2.pdf', width = 15,
     height = 15)
