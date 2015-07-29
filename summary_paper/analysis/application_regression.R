@@ -33,7 +33,7 @@ stargazer(m_r1,
           out = 'tables/debt_residual_regress.tex'
 )
 
-stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1,
+stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1, m7_t1,
           dep.var.labels = c('$\\Delta$ Off-Trend Debt',
                              '$\\Delta$ Off-Trend Spending'),
           covariate.labels = c('$\\Delta$ Off-Trend Debt$_{t-1}$',
@@ -47,7 +47,7 @@ stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1,
           float = F,
           df = F,
           font.size = 'tiny',
-          notes = ('Standard errors in parentheses.'),
+          notes = ('Standard errors in parentheses. Model 7 excludes Greece and Iceland.'),
           out = 'tables/elect_regressions.tex'
 )
 
