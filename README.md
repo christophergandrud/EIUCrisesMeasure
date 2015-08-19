@@ -26,7 +26,7 @@ To download the development version of the Index into R use:
 
 ```{S}
 URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca_rescaled.csv'
-epfms_index <- rio::import(URL)
+finstress_index <- rio::import(URL)
 ```
 
 The primary indicator is labelled: `C1_ma`. See the
