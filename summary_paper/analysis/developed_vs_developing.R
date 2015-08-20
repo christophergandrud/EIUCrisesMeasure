@@ -85,4 +85,4 @@ ggplot(annual_mean, aes(year, mean_stress, colour = high_income,
     theme_bw() +
     theme(legend.title = element_blank())
 
-ggsave(filename = 'summary_paper/figures/dev_vs_devoloping.pdf')
+ggsave(filename = 'summary_paper/figures/dev_vs_developing.pdf')

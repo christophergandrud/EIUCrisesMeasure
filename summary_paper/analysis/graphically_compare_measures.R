@@ -209,3 +209,50 @@ pdf(file = 'summary_paper/figures/compare_to_lv_rr_2.pdf', width = 15,
     height = 15)
     do.call(grid.arrange, kpca_list[select_countries_2])
 dev.off()
+
+
+#### Select individual country plots ####
+pdf(file = 'summary_paper/figures/austria_compare.pdf', width = 5,
+    height = 5)
+kpca_list['Austria']
+dev.off()
+
+pdf(file = 'summary_paper/figures/canada_compare.pdf', width = 5,
+    height = 5)
+kpca_list['Canada']
+dev.off()
+
+pdf(file = 'summary_paper/figures/greece_compare.pdf', width = 5,
+    height = 5)
+kpca_list['Greece']
+dev.off()
+
+pdf(file = 'summary_paper/figures/iceland_compare.pdf', width = 5,
+    height = 5)
+    kpca_list['Iceland']
+dev.off()
+
+pdf(file = 'summary_paper/figures/ireland_compare.pdf', width = 5,
+    height = 5)
+kpca_list['Ireland']
+dev.off()
+
+pdf(file = 'summary_paper/figures/kazakhstan_compare.pdf', width = 5,
+    height = 5)
+    kpca_list['Kazakhstan']
+dev.off()
+
+pdf(file = 'summary_paper/figures/switzerland_compare.pdf', width = 5,
+    height = 5)
+kpca_list['Switzerland']
+dev.off()
+
+pdf(file = 'summary_paper/figures/uk_compare.pdf', width = 5,
+    height = 5)
+    kpca_list['United Kingdom']
+dev.off()
+
+pdf(file = 'summary_paper/figures/us_compare.pdf', width = 5,
+    height = 5)
+    kpca_list['United States']
+dev.off()
