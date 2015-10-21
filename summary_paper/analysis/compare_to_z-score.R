@@ -29,14 +29,19 @@ range01 <- function(x, na.rm = T){
 }
 
 # Import FinStress
-FinStress <- import('http://bit.ly/1LFEnhM')
+FinStress <- import('http://bit.ly/1LFEnhM', format = 'csv')
 
 # Other
 wdi <- WDI(indicator = c('GFDD.SI.01'), start = 2003) %>%
         rename(z_score = GFDD.SI.01) %>%
         select(iso2c, year, z_score)
 
-# Convert FinStress to annual so that it is comparable with the FRT
+# From Andrianova et al. (2015) Financail Fragility Index
+ff <- import('data/alternative_measures/Financial Fragility Database Stata.dta') %>% 
+    select(countrycode, year, Z) 
+names(ff) <- c('iso2c', 'year', 'z_score')
+
+# Convert FinStress to annual so that it is comparable with the z-scores
 FinStress$year <- FinStress$date %>% year
 FinStress_sum <- FinStress %>% group_by(iso2c, year) %>%
     summarise(mean_stress = mean(C1_ma, na.rm = T))
