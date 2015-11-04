@@ -97,6 +97,12 @@ for (i in 1:nrow(to_comp)) {
                                 ff_label = to_comp[i, 2])
 }
 
+# Save Impared Loans and Liquid Liabilities
+ggsave(comp_list[[2]], file = 'summary_paper/figures/compare_impared.pdf')
+ggsave(comp_list[[6]], file = 'summary_paper/figures/compare_liquid.pdf')
+
+
+# Save all together
 pdf(file = 'summary_paper/figures/fin_fragility_compare.pdf', width = 11, 
     height = 14)
     do.call(grid.arrange, comp_list)
@@ -105,19 +111,3 @@ dev.off()
 # Find impared assets/FinStress outliers ---------------------------------------
 test <- comb %>% filter(log_imploans < 0, mean_stress > 0.6)
 
-
-
-# Explore devations in reporting vs. FinStress ----------------------------
-
-plot(log(comb$ImpLoans), log(comb$ImpLoansH))
-
-comb$imp_deviate <- (comb$ImpLoans - comb$ImpLoansH5) / comb$ImpLoans
-
-sub_0 <- comb %>% filter(round(imp_deviate, digits = 2) != 0)
-
-plot(sub_0$mean_stress, sub_0$imp_deviate)
-
-# Create deviation function 
-deviates <- function(data, var) {
-    
-}
