@@ -20,8 +20,6 @@ pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
 
 set_valid_wd(pos_directs)
 
-
-
 # Load and combine data ---------------------------------------------------
 
 # Rescale function
@@ -84,6 +82,7 @@ for (i in comp_vars) cor_for_loop(i)
 cor_matrix <- comb[, c('mean_stress', comp_vars)] %>% DropNA(., names(.))
 names(cor_matrix) <- c('FinStress', comp_vars_labels)
 corred <- cor(cor_matrix)
+cor_sig <- cor.mtest(corred, 0.95)
 
 pdf(file = 'summary_paper/figures/ff_corr_matrix.pdf', width = 10, height = 10)
     corrplot(corred, method = 'number', type = 'lower', diag = F)
