@@ -1,5 +1,6 @@
 # ---------------------------------------------------------------------------- #
-# Compare to Andrianova et al. (2015) Financial Fragility indicators
+# Compare to Andrianova et al. (2015) Financial Fragility indicators and
+# GFDD indicators
 # Christopher Gandrud
 # MIT License
 # ---------------------------------------------------------------------------- #
@@ -11,6 +12,7 @@ library(dplyr)
 library(lubridate)
 library(countrycode)
 library(DataCombine)
+library(WDI)
 library(ggplot2)
 library(gridExtra)
 
@@ -46,11 +48,37 @@ comb$country <- countrycode(comb$iso2c, origin = 'iso2c',
                             destination = 'country.name')
 comb <- comb %>% MoveFront('country')
 
+# GFDD -------------------------------------------------------------------------
+wdi <- WDI(indicator = c('PA.NUS.FCRF', 'GFDD.SM.01','GFDD.OM.02', 'GFDD.DI.12'), 
+           start = 2000, end = 2013, extra = T) %>%
+    rename(exchange_rate_usd = PA.NUS.FCRF) %>%
+    rename(stock_price_volatility = GFDD.SM.01) %>%
+    rename(stock_returns = GFDD.OM.02) %>%
+    rename(private_credit = GFDD.DI.12) %>%
+    select(-country, -iso3c, -region, -capital, -longitude, -latitude, -lending)
+
+# Create annual percentage change in exchange rates and private credit
+wdi <- change(wdi, GroupVar = 'iso2c',
+                  Var = 'exchange_rate_usd', NewVar = 'exchange_rate_change')
+wdi <- change(wdi, GroupVar = 'iso2c', 
+                  Var = 'private_credit', NewVar = 'private_credit_change')
+
+comb <- merge(comb, wdi, by = c('iso2c', 'year'), all.x = T)
+
+# Log highly skewed variables
+comb$log_imploans <- log(comb$ImpLoans)
+comb$exchange_rate_usd_log <- log(comb$exchange_rate_usd)
+comb$private_credit_log <- log(comb$private_credit)
+
+# Save data
+export(comb, file = 'data/alternative_measures/cleaned/fin_frag_gfdd.csv')
+
 # Plotting function -------------------------------------------------------
 
 comp_plot <- function(data = comb, ff_var, ff_label) {
     temp <- comb[, c('mean_stress', ff_var)]
     names(temp) <- c('mean_stress', 'comp_temp')
+    if (missing(ff_label)) ff_label = ff_var
     ggplot(temp, aes(mean_stress, comp_temp)) +
         geom_point(alpha = 0.3) +
         stat_smooth(method = 'lm', se = F) +
@@ -59,7 +87,6 @@ comp_plot <- function(data = comb, ff_var, ff_label) {
 }
 
 # Correlate FinStress with impared and plot -------------------------------
-comb$log_imploans <- log(comb$ImpLoans)
 
 # Variables to compare to and labels 
 comp_vars <- c('Equity', 'log_imploans', 'Costs', 'ROAA', 'NetLoans', 'Liquid',

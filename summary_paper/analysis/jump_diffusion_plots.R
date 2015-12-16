@@ -135,14 +135,26 @@ select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                       )
 
 select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
-                        'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation',
+                        'Netherlands', 'Nigeria', 'Portugal',
                         'Singapore', 'Slovenia', 'South Africa', 'Spain',
                         'Switzerland', 'Ukraine', 'United Kingdom', 'United States'
+                        )
+
+select_countries_3 <- c('Austria', 'Belgium', 'Denmark', 'France', 'Germany',
+                        'Greece', 'Hungary', 'Iceland', 'Ireland', 'Italy',
+                        'Latvia', 'Luxembourg', 'Netherlands', 'Portugal', 
+                        'Spain', 'Switzerland', 'Ukraine', 'United Kingdom',
+                        'United States'
                         )
 
 do.call(grid.arrange, kpca_list[select_countries_1])
 
 do.call(grid.arrange, kpca_list[select_countries_2])
+
+pdf(file = 'summary_paper/figures/compare_jump_to_crisis.pdf',
+    width = 17, height = 15)
+    do.call(grid.arrange, kpca_list[select_countries_3])
+dev.off()
 
 # ---------------------------------------------------------------------------- #
 #### Compare distributions of DDJ parameters for crisis and non-crisis      ####

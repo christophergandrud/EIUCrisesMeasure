@@ -210,6 +210,12 @@ pdf(file = 'summary_paper/figures/compare_to_lv_rr_2.pdf', width = 15,
     do.call(grid.arrange, kpca_list[select_countries_2])
 dev.off()
 
+select_countries_3 <- c('Iceland', 'Ireland')
+pdf(file = '~/Desktop/finstress_iceland_ireland.pdf', width = 7,
+    height = 7)
+do.call(grid.arrange, kpca_list[select_countries_3])
+dev.off()
+
 
 #### Select individual country plots ####
 pdf(file = 'summary_paper/figures/austria_compare.pdf', width = 5,
