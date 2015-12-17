@@ -49,8 +49,16 @@ comb$country <- countrycode(comb$iso2c, origin = 'iso2c',
 comb <- comb %>% MoveFront('country')
 
 # GFDD -------------------------------------------------------------------------
-wdi <- WDI(indicator = c('PA.NUS.FCRF', 'GFDD.SM.01','GFDD.OM.02', 'GFDD.DI.12'), 
+wdi <- WDI(indicator = c('GFDD.SI.03', 'GFDD.SI.04', 'GFDD.SI.02', 'GFDD.SI.05',
+                         'GFDD.SI.07',
+    
+    'PA.NUS.FCRF', 'GFDD.SM.01','GFDD.OM.02', 'GFDD.DI.12'), 
            start = 2000, end = 2013, extra = T) %>%
+    rename(capital_asset_ratio = GFDD.SI.03) %>%
+    rename(credit_deposits_ratio = GFDD.SI.04) %>%
+    rename(npl_ratio = GFDD.SI.02) %>% 
+    rename(reg_capital_assets = GFDD.SI.05) %>%
+    rename(provisions_to_npls = GFDD.SI.07) %>%
     rename(exchange_rate_usd = PA.NUS.FCRF) %>%
     rename(stock_price_volatility = GFDD.SM.01) %>%
     rename(stock_returns = GFDD.OM.02) %>%
