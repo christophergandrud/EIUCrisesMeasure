@@ -24,9 +24,10 @@ imp <- imp %>% arrange(desc(variable_importance))
 imp <- imp[1:40, ]
 
 # Plot
-ggplot(imp, aes(variable_importance, y = reorder(word_stem, variable_importance))) +
+ggplot(imp, aes(variable_importance, 
+                y = reorder(word_stem, variable_importance))) +
     geom_point() +
-    ylab('Word Stem\n') + xlab('\nVariable Importance (%)') +
+    ylab('Word Stem\n') + xlab('\n% MSE Increase') +
     theme_bw()
 
 ggsave('summary_paper/figures/rf_stem_importance.pdf')

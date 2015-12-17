@@ -7,6 +7,7 @@
 
 library(rio)
 library(repmis)
+library(DataCombine)
 library(randomForestSRC)
 library(dplyr)
 library(ggplot2)
@@ -49,10 +50,25 @@ extract_importance <- function(x){
     return(imp)
 }
 
-imp_1 <- extract_importance(rf_1$importance)
+imp <- extract_importance(rf_1$importance)
+imp <- imp %>% arrange(desc(variable_importance))
+imp$variable_importance <- imp$variable_importance * 100
 
-ggplot(imp_1, aes())
+var_labels <- c('Imp. Loans', 'ROAA', 'Provisions/NPLs', 'Equity', 
+               'Stock Volatility', 'Manage. Eff.', 'Private Credit',
+               'Reg. Capital/Assets', 'Capital/Assets', 'Net Loans/Assets',
+               'Liquid Assets/Assets', 'Credit/Deposits', 'Net Change-Offs',
+               'Stock Returns')
 
-plot.variable(rf_1, plots.per.page = 3)
+imp$variable <- var_labels
+
+ggplot(imp, aes(variable_importance, 
+                y = reorder(variable, variable_importance))) +
+    geom_point() +
+    ylab('') + xlab('\n% MSE Increase') +
+    theme_bw()
+
+plot.variable(rf_1, plots.per.page = 5)
+
 plot.variable(rf_2)
 
