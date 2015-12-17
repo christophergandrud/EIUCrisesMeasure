@@ -21,18 +21,30 @@ set_valid_wd(pos_directs)
 comb <- import('data/alternative_measures/cleaned/fin_frag_gfdd.csv')
 
 # Variables to include as predictors
-comp_vars <- c('Equity', 'log_imploans', 'Costs', 'ROAA', 'NetLoans', 'Liquid',
-               'NCO', 'stock_price_volatility', 'stock_returns', 
-               'private_credit_log', 'capital_asset_ratio', 
-               'credit_deposits_ratio', 'reg_capital_assets', 
-               'provisions_to_npls')
+comp_vars <- c('log_imploans', 'ROAA', 'provisions_to_npls', 
+               'Costs', 'private_credit_log', 'stock_price_volatility', 
+               'Equity', 'reg_capital_assets', 'Z', 'capital_asset_ratio',
+               'NetLoans', 'Liquid', 'credit_deposits_ratio', 'NCO', 
+               'stock_returns'
+                )
 
-comb_no_na_all <- comb %>% DropNA(c('mean_stress', comp_vars))
+var_labels <- c('Imp. Loans', 'ROAA', 'Provisions/NPLs', 'Manag. Eff.',
+                'Private Credit', 'Stock Volatility', 'Equity', 
+                'Reg. Capital/Assets', 'Z-Score', 'Capital/Assets', 
+                'Net Loans/Assets',
+                'Liquid Assets/Assets', 'Credit/Deposits', 'Net Change-Offs',
+                'Stock Returns')
+
+comb <- comb[, c('mean_stress', comp_vars, 'income')]
+names(comb) <- c('mean_stress', var_labels, 'income')
+
+comb_no_na_all <- comb %>% DropNA(c('mean_stress', var_labels))
 
 comb_no_na_oecd <- comb_no_na_all %>% filter(income == 'High income: OECD')
 
 
-form_all_vars <- paste('mean_stress ~', paste(comp_vars, collapse = ' + ')) %>%
+form_all_vars <- paste('mean_stress ~', paste0("`", var_labels, "`",
+                                               collapse = ' + ')) %>%
                        as.formula
 
 rf_1 <- rfsrc(form_all_vars, data = comb_no_na_all)
@@ -54,21 +66,18 @@ imp <- extract_importance(rf_1$importance)
 imp <- imp %>% arrange(desc(variable_importance))
 imp$variable_importance <- imp$variable_importance * 100
 
-var_labels <- c('Imp. Loans', 'ROAA', 'Provisions/NPLs', 'Equity', 
-               'Stock Volatility', 'Manage. Eff.', 'Private Credit',
-               'Reg. Capital/Assets', 'Capital/Assets', 'Net Loans/Assets',
-               'Liquid Assets/Assets', 'Credit/Deposits', 'Net Change-Offs',
-               'Stock Returns')
-
-imp$variable <- var_labels
-
-ggplot(imp, aes(variable_importance, 
+# Plot variable importance
+var_imp <- ggplot(imp, aes(variable_importance, 
                 y = reorder(variable, variable_importance))) +
     geom_point() +
     ylab('') + xlab('\n% MSE Increase') +
     theme_bw()
 
-plot.variable(rf_1, plots.per.page = 5)
+ggsave(var_imp, filename = 'summary_paper/figures/rf_variable_imp.pdf')
 
-plot.variable(rf_2)
+# Plot 
+pdf(file = 'summary_paper/figures/rf_partial_dependence.pdf', 
+    width = 17, height = 15)
+    plot.variable(rf_1, plots.per.page = 5)
+dev.off()
 
