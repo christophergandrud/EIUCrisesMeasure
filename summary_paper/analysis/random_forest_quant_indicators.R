@@ -25,7 +25,7 @@ comp_vars <- c('log_imploans', 'ROAA', 'provisions_to_npls',
                'Costs', 'private_credit_log', 'stock_price_volatility', 
                'Equity', 'reg_capital_assets', 'Z', 'capital_asset_ratio',
                'NetLoans', 'Liquid', 'credit_deposits_ratio', 'NCO', 
-               'stock_returns'
+               'stock_returns' #, 'exchange_rate_change'
                 )
 
 var_labels <- c('Imp. Loans', 'ROAA', 'Provisions/NPLs', 'Manag. Eff.',
@@ -33,7 +33,8 @@ var_labels <- c('Imp. Loans', 'ROAA', 'Provisions/NPLs', 'Manag. Eff.',
                 'Reg. Capital/Assets', 'Z-Score', 'Capital/Assets', 
                 'Net Loans/Assets',
                 'Liquid Assets/Assets', 'Credit/Deposits', 'Net Change-Offs',
-                'Stock Returns')
+                'Stock Returns' #, 'Exchange Rate Change'
+                )
 
 comb <- comb[, c('mean_stress', comp_vars, 'income')]
 names(comb) <- c('mean_stress', var_labels, 'income')
@@ -41,7 +42,6 @@ names(comb) <- c('mean_stress', var_labels, 'income')
 comb_no_na_all <- comb %>% DropNA(c('mean_stress', var_labels))
 
 comb_no_na_oecd <- comb_no_na_all %>% filter(income == 'High income: OECD')
-
 
 form_all_vars <- paste('mean_stress ~', paste0("`", var_labels, "`",
                                                collapse = ' + ')) %>%
