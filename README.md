@@ -25,10 +25,10 @@ The following figure shows a selection of financial market stress perceptions sc
 To download the development version of the Index into R use:
 
 ```{S}
-URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/results_kpca_rescaled.csv'
+URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/FinStress.csv'
 finstress_index <- rio::import(URL)
 ```
 
-The primary indicator is labelled: `C1_ma`. See the
+The primary indicator is labelled: `FinStress`. See the
 [paper](https://github.com/christophergandrud/EIUCrisesMeasure/blob/master/summary_paper/summary_paper.pdf)
 describing the Index for more details.
