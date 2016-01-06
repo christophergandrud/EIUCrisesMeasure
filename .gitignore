@@ -41,3 +41,5 @@ completer.hist
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+submissions/*
