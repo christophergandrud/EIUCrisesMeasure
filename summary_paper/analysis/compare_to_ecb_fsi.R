@@ -6,6 +6,7 @@
 
 
 library(rio)
+library(repmis)
 library(tidyr)
 library(dplyr)
 library(countrycode)
@@ -13,8 +14,11 @@ library(lubridate)
 library(ggplot2)
 library(DataCombine)
 
+possibles <- '/git_repositories/EIUCrisesMeasure/'
+set_valid_wd(possibles)
+
 # FSI from Klaus et al. (2015) -----
-fsi <- rio::import('~/Desktop/Duprey et al - Crises Dating - dataset.xls',
+fsi <- rio::import('data/alternative_measures/raw/Duprey et al - Crises Dating - dataset.xls',
                     sheet = 3)
 
 countries_count <- ncol(fsi)
