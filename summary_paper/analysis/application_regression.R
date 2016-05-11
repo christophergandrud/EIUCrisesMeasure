@@ -9,13 +9,11 @@ library(devtools)
 library(dplyr)
 library(DataCombine)
 library(stargazer)
+library(plotMElm)
 
 # Run regressions
 # devtools::source_url('http://bit.ly/1RwxRO8')
 source('/git_repositories/financial_crisis_fiscal_policy/analysis_data/regressions_v3.R')
-
-# Load plot function
-devtools::source_gist('d270ff55c2ca26286e90')
 
 # Reset working directory
 setwd('/git_repositories/EIUCrisesMeasure/summary_paper/')
@@ -56,8 +54,7 @@ stargazer(m1_t1, m2_t1, m3_t1, m4_t1, m5_t1, m6_t1, m7_t1,
 
 
 ##### Plot stress/crisis interaction
-plot_me(obj = m5_t1, term1 = 'election_year_11', term2 = 'lpr',
-        fitted2 = seq(0, 0.75, by = 0.05)) +
+plot_me(obj = m5_t1, term1 = 'election_year_11', term2 = 'lpr') +
     scale_y_continuous(limits = c(-10, 13)) +
     xlab('\nElectoral Loss Probability') +
     ylab('Marginal Effect of Post-Election Year\n') +

@@ -64,6 +64,12 @@ rr_bc$RR_BankingCrisis_start[rr_bc$RR_BankingCrisis_start < '2003-01-01' &
 
 rr_bc <- rr_bc %>% filter(RR_BankingCrisis_end >= '2003-01-01')
 
+# Round to correct year
+rr_bc$RR_BankingCrisis_start <- rr_bc$RR_BankingCrisis_start %>% 
+                                    floor_date(unit = 'year') 
+rr_bc$RR_BankingCrisis_end <- rr_bc$RR_BankingCrisis_end %>% 
+                                    ceiling_date(unit = 'year') 
+
 rr_bc_start <- rr_bc %>% select(iso2c, RR_BankingCrisis_start) %>%
                 rename(start = RR_BankingCrisis_start)
 rr_bc_end <- rr_bc %>% select(RR_BankingCrisis_end) %>%
@@ -76,8 +82,8 @@ rr_bc$Source <- 'Reinhart/Rogoff'
 lv <- import('data/alternative_measures/cleaned/laeven_valencia_banking_crisis.csv')
 
 # Assume date is 1 June
-lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
-lv <- lv %>% select(iso2c, date, lv_bank_crisis)
+#lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
+#lv <- lv %>% select(iso2c, date, lv_bank_crisis)
 
 lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
 lv_se$Start <- ymd(lv_se$Start)
@@ -85,6 +91,12 @@ lv_se$End <- ymd(lv_se$End)
 lv_se$Start[lv_se$Start < '2003-01-01' & lv_se$End > '2003-01-01'] <- '2003-01-01'
 
 lv_se <- lv_se %>% filter(End >= '2003-01-01')
+
+# Round to correct year
+lv_se$Start <- lv_se$Start %>% 
+    floor_date(unit = 'year') 
+lv_se$End <- lv_se$End %>% 
+    ceiling_date(unit = 'year') 
 
 lv_se_start <- lv_se %>% select(iso2c, Start) %>%
                 rename(start = Start)
@@ -185,6 +197,21 @@ for (i in country_vector) {
                              id = i))
 }
 
+
+# Plot selection
+select_countries_short <- c('Argentina', 'Australia', 'Brazil',
+                        'Canada', 'China',  'France',
+                        'Germany', 'Greece','Hungary', 'Iceland',
+                        'India', 'Ireland', 'Italy', 'Japan', 
+                        'Kazakhstan', 'Netherlands', 'Spain',
+                        'Switzerland', 'United Kingdom', 'United States'
+)
+pdf(file = 'summary_paper/figures/compare_to_lv_rr_short.pdf', width = 15,
+    height = 15)
+do.call(grid.arrange, kpca_list[select_countries_short])
+dev.off()
+
+# Old ---------------------------------------
 # Plot selection (1)
 select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                       'Brazil','Bulgaria', 'Canada', 'China',
@@ -194,7 +221,7 @@ select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                       )
 pdf(file = 'summary_paper/figures/compare_to_lv_rr.pdf', width = 15,
     height = 15)
-    do.call(grid.arrange, kpca_list[select_countries_1])
+    do.call(grid.arrange, kpca_list[unique(select_countries_1)])
 dev.off()
 
 # Plot selection (2)
@@ -210,55 +237,5 @@ pdf(file = 'summary_paper/figures/compare_to_lv_rr_2.pdf', width = 15,
     do.call(grid.arrange, kpca_list[select_countries_2])
 dev.off()
 
-select_countries_3 <- c('Iceland', 'Ireland')
-pdf(file = '~/Desktop/finstress_iceland_ireland.pdf', width = 7,
-    height = 7)
-do.call(grid.arrange, kpca_list[select_countries_3])
-dev.off()
 
 
-#### Select individual country plots ####
-pdf(file = 'summary_paper/figures/austria_compare.pdf', width = 5,
-    height = 5)
-kpca_list['Austria']
-dev.off()
-
-pdf(file = 'summary_paper/figures/canada_compare.pdf', width = 5,
-    height = 5)
-kpca_list['Canada']
-dev.off()
-
-pdf(file = 'summary_paper/figures/greece_compare.pdf', width = 5,
-    height = 5)
-kpca_list['Greece']
-dev.off()
-
-pdf(file = 'summary_paper/figures/iceland_compare.pdf', width = 5,
-    height = 5)
-    kpca_list['Iceland']
-dev.off()
-
-pdf(file = 'summary_paper/figures/ireland_compare.pdf', width = 5,
-    height = 5)
-kpca_list['Ireland']
-dev.off()
-
-pdf(file = 'summary_paper/figures/kazakhstan_compare.pdf', width = 5,
-    height = 5)
-    kpca_list['Kazakhstan']
-dev.off()
-
-pdf(file = 'summary_paper/figures/switzerland_compare.pdf', width = 5,
-    height = 5)
-kpca_list['Switzerland']
-dev.off()
-
-pdf(file = 'summary_paper/figures/uk_compare.pdf', width = 5,
-    height = 5)
-    kpca_list['United Kingdom']
-dev.off()
-
-pdf(file = 'summary_paper/figures/us_compare.pdf', width = 5,
-    height = 5)
-    kpca_list['United States']
-dev.off()

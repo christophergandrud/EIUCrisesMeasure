@@ -12,6 +12,7 @@ library(lubridate)
 library(WDI)
 library(gridExtra)
 library(countrycode)
+library(SurvSetup)
 
 
 # Set working directory. Change as needed.
@@ -31,7 +32,7 @@ vol <- vol %>% rename(year = Election_Year)
 
 vol$iso2c <- countrycode(vol$Country, origin = 'country.name', 
                          destination = 'iso2c')
-vol <- vol %>% select(-Country)
+vol <- vol %>% dplyr::select(-Country)
 
 
 # Load Finstress --------------------------------------------------------
@@ -72,7 +73,7 @@ finstress_index <- change(finstress_index, Var = 'FinStress',
                            GroupVar = 'country', slideBy = -12,
                            NewVar = 'fs_change12', type = 'absolute')
 
-finstress_index <- finstress_index %>% select(-year)
+finstress_index <- finstress_index %>% dplyr::select(-year)
 
 # Economic variables from WDI -------------------------------------------
 wdi <- WDI(indicator = c('NY.GDP.MKTP.KD.ZG', 'FP.CPI.TOTL.ZG', 
@@ -80,12 +81,20 @@ wdi <- WDI(indicator = c('NY.GDP.MKTP.KD.ZG', 'FP.CPI.TOTL.ZG',
                          'GFDD.OI.19', 'GFDD.DI.14'), 
            start = 2000, end = 2014)
 
-wdi <- wdi %>% select(-country) %>% 
+wdi <- wdi %>% dplyr::select(-country) %>% 
     rename(gdp_growth = NY.GDP.MKTP.KD.ZG) %>%
     rename(inflation = FP.CPI.TOTL.ZG) %>%
     rename(unemployment = SL.UEM.TOTL.ZS) %>%
     rename(lv_crisis = GFDD.OI.19) %>% 
     rename(domestic_credit_to_private = GFDD.DI.14)
+
+wdi <- DropNA(wdi, 'lv_crisis')
+
+# Create crisis start binary variable
+wdi <- wdi %>% group_by(iso2c) %>% mutate(lv_crisis_start = spell_new(lv_crisis))
+wdi$lv_crisis_start[wdi$lv_crisis == 0] <- 0
+# drop if not at risk
+wdi$lv_crisis_start[wdi$lv_crisis == 1 & wdi$lv_crisis_start == 0] <- NA
 
 # Regression data set
 reg_data <- merge(finstress_index, vol, by = c('iso2c', 'year_month'))
@@ -102,7 +111,7 @@ lv_se$country <- countrycode(lv_se$iso2c, origin = 'iso2c',
                            destination = 'country.name')
 lv_se <- subset(lv_se, country %in% unique(reg_data$country))
 
-lv_se <- merge(lv_se, finstress_index[, -1], by = c('year_month', 'iso2c'), 
+lv_se <- merge(lv_se, finstress_index[, -2], by = c('year_month', 'iso2c'), 
                all.x = T)
 
 # Descriptive plot of crisis, election timing ----------------------------------
@@ -146,10 +155,11 @@ plot_fs_linear <- ggplot(predict_fs, aes(`reg_data$FinStress`, fit)) +
     geom_line() +
     geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.1) +
     scale_y_continuous(limits = common_limits) +
-    ylab('Predicted Electoral Volatility\n') + xlab('\nFinStress Score') +
+    ylab('Predicted Electoral Volatility\n') + xlab('') +
+    ggtitle('Linear: Finstress (level)') +
     theme_bw()
 
-# FinStress predictions from polynomial model ------------------------
+# FinStress predictions from quadradic polynomial model ------------------------
 predict_fs_poly <- predict(m1_fs_poly, interval = 'confidence') %>% as.data.frame
 predict_fs_poly <- cbind(reg_data$FinStress, predict_fs_poly)
 
@@ -157,7 +167,8 @@ plot_fs_poly <- ggplot(predict_fs_poly, aes(`reg_data$FinStress`, fit)) +
     geom_line() +
     geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.1) +
     scale_y_continuous(limits = common_limits) +
-    ylab('Predicted Electoral Volatility\n') + xlab('\nFinStress Score') +
+    ylab('Predicted Electoral Volatility\n') + xlab('') +
+    ggtitle('Quadradic: FinStress (level)') +
     theme_bw()
 
 # FinStress change from previous 12 month moving average ----------------
@@ -170,19 +181,22 @@ plot_fs_ma_linear <- ggplot(predict_fs_ma, aes(`reg_sub$fs_change_ma12`, fit)) +
     geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.1) +
     scale_y_continuous(limits = common_limits) +
     ylab('Predicted Electoral Volatility\n') + 
-    xlab('\nFinStress Change from Previous 12 mnth Moving Average') +
+    xlab('') +
+    ggtitle('Linear: FinStress (change 12 mnth moving mean)') +
     theme_bw()
 
 
 # Laeven and Valencia models ---------------------------------------------------
 reg_data$lv_crisis <- as.factor(reg_data$lv_crisis)
+reg_data$lv_crisis_start <- as.factor(reg_data$lv_crisis_start)
 
 m1_lv <- lm(TV ~ lv_crisis, data = reg_data)
+m1_lv_start <- lm(TV ~ lv_crisis_start, data = reg_data)
+
 m2_lv <- lm(RegV ~ lv_crisis, data = reg_data)
 m3_lv <- lm(AltV ~ lv_crisis, data = reg_data)
 
 newdata_lv <- data.frame(lv_crisis = as.factor(c(0, 1)))
-
 predict_lv <- predict(m1_lv, interval = 'confidence', newdata = newdata_lv) %>% 
     as.data.frame
 predict_lv <- cbind(lv_crisis = c(0, 1), predict_lv)
@@ -192,10 +206,31 @@ plot_lv_linear <- ggplot(predict_lv, aes(lv_crisis, fit)) +
     geom_pointrange(aes(ymin = lwr, ymax = upr)) +
     scale_y_continuous(limits = common_limits) +
     scale_x_continuous(breaks = c(0, 1), labels = c('No Crisis', 'Crisis')) +
-    ylab('Predicted Electoral Volatility\n') + xlab('\nLaeven & Valencia Measure') +
+    xlab('') +
+    ylab('Predicted Electoral Volatility\n') + 
+    ggtitle('Linear: Laeven & Valencia Banking Crisis') +
     theme_bw()
 
-pdf(file = 'summary_paper/figures/elect_vol_predict.pdf', width = 10, height = 10)
-    grid.arrange(plot_fs_linear, plot_lv_linear, plot_fs_poly, plot_fs_ma_linear,
-                 ncol = 2, nrow = 2)
+newdata_lv_start <- data.frame(lv_crisis_start = as.factor(c(0, 1)))
+predict_lv_start <- predict(m1_lv_start, interval = 'confidence', 
+                      newdata = newdata_lv_start) %>% as.data.frame
+predict_lv_start <- cbind(lv_crisis_start = c(0, 1), predict_lv_start)
+
+plot_lv_linear_start <- ggplot(predict_lv_start, aes(lv_crisis_start, fit)) + 
+    geom_line() +
+    geom_pointrange(aes(ymin = lwr, ymax = upr)) +
+    scale_y_continuous(limits = common_limits) +
+    scale_x_continuous(breaks = c(0, 1), 
+                       labels = c('Not Start Year', 'Start Year')) +
+    ylab('Predicted Electoral Volatility\n') + 
+    xlab('') +
+    ggtitle('Linear: Laeven & Valencia Crisis Start') +
+    theme_bw()
+
+pdf(file = 'summary_paper/figures/elect_vol_predict.pdf', width = 10, 
+    height = 14)
+    grid.arrange(plot_fs_linear, plot_lv_linear, 
+                 plot_fs_ma_linear, plot_lv_linear_start,
+                 plot_fs_poly, 
+                 ncol = 2, nrow = 3)
 dev.off()
