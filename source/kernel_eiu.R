@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# Pre-Process texts/Examine kernel methods
+# Pre-Process texts/Kernel methods
 # Christopher Gandrud
 # MIT License
 # ---------------------------------------------------------------------------- #
@@ -19,7 +19,8 @@ library(repmis)
 
 # Set working directory of parsed texts. Change as needed.
 pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
-                   '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+                    '/Volumes/Gandrud1TB/eiu/eiu_extracted/',
+                    '/Volumes/SAMSUNG128/data/eiu/eiu_extracted/')
 
 set_valid_wd(pos_directs)
 
@@ -34,15 +35,17 @@ date_country[, 2] <- gsub('-', ' ', date_country[, 2])
 names(date_country) <- c('date', 'country')
 date_country$date <- ymd(date_country$date)
 
-# Load corpus
+# Load corpus and preprocess
 clean_corpus_full <- Corpus(DirSource()) %>%
                     tm_map(removeWords,
-                           stopwords(kind = "SMART"), mc.cores = 2) %>%
-                    tm_map(stemDocument, mc.cores = 2) %>%
+                           stopwords(kind = "SMART")) %>%
+                    tm_map(stemDocument) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-                    tm_map(removePunctuation, mc.cores = 2) %>%
-                    tm_map(removeNumbers, mc.cores = 2) 
+                    tm_map(removePunctuation) %>%
+                    tm_map(removeNumbers)
+# Save corpus
+writeCorpus(x = clean_corpus_full, path = '~/Desktop/pre_processed_eiu_corpus')
 
 # Kernal length
 length_spec = 5
