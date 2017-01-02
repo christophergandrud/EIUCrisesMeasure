@@ -1,484 +1,459 @@
 \documentclass[]{article}
-\usepackage{lmodern}
+\usepackage{fullpage}
+\usepackage[authoryear]{natbib}
 \usepackage{setspace}
-\setstretch{1.5}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\usepackage[margin=1in]{geometry}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg},
-            pdftitle={Measuring Real-time Perceptions of Financial Market Stress},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{5}
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
+    \doublespacing
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=cyan,
+    urlcolor=cyan
 }
-
-\setlength{\droptitle}{-2em}
-  \title{Measuring Real-time Perceptions of Financial Market Stress}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Christopher Gandrud, Sahil Deo, Christian Franz, and Mark Hallerberg}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \date{}
-  \predate{}\postdate{}
-
+\usepackage{amssymb,amsmath}
+\usepackage{bm}
+\usepackage{dcolumn}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{todonotes}
+\usepackage{lscape}
+\usepackage{float}
+\usepackage[margins]{trackchanges}
+\addeditor{MH}
+\addeditor{CG}
+\usepackage{subfig}
+\captionsetup{belowskip=12pt,aboveskip=4pt}
 
+\usepackage{footmisc}
+\renewcommand{\footnotelayout}{\doublespacing}
+
+
+
+\title{The Measurement of Real-Time Perceptions of Financial Stress: Implications for Political Economy Models of Crisis}
+
+
+
+\author{Christopher Gandrud \\ \emph{City University London} \\ \emph{Hertie School of Governance}\footnote{Please contact Christopher Gandrud
+(\href{mailto:christopher.gandrud@city.ac.uk}{\nolinkurl{christopher.gandrud@city.ac.uk}}).
+Thank you to Nicole Rae Baerg, Vincent Arel-Bundock, Ronen Palan, Stefano Pagliari, David Singer, and participants at the 2015 American Political Science Association Annual Conference, the 2015 International Political Economy Society Conference, and City University London for helpful comments. We also thank Sahil Deo and Christian Franz for early research assistance. Our research is generously supported by the Deutsche Forschungsgemeinschaft. All data and replication material can be found at:
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}.}
+\and
+Mark Hallerberg \\ \emph{Hertie School of Governance}}
 
 \begin{document}
 
 \maketitle
 
+\begin{center}
+    \textbf{Working Draft. Comments welcome.}
+\end{center}
 
-\textbf{Note: This work is in the early stages of development. It will
-be updated significantly.}
 
-\textbf{Abstract}\footnote{Please contact Christopher Gandrud
-  (\href{mailto:gandrud@hertie-school.org}{\nolinkurl{gandrud@hertie-school.org}}).
-  Thank you to Ronen Palan for helpful comments. All data and
-  replication material can be found at:
-  \url{https://github.com/christophergandrud/EIUCrisesMeasure}.}
+\begin{abstract}
 
-\begin{quote}
-This paper describes the motivation and construction of our new measure
-of real-time perceptions of financial market stress based on kernel
-principal component analysis (PCA) of
-\href{http://www.eiu.com/}{Economist Intelligence Unit} monthly country
-reports. Not only do we develop a novel indicator of financial market
-stress, but we also demonstrate how kernel PCA can be used to summarize
-vast quantities of texts into useful cross-sectional time-series.
-\end{quote}
+Responding to financial market disruptions is a defining challenge for policymakers and a central topic of political research. However, established measures of financial conditions have significant shortcomings. Binary crisis indicators \cite[e.g.][]{laeven2013} are constructed \emph{post hoc}, which biases them towards severe events. This has important theoretical implications--studies using these variables cannot differentiate between periods of calm and periods where governments effectively addressed emerging trouble. The few, and less popular, continuous indicators that are available begin to address these issues, but they have their own flaws in operationalization and reproducability. We create a continuous measure of real-time perceived stress severity using a kernel principal component analysis (KPCA) of \emph{Economist} monthly country reports. This measure operationalizes a key concept in political economy, and it enables scholars to explore the effects of financial market stress and policymaker responses in ways that were not possible before.
 
-Why and how do politicians respond to financial market stress? This
-question has attracted considerable attention recently following the
-2007-2009 financial crisis and earlier following the late-1990s Asian
-financial crisis. However, virtually all of this research lacks a
-crucial variable: a real-time indication of the level of financial
-market stress that policy-makers believed that they faced. To understand
-why politicians made a given policy choice, we need to have a measure
-the conditions that they believed they were responding to.
+\end{abstract}
 
-Most research has used \emph{post-hoc} assessments of banking crisis as
-a second-best alternative. However, this presents clear problems.
-Chiefly, using such measures creates clear selection bias as stress that
-politicians responded to effectively will not be selected. In addition,
-these measures are typically binary and so give no indication of stress
-intensity. The measures are also at gross intervals, typically yearly,
-prohibiting sub-annual analysis.
 
-In this paper we aim to overcome these problems by develop a new index
-of real-time perceptions of financial market stress. The index is
-created using a kernel principal component analysis of monthly Economist
-Intelligence Unit (EIU) reports. This measure should supplant previous
-second-best measures of financial market stress by researchers aiming to
-understand why and how policy-makers respond to financial crisis.
+\textbf{Word count:} 8,168
 
-We start the paper by detailing our motivation for creating a real-time
-index of perceptions of financial market stress. We then discuss the
-construction of the Index and compare it to widely used previous
-measures of financial market stress. {[}WOULD BE NICE TO HAVE A
-REPLICATION OF AN IMPORTANT PAPER{]}.
+\clearpage
 
-\section{Motivation}\label{motivation}
+Why and how do politicians respond to financial market stress? What are the political consequences of extreme stress, i.e. crisis? When do policymakers successfully diffuse financial stress so that there is no financial crisis in the first place? What political conditions enable this behavior? These questions have attracted considerable attention at least since the 2007-2010 crisis and earlier Latin American and Asian financial crises in the 1980s and 1990s.
 
-Researchers have tended to rely on two data sources for cross-country
-information on when a country is facing a financial crisis: Laeven and
-Valencia (2013) and Reinhart and Rogoff (2009). Knowing when crises
-started (and when they have ended) is crucial for research trying to
-understand issues such as how crises affect economic output, how
-governments choose to respond to financial market distress, and what the
-fiscal costs of financial crises are.
+However, most research on these topics lacks a crucial variable: a continuous indicator of the level of financial market stress that policymakers perceived in real-time. To understand why politicians made a given choice in response to financial market stress, we need a measure of the conditions that they perceived at the time.
 
-There are a number of problems with these indicators. Unlike economic
-recessions, financial crises are poorly defined in previous sources.
-This contributes to large inconsistencies between the timing of crises
-in the Laeven and Valencia (2013) and Reinhart and Rogoff (2009) data
-sets (Chaudron and Haan 2014). For example, Japan is labeled as having a
-crisis between 1997 and 2001 by the former, but 1992-1997 in the latter.
-Gandrud and Hallerberg (2015) also find that there are significant
-difference in crisis timing between different versions of the Laeven and
-Valencia (2013) data. Crises are also identified by researchers who know
-what happened. Financial market stress that is addressed well by
-policymakers, preventing a major crisis, may therefore not be included.
-Similarly, stress that is temporarily dampened through unsustainable
-policy measures, only to flare up later, is not clearly recorded. This
-makes it difficult to adequately study why and how politicians respond
-to financial market stress. Related to this, current measures are
-dichotomous thus errors have large consequences for creating bias when
-used in econometric models. They also do not give any indication of how
-severe a crisis is.
+To measure financial market distress originating in the banking sector,\footnote{It is important to note that there are a number of different types of financial crisis. \cite{reinhartRogoff2011} argue that there are four types of crisis that fit under the definition of ``financial crisis''. Some countries fall into inflation crises when prices get out of control. Others experience currency crises where a government cannot establish a floor on the international price of its domestically printed money. Banking crises occur when large parts of the domestic banking sector are insolvent.  Finally, sovereign debt crises emerge when governments have difficulty repaying their creditors. \citeauthor{reinhartRogoff2011} note that all these crises have debt accumulation at their root.
 
-Overall, we lack the continuous real-time measure of financial market
-stress that we need to be able to adequately examine why and how
-policy-makers respond to financial market problems.
+While all of these types of events are important for political scientists to understand, in this paper, we focus on periods with disruption originating or strongly effecting banking markets. We do widen the scope, however, to consider financial markets more broadly, not just the banking sector. The collapse of the insurance company AIG in 2008 is a reminder that the definition of a ``financial firm'' extends beyond banks to include firms that are active on financial markets.} the literature has relied on a number of measures of financial market stress that are binary--e.g. \cite{Reinhart2009,ReinhartRog2010} and Laeven and Valencia \citeyearpar[and their predecessors]{laeven2013}--or continuous--e.g. \cite{Lepetit2013} and \cite{Andrianova2015}. The binary crisis measures--where 1 typically signifies a ``crisis'' and 0 otherwise--are constructed \textit{post hoc} and so tend to be biased towards severe crises and away from circumstances where governments effectively responded to emerging trouble. As such, they suffer from clear selection bias. Additionally, \textit{post hoc} measures do not necessarily capture conditions as they were perceived at the time. Being dichotomous indicators, they do not indicate crisis severity or how it varies over time. The binary measures also often use \textit{ad hoc} methods of determining when stress has returned to normal. Continuous measures of financial market stress are less common in the political economy literature, but they also suffer from other problems. They capture quantities whose importance, measurement, and reporting varies significantly across countries and over time.
 
-There have been a number of recent attempts to create crisis measures
-that overcome these issues. Building on {Von Hagen} and Ho (2007), Jing
-et al. (2015) developed am index of money market pressure based on
-changes in short-term interest rates and stocks of central bank
-reserves. However, this measure conflates distress and policy responses,
-assuming central banks use the same reaction function to increased
-demand for liquidity. Rosas (2009) developed a dynamic latent trait
-model of banking system distress. However, his measure relies on
-nationally reported data to the IMF's International Financial
-Statistics, which Copelovitch, Gandrud, and Hallerberg (2015) show can
-be endogenous to financial market distress.
+To overcome these issues, we develop a new continuous measure of real-time perceptions of financial market stress. We create this variable using a kernel principal component analysis (KPCA) of detailed qualitative data, namely monthly \emph{Economist Intelligence Unit} (EIU) reports. We call it the EIU Perceptions of Financial Market Stress Index: \emph{FinStress} for short.
 
-C. Romer and Romer (2014) aimed to address this issue by manually
-classifying 24 countries on a 15 point scale capturing the cost of
-credit intermediation. They code countries using information from OECD
-semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Relying
-on contemporaneous reports allows for the construction of a real-time
-measure of credit market distress. This would allow us to examine policy
-choices that head off trouble or unsustainably prolong brewing
-difficulties. Their, relatively, continuous measure gives an indication
-of market distress intensity.
+Being an indicator of perceived and real-time stress, rather than \emph{post hoc} evaluations of policy decisions in response to market events, FinStress provides a much more relevant indicator for understanding policymakers' decision-making process. FinStress is continuous, so it is not \textit{a priori} weighted towards periods with particular government responses and does not select out episodes of stress where policymakers successfully avoided extreme disruption. Because it is a summary of qualitative assessments of qualitative and quantitative data in country-time context, it is comparable across countries. This is crucial for accurately estimating the effect that financial market stress has on policy actions. The measure also has considerably better coverage than previous quantitative measures of stress over the time period for which it is currently available.
 
-Their approach could be improved in a number of key ways. First, they
-are necessarily limited to the relatively small sample of OECD
-countries. Second, their measure is laborious to create and update.
-Third, the scale is created by simply summing
+FinStress also enables new political research possibilities. For example, as a continuous rather than binary measure of stress, FinStress could be used to examine what policies are effective at preventing or reducing extreme stress and importantly what political conditions are conducive to implementing these policies. As a comparable continuous monthly indicator, FinStress could also be used to test new hypotheses that rely on sub-annual data and follow the intensity of stress over time.\footnote{For example, \cite{gandrud_pepinsky2015} use FinStress variance across quarters to test a new hypothesis that ``good'' economic conditions make it difficult for policymakers to predict crises.}
 
-{[}COMPLETE{]}
+Not only do we create a measure of financial market stress, but we contribute to the wider political science literature by showing how KPCA can be used to summarize vast quantities of qualitative texts into continuous cross-sectional time-series indicators.
 
-\section{~Creating the Perceptions of Financial Market Stress
-Index}\label{creating-the-perceptions-of-financial-market-stress-index}
+\section{Previous Measures and Use in Research}\label{motivation}
 
-We propose a new method of estimating a real-time measure of perceptions
-of financial market stress. The index is created with kernel principle
-component analysis (Scholkopf, Smola, and Muller 1998; Lodhi et al.
-2002; Spirling 2012) of monthly country reports from the \emph{Economist
-Intelligence Unit}.\footnote{See \url{http://www.eiu.com/}. Accessed May
-  2015.}
+\subsection{Binary measures}
+
+Researchers studying the political economy of crises mostly rely on two data sources of cross-country information on when a country is facing a financial crisis--\cite{Reinhart2009,ReinhartRog2010} and Laeven and Valencia \citeyearpar[and their predecessors]{laeven2013}.
+
+Reinhart and Rogoff \citeyearpar[10]{Reinhart2009,ReinhartRog2010} classify countries as being in crisis when they experience at least one type of event: (1) one or more bank runs, closure, merger, or public sector takeover and/or (2) closure, merger, takeover or large-scale public assistance of an important financial institution that marks the start of a string of similar events. Laeven and Valencia \citeyearpar[228]{laeven2013} take a similar approach that nonetheless explicitly emphasizes public interventions. They classify a country-year as in crisis when there is both significant distress in the banking system and policymakers respond to the distress with significant interventions.\footnote{They define ``significant intervention'' as at least three of the following six policies being used: deposit freezes/banking holidays, significant bank nationalizations, bank restructuring gross costs, extensive liquidity support, significant guarantees, and significant asset purchases \cite[][229]{laeven2013}. Please see the Online Appendix for a full list of the criteria these data sets use to code a given country-year as being in a crisis.}
+
+These indicators have been widely employed in the literature and so have been critical variables for studying the political economy of financial crises. \cite{Fielding2015} and \cite{Herrera2014} use Laeven and Valencia's indicator as a dependent variable when attempting to understand how capital flow bonanzas affect the probability of crises occurring. Similarly, \cite{Danielsson2015} use \cite{Reinhart2009} to understand how stock price volatility predicts crises. \cite{Keefer2007} and \cite{Rosas2006,Rosas2009} used earlier versions of the \cite{laeven2013} data set to identify periods of crisis and to argue that electoral competitiveness affected policy responses, as well as in Keefer's case, the overall costs of the crisis to taxpayers. \cite{reischmann2015} uses the Laeven and Valencia measure to examine electoral effects on ``creative public budget accounting'', proposing that creative accounting occurs at a higher volume during crises. \cite{seiferling2015} use the Laeven and Valencia measure to find that the composition of government assets is different in crisis periods for advanced and emerging economy countries, such that advanced countries make more loans and purchase more equities in insolvent firms. \cite{ha2015} find using the Laeven and Valencia data set that developing country governments respond to crises with fiscal and monetary tightening, but that this is moderated by political constraints--veto players--, left-wing ideology, and upcoming elections. \cite{Gandrud2013,Gandrud2014} and \cite{Kleibl2013} combine the two data sources to understand how financial regulatory structures are changed in response to crises. \cite{broz2013} takes a similar approach of integrating the data sets to find a ``partisan financial cycle'' where right-leaning pro-market governments implement policies that create economic booms, but also lead to crises. Voters then elect left-leaning governments to clean up afterwards. \cite{CrespoTenorio2014}, \cite{Chwieroth2013}, and \cite{Pepinsky2012} use the data sets in their research on the political effects of crises. \cite{CrespoTenorio2014} find that incumbents in countries with open capital markets are more likely to survive a crisis in power than incumbents in countries with closed capital markets.\footnote{For an additional review of the literature see \cite[1-3]{GandrudHallerberg2015}, as well as tables \ref{LitRevTable2} and \ref{LitRevTable} in the Online Appendix.}
+
+The binary crisis indicators have a number of strong characteristics. They come from detailed comparative work that identifies some key features of crises, including estimated fiscal costs for a large number of countries. Yet, there are a number of problems with these indicators for studying political behavior. Crucially, crises are identified \emph{post hoc} by researchers who know what happened after the fact. Financial market stress that policymakers successfully address, thus preventing a major visible crisis, is not included. Similarly, stress that a government temporarily dampens through unsustainable policy measures, only to flare up later, is not recorded. The measures are dichotomous and so do not give any indication of how severe crises were. Crises rarely have uniform intensity over their course. Binary indicators do not allow us to understand intensity of a crisis over time.  Having an annual dichotomous measure also means that measurement errors--incorrectly timing the start or end of a crisis--can strongly bias econometric model estimates. All of these factors make it difficult to study why and how politicians respond to financial market stress.
+
+There are also practical coding issues for scholars who use these measures. There are large inconsistencies between the timing of crises in the \cite{laeven2013} and \cite{Reinhart2009} data sets \citep{Chaudron2014}. For example, Japan is labeled as having a crisis between 1997 and 2001 by the former, but between 1992 and 1997 by the latter. Furthermore, \cite{GandrudHallerberg2015} find that there are significant differences in crisis timing between different versions of the \cite{laeven2013} data. While the measures use fairly precise definitions of when a crisis started, reasons for dating the end of a crisis are either unstated as in the case of \cite{Reinhart2009} or are \emph{ad hoc}. Laeven and Valencia \citeyearpar[footnote 19]{laeven2013} determine that a crisis has concluded when real GDP and real credit growth are positive for two years, or five years have elapsed from the crisis start year.
+
+\subsection{Continuous measures}
+
+There are alternative approaches that not only aim to code extreme stress, but also continuous variations in stress severity over time. Here we focus on issues in these indices for political economy research. Please see also \cite{Kliesen2012} for a further detailed critical discussion.
+
+\cite{Romer2015} attempt to address many of the problems in the \cite{Reinhart2009} and \cite{laeven2013} data sets. To address the dichotomous variable concern, they use a 16 point scale of the cost of credit intermediation, which provides an indication of stress intensity. They code 24 countries using information from the OECD's semi-annual \emph{Economic Outlook} reports from 1967 to 2007. Their continuous measure gives an indication of distress intensity. Relying on contemporaneous reports allows for the construction of a real-time measure of credit market distress and addresses potential problems with \emph{ex post} coding. Researchers can examine policy choices that head off trouble or, conversely, prolong and perhaps worsen difficulties.
+
+While their approach is an important improvement over previous work, it is limited in a number of ways. First, their data sources means they are necessarily confined to the relatively small sample of OECD countries. Second, because their measure is laborious and time consuming to create and update, even if there were a more encompassing corpus of texts than the OECD \emph{Economic Outlook}, actually applying the method would be costly. Third, relying on human coders may introduce well-known problems of inter-coder reliability and unreproducibility \citep{Minhas2015}.
+
+Another approach is to measure stress and crisis using nationally aggregated quantitative accounting data. The finance literature relies on a statistical quantity known as bank Z-Scores. The concept was originally developed to assess firm solvency \citep[see][]{roy1952}. In the banking context, it is often used to measure national financial system fragility, which allows researchers to examine how banking system structures and policies affect the probability of financial system difficulties \citep[e.g.][]{beck2013bank,vcihak2010islamic,laeven2009bank,uhde2009}. Though there are various ways to calculate this measure \citep[73]{Lepetit2013}, in general bank accounting information--assets, equity, and return on assets--is used to create an inverse measure of the probability that a country's banking system will become ``insolvent''.
+
+Similarly, the CAMELS system uses accounting data to rate bank soundness. The CAMELS indicators include a bank's capital adequacy, asset quality, management capacity, earnings, the liquidity of its assets, and its sensitivity to market risks. \cite{Andrianova2015} gathered individual bank data from the Bankscope service on these quantities for 128 countries, created annual national aggregates, and released the components in a ``database on financial fragility''.
+
+Research looking at longer time spans has been limited by what data is available at the bank-level for measuring banking system health. \cite{Danielsson2015}, for example, examine the Minskian \citeyearpar{Minsky1982} hypothesis that stable conditions in the present induce increased risk-taking behavior and thus crises in the future with annual stock market volatility. This data allows them to cover a period of 211 years. It seems plausible that stock market volatility is positively associated with broader financial market volatility. Nonetheless, it is well understood in political economy \citep[seminally][]{hall2001introduction} that equity markets are a subset of banking and credit markets overall and that their importance for financing banks and the ``real'' economy varies considerably by country and over time.
+
+There have been a number of further innovations to the measurement of banking system stability using quantitative data. Though they make interesting contributions to measuring financial market stress, these indicators have not been used in applied research as frequently as Z-Scores or CAMELS components. Building on \cite{vonHagen2007}, \cite{Jing2015} develop an index of money market pressure based on changes in short-term interest rates and stocks of central bank reserves. Problematically for the study of policy responses, it assumes that central banks use the same reaction function to increased demand for liquidity. \cite{Rosas2009dltm} developed a dynamic latent trait model of banking system distress. His measure relies on nationally reported data to the IMF's International Financial Statistics (IFS).
+
+Most simply, we could perhaps use individual indicators from the IFS or the broader Global Financial Development Database \citep[GFDD,][]{worldbank2015},\footnote{Many IFS indicators are also reported in the GFDD. See also \cite{duprey2015} who use this data to expand the historical reach of their EU-focused index. For more recent periods, they use data from the European Central Bank.} such as the provision of private sector credit by deposit banks as an indicator of credit conditions or non-performing loan ratios as an indicator of bank balance sheet health. However, there are a number of issues with these indicators.
+
+First, as mentioned before, the importance of each individual measure for the health of a financial system varies depending on the context. For example, government-run financial institutions may be important providers and recipients of credit, rather than deposit banks.
+
+Second, how these indicators are measured can vary significantly across countries. Many of the GFDD indicators, for example, have a note attached that ``due to differences in national accounting, taxation, and supervisory regimes, these data are not strictly comparable across countries''.
+
+Third, \cite{cghBruegel2015} show that national reporting to the IFS and GFDD is highly uneven across countries and time. As such, they indicate that decisions to report data to the IFS and GFDD could be endogenous to economic and political events, complicating attempts to use these data to measure financial market conditions to study political economy phenomena. They find that reporting on credit market conditions declined significantly in the European Union in the lead up to and during the crisis beginning in 2007. Further indicating the pervasiveness of the missingness problem with quantitative data, \cite{Andrianova2015} extensively discuss problems of missingness in their privately gathered database on financial fragility and caution users of the database about the effects it might have on their analysis.
+
+Fourth, as \cite{KayserLeininger2015} show, people make decisions based on contemporaneously available information, but researchers attempting to understand their behavior often use data that has been significantly updated after the fact. Similar to the binary crisis indicators' \textit{post hoc} measurement problem, using revised IFS and GFDD data gives an inaccurate impression of the conditions that politicians believed they faced at the time.
+
+\section{Creating the FinStress Index}
+
+We overcome many of the problems noted above by using a new approach to estimate real-time perceptions of financial market stress through machine classification of \emph{Economist Intelligence Unit} reports.\footnote{See \url{http://www.eiu.com/}. Accessed May 2015.} Our method uses kernel principle component analysis \citep{Scholkopf1998,lodhi2002,Spirling2012} of monthly country reports from the \emph{Economist Intelligence Unit} to create a monthly index for more than 180 countries from 2003 through 2011.\footnote{Our approach is broadly similar to \cite{Minhas2015} who use a supervised machine learning approach called support vector machines and United States State Department Country Reports on Human Rights Practices to classify countries according to dichotomous regime types. Our work is distinct in that KPCA of EIU reports allows us to develop a continuous measure of perceived financial market stress. Perhaps more importantly, their supervised learning approach assumes that countries have been well classified by previous indicators, which they use to train the model. As discussed above, we are not confident that this is the case for financial crisis. Therefore, we use the unsupervised KPCA approach to establish new estimates.}
 
 \subsection{Why the EIU?}\label{why-the-eiu}
 
-The EIU is the product of a an analysis of real-time, third-party
-assessments of financial market conditions reported monthly or quarterly
-(depending on the country). These reports are both a summary of
-real-time information and forecasts on counties' economic conditions as
-well as a channel through which this information is disseminated to
-public and private actors. Together, the reports create a very large
-corpus (more than 20,000 texts from 1997 through 2011 {[}CHECK{]}) of
-monthly reports for more than 100 countries. As the texts generally
-follow the same format and style, they contain directly comparable
-assessments of economic conditions monthly across the globe for a
-significant time span. In contrast, the OECD \emph{Economic Outlook}
-provides comparable reports for a very small number of wealthy countries
-on a bi-annual basis.
+The EIU compiles real-time, third-party qualitative assessments of financial market conditions within country-year contexts. Reports are released monthly or, for a small subset of countries, quarterly. These reports contain perceptions of both present and future economic conditions. They are also an important channel through which this information is disseminated to public and private actors in many countries. Together, the reports create a large corpus--more than 20,000 texts--of reports for more than 180 countries over the period 1997-2011, although, due to issues of format comparability we concentrate on data from 2003. In contrast, the OECD \emph{Economic Outlook} used by \cite{Romer2015} provides comparable reports for a very small number of wealthy countries on a bi-annual basis. As such, the EIU is preferable for creating a cross-country indicator of perceived financial market stress.
 
-\subsection{Summarising Financial Market Stress in the
-EIU}\label{summarising-financial-market-stress-in-the-eiu}
+\subsection{Summarising financial market stress in the
+EIU}\label{summarizing-financial-market-stress-in-the-eiu}
 
-Our aim is to create an index that classifies financial conditions on a
-continuous more-stressed/less stressed spectrum. So we clearly need an
-efficient way to summarize the vast quantity of information in the EIU
-reports. To do this we first collected and processed the texts. Then we
-used kernel principal component analysis to summarize the texts into a
-dimension of financial market stress. We rescaled the Index to ease
-interpretation. Finally, we used a number of strategies to examine the
-Index's validity.
+Our aim is to create an index that classifies financial conditions on a continuous more-stressed/less-stressed spectrum for as many country-months as possible. Therefore, we need an efficient way to summarize the vast quantity of information in the EIU reports. To do this we first collected and processed the EIU texts. We then used kernel principal component analysis to place the texts onto a financial market stress spectrum. We rescaled the raw spectrum to ease interpretation.
 
-\subsubsection{Text selection}\label{text-selection}
+\paragraph{Text selection}\label{text-selection}
 
-EIU reports contain assessments of a wide range of countries' economies,
-not just their financial system. So, our first step was to select the
-portions of the EIU texts that contained relevant information about
-countries' banking and financial systems. We collected the parsed
-reports--the reports were in HTML format. We then extracted the portions
-of the texts--headlines and paragraphs--that contained at least one of a
-number of keywords concerning banking and financial markets.\footnote{The
+EIU reports assess many economic sectors within a country,
+not just the financial sector.
+Our first step was to select the portions of the EIU texts that contained relevant information about countries' financial systems. We automatically collected and parsed the reports from their original HTML format. We then extracted the portions of the texts--headers and paragraphs--that contained at least one of a number of keywords concerning financial markets.\footnote{The
   keywords included: \emph{bail-out}, \emph{bailout}, \emph{balance
-  sheet}, \emph{bank}, \emph{credit}, \emph{crunch}, \emph{default},
-  \emph{financial}, \emph{lend}, \emph{loan}, \emph{squeeze} {[}MAKE
-  SURE TO UPDATE{]}. These keywords were adapted from those used by C.
-  Romer and Romer (2014) and are intended to select passages that
-  discusses credit market conditions.} Due to a significant change in
-how the reports were constructed in 2003, we also selected only texts
-from 2003 in order to maintain comparability across the time-series.
+  sheet}, \emph{balance-sheet}, \emph{bank}, \emph{banks},
+  \emph{banking}, \emph{credit}, \emph{crunch}, \emph{default},
+  \emph{finance}, \emph{financial}, \emph{lend}, \emph{loan},
+  \emph{squeeze}. These keywords are adapted
+  from those used by \cite{Romer2015} and are intended to
+  select passages that discuss credit market conditions. Note that a small number of the words, primarily \emph{bank} and \emph{financial} are by far the most selective.} Due to a significant change in the reports formatted in 2003, we selected only texts from 2003 in order to maintain comparability across the time-series. The texts from 2003 follow the same format and style and contain directly comparable assessments of economic conditions across the globe over a significant time span.\footnote{We also pre-processed the selected texts using standard techniques \citep[see][]{Grimmer2013}. This involved removing common English words, such as `was' and `its'. The `stopword' list we used to do this was from \cite{dhillon:modha:mlj01}. We stemmed the words so that different variants of the same word are represented by a common `stem'. This allowed us to work with a more manageable number of kernels. We removed extra white space between the words, as well as punctuation and numbers. Finally, we dropped texts that included very few words (less than six). In practice, including these texts hindered the estimation of the KPCA model. All pre-processing was done using the \texttt{tm} package \citep{tm2015} in R \citep{R-cite}.}
 
-We then preprocessed these texts using standard techniques (see Grimmer
-and Stewart 2013).\footnote{All preprocessing was done using the
-  \texttt{tm} package (Feinerer and Hornik 2015) in R (R Core Team
-  2015).} This involved removing common English words, such as `was' and
-`its', stemming the words so that different variants of the same word
-are grouped together, removing extra whitespace between the words,
-removing punctuation and numbers. Finally, we dropped texts that
-included very few words (less than six). Including these texts prevented
-the estimation of the kernel PCA model.
-
-\subsubsection{Kernel Principal Component
+\paragraph{Kernel Principal Component
 Analysis}\label{kernel-principal-component-analysis}
 
-Texts are frequently summarized using unordered `bag-of-words'
-approaches, such as Latent Dirichlet Allocation, that do not retain word
-order. The result of these approaches is often clusters of `topics'
-within speeches or speeches to clusters (see Grimmer and Stewart 2013
-for a review). We would like to accomplish something different. Ideally,
-we would like to preserve the order of the words in our texts and we
-would like to place the texts on a continuous scale that will be
-interpretable as a measure of perceived financial market stress. We
-would like to preserve the order of the words in the texts. Many
-financial terms such as `credit growth' and `borrowing costs' are used
-in completely different senses depending on the adjectives that modify
-them. For example, `slowing credit growth' vs. `expanding credit growth'
-or `falling borrowing costs' vs. `increasing borrowing costs'. A
-bag-of-words approach that treated each word as having meaning as an
-individual unit, rather than having meaning in ordered association with
-other words, would not adequately capture common and radically different
-meanings in the EIU documents.
+Texts are frequently summarized using unordered ``bags-of-words''
+approaches that are analysed to find, for example, clusters of topics within speeches or clusters of speeches around topics are common results from these methods \citep[for a review see][]{Grimmer2013}. We would like to preserve word order in our texts. Many financial terms such as ``credit growth'' and ``borrowing costs'' have different interpretations depending on the adjectives that modify them; consider, for example, ``slowing credit growth'' vs. ``expanding credit growth'' or ``falling borrowing costs'' vs. ``increasing borrowing costs''. Likewise, adjectives can have very different implications for describing market conditions depending on the nouns that they modify. For example, ``increasing'' can indicate worsening conditions as in ``increasing non-performing loans'' or improving conditions as in ``increasing lending''.  A bags-of-words approach that treated each word as having meaning as an individual unit, rather than having meaning in ordered associations with other words, would not adequately capture commonly used and radically different meanings in the EIU documents.
 
-In order to address these issues we use kernel principal component
-analysis. This method was developed by Scholkopf, Smola, and Muller
-(1998) and Lodhi et al. (2002) and introduced recently into political
-science by Spirling (2012).\footnote{He used it to summarize changing
-  trends in treaties between the US government and Native American
-  groups.} The unit of analysis is a sub-string kernel: in effect a
-short sequence of letters\footnote{Following Spirling (2012), we used
-  kernels with a length of 5, i.e.~those that are five letters long. See
-  also Lodhi et al. (2002) who demonstrate that in English strings
-  lengths between four and seven are often optimal.} that can be shared
-within and across words. Thus we can distinguish between two simple
-documents with the stemmed strings `slow credit' and `expand credit'.
-They share the five character kernels `credit, but differ on 'slowc' and
-`pandc' among others. Using Lodhi et al. (2002) we can summarize the
-similarity of these documents using with the frequency distribution of
-five-length strings that they have in common--one--standardized by
-document length. We can find these pairs for all of the documents in our
-corpus to create a kernel matrix. Finally, we can scale the documents
-using principal component analysis.\footnote{We conducted kernel PCA
-  with the R package \texttt{kernlab} (Karatzoglou et al. 2004).}
+In order to address these issues we use kernel principal component analysis. This method was developed by \cite{Scholkopf1998} and \cite{lodhi2002}. \cite{Spirling2012} introduced it into political science. He used it to summarize changing trends in treaties between the US government and Native American groups. KPCA allows us to extract structure from our likely high-dimensional EIU corpus while preserving word order \cite[6531--6537]{Zhang2010}.
 
-\subsection{Characteristics of the
-Index}\label{characteristics-of-the-index}
+Our unit of analysis is a sub-string kernel: a short sequence of letters\footnote{The kernels are similar to n-grams though they do not need to be complete words. Following \cite{Spirling2012}, we used kernels with a length of five, i.e.~those that are five letters long. See also \cite{lodhi2002} who demonstrate that in English string lengths between four and seven are often optimal.} that can be shared within and across words. Thus we can distinguish between two simple documents with the stemmed strings ``slow credit'' and ``expand credit''. They share the five character kernels ``credi'' and ``redit'', but differ on ``slowc'' and ``pandc'', among others. Using \cite{lodhi2002} we can summarize the similarity of these documents with the frequency distribution of five-length strings that they have in common--in this case one--standardized by document length. We can find these pairs for all of the documents in our corpus to create a kernel matrix. Finally, we can scale the documents using principal component analysis.\footnote{We conducted KPCA with the \texttt{kpca} function from the R package \textbf{kernlab} \citep{kerblabCite}.}
 
-\subsubsection{Dimensionality}\label{dimensionality}
+\paragraph{Dimensionality}\label{dimensionality}
 
-To determine the number of dimensions that best describe the data, we
-conducted a scree test, the results of which are shown in Figure
-\ref{scree_plot}. There is not a clear `elbow' in the plot. This
-suggests that there is perhaps substantively meaningful variation in the
-first six dimensions. The drop from the first to second component is
-substantial. We focus on it as the main dimensions summarising financial
-market conditions.\footnote{We also examined a number of the other
-  dimensions. However, these noticeably did not closely correspond to
-  our priors about financial market stress based on previous indicators.}
+To determine the number of dimensions that best describe the data, we conducted a scree test, the results of which are shown in Figure \ref{scree_plot}. There is a clear ``elbow'' in the plot at component two. This suggests that the first component explains the most variation in the data. In the rest of the article we focus on the first dimension as the main dimension summarizing financial market stress. We examined a number of the other dimensions. However, these noticeably did not closely correspond to our priors about financial market stress based on previous indicators. Below we detail how the first component corresponds to our expectations of a valid measure of financial market stress.
+
+It is important to note two simple transformations we conducted on the raw results to create the final FinStress Index. First, we rescaled it so that it would be between zero and one.\footnote{\(\frac{x - \mathrm{min}(\bm{X})}{\mathrm{max}(\bm{X}) - \mathrm{min}(\bm{X})}\),
+  where \(\bm{X}\) is the vector of the first principal component and
+  \(x\) is an individual value from this vector.} This eases
+interpretation. Second, we smoothed the results by taking a two period--usually two months--moving average.
 
 \begin{figure}
     \caption{Assessing Model Fit: Eigenvalues for Kernel Principal Components}
     \label{scree_plot}
     \begin{center}
-        \includegraphics[scale=0.5]{analysis/figures/scree_plot.pdf}
+        \includegraphics[scale=0.5]{figures/scree_plot.pdf}
     \end{center}
 \end{figure}
 
-\subsubsection{Results}\label{results}
+\subsection{Data Access and replication}
 
-Figure \ref{basic_sample} shows the results of the kernel PCA analysis
-for a selection of countries'. We use the first principal component
-throughout the paper. Similar plots for all countries in the analysis
-are available in the Appendix. Before discussing diving deeper into
-these results, it's important to note two simple transformations we
-conducted on the raw results. First, we rescaled the index so that it
-would be between zero and one. This eases interpretation and
-comparability to other measures. Then we slightly smoothed the results
-by taking a two period--usually two months--moving average. The results
-with these transformations are shown.
+The FinStress Index set can be found at:
+\url{https://github.com/christophergandrud/EIUCrisesMeasure}. This website also includes the complete replication material for creating FinStress and the quantitative validation exercises.
+
+\section{Validation and Description}\label{results}
+
+The solid lines in figures \ref{compare_1} and \ref{compare_2} show FinStress for a wide selection of countries. What does this dimension actually represent? Grimmer and Stewart \citeyearpar[267]{Grimmer2013} argue that to validated the results of a text analysis we need ``careful thought and close reading \ldots extensive and problem-specific validation''. As such, we took a number of approaches to answer this complex question. First, we used a variety of techniques to examine how the texts relate to the estimated scores. Following \cite{Spirling2012} we used a random forests ``regression'' \citep{Breiman2001,jones2015}, as well as stem-component correlations to examine the relationships between word stems from the texts and FinStress. We also qualitatively examined a selection of the tests classified as being at various FinStress levels. Second, we extensively compared the Index to other measures of financial market stress and crisis using a variety of statistical and qualitative techniques.
+
+\subsection{Random forests and correlations}\label{random-forests}
+
+Spirling \citeyearpar[88-90]{Spirling2012} demonstrated the usefulness of using random forests regressions to explore what principal components from textual analyses represent. To do this, we first created a document-term frequency matrix from the stemmed documents. Effectively this is a \(k \times s\) matrix recording the frequency of each stem in \(\bm{S}\) for each document in \(\bm{K}\). \emph{The document-term matrix clearly does not preserve word order, so should only be thought of as one of a number of ways of assessing validity}. We removed sparse terms, i.e.~kept only stems that were found in 90 percent of the documents. Random forests regressions, as opposed to ordinary least squares regressions, are useful for exploring this data's associations with the estimated principal components because it can handle many variables--in this case 1,116 stems--relative to the number of documents--12,377.
+
+We focus on estimated variable importance. Variable importance in this context functions as a measure of how well the frequency of a given stem in a text allows the model to predict the FinStress score for that text.\footnote{Specifically, importance is measured in terms of the percentage increase in mean squared error (MSE) after permuting the variable. If a variable is important, then permuting it will decrease predictive performance, i.e. increase MSE. We conducted the random forests regressions using the \texttt{rfsrc} function from the \textbf{randomForestSRC} R package \citep{randomForestSRCCite}.} Key results are shown in Figure \ref{rf_importance}.
+
+Unsurprisingly, a number of the stems with the largest variable importance are ``bank'', ``financi'', and ``loan''. Terms with these stems were used to select the texts. The prevalence of these terms and others that are clearly related to the financial sector, such as ``interest'', ``rate'', and ``fund'', indicate that FinStress is indeed about financial sector conditions and not some other topic. Words relating to the direction of financial conditions are important including, ``growth'' and ``rise''. We can see that words relating to the the macro-political economic environment of finance are also important, including ``govern'', ``imf'', and ``currentaccount''.
+
+Table \ref{stem_correlations} shows a selection of correlations to provide a sense of the general directions of the relationships between the stems and the Index not provided by the random forest variable importance estimates. We can see that a number of terms related to debt, financial assistance, the International Monetary Fund, and aid are positively related to FinStress. This suggests that the positive direction of the scale is in fact capturing periods where policymakers perceive higher financial market stress. Words that are generally about positive credit conditions, such as ``growth'', ``surplus'', and ``boom'' are negatively associated with the Index. This suggests that the lower end of the scale indeed indicates more positive financial market conditions. Finally, we can see that adjectives that have seemingly opposite meanings--``stronger'' and ``weaker''--are both negatively associated with the Index. Such a finding indicates that a KPCA approach is useful compared to context-less bag-of-words approaches.
 
 \begin{figure}
-    \caption{Selection of Scaled First Kernel Principal Components (measure of real-time perceptions of financial market stress)}
-    \label{scree_plot}
+    \caption{40 Stems Estimated to be the Most Important for Predicting EIU Perception of Financial Market Stress Index}
+    \label{rf_importance}
+
     \begin{center}
-        \includegraphics[scale=0.4]{analysis/figures/select_scores.pdf}
+        \includegraphics[scale=0.5]{figures/rf_stem_importance.pdf}
+    \end{center}
+
+\end{figure}
+
+\input{tables/stem_correlations.tex}
+
+\input{tables/min_max_text_selections_table.tex}
+
+\subsection{Qualitatively examining texts}
+
+While random forest regressions and correlations allow us to summarize more than 12,000 documents, they only allow us to examine how individual words are related to the FinStress estimates. This is explicitly not how FinStress is estimated. As such, we also looked at a selection of full texts to get a more complete picture of what types of documents were classified as having high and low FinStress scores.
+
+Tables \ref{text_selections_max} and \ref{text_selections_min} provide snippets of texts with country maximum and minimum FinStress scores. We selected the countries such that we have a range of maximum scores. Brazil had a relatively low maximum FinStress score in the sample--0.58 in 2003. The text this score is from reflects this relatively middling score. It highlights that lending to industry has increased, while ``consumer credit has been flat'' and consumer prices are increasing. Latvia had a higher maximum FinStress score--0.65 in 2009--and the text this score is generated from clearly describes a more troubled financial sector. The economy is noted to be ``slowing sharply'' leading households and companies to focus on reducing debts, and foreign banks reducing their exposure to the country. Ireland had a relatively high maximum FinStress score--0.78 in 2011. The text this score is estimated from describes a highly troubled banking system that is going through a painful restructuring process and is reducing the supply of credit to the economy.
+
+The texts that created country-minimum FinStress scores--shown in Table \ref{text_selections_min}--describe ``confidence in financial markets'' in Brazil (2005), a ``lending boom'' in Latvia (2006), and ``strong business confidence'' in Ireland (2007). Importantly, in the Latvian and Irish cases the texts are not without clear concerns that the boom may not continue into the future. So while low FinStress scores appear to be reflecting financial markets with strong credit provision embedded in these texts is a concern that the boom may be peaking. This is an important finding to keep in mind when interpreting the substantive meaning of low FinStress scores. It is an issue that \cite{gandrud_pepinsky2015} formally model in separate work and are able to empirically test using FinStress.
+
+\subsection{Compared to other crisis
+measures}\label{comparison-to-other-crisis-measures}
+
+How does FinStress compare to previous ways of measuring and timing financial market stress and crisis? We first compare the Index to the dichotomous measures of banking crisis developed by \cite{Reinhart2009} and \cite{laeven2013}, as well as Romer and Romer's \citeyearpar{Romer2015} continuous measure.
+
+We anticipate that the Reinhart and Rogoff and Laeven and Valencia measures should be positively correlated with FinStress, they are both sensitive to extreme stress, particularly if there is a large government response. At the same time, because of the other issues we find present in these variables, the correlation should be fairly weak. More important than the--not particularly informative--simple correlation between FinStress and the rare events binary variables is that we expect the binary measures to miss the build-up to crises, cases where there is a build-up in pressure but the full-blown crisis does not develop, and poorly time decreases in extreme stress. Using data transformed in the way discussed below, FinStress and Laeven and Valencia's banking crisis measure do have a positive correlation coefficient as expected and, as expected, it is weak at 0.088. Similarly, FinStress and Reinhart and Rogoff's measure have a correlation coefficient of 0.087. Romer and Romer's more similar continuous and contemporaneously text-based index is more strongly correlated with FinStress at 0.248. Note that all correlations are statistically significant at the 5\% level.\footnote{We use Table 1 in \cite{Romer2015} to recreate their data set. The Laeven and Valencia's data is from: \url{https://www.imf.org/external/pubs/cat/longres.aspx?sk=26015.0}.
+  Accessed May 2015. Reinhart and Rogoff's data was downloaded from:
+  \url{http://www.carmenreinhart.com/data/browse-by-topic/topics/7/}.
+  Accessed May 2015.}
+
+%The third issue concerns errors because they use human coding. Not sure how easy it is to find here, but maybe there are idiosyncrasies in their dataset we pick up with a more automated approach.
+
+To follow up on the expectation that our measure is capturing the same concept, but with more nuance, especially in magnitude and over time, figures \ref{compare_1} and \ref{compare_2} plot the four measures for a wide selection of countries.\footnote{There are some limitations in comparability due to the different periods of coverage of the different indices. \cite{Romer2015} in particular largely do not include the most recent crisis in their sample as they did not collect data past 2007. We also had to make a number of transformations and assumptions to be able to  compare directly the different data sets. First, the Laeven and Valencia and Reinhart and Rogoff data are recorded at yearly intervals. We assume that the crisis start and end dates they referred to were in the middle of the year, i.e. June. In the period covered in figures \ref{compare_1} and \ref{compare_2} this improves their fit with events, as many of the 2008 crises became especially apparent after Lehman Brothers collapse in September 2008. Second, we rescale Romer and Romer's 16-point scale (in effect 14-points because they do not classify any country-quarter in their sample as being at the upper two positions on their scale) to be between 0 and 1 using the same method as discussed above for FinStress. Finally, it should be noted that \cite{Romer2015} only cover a selection of OECD countries and \cite{Reinhart2009} only cover 70 countries and their data has been updated least recently.} The solid lines in figures \ref{compare_1} and \ref{compare_2} show the FinStress Index. The dashed lines show Romer and Romer's (rescaled) measure. The shaded boxes show the periods where \cite{laeven2013} and \cite{Reinhart2009} classify the existence of a banking crisis. \cite{laeven2013} identify eight ``borderline'' crises in this period, in that the countries almost meet their systemic banking crisis definition because they only used two rather than three policy responses.\footnote{The cases are: France, Hungary, Italy, Portugal, Russia, Slovenia, Sweden, and Switzerland.} Some of these borderline cases are shown in the figures \ref{compare_1} and \ref{compare_2}.
+
+In many cases--conditional on the coverage of each data series--the indices do substantively overlap. Comparisons with \cite{Romer2015} are limited, but we can see that, where comparable time series are available, there are cases where FinStress and their index are similar: for example, both indices increase in the US from early 2007. A notable difference is how Romer and Romer classify Japan as being without stress from mid-2005, while FinStress remains relatively high, especially compared to many other economically developed countries at that time. While both indices classify Iceland as being under stress in the late 2000s, the timing is different. Romer and Romer classify Iceland as in stress\footnote{They classify Iceland as being in a ``minor crisis'' in the second half of 2006 and a ``credit  disruption'' in the first half of 2007.} in 2006-2007. This is earlier than not only a marked increase in the FinStress Index, but also Reinhart and Rogoff and Laeven and Valencia's timing.
+
+\cite{Reinhart2009} sometimes date the start of a crisis before \cite{laeven2013}--notable cases include Iceland and Ireland. This could reflect the slightly different definitions that they use. As summarized in the Appendix's Table \ref{comp_table}, \cite{Reinhart2009} date crises from when bank runs occur. \cite{laeven2013} begin the crisis clock when there is not only significant financial system distress, but also when the government follows the distress with a policy response.
+
+We would like to point out that these findings have theoretical relevance. We indicate that high levels of stress should appear where there is crisis in the dichotomous codes, but the reverse may not be true--the dichotomous indices may miss a building crisis as perceived at the time. This means that Laeven and Valencia and Reinhart and Rogoff should have more Type II errors--there are signs of a crisis but they miss them. The Laeven and Valencia coding is stricter in that countries have to both experience distress and have a particular policy response to it, so the associated FinStress levels should be higher. Finding evidence supporting these expectations would reinforce our arguments about the problems with their measures and FinStress' validity for what we want to capture.
+
+We do find that the mean FinStress level during periods that Laeven and Valencia classify as crises--i.e., financial market stress reached the point where politicians responded using a pre-specified set of policies--is higher than non-crisis periods.\footnote{0.55 and 0.51, respectively. This is a statistically significant difference using one-sided and two-sided t-tests.} Though developing countries tend to have higher FinStress scores, countries defined by Laeven and Valencia as in crisis in both groups have FinStress scores around 0.55 on average. Those not in Laeven and Valencia crises have lower scores. Please see the Online Appendix for a discussion of the distributions of FinStress scores in developed and developing economies. Overall, developing countries have more stressed financial markets, which does not always lead the government to take policy measures that Laeven and Valencia are looking for. The fact that the mean FinStress is higher during periods that Laeven and Valencia classify as crises, but not dramatically, supports the proposition that they miss considerable periods of budding and high stress and perhaps suffer from more Type II errors.
+
+We can use FinStress to follow the progression of crisis intensity over time. Laeven and Valencia \citeyearpar[227]{laeven2013} comment that part of the problem with dating financial crises is that each develops differently:
+
+\begin{quote}
+    Some crises evolve gradually, gaining speed as the ripple effects from a seemingly small shock propagate forward in time \ldots other episodes happen more abruptly and are often the result of sudden stops.
+\end{quote}
+
+\noindent FinStress' real-time continuous measurement and monthly periodicity allows us to distinguish these types of crises. This has relevance when thinking about how crises develop over time. For example, we can see in Figure \ref{compare_2} that financial market difficulties in the United States built over a long period of time, with a few spikes during notable banking difficulties, e.g. Lehman Brothers' collapse. Conversely, countries such as Germany, Hungary, and Iceland clearly have much more sudden periods of perceived financial distress. The Greek case presents an interesting additional trajectory. There is a notable spike in Greek financial stress in 2008--when both \cite{Reinhart2009} and \cite{laeven2013} determine a crisis had started. This is then followed by a stable period, followed by a sudden uptick in 2010, which was when a possible government default severely threatened the banking system.
+
+Kazakhstan is notable for another trajectory: a very rapid stress onset and just as rapid dissipation (see Figure \ref{compare_2}). In late 2009 there was a prominent spike in perceptions of financial market stress directly related to a credit crunch that hit the country's banking sector as an after shock of the Global Financial Crisis. According to an IMF assessment,\footnote{See: \url{http://www.imf.org/external/pubs/ft/survey/so/2010/car081710a.htm}. Accessed November 2015} a large and quick policy response--facilitated by the country's sizable National Oil Fund--within a few months returned stability to the country's banking system. Kazakstan's FinStress score reflects this by returning to almost its previous trend level at that time.
+
+FinStress allows us to explore why different crises follow different trajectories over a series of months. Annual binary measures of crises do not allow us to capture these changes.
+
+We can use FinStress to identify periods where financial market conditions were perceived to be worsening, though for whatever reason these perceptions changed before other measures would record a financial crisis. Australia, Brazil, and the Czech Republic, among others, in late-2008/2009 are notable examples. They all have clear spikes in perceptions of stress shortly after Lehman Brothers collapsed in the US. Fairly quickly thereafter, their FinStress scores returned to previous levels. Laeven and Valencia and Reinhart and Rogoff do not distinguish these periods from those with little financial market stress. While there were not widespread bank failures in these cases, the fact that they are treated as the same as placid periods by the binary measures makes it impossible to study how policy choices may have contributed to heading off worse stress.
+
+The advantages of FinStress are also apparent for timing the end of heightened financial market distress. This is a particularly difficult issue for the established binary indicators. Crisis onset is typically well defined by these measures, but they rarely have a clear or non-\emph{ad hoc} way of determining when a crisis has ended. Though we are limited by the time period coverage of the EIU texts we have at our disposal, it is clear that some countries, notably the Netherlands, Switzerland, the United Kingdom, and the United States, were perceived to be having improved financial market conditions from about 2010. Other countries, particularly Eurozone countries in Western and Southern Europe plateaued at a high level through the end of 2011, a period that corresponds with the Eurozone crisis. Laeven and Valencia's measure uses an \emph{ad hoc} definition of crisis termination (see above) and so simply classifies these entire periods as crises with equal intensity. Not only does FinStress allow us to more accurately date when conditions were seen to have improved, but it also allows us to study the trajectory of these improvements.
+
+Overall, the similarities between FinStress scores and other measures of crises suggest that the Index does capture financial market stress in that higher FinStress values are indicative of higher levels of perceived financial market stress. At the same time, the differences between the measures indicate that FinStress sheds unique light on processes not captured well by previous indices.
+
+\begin{figure}
+    \caption{Comparing Perceptions of Financial Market Conditions to \cite{laeven2013} and \cite{Reinhart2009} (1)}
+    \label{compare_1}
+    \begin{center}
+        \includegraphics[scale=0.4]{figures/compare_to_lv_rr.pdf}
+    \end{center}
+
+    {\tiny{Solid lines show the FinStress Index. Dotted lines represent a loess smoother of these series. \\
+
+    Yellow shaded areas indicate periods that \cite{laeven2013} classify as systemic banking crises. Note that crises are automatically terminated at the end of 2011 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
+    Red shaded areas indicate periods that \cite{Reinhart2009} classify as banking crises. Note that crises are automatically terminated at the end of 2009 due to the series not extending beyond this point, not necessarily because the crisis finished. \\
+
+    Orange areas indicate periods where a crisis is recorded for both measures.}}
+\end{figure}
+
+\begin{figure}
+    \caption{Comparing Perceptions of Financial Market Conditions to \cite{laeven2013} and \cite{Reinhart2009} (2)}
+    \label{compare_2}
+    \begin{center}
+        \includegraphics[scale=0.4]{figures/compare_to_lv_rr_2.pdf}
+    \end{center}
+
+    {\tiny{See Figure \ref{compare_1} for notes.}}
+\end{figure}
+
+\begin{figure}
+	\caption{Comparing Annual Mean Perceptions of Financial Market Conditions with Components of the CAMELS System from \cite{Andrianova2015}}
+    \label{camel_plot}
+    \begin{center}
+		\includegraphics[scale=0.55]{figures/fin_fragility_compare.pdf}
+	\end{center}
+\end{figure}
+
+\subsection{Comparison to accounting measures of banking system fragility}
+
+\paragraph{CAMELS}
+
+How does FinStress compare to the components of the CAMELS system of bank soundness? We used annual FinStress means to compare it to annual national aggregates of the CAMELS variables in \cite{Andrianova2015}. Figure \ref{camel_plot} shows the bi-variate relationships between FinStress and these variables. FinStress is statistically significantly associated with six of the seven CAMELS variables at the 5\% level.\footnote{It is not significantly associated with Return on Average Assets. Please see the correlation table in the Appendix for details.} FinStress is strongly associated with three of the CAMELS variables in that there is a correlation coefficient greater than 0.25 or less than -0.25. These variables are impaired assets to gross loans, net loans to total loans, and liquid assets to total assets. See Figure \ref{cor_camel} in the Online Appendix for the full correlation matrix.
+
+FinStress is strongly positively associated with impaired assets.\footnote{The log of impaired assets--it is a highly skewed variable--is associated with FinStress with a correlation coefficient of 0.43, significant at all standard levels} Impaired assets are otherwise often known as non-performing loans. Banks are solvent when their assets (e.g. loans and the income they generate) can cover their liabilities (e.g. deposit withdrawals). Impaired assets greatly threaten banks' ability to meet their obligations and so threaten their solvency. As such, it seems as though FinStress is closely related to bank balance sheet health.\footnote{Note the outliers in the middle-top panel of Figure \ref{camel_plot} that seemingly have both high stress and very low impaired loan levels. The countries with (log) impaired loans less than 0 and FinStress greater than 0.6 are: the Democratic Republic of Congo (2008, 2010), Cote d'Ivoire (2011), Estonia (2004), Guinea-Bissau (2011), Kyrgyzstan (2007, 2011), Seychelles (2006, 2007), Sudan (2008), and Uzbekistan (2004). These countries also have considerable missingness in their Bankscope data in that many banks in these countries do not report data. It is likely that either the low impaired loan scores are based on reporting by only less troubled banks or there is inaccurate reporting. In these cases it is likely that FinStress is a better measure of banking system health.}
+
+Initially, it may seem strange that FinStress is positively associated with liquid (e.g. cash) asset ratios. Banks with more liquid assets are less likely to become insolvent because they can use these assets to meet their liabilities. However, high liquid asset ratios can be a manifestation of a stressed financial system as banks create large liquid asset stockpiles when they are reluctant to lend--take on less liquid assets. This behavior restricts credit to the wider financial system and economy. Following the Lehman Brothers collapse in 2008 an extreme version of this occurred, becoming known as a ``credit crunch''. \cite{Andrianova2014} find that African banks have very high liquid asset ratios because lending risks are high, so banks are reluctant to make new loans. To a large extent net loans and liquid assets are inversely related. As such we find a negative relationship between net loans and FinStress--banks in countries with higher FinStress scores are making fewer loans and instead are hoarding liquid assets.
+
+\paragraph{Global random forest regression}
+
+To conduct a global assessment of how the various quantitative measures of bank and banking system stress relate to FinStress we conducted a random forest regression. We include in the regression CAMELS indicators and a number of other indicators from the Global Financial Development Database that the World Bank classified as being related to banking system stability \citep{worldbank2015}, including Z-Scores.\footnote{Variables from the GFDD include: provisions to NPLs, stock price volatility, regulatory capital to assets, capital to assets, credit to deposits, stock market returns, and private sector credit provided by banks and other financial institutions. The last two are not classified by the GFDD as banking ``stability'' indicators, but we included them as they may be substantively important.} Our main reason for using random forest regressions is that we are examining the relationships between many highly correlated variables and FinStress. As all of the right-hand side variables are country-year aggregates, we examine their relationship with country-year mean FinStress levels.
+
+It should be noted that the random forest regressions are based on a slim sub-sample for which we have FinStress scores. There are 1,678 country-years for which we have average FinStress scores, but due to missingness issues discussed above, only 394 of these have complete information across the included indicators and thus are included in the random forest regression.
+
+With that significant caveat noted, Figure \ref{rf_var_importance} shows the importance each variable plays on average for predicting FinStress levels. We can see that, impaired loans are found to be the most important variable for predicting FinStress levels in this sub-sample.\footnote{In a sample of all countries, exchange rate change is also relatively important, though when the sample is subsetted to look only at high income countries, it has no impact on reducing predictive error. This makes substantive sense as in the period under examination exchange rates in high income countries were relatively stable, even during crises. Stress in developing countries is closely related to foreign exchange disruptions and the currency asset-liability mismatches banks face in these situations.} The second most important is highly related to impaired assets--return on average assets. When there are more non-performing loans the average return on all loans is lower. The third most important variable, again similar to impaired loans, is bank provisioning relative to their non-performing loans. Z-Scores are a fairly poor predictor of FinStress. Please see the Online Appendix for a detailed exploration of the relationship between FinStress and Z-Scores. The main conclusion of this work is that Z-Scores, at least as measured by the World Bank, are a sub-optimal measure for examining how banking stress changes over time and should be avoided in research that requires a measure of this.
+
+Figure \ref{rf_partial_depend} shows the predicted values from repeated draws of FinStress averaged within the values of the other variables included in the random forest regressions \citep[see][14]{jones2015}. This gives us a window into the nature of the estimated relationship between the predictor variables and FinStress. Impaired loans (log) have an almost linear 45 degree positive relationship with FinStress. Higher impaired loan ratios are strongly associated with higher FinStress scores. Greater stock price volatility also appears to have a strong linear relationship with FinStress, where more volatility is related to higher FinStress scores. While most of the other variables appear to have less linear relationships with FinStress, they are generally in the expected direction. For example, the higher banks' return on average assets, the higher their equity, and the higher their provisioning, the lower the FinStress scores. These findings further corroborate the proposition that FinStress is a valid indicator of financial market stress, specifically in banking, and give more definition to specifically what the Index measures.
+
+\begin{figure}
+    \caption{Importance of Various Quantitative Financial System Stability Measures for Predicting EIU Perceptions of Financial Market Stress Index}
+    \label{rf_var_importance}
+    \begin{center}
+        \includegraphics[scale=0.5]{figures/rf_variable_imp.pdf}
     \end{center}
 \end{figure}
 
-\subsubsection{Representation}\label{representation}
+\begin{landscape}
+\begin{figure}
+    \caption{Partial Dependence of Each Predictor in the Random Forest Regression on FinStress ($\hat{y}$)}
+    \label{rf_partial_depend}
+    \begin{center}
+        \includegraphics[scale=0.42]{figures/rf_partial_dependence.pdf}
+    \end{center}
 
-What does this dimension represent? We took a number of approaches to
-answer this question. First we conducted an `interocular' test,
-e.g.~looking a plots of the results and comparing them to our priors on
-financial market stress. Second, we used a random forest regression
-(Jones and Linder 2015).
+\end{figure}
+\end{landscape}
 
-\subsubsection{~Comparison to Other Crisis
-Measures}\label{comparison-to-other-crisis-measures}
+\section{Conclusions}\label{conclusions}
 
-How does our measure compare to previous ways of measuring and timing
-financial market stress and crisis? We directly compare our measure to
-dichotomous measures in Reinhart and Rogoff (2009) and Laeven and
-Valencia (2013) as well as Romer and Romer's (2014) continuous measure.
+We have introduced a novel continuous measure of real-time perceived financial, specifically banking market, stress--FinStress--and compared it to prior measures of financial stress and crisis. Unlike previous measures of extreme stress--crises--, FinStress does not focus exclusively on financial market difficulties that, in hindsight, were not dealt with effectively by policymakers. This could allow future researchers to examine what policies were effective at preventing full blown crises and what political conditions were conducive to implementing these policies. Being an indicator of perceived and real-time stress, rather than a \emph{post hoc} evaluation of policy decisions in response to market events, FinStress provides a much more relevant indicator for understanding policymakers' decision-making processes. The measure also has considerably better coverage than previous quantitative measures of stress over the time period for which it is currently available. In sum, FinStress should be used instead of previous second-best measures of financial market stress by researchers aiming to understand why and how policymakers respond to the stress that they face in financial markets.
 
-There are some limitations in comparability based simply on the
-different coverage of the different indices. C. Romer and Romer (2014)
-in particular largely does not include the most recent crisis in their
-sample as they did not collect data past 2007. We had to make a number
-of transformations and assumptions to be able to compare the different
-data sets. First, the Laeven and Valencia and Reinhart and Rogoff data
-on recorded only at yearly intervals. So, we assumed that the crisis
-start and end dates they referred to were in the middle of the year,
-i.e.~June. Second, we rescaled Romer and Romer's 15-point scale (in
-effect 13-points because they do not classify any country-quarter in
-their sample as being at the upper two positions on the scale) to be
-between 0 and 1 using the same method as above.
+Our work has implications for the wider research community as well. We have demonstrated how researchers could construct continuous indicators of other political and economic phenomena using machine learning and text analysis. Once a text gathering and analysis ``pipeline'' \citep{Leek2015} has been developed and validated, researchers using this approach can quickly and cost effectively estimate and update new indicators. This approach is especially useful in comparison to time-consuming, expensive, and irreproducible human coding techniques.
 
-\subsubsection{Developed vs.~Developing
+\bibliographystyle{apsr}
+\bibliography{main.bib}
+
+\pagebreak
+\renewcommand{\thepage}{A-\arabic{page}}\setcounter{page}{1}
+\renewcommand{\thesection}{Appendix \arabic{section}}\setcounter{section}{0}
+\renewcommand{\thetable}{A-\arabic{table}}\setcounter{table}{0}
+\renewcommand{\thefigure}{A-\arabic{figure}}\setcounter{figure}{0}
+\clearpage
+
+\section*{Online Appendix}
+
+\begin{table}[H]
+    \caption{Comparison of Binary Crisis Measures' Definitions}
+    \label{comp_table}
+    \begin{center}
+        \begin{tabular}{m{3cm} | m{2cm} m{2cm} m{7cm}}
+            Source & Measurement Level & Periodicity &  Definition of Financial Market Distress/Crisis \\
+            \hline\hline
+                Reinhart and Rogoff \citeyearpar[11]{Reinhart2009,ReinhartRog2010} & binary & annual & One of two types of events: (1) bank runs leading to closures, mergers, or public sector takeovers of one or more financial institution or (2) the closure, merger, takeover, or large-scale government assistant--at least three measures--of an important financial institution marking the start of a string of similar events.  \\[1cm]
+                Laeven and Valencia \citeyearpar[228]{laeven2013} & binary & annual & Meets two conditions: (1) significant sign of financial distress in the banking system and (2) significant banking policy intervention measures in response to significant losses in the banking system.  \\[1cm]
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\subsection*{Selection of Literature Including Binary Cross-Country Measures of Financial or Banking Market Crisis}
+
+\begin{table}[H]
+\caption{Selected Literature Review of Political Institutions and Financial
+Crisis (Binary Crisis Occurrence, Political Outcomes)}
+
+
+\label{LitRevTable2}
+\begin{center}
+
+\vspace{0.5cm}
+{\tiny{
+\input{tables/LitReviewTable2}
+}}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{Selected Literature Review of Political Institutions and Financial
+Crisis (Binary Crisis Occurrence, Policy Choices/Policy Outcomes)}
+
+
+\label{LitRevTable}
+\begin{center}
+
+\vspace{0.5cm}
+{\tiny{
+\input{tables/LitReviewTable}
+}}
+\end{center}
+\end{table}
+
+\subsection*{Developed vs.~developing
 countries}\label{developed-vs.developing-countries}
 
-An important finding from examining the Index is that there is a clear
-difference in the level of perceived financial market stress in
-developed and developing countries. Notably, developing countries often
-have scores well above 0.5, while many developed countries only reach
-this level during financial crises. Developing countries often lack
-strong financial institutions and systems {[}CITE{]}, so we should
-expect them to face generally tighter credit market conditions than
-developed countries. Formal financial markets are less important for
-developing countries' economies {[}CITE{]}.
+Developing countries often lack strong financial institutions and systems. Facing a very risky pool of borrowers, banks tend to make fewer loans \citep{Andrianova2014}. So we should expect them to face generally tighter credit market conditions than developed countries.
 
-These observations should lead to an important refinement to how the
-Index should be interpreted and how it should be used in empirical work.
-First, the Index measures banking market conditions, but not ``crisis''
-directly. Instead, perceived crisis is likely the result of an
-interaction between the Index and the importance of financial markets
-for sustaining a country's economy. Though policy-makers in developing
-economies face generally tight credit market conditions, these
-persistent conditions likely do not threaten the wider \emph{status quo}
-economy. As such, we would not expect significant policy responses to
-address financial market stress in these places. Conversely, tightening
-of credit market conditions in a developed, financialised economy would
-likely have large negative implications for the wider economy. So, we
-would expect these politicians to respond to worsening credit market
-conditions.
+The left panel of Figure \ref{comp_dev_developing} shows average stress levels in developed vs. developing countries that Laeven and Valencia code as not being in crisis--indicates that there is a difference in the level of perceived financial market stress in developed and developing countries from 2003 to 2008. Developing countries on average have higher FinStress scores. For example, the mean score in middle and low income countries (as classified by the World Bank) is 0.53 in 2005, a level developed countries only reached after the collapse of Lehman Brothers in 2008.\footnote{The 2005 mean for high income countries is 0.44} The mean levels across the two groups converge in the Global Financial Crisis. The distribution of FinStress scores in these two groups of countries across the sample is significantly different in the expected direction in the sample using one-sided Kolmogorov-Smirnov tests.\footnote{We ran the tests using the \texttt{ks.test} function from base R.}
 
-Previous measures of financial market distress and crises have generally
-been unable to explore this possible interaction. \emph{Post-hoc}
-measures of crisis in particular capture the outcome of this process,
-rather than the process itself.
+Nonetheless, during periods when the binary Laeven and Valencia code as being a crisis, i.e. implement policy responses to financial market stress,the two sets of scores are very similar (see the right-panel of Figure \ref{comp_dev_developing}). Apart from 2007 and 2008 where the binary measures have significant ``annual rounding error'',\footnote{They include both less and more stressed portions of a year as a crisis} on average countries in crisis have FinStress scores above about 0.55. It appears that while developed countries have more stressed financial markets than developed countries that on average, developed and developing countries have clear policy responses to financial market stress when their FinStress scores are above about 0.55.
 
-\section{Replication}\label{replication}
+\begin{figure}
+    \caption{Comparison of Mean FinStress Scores in High vs. Low and Medium Income Countries}
+    \label{comp_dev_developing}
 
-\section{Conclusions and Possible Future
-Work}\label{conclusions-and-possible-future-work}
+    \begin{center}
+        \includegraphics[scale=0.55]{figures/dev_vs_developing.pdf}
+    \end{center}
+    {\scriptsize{Plot excludes Uruguay, which was a substantial outlier with a much lower average FinStress score during what Laeven and Valencia classify as a crisis than all other developing countries.}}
+\end{figure}
 
-\section{Appendix}\label{appendix}
+\subsection*{Correlations Between FinStress and Camel Variables}
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\begin{figure}[H]
+	\caption{Correlation between Annual FinStress Mean Scores and CAMELS Variables from \cite{Andrianova2015}}
+    \label{cor_camel}
+    \begin{center}
+    	\includegraphics[scale=0.5]{figures/ff_corr_matrix.pdf}
+    \end{center}
+\end{figure}
 
-Chaudron, Raymond, and Jakob de Haan. 2014. ``Dating Banking Crises
-Using Incidence and Size of Bank Failures: Four Crises Reconsidered.''
-\emph{Journal of Financial Stability}, 1--34.
+\subsection*{FinStress compared to Z-Scores}
 
-Copelovitch, Mark, Christopher Gandrud, and Mark Hallerberg. 2015.
-``Financial Regulatory Transparency, International Institutions, and
-Borrowing Costs.'' \emph{Working Paper}.
+How does FinStress compare to the widely used Z-Score measure of banking system fragility? We saw in the main text that the global random forest regression indicates that Z-Scores are not very predictive of FinStress. Given the prominence of the Z-Score measure in the finance literature, we wanted to further explore this (none) relationship.
 
-Feinerer, Ingo, and Kurt Hornik. 2015. \emph{tm: Text Mining Package}.
-\url{http://CRAN.R-project.org/package=tm}.
+It is important to note that the two quantities do measure different phenomena--perceptions for the former and bank accounting relationships for the latter--both potentially  provide indications of stress. As was the case for the dichotomous measures of financial crises, we would expect them to be positively correlated with one another. Another interesting question would be whether one would precede the other. Does weakness in accounting quantities proceed perceived stress?
 
-Gandrud, Christopher, and Mark Hallerberg. 2015. ``When All Is Said and
-Done: Updating 'Elections, Special Interests, and Financial Crisis'.''
-\emph{Research and Politics}.
+To explore these possibilities, we compare FinStress to the easily accessible Bank Z-Score measure compiled from Bankscope data in the World Bank's Global Financial Development Database (GFDD) project \citep{worldbank2013}.\footnote{Indicator ID: GFDD.SI.01. Accessed June 2015.} The measure is interpretable as the inverse of the upper bound of the probability of the banking system's insolvency.\footnote{Formally: $\frac{\mathrm{ROA}_{t} + \frac{\mathrm{equity}_{t}}{\mathrm{assets}_{t}}}{\sigma_{\mathrm{ROA}}}$. $\mathrm{ROA}$ is return on equity. $\sigma_{\mathrm{ROA}}$ is presumably for the entire period for which data is available, though the World Bank's documentation does not explicitly specify this. It is common in other work for the $\sigma_{\mathrm{ROA}}$ to be based on a three year rolling window \cite[225]{beck2013bank}. All quantities are country aggregates.} Figure~\ref{z_score} shows a comparison of the two measures for selected countries. Note that to ease visual comparability we rescaled the Z-Scores to be within zero and one as before, and reversed the scale so that larger values indicate a higher probability of banking system insolvency.\footnote{It is common to log-transform the Z-Scores \cite[225]{beck2013bank}. However, it is unclear how previous work has done this as there are negative values in the Z-score that would create undefined values when logged.} As before, we converted FinStress to yearly averages for comparability.
 
-Grimmer, Justin, and Brandon M Stewart. 2013. ``Text as Data: The
-Promise and Pitfalls of Automatic Content Analysis Methods for Political
-Texts.'' \emph{Political Analysis} 21 (3): 267--97.
+There does not appear to be much of a relationship between Z-Scores and FinStress. The rescaled World Bank Z-Scores are positively correlated with FinStress, but this is not significant at the 10\% level.\footnote{We also examined an alternative data source compiled by \cite{Andrianova2015}, which transformed Bankscope data as well. In this case there was a weak positive association significant at the 5\% level. However, again there was little cross-time variation in the Z-Score.} Interestingly, the World Bank's Z-Scores do not vary significantly within countries over time, especially compared to  FinStress. There is little difference between Z-Scores for countries during periods of heightened financial stress (however measured) and more stable times. Thus Z-Scores, at least those provided by the World Bank, are not a useful indicator of financial crisis states. Z-Scores do not appear to predict perceptions of financial market stress. In a simple partial correction linear regression that had FinStress as the dependent variable and included lagged FinStress, lagged Z-Scores, and country fixed-effects, Z-Scores were not statistically significantly associated with perceptions of financial market stress (see Table \ref{finstress_z_regress}).
 
-Jing, Zhongbo, Jakob de Haan, Jan Jacobs, and Haizhen Yang. 2015.
-``Identifying Banking Crises Using Money Market Pressure: New Evidence
-for a Large Set of Countries.'' \emph{Journal of Macroeconomics} 43 (C):
-1--20.
+The simplicity with which Z-Scores can be calculated with readily available data likely contributes to their wide use in the literature, especially relative to other quantitative measures of financial system fragility that are often difficult to obtain. However, it is clear that Z-Scores--at least the version available through the World Bank's GFDD--are a sub-optimal cross-time measure of financial market stress. It is beyond the scope of our article to determine the source of the measure's peculiar characteristics, but they are important to note here: the indicator has weak time-variance, it does not distinguish between periods of significant known financial market stress and less stressful times, and it does not help us predict perceived financial market stress. FinStress, in contrast, is much notably time-variant in ways that correspond closely to prior information on financial market stress.
 
-Jones, Zachary, and Fridolin Linder. 2015. ``Exploratory Data Analysis
-Using Random Forests.'' \emph{Paper Presented at the Annual MPSA
-Conference}.
+\begin{figure}
 
-Karatzoglou, Alexandros, Alex Smola, Kurt Hornik, and Achim Zeileis.
-2004. ``kernlab -- an S4 Package for Kernel Methods in R.''
-\emph{Journal of Statistical Software} 11 (9): 1--20.
-\url{http://www.jstatsoft.org/v11/i09/}.
+    \caption{Annual Mean FinStress Compared to Country-level Z-Scores (rescaled)}
+    \label{z_score}
 
-Laeven, Luc, and Fabi{á}n Valencia. 2013. ``Systemic Banking Crisis
-Database.'' \emph{IMF Economic Review} 61 (2): 225--70.
+    \begin{center}
+        \includegraphics[scale=0.4]{figures/compare_to_z-score.pdf}
+    \end{center}
 
-Lodhi, Huma, Craig Saunders, John Shawe-Taylor, Nello Cristianini, and
-Chris Watkins. 2002. ``Text Classification Using String Kernels.''
-\emph{The Journal of Machine Learning Research} 2. JMLR. org: 419--44.
+\end{figure}
 
-R Core Team. 2015. \emph{R: A Language and Environment for Statistical
-Computing}. Vienna, Austria: R Foundation for Statistical Computing.
-\url{http://www.R-project.org/}.
+\begin{table}[H]
+    \caption{Do Z-Scores Predict Perceived Financial Market Stress?}
+    \label{finstress_z_regress}
 
-Reinhart, Carmen, and Kenneth Rogoff. 2009. \emph{This Time Is
-Different: Eight Centuries of Financial Folly}. Princeton: Princeton
-University Press.
-
-Romer, Christina, and David Romer. 2014. ``New Evidence on the Impact of
-Financial Crises in Advanced Countries,'' Nov, 1--65.
-
-Rosas, Guillermo. 2009. ``Dynamic Latent Trait Models: An Application to
-Latin American Banking Crises.'' \emph{Electoral Studies} 28: 375--87.
-
-Scholkopf, B., A. Smola, and K. Muller. 1998. ``Nonlinear Component
-Analysis as a Kernel Eigenvalue Problem.'' \emph{Neural Computation} 10:
-1299--1319.
-
-Spirling, Arthur. 2012. ``U.S. Treaty Making with American Indians:
-Institutional Change and Relative Power, 1784-1911.'' \emph{American
-Journal of Political Science} 56 (1): 84--97.
-
-{Von Hagen}, Jorgen, and T. Ho. 2007. ``Money Market Pressure and the
-Determinants of Banking Crises.'' \emph{Journal of Money, Credit, and
-Banking} 39 (5): 1037--66.
+    \begin{center}
+    {\tiny{
+        \input{tables/z_score_regress.tex}
+    }}
+    \end{center}
+\end{table}
 
 \end{document}

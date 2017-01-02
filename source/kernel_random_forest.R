@@ -1,14 +1,11 @@
 # ---------------------------------------------------------------------------- #
 # Compare Kernal PCA to Stem Frequency
 # Christopher Gandrud
-# 21 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
 
-# Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu/eiu_extracted/')
-
 # Load packages
+library(repmis)
 library(tm)
 library(SnowballC)
 library(dplyr)
@@ -18,35 +15,38 @@ library(ggplot2)
 library(gridExtra)
 library(tidyr)
 library(rio)
+library(randomForestSRC)
+library(parallel)
+
+# Set number of coures for random forests.
+cores_custom <- detectCores() - 1
+# Note randomForestSRC must be correctly configured
+options(rf.cores = cores_custom, mc.cores = cores_custom)
+
+# Set working directory of parsed texts. Change as needed.
+pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
+                   '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+
+set_valid_wd(pos_directs)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-    tm_map(removeWords, c(stopwords('english'), 'the'), mc.cores = 1) %>%
-    tm_map(stemDocument, mc.cores = 1) %>%
-    tm_map(stripWhitespace) %>%
-    # Results correspond to priors much more closely when case is retained
-    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-    tm_map(removePunctuation, mc.cores = 1) %>%
-    tm_map(removeNumbers, mc.cores = 1)
-
-# Kernal length
-length_spec = 5
+                    tm_map(removeWords,
+                           stopwords(kind = "SMART")) %>%
+                    tm_map(stemDocument) %>%
+                    tm_map(stripWhitespace) %>%
+                    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
+                    tm_map(removePunctuation) %>%
+                    tm_map(removeNumbers)
 
 clean_corpus_full <- clean_corpus_full %>% as.list
 
-# Keep texts that have more words than the kernal length
-keep_vec <- vector()
-for (i in 1:length(clean_corpus_full)) {
-    temp <- clean_corpus_full[[i]]$content
-    more_length <- wordcount(temp) > length_spec
-    if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
-}
+clean_corpus <- clean_corpus_full %>% as.VCorpus %>%
+                    DocumentTermMatrix(control = list(stopwords = T))
 
-clean_corpus <- clean_corpus_full[keep_vec] %>% as.VCorpus %>%
-                    DocumentTermMatrix
 term_freq <- inspect(removeSparseTerms(clean_corpus, 0.9)) %>% as.data.frame
 
 ## Drop countries with fewer than 5 observations
@@ -55,25 +55,34 @@ date_country <- row.names(term_freq) %>% gsub('\\.txt', '', .) %>%
     str_split_fixed('_', n = 2) %>%
     as.data.frame(stringsAsFactors = F)
 date_country[, 2] <- gsub('-', ' ', date_country[, 2])
-names(date_country) <- c('date_date', 'country_country')
+names(date_country) <- c('date_date', 'country_country') # date and country are terms
+
+# Clean up odd names
+date_country$country_country <- gsub('%28', ' ', date_country$country_country)
+date_country$country_country <- gsub('%29', '', date_country$country_country)
 
 term_freq <- cbind(date_country, term_freq)
 
-date_country$fake_fake <- 1
-date_country <- date_country %>% group_by(country_country) %>%
-    mutate(obs_sum = sum(fake_fake)) %>%
-    filter(obs_sum > 5) %>% select(-fake_fake, -obs_sum)
+#### Load KPCA results ####
+# Set working directory of kpca project. Change as needed.
+pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
+                 '/git_repositories/EIUCrisesMeasure/')
 
-term_freq <- merge(date_country, term_freq, by = c('country_country', 'date_date'))
-term_freq <- term_freq %>% select(-country_country, -date_date)
+set_valid_wd(pos_directs)
+kpca <- import('data/results_kpca_rescaled.csv')
 
-#### Download KPCA results ####
-kpca <- import('~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
+# Create matching corpus
+kpca_included <- kpca %>% select(date, country)
+names(kpca_included) <- c('date_date', 'country_country')
+term_freq <- merge(kpca_included, term_freq,
+                   by = c('country_country', 'date_date'),
+                   all.x = T) %>%
+                select(-country_country, -date_date)
 
 #### Combine ####
 cor_pca <- function(var) {
     temp_function <- function(x) cor(kpca[, var], x)
-    corrs <- apply(term_freq, 2, temp_function)
+    corrs <- base::apply(term_freq, 2, temp_function)
     corrs <- data.frame(terms = names(term_freq), correlations = corrs)
     corrs_sorted <- corrs %>% arrange(desc(correlations))
     return(corrs_sorted)
@@ -83,16 +92,44 @@ c1_cor <- cor_pca('C1')
 c2_cor <- cor_pca('C2')
 c3_cor <- cor_pca('C3')
 
-#### Random forest test ####
-library(randomForestSRC)
+export(c1_cor, file = 'data/C1_stem_correlations.csv')
 
-comb <- cbind(kpca$C1, term_freq)
-comb <- dplyr::rename(comb, C1 = `kpca$C1`)
+#### Random forest ####
+setwd('~/git_repositories/EIUCrisesMeasure/')
+
+comb <- cbind(kpca$C1, kpca$C2, term_freq) %>%
+            dplyr::rename(C1 = `kpca$C1`) %>%
+            dplyr::rename(C2 = `kpca$C2`)
 
 addq <- function(x) paste0("`", x, "`")
 
-form <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
+form_c1 <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
           as.formula
+form_c2 <- paste('C2 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
+    as.formula
 
-rfsrc_test <- rfsrc(form, data = comb)
-plot(rfsrc_test)
+rfsrc_c1 <- rfsrc(form_c1, data = comb)
+rfsrc_c2 <- rfsrc(form_c2, data = comb)
+
+# Plot variable importance
+plot.rfsrc(rfsrc_c1, plots.one.page = F)
+plot.rfsrc(rfsrc_c2, plots.one.page = F)
+
+
+# Save results to a data frame
+extract_importance <- function(x){
+    imp <- x %>% as.data.frame
+    imp$stem <- row.names(imp)
+    names(imp) <- c('variable_importance', 'word_stem')
+    imp <- imp %>% select(word_stem, variable_importance)
+    return(imp)
+}
+
+imp_c1 <- extract_importance(rfsrc_c1$importance)
+imp_c2 <- extract_importance(rfsrc_c2$importance)
+
+export(imp_c1, file = 'data/random_forest_var_imp_C1.csv')
+export(imp_c2, file = 'data/random_forest_var_imp_C2.csv')
+
+
+plot.variable(rfsrc_c1)

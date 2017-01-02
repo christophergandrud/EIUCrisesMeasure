@@ -1,12 +1,8 @@
 # ---------------------------------------------------------------------------- #
 # Pre-Process texts/Examine kernel methods
 # Christopher Gandrud
-# 21 May 2015
 # MIT License
 # ---------------------------------------------------------------------------- #
-
-# Set working directory of parsed texts. Change as needed.
-setwd('~/Desktop/eiu_extracted/')
 
 # Load packages
 library(tm)
@@ -15,10 +11,17 @@ library(dplyr)
 library(kernlab)
 library(stringr)
 library(lubridate)
-library(ggplot2)
-library(gridExtra)
 library(rio)
 library(TTR)
+library(countrycode)
+library(DataCombine)
+library(repmis)
+
+# Set working directory of parsed texts. Change as needed.
+pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
+                   '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+
+set_valid_wd(pos_directs)
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
@@ -31,15 +34,15 @@ date_country[, 2] <- gsub('-', ' ', date_country[, 2])
 names(date_country) <- c('date', 'country')
 date_country$date <- ymd(date_country$date)
 
-
 # Load corpus
 clean_corpus_full <- Corpus(DirSource()) %>%
-                    tm_map(removeWords, stopwords('english'), mc.cores = 1) %>%
-                    tm_map(stemDocument, mc.cores = 1) %>%
+                    tm_map(removeWords,
+                           stopwords(kind = "SMART"), mc.cores = 2) %>%
+                    tm_map(stemDocument, mc.cores = 2) %>%
                     tm_map(stripWhitespace) %>%
                     # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-                    tm_map(removePunctuation, mc.cores = 1) %>%
-                    tm_map(removeNumbers, mc.cores = 1)
+                    tm_map(removePunctuation, mc.cores = 2) %>%
+                    tm_map(removeNumbers, mc.cores = 2)
 
 # Kernal length
 length_spec = 5
@@ -49,42 +52,26 @@ clean_corpus_full <- clean_corpus_full %>% as.list
 # Keep texts that have more words than the kernal length
 keep_vec <- vector()
 for (i in 1:length(clean_corpus_full)) {
+    clean_corpus_full[[i]]$content <- clean_corpus_full[[i]]$content %>%
+                                        paste(collapse = '')
     temp <- clean_corpus_full[[i]]$content
     more_length <- wordcount(temp) > length_spec
     if (isTRUE(more_length)) keep_vec <- c(keep_vec, i)
 }
 
 clean_corpus <- clean_corpus_full[keep_vec]
-rm(clean_corpus_full)
+#(clean_corpus_full)
 
 date_country <- date_country[keep_vec, ]
 
 # Create string kernels
-kernals <- stringdot(type = "spectrum", length = length_spec)
+kernels <- stringdot(type = "spectrum", length = length_spec)
 
-#### Test spectral clustering ##################################################
-# clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
-
-# Create output data frame
-# results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
-#                      stringsAsFactors = F) %>%
-#                      arrange(country, date)
-
-# Plot results
-# ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
-#                    colour = country)) +
-#        facet_grid(country ~ .) +
-#        geom_line() +
-#        scale_color_brewer(palette = 'Set1') +
-#        xlab('') + ylab('') +
-#        theme_bw()
-
-#### Kernel PCA ################################################################
 # Number of components
 feature_num = 10
 
 # Estimate
-kpca_out <- kpca(clean_corpus, kernal = kernals, features = feature_num)
+kpca_out <- kpca(clean_corpus, kernel = kernels, features = feature_num)
 
 kpca_df <- pcv(kpca_out) %>% as.data.frame
 names(kpca_df) <- sprintf('C%s', 1:feature_num)
@@ -93,6 +80,15 @@ results_kpca <- data.frame(date_country, kpca_df, stirngsAsFactors = F) %>%
                     arrange(country, date) %>% select(-stirngsAsFactors)
 
 #### Save ####
+# Clean up country name and add in iso2c code
+results_kpca$country <- gsub('%28', ' ', results_kpca$country)
+results_kpca$country <- gsub('%29', '', results_kpca$country)
+results_kpca$iso2c <- countrycode(results_kpca$country,
+                            origin = 'country.name', destination = 'iso2c')
+results_kpca <- results_kpca %>% filter(!is.na(iso2c))
+
+results_kpca <- results_kpca %>% MoveFront(c('iso2c', 'country',
+                        'date'))
 export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_raw.csv')
 
@@ -107,7 +103,7 @@ components_names <- names(results_kpca)[grep('^C[1-9]', names(results_kpca))]
 
 # Transform Scale
 for (i in components_names) {
-    results_kpca[, i] <- results_kpca[, i] * -1
+    # results_kpca[, i] <- results_kpca[, i] * -1
     results_kpca[, i] <- range01(results_kpca[, i])
 }
 
@@ -125,37 +121,43 @@ results_kpca <- results_kpca %>% group_by(country) %>%
 export(results_kpca,
        file = '~/git_repositories/EIUCrisesMeasure/data/results_kpca_rescaled.csv')
 
-#### ----------------- Plot results --------------------------------------- ####
-kpca_plotter <- function(indvidual, data = results_kpca){
-    temp_data <- subset(data, country == indvidual)
-    indv <- ggplot(temp_data, aes(date, C1_ma, group = country)) +
-                geom_line(alpha = 0.3) +
-                stat_smooth(se = F, colour = 'black') +
-                geom_hline(yintercept = 0, linetype = 'dotted') +
-                scale_y_continuous(limits = c(0, 1),
-                                   breaks = c(0, 0.25, 0.5, 0.75, 1)) +
-                xlab('') + ggtitle(indvidual) +
-                ylab('') +
-                theme_bw()
-    return(indv)
-}
+# Scree plot to examine model fit
+kpca_eigen <- eig(kpca_out)
+eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
 
-kpca_list <- list()
-for (i in unique(results_kpca$country)[60:89]) {
-    message(i)
-    kpca_list[[i]] <- suppressMessages(kpca_plotter(indvidual = i))
-}
+export(eigen_plot, file = '~/git_repositories/EIUCrisesMeasure/data/kpca_eigen_10.csv')
 
-do.call(grid.arrange, kpca_list)
+plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
 
-# Find change points
+# ---------------------------------------------------------------------------- #
+
+#### Test spectral clustering ####
+# clusters_out <- specc(clean_corpus, centers = 2, kernel = kernals)
+
+# Create output data frame
+# results_cluster <- data.frame(date_country, cluster = clusters_out@.Data,
+#                      stringsAsFactors = F) %>%
+#                      arrange(country, date)
+
+# Plot results
+# ggplot(results_cluster, aes(date, as.factor(cluster), group = country,
+#                    colour = country)) +
+#        facet_grid(country ~ .) +
+#        geom_line() +
+#        scale_color_brewer(palette = 'Set1') +
+#        xlab('') + ylab('') +
+#        theme_bw()
+
+#### Kernel PCA ################################################################
+
+
+#### Find change points ####
 # devtools::source_url('https://raw.githubusercontent.com/christophergandrud/FedChangePointNote/master/paper/source/e.divGG.R')
 
 # kpca_changepoint <- list()
 # for (i in unique(date_country$country)) {
 #     message(i)
 #     temp_data <- subset(results_kpca, country == i)
-#     temp_data$C1 <- temp_data$C1 * -1
 #     temp_plot <- e.divGG(data = temp_data, Vars = 'C1',
 #                                      TimeVar = 'date', min.size = 6) +
 #                                 ggtitle(i)
@@ -163,11 +165,3 @@ do.call(grid.arrange, kpca_list)
 # }
 
 # do.call(grid.arrange, kpca_changepoint)
-
-# Scree plot to examine model fit
-kpca_eigen <- eig(kpca_out)
-eigen_plot <- data.frame(components = 1:feature_num, eigenvalues = kpca_eigen)
-
-export(eigen_plot, file = '~/git_repositories/kpca_eigen_2015_05_22.csv')
-
-plot(eigen_plot[, 1], eigen_plot[, 2], type = 'o')
