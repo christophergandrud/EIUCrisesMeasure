@@ -5,7 +5,8 @@
 # ---------------------------------------------------------------------------- #
 
 # Set working directory. Change as needed.
-possible_dir <- c('/git_repositories/EIUCrisesMeasure/')
+possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
+                  '~/git_repositories/EIUCrisesMeasure/')
 repmis::set_valid_wd(possible_dir)
 
 # Run set up script

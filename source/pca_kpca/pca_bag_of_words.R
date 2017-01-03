@@ -5,7 +5,8 @@
 # ---------------------------------------------------------------------------- #
 
 # Set working directory. Change as needed.
-possible_dir <- c('/git_repositories/EIUCrisesMeasure/')
+possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
+                  '~/git_repositories/EIUCrisesMeasure/')
 repmis::set_valid_wd(possible_dir)
 
 # Run set up script
@@ -18,7 +19,7 @@ eiu_df <- as.data.frame(eiu_list)
 eiu_df <- gather(eiu_df, id, text)
 
 eiu_dfm <- eiu_df %>% corpus %>% dfm
-eiu_dfm_df <- quanteda::convert(eiu_dfm, to = 'tm') 
+eiu_dfm_df <- quanteda::convert(eiu_dfm, to = 'tm')
 eiu_dfm_df <- as.data.frame(as.matrix(eiu_dfm_df))
 
 try(
