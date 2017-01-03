@@ -22,11 +22,6 @@ feature_num = 10
 # Create string kernels
 kernels <- stringdot(type = "spectrum", length = length_spec)
 
-
-#------ Test, REMOVE ---------
-eiu_list <- eiu_list[1:10]
-country_date <- country_date[1:10, ]
-
 # Run KPCA
 microbenchmark(
     kpca5_out <- kpca(eiu_list, kernel = kernels, features = feature_num)
@@ -58,7 +53,7 @@ for (i in components_names) {
 }
 
 # Find previous periods moving average
-n_period = 1 # TEST ONLY, CHANGE TO 2
+n_period = 2
 sma_mod <- function(x) SMA(x, n = n_period)
 results_kpca5 <- results_kpca5 %>% group_by(country) %>%
                     mutate(C1_ma = sma_mod(C1))
