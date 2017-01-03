@@ -92,7 +92,7 @@ names(eiu_list) <- paste(eiu_ids[, 'iso3c'], eiu_ids[, 'date'],
 pos_directs_git <- c('/git_repositories/EIUCrisesMeasure/source/')
 set_valid_wd(pos_directs_git)
 
-save(eiu_list, file = 'preprocessed_data/eiu_texts_from_2003.rda')
+save(eiu_list, file = 'preprocessed_data/pca_kpca/eiu_texts_from_2003.rda')
 
 
 
