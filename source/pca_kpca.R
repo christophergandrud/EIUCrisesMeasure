@@ -16,7 +16,7 @@ possible_dir <- c('/git_repositories/EIUCrisesMeasure/')
 set_valid_wd(possible_dir)
 
 # Load preprocessed data (see source/preprocess_eiu.R)
-load('source/preprocessed_data/eiu_texts_from_2003.rda')
+load('source/pca_kpca/preprocessed_data/eiu_texts_from_2003.rda')
 
 
 # KPCA -------------------------------------------------------------------------
