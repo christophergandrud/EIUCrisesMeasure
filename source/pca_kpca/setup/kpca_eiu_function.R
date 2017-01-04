@@ -28,9 +28,7 @@ kpca_eiu <- function(corpus, country_date, length_spec = 5, feature_num = 10,
 
     # Run KPCA
     message('Running KPCA . . .')
-    microbenchmark(
-        kpca_out <- kpca(corpus, kernel = kernels, features = feature_num)
-    )
+    kpca_out <- kpca(corpus, kernel = kernels, features = feature_num)
 
     # Extract features ---------------------------------------------------------
     kpca5_df <- pcv(kpca_out) %>% as.data.frame
