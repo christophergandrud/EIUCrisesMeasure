@@ -7,10 +7,10 @@
 # Load packages
 ## Currently requires custom quanteda version due to a bug in the
 ## official release.
-if (!('quanteda' %in% installed.packages()[, 1])) 
+if (!('quanteda' %in% installed.packages()[, 1]))
     devtools::install_github('christophergandrud/quanteda')
 library(quanteda)
-if (!('readtext' %in% installed.packages()[, 1])) 
+if (!('readtext' %in% installed.packages()[, 1]))
     devtools::install_github('kbenoit/readtext')
 library(readtext)
 library(repmis)
@@ -41,15 +41,15 @@ date_country$iso3c <- countrycode(date_country$country,
 # Load corpus and preprocess
 texts_df <- readtext(file = list.files())
 
-# Apply clean row names 
+# Apply clean row names
 texts_df <- cbind(texts_df, date_country)
 
-# Remove non-countries 
+# Remove non-countries
 texts_df <- subset(texts_df, !is.na(iso3c))
 
 # Remove texts from before 2003 due to inconsistent format
 texts_df_2003 <- subset(texts_df, date >= '2003-01-01')
-texts_2003_texts <- data.frame(texts_df_2003[, 1], 
+texts_2003_texts <- data.frame(texts_df_2003[, 1],
                                stringsAsFactors = FALSE)
 
 # Create corpus
@@ -60,10 +60,10 @@ docvars(eiu_corpus, 'date') <- texts_df_2003$date
 docvars(eiu_corpus, 'country') <- texts_df_2003$country
 
 # Preprocess and convert to document-feature matrix
-eiu_token <- tokenize(eiu_corpus, removeNumbers = TRUE, 
-               removePunct = TRUE, removeSeparators = TRUE, 
-               removeSymbols = TRUE, removeHyphens = TRUE, 
-               removeTwitter = TRUE, removeURL = TRUE, 
+eiu_token <- tokenize(eiu_corpus, removeNumbers = TRUE,
+               removePunct = TRUE, removeSeparators = TRUE,
+               removeSymbols = TRUE, removeHyphens = TRUE,
+               removeTwitter = TRUE, removeURL = TRUE,
                verbose = TRUE)
 
 # For unknown reasons these functions do not work within tokenize
@@ -80,7 +80,7 @@ for (i in 1:length(eiu_token)) {
 }
 
 # Collapse into a list of character vectors for each document
-eiu_list <- lapply(eiu_token, paste, collapse = ' ')    
+eiu_list <- lapply(eiu_token, paste, collapse = ' ')
 
 # Remove documents with fewer than 5 tokens
 eiu_list <- eiu_list[keep_vec]
@@ -93,8 +93,3 @@ pos_directs_git <- c('/git_repositories/EIUCrisesMeasure/source/')
 set_valid_wd(pos_directs_git)
 
 save(eiu_list, file = 'preprocessed_data/pca_kpca/eiu_texts_from_2003.rda')
-
-
-
-
-eiu_dfm <- dfm(eiu_token)

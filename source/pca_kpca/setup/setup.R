@@ -15,7 +15,8 @@ library(rio)
 library(lubridate)
 library(countrycode)
 library(TTR)
-library(microbenchmark)
+
+# Must set working directory to the location of the EIUCrisesMeasure repository
 
 # Load preprocessed data (see source/preprocess_eiu.R)
 load('source/pca_kpca/preprocessed_data/eiu_texts_from_2003.rda')
@@ -28,3 +29,6 @@ names(country_date) <- c('iso3c', 'date')
 country_date$country <- countrycode(country_date$iso3c, origin = 'iso3c',
                                     destination = 'country.name') 
 country_date <- country_date[, c('country', 'iso3c', 'date')]
+
+# Source the function for conducting KPCA/refining/saving the results
+source('source/pca_kpca/setup/kpca_eiu_function.R')
