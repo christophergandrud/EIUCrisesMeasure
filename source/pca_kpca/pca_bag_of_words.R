@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------- #
-# PCA and Wordfish scaling for comparision to KPCA
+# PCA Bag of Words comparision to KPCA
 # Christopher Gandrud
 # MIT License
 # ---------------------------------------------------------------------------- #
@@ -21,8 +21,8 @@ eiu_df <- gather(eiu_df, id, text)
 eiu_dfm <- eiu_df %>% corpus %>% dfm
 
 ####
-# Remove sparse terms--this differs from the KPCA preprocessing, but is 
-# necessary for PCA to be possible as the number of terms does not exceed the 
+# Remove sparse terms--this differs from the KPCA preprocessing, but is
+# necessary for PCA to be possible as the number of terms does not exceed the
 # number of documents
 eiu_dfm <- dfm_trim(eiu_dfm, sparsity = 0.9)
 ####
@@ -44,5 +44,5 @@ pca_bag_pc1 <- range01(eiu_pca_bag$x[, 1])
 
 pca_stress <- cbind(country_date, pca_bag_pc1) %>% arrange(country, date)
 
-export(pca_stress, 
+export(pca_stress,
        file = 'source/pca_kpca/raw_data_output/pca_bag_1stComponent.csv')
