@@ -13,14 +13,14 @@ library(ggplot2)
 theme_set(theme_bw())
 
 # Set working directory. Change as needed.
-setwd('/git_repositories/EIUCrisesMeasure/source/')
+setwd('/git_repositories/EIUCrisesMeasure/')
 
 # Load FinStress
 URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/FinStress.csv'
 finstress_index <- rio::import(URL) %>% select(-iso2c)
 
 # Load PCA bag-of-words first component (rescaled)
-pca_bag <- import('pca_kpca/raw_data_output/pca_bag_1stComponent.csv')
+pca_bag <- import('source/pca_kpca/raw_data_output/pca_bag_1stComponent.csv')
 
 
 ######## TODO-EXAMINE NONOVERLAPPING  
@@ -34,8 +34,12 @@ cor.test(comb$FinStress, comb$pca_bag_pc1)
 
 # Visually compare -------
 gathered <- gather(comb, measure, value, 3:4)
+gathered$measure <- factor(gathered$measure, 
+                           labels = c('FinStress', 'PCA\n(bag-of-words)'))
 
 # Separate into plots matching LV/RR compare plots
+
+# Plot 1
 select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
                         'Brazil','Bulgaria', 'Canada', 'China',
                         'Czech Republic', 'Denmark', 'Estonia', 'France',
@@ -45,13 +49,16 @@ select_countries_1 <- c('Argentina', 'Australia', 'Austria', 'Belgium',
 
 gathered_sub1 <- subset(gathered, country %in% select_countries_1)
 
-ggplot(gathered_sub1, aes(date, value, linetype = measure, 
+pca_finstress1 <- ggplot(gathered_sub1, aes(date, value, linetype = measure, 
                           group = measure)) +
     facet_wrap(~country) +
     geom_line(alpha = 0.5) +
     scale_linetype(name = '') +
-    xlab('')
+    xlab('') + ylab('Index Value\n')
 
+ggsave(pca_finstress1, filename = 'summary_paper/figures/')
+
+# Plot 2
 select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
                         'Mexico', 'Mongolia',
                         'Netherlands', 'Nigeria', 'Portugal', 'Russian Federation',
@@ -67,4 +74,4 @@ ggplot(gathered_sub2, aes(date, value, linetype = measure,
     facet_wrap(~country) +
     geom_line(alpha = 0.5) +
     scale_linetype(name = '') +
-    xlab('')
+    xlab('') + ylab('Index Value\n')
