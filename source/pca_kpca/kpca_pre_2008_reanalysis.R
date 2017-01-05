@@ -13,7 +13,6 @@ repmis::set_valid_wd(possible_dir)
 # Run set up script
 source('source/pca_kpca/setup/setup.R')
 
-
 # Subset corpus to be prior to 2008
 country_date$date <- ymd(country_date$date)
 country_date <- subset(country_date, date < '2008-01-01')
