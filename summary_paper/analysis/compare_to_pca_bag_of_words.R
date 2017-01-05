@@ -56,7 +56,8 @@ pca_finstress1 <- ggplot(gathered_sub1, aes(date, value, linetype = measure,
     scale_linetype(name = '') +
     xlab('') + ylab('Index Value\n')
 
-ggsave(pca_finstress1, filename = 'summary_paper/figures/')
+ggsave(pca_finstress1, filename = 'summary_paper/figures/compare_to_pca_1.pdf', 
+       width = 15, height = 10)
 
 # Plot 2
 select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
@@ -69,9 +70,12 @@ select_countries_2 <- c('Kazakhstan', 'Latvia', 'Lithuania', 'Luxembourg',
 
 gathered_sub2 <- subset(gathered, country %in% select_countries_2)
 
-ggplot(gathered_sub2, aes(date, value, linetype = measure, 
+pca_finstress2 <- ggplot(gathered_sub2, aes(date, value, linetype = measure, 
                           group = measure)) +
     facet_wrap(~country) +
     geom_line(alpha = 0.5) +
     scale_linetype(name = '') +
     xlab('') + ylab('Index Value\n')
+
+ggsave(pca_finstress2, filename = 'summary_paper/figures/compare_to_pca_2.pdf', 
+       width = 15, height = 10)
