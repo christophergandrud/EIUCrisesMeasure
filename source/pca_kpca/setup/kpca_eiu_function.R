@@ -31,7 +31,7 @@ kpca_eiu <- function(corpus, country_date, length_spec = 5, feature_num = 10,
     kpca_out <- kpca(corpus, kernel = kernels, features = feature_num)
 
     # Extract features ---------------------------------------------------------
-    kpca5_df <- pcv(kpca_out) %>% as.data.frame
+    kpca_df <- pcv(kpca_out) %>% as.data.frame
     names(kpca_df) <- sprintf('C%s', 1:feature_num)
 
     results_kpca <- data.frame(country_date, kpca_df,
