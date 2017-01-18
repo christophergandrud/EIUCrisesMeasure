@@ -16,5 +16,5 @@ source('source/pca_kpca/setup/setup.R')
 # Run KPCA
 system.time(
     kpca_eiu(eiu_list, country_date, length_spec = 3,
-             out_dir = 'source/pca_kpca/raw_data_output/non_5_strings/')
-) 
+             out_dir = 'source/pca_kpca/raw_data_output/non_5_strings')
+)

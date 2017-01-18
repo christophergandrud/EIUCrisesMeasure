@@ -57,17 +57,21 @@ kpca_eiu <- function(corpus, country_date, length_spec = 5, feature_num = 10,
     for (i in components_names) {
         results_kpca[, i] <- range01(results_kpca[, i])
     }
-
+    
+    # Remove countries with fewer than 5 observations
+    too_few_obs <- unique(results_kpca$country)[
+                          as.vector(table(results_kpca$country) < 5)]
+    results_kpca <- subset(results_kpca, !(country %in% too_few_obs))
+    
     # Find previous periods moving average
-    sma_mod <- function(x) SMA(x, n = n_period)
-    results_kpca <- results_kpca %>% group_by(country) %>%
-        mutate(C1_ma = sma_mod(C1))
+    sma_mod <- function(x) TTR::SMA(x, n = n_period)
+    results_kpca <- results_kpca %>% group_by(iso3c) %>%
+                        mutate(C1_ma = sma_mod(C1))
 
     # Save rescaled index (e.g. FinStress)
     dir_rescaled <- sprintf('%s/results_kpca_%s_rescaled.csv', out_dir,
                       length_spec)
-    export(results_kpca,
-           file = dir_rescaled)
+    export(results_kpca, file = dir_rescaled)
 
     # Scree plot to examine model fit
     message('Eigenvalues . . .')
