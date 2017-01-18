@@ -88,11 +88,6 @@ eiu_ids <- texts_df_2003[keep_vec, c('date', 'iso3c')]
 names(eiu_list) <- paste(eiu_ids[, 'iso3c'], eiu_ids[, 'date'],
                          sep = '_')
 
-# Remove countries with fewer than 5 observations
-too_few_obs <- unique(results_kpca$country)[
-                   as.vector(table(results_kpca$country) < 5)]
-results_kpca <- subset(results_kpca, !(country %in% too_few_obs))
-
 # Save preprocessed corpus in the git repository. Change as needed.
 pos_directs_git <- c('/git_repositories/EIUCrisesMeasure/source/')
 set_valid_wd(pos_directs_git)
