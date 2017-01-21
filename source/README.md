@@ -22,4 +22,7 @@ This data set is used by a numher of R source files in the pca_kpca subdirectory
 
 - kernel_random_forest.R
 
+The subdirectory contains a Makefile that can be used to run all of the files.
+
+
 Finally, clean_save_finstress.R does some cleaning of the KPCA 5 character length string kernel output to create the public facing FinStress data set.

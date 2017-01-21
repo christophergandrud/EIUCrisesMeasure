@@ -5,79 +5,62 @@
 # ---------------------------------------------------------------------------- #
 
 # Load packages
-library(repmis)
-library(tm)
-library(SnowballC)
-library(dplyr)
-library(stringr)
-library(lubridate)
-library(ggplot2)
-library(gridExtra)
-library(tidyr)
-library(rio)
-library(randomForestSRC)
-library(parallel)
+library(setupPkg)
+
+pkgs <- c('parallel', 'randomForestSRC', 'repmis', 'stringr')
+library_install(pkgs)
 
 # Set number of coures for random forests.
 cores_custom <- detectCores() - 1
 # Note randomForestSRC must be correctly configured
 options(rf.cores = cores_custom, mc.cores = cores_custom)
 
-# Set working directory of parsed texts. Change as needed.
-pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
-                   '/Volumes/Gandrud1TB/eiu/eiu_extracted/')
+# Set working directory. Change as needed.
+possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
+                  '~/git_repositories/EIUCrisesMeasure/')
+repmis::set_valid_wd(possible_dir)
 
-set_valid_wd(pos_directs)
+# Run set up script
+source('~/git_repositories/EIUCrisesMeasure/source/pca_kpca/setup/setup.R')
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
 
-# Load corpus
-clean_corpus_full <- Corpus(DirSource()) %>%
-                    tm_map(removeWords,
-                           stopwords(kind = "SMART")) %>%
-                    tm_map(stemDocument) %>%
-                    tm_map(stripWhitespace) %>%
-                    # tm_map(content_transformer(tolower), mc.cores = 1) %>%
-                    tm_map(removePunctuation) %>%
-                    tm_map(removeNumbers)
+# Run set up script
+source('source/pca_kpca/setup/setup.R')
 
-clean_corpus_full <- clean_corpus_full %>% as.list
+# PCA bag-of-words scaling -----------------------------------------------------
 
-clean_corpus <- clean_corpus_full %>% as.VCorpus %>%
-                    DocumentTermMatrix(control = list(stopwords = T))
+# Convert corpus to a data frame that is useable by princomp
+eiu_df <- as.data.frame(eiu_list)
+eiu_df <- gather(eiu_df, id, text)
 
-term_freq <- inspect(removeSparseTerms(clean_corpus, 0.9)) %>% as.data.frame
+eiu_dfm <- eiu_df %>% corpus %>% dfm
 
-## Drop countries with fewer than 5 observations
-# Create date-country labels
-date_country <- row.names(term_freq) %>% gsub('\\.txt', '', .) %>%
-    str_split_fixed('_', n = 2) %>%
-    as.data.frame(stringsAsFactors = F)
-date_country[, 2] <- gsub('-', ' ', date_country[, 2])
-names(date_country) <- c('date_date', 'country_country') # date and country are terms
+####
+# Remove sparse terms
+eiu_dfm <- dfm_trim(eiu_dfm, sparsity = 0.9)
+####
 
-# Clean up odd names
-date_country$country_country <- gsub('%28', ' ', date_country$country_country)
-date_country$country_country <- gsub('%29', '', date_country$country_country)
+eiu_dfm_df <- quanteda::convert(eiu_dfm, to = 'tm')
+term_freq <- as.data.frame(as.matrix(eiu_dfm_df))
 
-term_freq <- cbind(date_country, term_freq)
+## Uniquely identify country and date var names
+country_date <- rename(country_date, x_country = country)
+country_date <- rename(country_date, x_date = date)
+
+term_freq <- cbind(country_date, term_freq)
 
 #### Load KPCA results ####
-# Set working directory of kpca project. Change as needed.
-pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
-                 '/git_repositories/EIUCrisesMeasure/')
-
-set_valid_wd(pos_directs)
-kpca <- import('data/results_kpca_rescaled.csv')
+kpca <- import('source/pca_kpca/raw_data_output/5_strings/results_kpca_5_rescaled.csv')
 
 # Create matching corpus
 kpca_included <- kpca %>% select(date, country)
-names(kpca_included) <- c('date_date', 'country_country')
+names(kpca_included) <- c('x_date', 'x_country')
 term_freq <- merge(kpca_included, term_freq,
-                   by = c('country_country', 'date_date'),
+                   by = c('x_country', 'x_date'),
                    all.x = T) %>%
-                select(-country_country, -date_date)
+                select(-x_country, -x_date, -iso3c)
 
 #### Combine ####
 cor_pca <- function(var) {
@@ -94,9 +77,7 @@ c3_cor <- cor_pca('C3')
 
 export(c1_cor, file = 'data/C1_stem_correlations.csv')
 
-#### Random forest ####
-setwd('~/git_repositories/EIUCrisesMeasure/')
-
+#### Random forest -------------------------------------------------------------
 comb <- cbind(kpca$C1, kpca$C2, term_freq) %>%
             dplyr::rename(C1 = `kpca$C1`) %>%
             dplyr::rename(C2 = `kpca$C2`)

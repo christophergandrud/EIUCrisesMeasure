@@ -5,15 +5,11 @@
 #########################################
 
 # Load required packages
-library(rio)
-library(DataCombine)
-library(countrycode)
-library(dplyr)
-library(lubridate)
-library(tidyr)
-library(ggplot2)
-library(gridExtra)
-library(repmis)
+library(setupPkg)
+
+pkgs <- c('rio', 'DataCombine', 'countrycode', 'tidyverse', 'lubridate',
+          'repmis', 'gridExtra')
+library_install(pkgs)
 
 # Set working directory
 pos <- c('/git_repositories/EIUCrisesMeasure/',
@@ -25,7 +21,11 @@ set_valid_wd(pos)
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}
 
 ## Import EIU Percpetions Index
-perceptions <- import('data/results_kpca_rescaled.csv')
+perceptions <- import('source/pca_kpca/raw_data_output/5_strings/results_kpca_5_rescaled.csv')
+
+# Reverse the scale so that low values indicate less perceived stress
+perceptions$C1_ma <- 1- perceptions$C1_ma
+
 perceptions$iso2c <- countrycode(perceptions$country, origin = 'country.name',
                            destination = 'iso2c')
 perceptions <- perceptions %>% dplyr::select(iso2c, date, C1, C2, C3, C1_ma)
@@ -81,9 +81,9 @@ rr_bc$Source <- 'Reinhart/Rogoff'
 ## Laeven and Valencia
 lv <- import('data/alternative_measures/cleaned/laeven_valencia_banking_crisis.csv')
 
-# Assume date is 1 June
-#lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
-#lv <- lv %>% select(iso2c, date, lv_bank_crisis)
+# Assume date is 1 January
+lv$date <- sprintf('%s-06-01', lv$year) %>% ymd
+lv <- lv %>% select(iso2c, date, lv_bank_crisis)
 
 lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
 lv_se$Start <- ymd(lv_se$Start)
@@ -208,7 +208,11 @@ select_countries_short <- c('Argentina', 'Australia', 'Brazil',
 )
 pdf(file = 'summary_paper/figures/compare_to_lv_rr_short.pdf', width = 15,
     height = 15)
-do.call(grid.arrange, kpca_list[select_countries_short])
+    do.call(grid.arrange, kpca_list[select_countries_short])
+dev.off()
+
+png(file = 'perceptions_compare.png')
+    do.call(grid.arrange, kpca_list[select_countries_short])
 dev.off()
 
 # Old ---------------------------------------

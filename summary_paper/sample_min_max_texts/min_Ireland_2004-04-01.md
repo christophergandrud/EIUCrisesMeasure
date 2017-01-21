@@ -1,0 +1,3 @@
+## Ireland (2004-04-01)
+
+The European Central Bank (ECB) last reduced its key refinancing rate by 50 basis points to 2% at its meeting in early June 2003. Until recently it had seemed as if this would be the final move in the current cycle of monetary easing. However, the appreciation of the euro against the US dollar, if sustained, will influence the interest rate path in 2004 by depressing GDP growth and import prices. If, as we expect, the euro's exchange rate against the US dollar rises above US$1.30:EUR1 and domestic demand in the euro area remains weak, the ECB is forecast to proceed with a further interest rate cut. However, we still expect short-term euro area interest rates to rise in 2005, as the euro stabilises and the recovery gathers pace.
