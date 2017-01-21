@@ -5,19 +5,18 @@
 # ---------------------------------------------------------------------------- #
 
 # Load required packages
-library(rio)
-library(dplyr)
-library(tidyr)
-library(lubridate)
-library(ggplot2)
+library(setupPkg)
+
+pkgs <- c('rio', 'tidyverse', 'lubridate')
+library_install(pkgs)
 theme_set(theme_bw())
 
 # Set working directory. Change as needed.
 setwd('/git_repositories/EIUCrisesMeasure/')
 
 # Load FinStress
-URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/FinStress.csv'
-finstress_index <- rio::import(URL) %>% select(-iso2c)
+URL <- 'data/FinStress.csv'
+finstress_index <- rio::import(URL)
 
 # Load PCA bag-of-words first component (rescaled)
 pca_bag <- import('source/pca_kpca/raw_data_output/pca_bag_1stComponent.csv')

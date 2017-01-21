@@ -5,11 +5,11 @@
 #########################################
 
 # Load packages
-library(repmis)
-library(rio)
-library(DataCombine)
-library(gridExtra)
-library(ggplot2)
+library(setupPkg)
+
+pkgs <- c('repmis', 'rio', 'DataCombine', 'gridExtra', 'ggplot2')
+library_install(pkgs)
+
 theme_set(theme_bw())
 
 # Set working directory

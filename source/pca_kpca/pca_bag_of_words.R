@@ -35,7 +35,8 @@ system.time(
     eiu_pca_bag <- prcomp(eiu_dfm_df, center = TRUE, scale. = TRUE)
 )
 
-plot(eiu_pca_bag, type = 'l')
+# Examine eigenvalues
+# plot(eiu_pca_bag, type = 'l')
 
 # Extract first component and rescale to be between 0 and 1
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}
