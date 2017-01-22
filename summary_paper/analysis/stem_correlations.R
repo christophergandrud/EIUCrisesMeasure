@@ -26,6 +26,10 @@ subbed <- corrs %>% grepl.sub(pattern = stems, Var = 'terms') %>%
 
 names(subbed) <- c('Stems', 'Correlations')
 
+# Place in substantively meaningful order
+subbed$Correlations <- -1 * subbed$Correlations
+subbed <- arrange(subbed, desc(Correlations))
+
 
 xtable(subbed, caption = 'Selection of Word Stems and Correlations with FinStress', 
        label = 'stem_correlations') %>% 

@@ -6,16 +6,11 @@
 # ---------------------------------------------------------------------------- #
 
 # Load required packages
-library(rio)
-library(repmis)
-library(dplyr)
-library(lubridate)
-library(countrycode)
-library(corrplot)
-library(DataCombine)
-library(WDI)
-library(ggplot2)
-library(gridExtra)
+library(setupPkg)
+
+pkgs <- c('rio', 'repmis', 'dplyr', 'lubridate', 'countrycode', 'corrplot',
+          'DataCombine', 'WDI', 'gridExtra', 'ggplot2')
+library_install(pkgs)
 
 # Set working directory of kpca project. Change as needed.
 pos_directs <- c('~/git_repositories/EIUCrisesMeasure/',
@@ -51,7 +46,11 @@ cor.mtest <- function(mat, conf.level = 0.95) {
 }
 
 # Import FinStress
-FinStress <- import('http://bit.ly/1LFEnhM', format = 'csv')
+FinStress <- import('data/FinStress.csv')
+
+FinStress$iso2c <- countrycode(FinStress$iso3c, origin = 'iso3c', 
+                               destination = 'iso2c')
+FinStress <- dplyr::select(FinStress, -iso3c)
 
 ff <- import('data/alternative_measures/Financial Fragility Database Stata.dta') %>%
     select(-countryname) %>% 
@@ -60,7 +59,7 @@ ff <- import('data/alternative_measures/Financial Fragility Database Stata.dta')
 # Convert FinStress to annual so that it is on a comparable annual scale
 FinStress$year <- FinStress$date %>% year
 FinStress_sum <- FinStress %>% group_by(iso2c, year) %>%
-    summarise(mean_stress = mean(C1_ma, na.rm = T))
+    summarise(mean_stress = mean(FinStress, na.rm = T))
 
 # Merge data series together
 comb <- merge(FinStress_sum, ff, by = c('iso2c', 'year'), all.x = T)

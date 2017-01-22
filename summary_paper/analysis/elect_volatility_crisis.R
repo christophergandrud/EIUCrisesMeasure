@@ -82,7 +82,7 @@ wdi <- WDI(indicator = c('NY.GDP.MKTP.KD.ZG', 'FP.CPI.TOTL.ZG',
 
 wdi$iso3c <- countrycode(wdi$iso2c, origin = 'iso2c', destination = 'iso3c')
 
-wdi <- wdi %>% dplyr::select(-country, -iso3c) %>% 
+wdi <- wdi %>% dplyr::select(-country, -iso2c) %>% 
     rename(gdp_growth = NY.GDP.MKTP.KD.ZG) %>%
     rename(inflation = FP.CPI.TOTL.ZG) %>%
     rename(unemployment = SL.UEM.TOTL.ZS) %>%
@@ -90,7 +90,6 @@ wdi <- wdi %>% dplyr::select(-country, -iso3c) %>%
     rename(domestic_credit_to_private = GFDD.DI.14)
 
 wdi <- DropNA(wdi, 'lv_crisis')
-
 
 # Create crisis start binary variable
 wdi <- wdi %>% group_by(iso3c) %>% mutate(lv_crisis_start = spell_new(lv_crisis))
@@ -109,8 +108,10 @@ lv_se$End <- ymd(lv_se$End) %>% ceiling_date(unit = 'year')
 lv_se$year_month <- lv_se$Start
 lv_se <- lv_se %>% filter(End >= '2003-01-01')
 
-lv_se$country <- countrycode(lv_se$iso3c, origin = 'iso3c', 
+lv_se$country <- countrycode(lv_se$iso2c, origin = 'iso2c', 
                            destination = 'country.name')
+lv_se$iso3c <- countrycode(lv_se$iso2c, origin = 'iso2c', 
+                             destination = 'iso3c')
 lv_se <- subset(lv_se, country %in% unique(reg_data$country))
 
 lv_se <- merge(lv_se, finstress_index[, -2], by = c('year_month', 'iso3c'), 
@@ -147,7 +148,7 @@ m3_fs <- lm(AltV ~ FinStress, data = reg_data)
 
 # Plot predicted effects ----------------------------------------------------- #
 # Common y-axis limits
-common_limits <- c(-1, 30)
+common_limits <- c(-1, 28)
 
 # FinStress predictions from linear model ------------------------
 predict_fs <- predict(m1_fs, interval = 'confidence') %>% as.data.frame

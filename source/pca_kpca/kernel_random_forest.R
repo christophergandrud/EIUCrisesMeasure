@@ -54,6 +54,9 @@ term_freq <- cbind(country_date, term_freq)
 #### Load KPCA results ####
 kpca <- import('source/pca_kpca/raw_data_output/5_strings/results_kpca_5_rescaled.csv')
 
+# Reverse the scale so that low values indicate less perceived stress
+kpca$C1_ma <- 1 - kpca$C1_ma
+
 # Create matching corpus
 kpca_included <- kpca %>% select(date, country)
 names(kpca_included) <- c('x_date', 'x_country')
@@ -89,8 +92,8 @@ form_c1 <- paste('C1 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
 form_c2 <- paste('C2 ~', paste(addq(names(term_freq)), collapse = ' + ')) %>%
     as.formula
 
-rfsrc_c1 <- rfsrc(form_c1, data = comb)
-rfsrc_c2 <- rfsrc(form_c2, data = comb)
+rfsrc_c1 <- rfsrc(form_c1, data = comb, importance = TRUE)
+rfsrc_c2 <- rfsrc(form_c2, data = comb, importance = TRUE)
 
 # Plot variable importance
 plot.rfsrc(rfsrc_c1, plots.one.page = F)

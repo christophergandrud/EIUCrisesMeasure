@@ -29,7 +29,10 @@ range01 <- function(x, na.rm = T){
 }
 
 # Import FinStress
-FinStress <- import('http://bit.ly/1LFEnhM', format = 'csv')
+FinStress <- import('data/FinStress.csv')
+FinStress$iso2c <- countrycode(FinStress$iso3c, origin = 'iso3c',
+                               destination = 'iso2c')
+
 
 # Other
 wdi <- WDI(indicator = c('GFDD.SI.01'), start = 2003) %>%
@@ -44,7 +47,7 @@ names(ff) <- c('iso2c', 'year', 'z_score')
 # Convert FinStress to annual so that it is comparable with the z-scores
 FinStress$year <- FinStress$date %>% year
 FinStress_sum <- FinStress %>% group_by(iso2c, year) %>%
-    summarise(mean_stress = mean(C1_ma, na.rm = T))
+    summarise(mean_stress = mean(FinStress, na.rm = T))
 
 # Merge data series together
 comb <- merge(FinStress_sum, wdi, by = c('iso2c', 'year'), all.x = T)
