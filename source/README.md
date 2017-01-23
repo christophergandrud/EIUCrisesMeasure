@@ -20,7 +20,7 @@ This data set is used by a numher of R source files in the pca_kpca subdirectory
 
 - pca_bag_of_words.R
 
-- kernel_random_forest.R
+- z_kernel_random_forest.R
 
 The subdirectory contains a Makefile that can be used to run all of the files.
 

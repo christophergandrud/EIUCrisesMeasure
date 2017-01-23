@@ -6,7 +6,7 @@
 
 devtools::install_github('christophergandrud/SurvSetup')
 
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('rio', 'tidyverse', 'DataCombine', 'lubridate', 'WDI', 'gridExtra',
           'countrycode', 'SurvSetup', 'repmis', 'countrycode')
@@ -15,7 +15,7 @@ library_install(pkgs)
 # Set working directory. Change as needed.
 possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
                   '~/git_repositories/EIUCrisesMeasure/')
-repmis::set_valid_wd(possible_dir)
+simpleSetup::set_valid_wd(possible_dir)
 
 
 # Load electoral volatility data ----------------------------------------------- 

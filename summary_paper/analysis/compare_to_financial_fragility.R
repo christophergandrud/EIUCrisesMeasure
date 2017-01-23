@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Load required packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('rio', 'repmis', 'dplyr', 'lubridate', 'countrycode', 'corrplot',
           'DataCombine', 'WDI', 'gridExtra', 'ggplot2')

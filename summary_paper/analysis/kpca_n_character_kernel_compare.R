@@ -5,7 +5,7 @@
 #########################################
 
 # Load packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('repmis', 'rio', 'DataCombine', 'gridExtra', 'ggplot2')
 library_install(pkgs)

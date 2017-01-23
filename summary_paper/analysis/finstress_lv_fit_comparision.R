@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 
 # Load required packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('rio', 'repmis', 'tidyverse', 'stargazer')
 library_install(pkgs)
@@ -13,7 +13,7 @@ library_install(pkgs)
 # Set working directory. Change as needed.
 possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
                   '~/git_repositories/EIUCrisesMeasure/')
-repmis::set_valid_wd(possible_dir)
+simpleSetup::set_valid_wd(possible_dir)
 
 
 # Source Electoral Volatility regressions --------------------------------------

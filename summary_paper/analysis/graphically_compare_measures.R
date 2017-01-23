@@ -5,7 +5,7 @@
 #########################################
 
 # Load required packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('rio', 'DataCombine', 'countrycode', 'tidyverse', 'lubridate',
           'repmis', 'gridExtra')

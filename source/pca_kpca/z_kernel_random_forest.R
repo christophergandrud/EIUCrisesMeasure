@@ -5,7 +5,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Load packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('parallel', 'randomForestSRC', 'repmis', 'stringr')
 library_install(pkgs)
@@ -18,7 +18,7 @@ options(rf.cores = cores_custom, mc.cores = cores_custom)
 # Set working directory. Change as needed.
 possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
                   '~/git_repositories/EIUCrisesMeasure/')
-repmis::set_valid_wd(possible_dir)
+simpleSetup::set_valid_wd(possible_dir)
 
 # Run set up script
 source('~/git_repositories/EIUCrisesMeasure/source/pca_kpca/setup/setup.R')

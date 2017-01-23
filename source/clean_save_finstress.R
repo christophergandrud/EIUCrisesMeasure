@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Load packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('repmis', 'rio', 'dplyr', 'DataCombine')
 library_install(pkgs)

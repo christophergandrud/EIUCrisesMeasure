@@ -5,7 +5,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Load required packages
-library(setupPkg)
+library(simpleSetup)
 
 pkgs <- c('repmis', 'rio', 'dplyr')
 library_install(pkgs)
