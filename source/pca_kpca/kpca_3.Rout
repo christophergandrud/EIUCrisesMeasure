@@ -1,0 +1,109 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin14.5.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # ---------------------------------------------------------------------------- #
+> # KPCA Alternative Specification: 3 string kernels
+> # observations
+> # Christopher Gandrud
+> # MIT License
+> # ---------------------------------------------------------------------------- #
+> 
+> # Set working directory. Change as needed.
+> possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
++                   '~/git_repositories/EIUCrisesMeasure/')
+> simpleSetup::set_valid_wd(possible_dir)
+Working directory set to: ~/git_repositories/EIUCrisesMeasure/
+> 
+> # Run set up script
+> source('source/pca_kpca/setup/setup.R')
+quanteda version 0.9.8.9035
+
+
+Attaching package: ‘quanteda’
+
+The following object is masked from ‘package:base’:
+
+    sample
+
+
+Attaching package: ‘repmis’
+
+The following object is masked from ‘package:simpleSetup’:
+
+    set_valid_wd
+
+Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+Conflicts with tidy packages ---------------------------------------------------
+alpha():    ggplot2, kernlab
+filter():   dplyr, stats
+lag():      dplyr, stats
+tokenize(): readr, quanteda
+
+Attaching package: ‘rio’
+
+The following object is masked from ‘package:quanteda’:
+
+    convert
+
+
+Attaching package: ‘lubridate’
+
+The following object is masked from ‘package:base’:
+
+    date
+
+Loading required package: NLP
+
+Attaching package: ‘NLP’
+
+The following object is masked from ‘package:ggplot2’:
+
+    annotate
+
+The following object is masked from ‘package:quanteda’:
+
+    ngrams
+
+
+Attaching package: ‘tm’
+
+The following objects are masked from ‘package:quanteda’:
+
+    as.DocumentTermMatrix, stopwords
+
+> 
+> # Run KPCA
+> system.time(
++     kpca_eiu(eiu_list, country_date, length_spec = 3,
++              out_dir = 'source/pca_kpca/raw_data_output/non_5_strings')
++ )
+Running KPCA . . .
+Rescaling . . .
+Eigenvalues . . .
+      user     system    elapsed 
+292229.236    135.836 291754.057 
+> 
+> proc.time()
+      user     system    elapsed 
+292236.202    136.045 291761.233 
