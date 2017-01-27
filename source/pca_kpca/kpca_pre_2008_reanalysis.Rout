@@ -108,3 +108,11 @@ The following objects are masked from ‘package:quanteda’:
 +              out_dir = 'source/pca_kpca/raw_data_output/pre_crisis')
 + )
 Running KPCA . . .
+Rescaling . . .
+Eigenvalues . . .
+     user    system   elapsed 
+77258.572    24.873 77231.488 
+> 
+> proc.time()
+     user    system   elapsed 
+77266.854    25.269 77240.545 
