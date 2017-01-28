@@ -7,6 +7,8 @@
 # Load packages
 library(simpleSetup)
 
+# Requires devtools::install_github('christophergandrud/quanteda')
+
 pkgs <- c('parallel', 'randomForestSRC', 'repmis', 'stringr')
 library_install(pkgs)
 
