@@ -68,7 +68,6 @@ eiu_token <- quanteda::tokenize(eiu_corpus, removeNumbers = TRUE,
 # For unknown reasons these functions do not work within tokenize
 eiu_token <- toLower(eiu_token)
 eiu_token <- removeFeatures(eiu_token, stopwords('SMART'))
-eiu_token <- removeFeatures(eiu_token, "'")
 eiu_token <- tokens_wordstem(eiu_token)
 
 # Find documents with fewer than 5 tokens

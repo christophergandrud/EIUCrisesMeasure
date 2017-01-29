@@ -13,7 +13,7 @@ pkgs <- c('quanteda', 'kernlab', 'repmis', 'tidyverse', 'rio', 'lubridate',
           'countrycode', 'TTR', 'devtools', 'tm')
 library_install(pkgs)
 
-# Install quanteda from devtools::install_github('christophergandrud/quanteda)
+# Install quanteda from devtools::install_github('christophergandrud/quanteda')
 
 # Load preprocessed data (see source/preprocess_eiu.R)
 load('source/pca_kpca/preprocessed_data/eiu_texts_from_2003.rda')

@@ -23,7 +23,7 @@ possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
 simpleSetup::set_valid_wd(possible_dir)
 
 # Run set up script
-source('~/git_repositories/EIUCrisesMeasure/source/pca_kpca/setup/setup.R')
+source('source/pca_kpca/setup/setup.R')
 
 # Function to count the number of words in a string
 wordcount <- function(x) sapply(gregexpr("\\W+", x), length) + 1
@@ -114,8 +114,14 @@ extract_importance <- function(x){
 imp_c1 <- extract_importance(rfsrc_c1$importance)
 imp_c2 <- extract_importance(rfsrc_c2$importance)
 
+# remove possessive
+imp_c1 <- subset(imp_c1, word_stem != "'")
+imp_c2 <- subset(imp_c2, word_stem != "'")
+
 export(imp_c1, file = 'data/random_forest_var_imp_C1.csv')
 export(imp_c2, file = 'data/random_forest_var_imp_C2.csv')
 
 
 plot.variable(rfsrc_c1)
+
+

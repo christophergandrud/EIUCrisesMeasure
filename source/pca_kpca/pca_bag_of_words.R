@@ -19,7 +19,7 @@ eiu_df <- as.data.frame(eiu_list)
 eiu_df <- gather(eiu_df, id, text)
 
 eiu_dfm <- eiu_df %>% corpus %>% dfm
-
+ 
 ####
 # Remove sparse terms--this differs from the KPCA preprocessing, but is
 # necessary for PCA to be possible as the number of terms does not exceed the
