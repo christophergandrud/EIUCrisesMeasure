@@ -6,12 +6,13 @@
 #########################################
 
 # Set working directory
-setwd('/git_repositories/EIUCrisesMeasure/')
+library(simpleSetup)
 
-# Load packages
-library(rio)
-library(dplyr)
-library(ggplot2)
+packages <- c('rio', 'dplyr', 'ggplot2')
+library_install(packages)
+
+
+set_valid_wd('/git_repositories/EIUCrisesMeasure/')
 
 # Load results
 imp <- import('data/random_forest_var_imp_C1.csv')
@@ -24,10 +25,11 @@ imp <- imp %>% arrange(desc(variable_importance))
 imp <- imp[1:40, ]
 
 # Plot
-ggplot(imp, aes(variable_importance, 
+ggplot(imp, aes(variable_importance,
                 y = reorder(word_stem, variable_importance))) +
     geom_point() +
     ylab('Word Stem\n') + xlab('\n% MSE Increase') +
     theme_bw()
 
-ggsave('summary_paper/figures/rf_stem_importance.pdf')
+ggsave('summary_paper/figures/rf_stem_importance.pdf', width = 9.6,
+       height = 8.5)

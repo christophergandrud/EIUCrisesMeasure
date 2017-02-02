@@ -1,0 +1,141 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin16.3.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # ---------------------------------------------------------------------------- #
+> # PCA Bag of Words comparision to KPCA
+> # Christopher Gandrud
+> # MIT License
+> # ---------------------------------------------------------------------------- #
+> 
+> # Set working directory. Change as needed.
+> possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
++                   '~/git_repositories/EIUCrisesMeasure/')
+> simpleSetup::set_valid_wd(possible_dir)
+Working directory set to: /git_repositories/EIUCrisesMeasure/
+> 
+> # Run set up script
+> source('source/pca_kpca/setup/setup.R')
+quanteda version 0.9.8.9035
+
+
+Attaching package: ‘quanteda’
+
+The following object is masked from ‘package:base’:
+
+    sample
+
+
+Attaching package: ‘repmis’
+
+The following object is masked from ‘package:simpleSetup’:
+
+    set_valid_wd
+
+Loading tidyverse: ggplot2
+Loading tidyverse: tibble
+Loading tidyverse: tidyr
+Loading tidyverse: readr
+Loading tidyverse: purrr
+Loading tidyverse: dplyr
+Conflicts with tidy packages ---------------------------------------------------
+alpha():    ggplot2, kernlab
+filter():   dplyr, stats
+lag():      dplyr, stats
+tokenize(): readr, quanteda
+
+Attaching package: ‘rio’
+
+The following object is masked from ‘package:quanteda’:
+
+    convert
+
+
+Attaching package: ‘lubridate’
+
+The following object is masked from ‘package:base’:
+
+    date
+
+Loading required package: NLP
+
+Attaching package: ‘NLP’
+
+The following object is masked from ‘package:ggplot2’:
+
+    annotate
+
+The following object is masked from ‘package:quanteda’:
+
+    ngrams
+
+
+Attaching package: ‘tm’
+
+The following objects are masked from ‘package:quanteda’:
+
+    as.DocumentTermMatrix, stopwords
+
+> 
+> # PCA bag-of-words scaling -----------------------------------------------------
+> 
+> # Convert corpus to a data frame that is useable by princomp
+> eiu_df <- as.data.frame(eiu_list)
+> eiu_df <- gather(eiu_df, id, text)
+Warning message:
+attributes are not identical across measure variables; they will be dropped 
+> 
+> eiu_dfm <- eiu_df %>% corpus %>% dfm
+>  
+> ####
+> # Remove sparse terms--this differs from the KPCA preprocessing, but is
+> # necessary for PCA to be possible as the number of terms does not exceed the
+> # number of documents
+> eiu_dfm <- dfm_trim(eiu_dfm, sparsity = 0.9)
+Note: converting sparsity into min_docfreq = 1 - 0.9 = 0.1 .
+Removing features occurring: 
+  - in fewer than 0.1 * 12,373 = 1237.3 document: 109,868
+  Total features removed: 109,868 (99.2%).
+> ####
+> 
+> eiu_dfm_df <- quanteda::convert(eiu_dfm, to = 'tm')
+> eiu_dfm_df <- as.data.frame(as.matrix(eiu_dfm_df))
+> 
+> # PCA of sparse bag of words terms
+> system.time(
++     eiu_pca_bag <- prcomp(eiu_dfm_df, center = TRUE, scale. = TRUE)
++ )
+   user  system elapsed 
+  7.859   0.448   3.067 
+> 
+> # Examine eigenvalues
+> # plot(eiu_pca_bag, type = 'l')
+> 
+> # Extract first component and rescale to be between 0 and 1
+> range01 <- function(x){(x - min(x))/(max(x) - min(x))}
+> 
+> pca_bag_pc1 <- range01(eiu_pca_bag$x[, 1])
+> 
+> pca_stress <- cbind(country_date, pca_bag_pc1) %>% arrange(country, date)
+> 
+> export(pca_stress,
++        file = 'source/pca_kpca/raw_data_output/pca_bag_1stComponent.csv')
+> 
+> proc.time()
+   user  system elapsed 
+ 33.784   1.788  30.644 

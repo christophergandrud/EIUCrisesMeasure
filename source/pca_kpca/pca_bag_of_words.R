@@ -7,7 +7,7 @@
 # Set working directory. Change as needed.
 possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
                   '~/git_repositories/EIUCrisesMeasure/')
-repmis::set_valid_wd(possible_dir)
+simpleSetup::set_valid_wd(possible_dir)
 
 # Run set up script
 source('source/pca_kpca/setup/setup.R')
@@ -19,7 +19,7 @@ eiu_df <- as.data.frame(eiu_list)
 eiu_df <- gather(eiu_df, id, text)
 
 eiu_dfm <- eiu_df %>% corpus %>% dfm
-
+ 
 ####
 # Remove sparse terms--this differs from the KPCA preprocessing, but is
 # necessary for PCA to be possible as the number of terms does not exceed the
@@ -35,7 +35,8 @@ system.time(
     eiu_pca_bag <- prcomp(eiu_dfm_df, center = TRUE, scale. = TRUE)
 )
 
-plot(eiu_pca_bag, type = 'l')
+# Examine eigenvalues
+# plot(eiu_pca_bag, type = 'l')
 
 # Extract first component and rescale to be between 0 and 1
 range01 <- function(x){(x - min(x))/(max(x) - min(x))}

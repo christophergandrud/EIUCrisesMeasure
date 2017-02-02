@@ -7,17 +7,16 @@
 # Load packages
 ## Currently requires custom quanteda version due to a bug in the
 ## official release.
+library(simpleSetup)
+pkgs <- c('lubridate', 'dplyr', 'stringr', 'countrycode')
+library_install(pkgs)
+
 if (!('quanteda' %in% installed.packages()[, 1]))
-    devtools::install_github('christophergandrud/quanteda')
+    devtools::install_github('kbenoit/quanteda')
 library(quanteda)
 if (!('readtext' %in% installed.packages()[, 1]))
     devtools::install_github('kbenoit/readtext')
 library(readtext)
-library(repmis)
-library(lubridate)
-library(dplyr)
-library(stringr)
-library(countrycode)
 
 # Set working directory of parsed texts. Change as needed.
 pos_directs <- c('~/Desktop/eiu/eiu_extracted/',
@@ -60,7 +59,7 @@ docvars(eiu_corpus, 'date') <- texts_df_2003$date
 docvars(eiu_corpus, 'country') <- texts_df_2003$country
 
 # Preprocess and convert to document-feature matrix
-eiu_token <- tokenize(eiu_corpus, removeNumbers = TRUE,
+eiu_token <- quanteda::tokenize(eiu_corpus, removeNumbers = TRUE,
                removePunct = TRUE, removeSeparators = TRUE,
                removeSymbols = TRUE, removeHyphens = TRUE,
                removeTwitter = TRUE, removeURL = TRUE,
@@ -89,7 +88,8 @@ names(eiu_list) <- paste(eiu_ids[, 'iso3c'], eiu_ids[, 'date'],
                          sep = '_')
 
 # Save preprocessed corpus in the git repository. Change as needed.
-pos_directs_git <- c('/git_repositories/EIUCrisesMeasure/source/')
+pos_directs_git <- c('/git_repositories/EIUCrisesMeasure/source/',
+                    '~/git_repositories/EIUCrisesMeasure/source/')
 set_valid_wd(pos_directs_git)
 
-save(eiu_list, file = 'preprocessed_data/pca_kpca/eiu_texts_from_2003.rda')
+save(eiu_list, file = 'pca_kpca/preprocessed_data/eiu_texts_from_2003.rda')

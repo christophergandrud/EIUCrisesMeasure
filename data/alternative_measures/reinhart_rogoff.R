@@ -8,7 +8,7 @@
 pos <- c('/git_repositories/EIUCrisesMeasure/', 
          '~/git_repositories/EIUCrisesMeasure/')
 
-repmis::set_valid_wd(pos)
+simpleSetup::set_valid_wd(pos)
 
 # Load packages
 library(rio)

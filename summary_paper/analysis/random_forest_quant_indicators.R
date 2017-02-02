@@ -47,8 +47,8 @@ form_all_vars <- paste('mean_stress ~', paste0("`", var_labels, "`",
                                                collapse = ' + ')) %>%
                        as.formula
 
-rf_1 <- rfsrc(form_all_vars, data = comb_no_na_all)
-rf_2 <- rfsrc(form_all_vars, data = comb_no_na_oecd)
+rf_1 <- rfsrc(form_all_vars, data = comb_no_na_all, importance = TRUE)
+rf_2 <- rfsrc(form_all_vars, data = comb_no_na_oecd, importance = TRUE)
 
 plot.rfsrc(rf_1, plots.one.page = F)
 plot.rfsrc(rf_2, plots.one.page = F)
@@ -73,7 +73,8 @@ var_imp <- ggplot(imp, aes(variable_importance,
     ylab('') + xlab('\n% MSE Increase') +
     theme_bw()
 
-ggsave(var_imp, filename = 'summary_paper/figures/rf_variable_imp.pdf')
+ggsave(var_imp, filename = 'summary_paper/figures/rf_variable_imp.pdf', 
+       width = 5, height = 5)
 
 # Plot 
 pdf(file = 'summary_paper/figures/rf_partial_dependence.pdf', 

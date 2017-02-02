@@ -4,19 +4,18 @@
 # MIT LICENSE
 # ---------------------------------------------------------------------------- #
 
-library(rio)
-library(dplyr)
-library(ggplot2)
-library(DataCombine)
-library(lubridate)
-library(WDI)
-library(gridExtra)
-library(countrycode)
-library(SurvSetup)
+devtools::install_github('christophergandrud/SurvSetup')
 
+library(simpleSetup)
+
+pkgs <- c('rio', 'tidyverse', 'DataCombine', 'lubridate', 'WDI', 'gridExtra',
+          'countrycode', 'SurvSetup', 'repmis', 'countrycode')
+library_install(pkgs)
 
 # Set working directory. Change as needed.
-setwd('/git_repositories/EIUCrisesMeasure/')
+possible_dir <- c('/git_repositories/EIUCrisesMeasure/',
+                  '~/git_repositories/EIUCrisesMeasure/')
+simpleSetup::set_valid_wd(possible_dir)
 
 
 # Load electoral volatility data ----------------------------------------------- 
@@ -30,18 +29,18 @@ vol$Election_date <- vol$Election_date %>% ymd
 vol$year_month <- vol$Election_date %>% round_date(unit = 'month')
 vol <- vol %>% rename(year = Election_Year)
 
-vol$iso2c <- countrycode(vol$Country, origin = 'country.name', 
-                         destination = 'iso2c')
+vol$iso3c <- countrycode(vol$Country, origin = 'country.name', 
+                         destination = 'iso3c')
 vol <- vol %>% dplyr::select(-Country)
 
 
 # Load Finstress --------------------------------------------------------
-URL <- 'https://raw.githubusercontent.com/christophergandrud/EIUCrisesMeasure/master/data/FinStress.csv'
-finstress_index <- rio::import(URL) %>% rename(year_month = date)
+PATH <- 'data/FinStress.csv'
+finstress_index <- rio::import(PATH) %>% rename(year_month = date)
 finstress_index$year_month <- finstress_index$year_month %>% ymd
 finstress_index$year <- finstress_index$year_month %>% year
 
-finstress_index <- subset(finstress_index, iso2c %in% unique(vol$iso2c))
+finstress_index <- subset(finstress_index, iso3c %in% unique(vol$iso3c))
 
 # Find change from previous 6 month moving average
 finstress_index <- slideMA(finstress_index, Var = 'FinStress', 
@@ -81,7 +80,9 @@ wdi <- WDI(indicator = c('NY.GDP.MKTP.KD.ZG', 'FP.CPI.TOTL.ZG',
                          'GFDD.OI.19', 'GFDD.DI.14'), 
            start = 2000, end = 2014)
 
-wdi <- wdi %>% dplyr::select(-country) %>% 
+wdi$iso3c <- countrycode(wdi$iso2c, origin = 'iso2c', destination = 'iso3c')
+
+wdi <- wdi %>% dplyr::select(-country, -iso2c) %>% 
     rename(gdp_growth = NY.GDP.MKTP.KD.ZG) %>%
     rename(inflation = FP.CPI.TOTL.ZG) %>%
     rename(unemployment = SL.UEM.TOTL.ZS) %>%
@@ -91,14 +92,14 @@ wdi <- wdi %>% dplyr::select(-country) %>%
 wdi <- DropNA(wdi, 'lv_crisis')
 
 # Create crisis start binary variable
-wdi <- wdi %>% group_by(iso2c) %>% mutate(lv_crisis_start = spell_new(lv_crisis))
+wdi <- wdi %>% group_by(iso3c) %>% mutate(lv_crisis_start = spell_new(lv_crisis))
 wdi$lv_crisis_start[wdi$lv_crisis == 0] <- 0
 # drop if not at risk
 wdi$lv_crisis_start[wdi$lv_crisis == 1 & wdi$lv_crisis_start == 0] <- NA
 
 # Regression data set
-reg_data <- merge(finstress_index, vol, by = c('iso2c', 'year_month'))
-reg_data <- merge(reg_data, wdi, by = c('iso2c', 'year'))
+reg_data <- merge(finstress_index, vol, by = c('iso3c', 'year_month'))
+reg_data <- merge(reg_data, wdi, by = c('iso3c', 'year'))
 
 # LV start-end dates ------------------------------------------------------
 lv_se <- import('data/alternative_measures/cleaned/laeven_valencia_start_end.csv')
@@ -109,9 +110,11 @@ lv_se <- lv_se %>% filter(End >= '2003-01-01')
 
 lv_se$country <- countrycode(lv_se$iso2c, origin = 'iso2c', 
                            destination = 'country.name')
+lv_se$iso3c <- countrycode(lv_se$iso2c, origin = 'iso2c', 
+                             destination = 'iso3c')
 lv_se <- subset(lv_se, country %in% unique(reg_data$country))
 
-lv_se <- merge(lv_se, finstress_index[, -2], by = c('year_month', 'iso2c'), 
+lv_se <- merge(lv_se, finstress_index[, -2], by = c('year_month', 'iso3c'), 
                all.x = T)
 
 # Descriptive plot of crisis, election timing ----------------------------------
@@ -145,7 +148,7 @@ m3_fs <- lm(AltV ~ FinStress, data = reg_data)
 
 # Plot predicted effects ----------------------------------------------------- #
 # Common y-axis limits
-common_limits <- c(-1, 30)
+common_limits <- c(-1, 28)
 
 # FinStress predictions from linear model ------------------------
 predict_fs <- predict(m1_fs, interval = 'confidence') %>% as.data.frame

@@ -43,5 +43,5 @@ completer.hist
 *.fdb_latexmk
 
 submissions/*
-*.Rout
 source/pca_kpca/setup/temp/*
+.DS_Store
