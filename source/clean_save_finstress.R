@@ -4,7 +4,7 @@
 # ---------------------------------------------------------------------------- #
 
 # Load packages
-library(repmis)
+library(simpleSetup)
 library(rio)
 library(dplyr)
 library(DataCombine)
