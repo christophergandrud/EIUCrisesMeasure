@@ -2,7 +2,7 @@
 
 **Note: Work In Progress.**
 
-## What
+## What
 
 Indicator of real-time perceptions of financial market stress based on machine
 classification of [Economist Intelligence Unit](http://www.eiu.com/) monthly
