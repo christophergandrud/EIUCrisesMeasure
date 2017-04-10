@@ -4,18 +4,15 @@
 # MIT License
 # ---------------------------------------------------------------------------- #
 
+library(simpleSetup)
+pkgs <- c('rio', 'dplyr', 'psData', 'DataCombine', 'lubridate')
+library_install(pkgs)
+
 # Set working directory
-pos <- c('/git_repositories/EIUCrisesMeasure/', 
+pos <- c('/git_repositories/EIUCrisesMeasure/',
          '~/git_repositories/EIUCrisesMeasure/')
 
-simpleSetup::set_valid_wd(pos)
-
-# Load packages
-library(rio)
-library(dplyr)
-library(psData)
-library(DataCombine)
-library(lubridate)
+set_valid_wd(pos)
 
 # cbind_fill function
 cbind_fill <- function(...){
