@@ -1,7 +1,5 @@
 # FinStress: Real-time Perceptions of Financial Market Stress
 
-**Note: Work In Progress.**
-
 ## What
 
 Indicator of real-time perceptions of financial market stress based on machine
