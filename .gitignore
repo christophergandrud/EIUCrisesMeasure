@@ -45,3 +45,4 @@ completer.hist
 submissions/*
 source/pca_kpca/setup/temp/*
 .DS_Store
+*/.app.history
